@@ -1625,7 +1625,192 @@ updateCV();
 
 }
 
+/* АНАЛІЗ ВАКАНСІЇ */
 
+const jobSkills = [
+
+"cnc",
+"cnc operator",
+"operator",
+"mechanic",
+"maintenance",
+"údržba",
+"výroba",
+"production",
+"warehouse",
+"sklad",
+"forklift",
+"vysokozdvižný vozík",
+"welding",
+"zváranie",
+"electrician",
+"elektrikár",
+"autocad",
+"solidworks",
+"technical drawing",
+"technický výkres",
+"english",
+"angličtina",
+"slovak",
+"slovenčina",
+"german",
+"nemčina",
+"excel",
+"ms office",
+"driving licence",
+"vodičský preukaz",
+"shift",
+"smennosť",
+"experience",
+"skúsenosti"
+
+];
+
+
+function analyzeJob(){
+
+const job =
+document.getElementById("job")
+.value
+.toLowerCase()
+.trim();
+
+
+if(!job){
+
+alert(
+currentLanguage==="sk"
+? "Vložte text pracovnej ponuky."
+: currentLanguage==="en"
+? "Please enter the job description."
+: "Будь ласка, вставте текст вакансії."
+);
+
+return;
+
+}
+
+
+let found=[];
+
+
+jobSkills.forEach(skill=>{
+
+if(job.includes(skill)){
+
+found.push(skill);
+
+}
+
+});
+
+
+found=[...new Set(found)];
+
+
+/* Розрахунок */
+
+let score =
+Math.round(
+(found.length / 10) * 100
+);
+
+
+if(score>100){
+
+score=100;
+
+}
+
+
+/* Результат */
+
+document.getElementById("score")
+.innerText=score+"%";
+
+
+document.getElementById("progressBar")
+.style.width=score+"%";
+
+
+/* Знайдені */
+
+if(found.length){
+
+document.getElementById("found")
+.innerHTML=
+
+found.map(skill=>{
+
+return `<span class="skill">✓ ${skill}</span>`;
+
+}).join("");
+
+}else{
+
+document.getElementById("found")
+.innerHTML=
+
+currentLanguage==="sk"
+? "Nenašli sa žiadne kľúčové slová."
+: currentLanguage==="en"
+? "No matching keywords found."
+: "Ключових слів не знайдено.";
+
+}
+
+
+/* Відсутні */
+
+const importantSkills =
+jobSkills.slice(0,10);
+
+
+const missing =
+importantSkills.filter(
+skill=>!job.includes(skill)
+);
+
+
+if(missing.length){
+
+document.getElementById("missing")
+.innerHTML=
+
+missing.map(skill=>{
+
+return `<span class="skill">⚠ ${skill}</span>`;
+
+}).join("");
+
+}else{
+
+document.getElementById("missing")
+.innerHTML=
+
+currentLanguage==="sk"
+? "Základné požiadavky boli nájdené."
+: currentLanguage==="en"
+? "The main requirements were found."
+: "Основні вимоги знайдені.";
+
+}
+
+
+/* Показуємо результат */
+
+document.getElementById("analysisResult")
+.style.display="block";
+
+
+document.getElementById("analysisResult")
+.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+  }
 setLanguage(currentLanguage);
 
 loadResume();
@@ -1634,4 +1819,4 @@ loadResume();
 
 </body>
 
-  </html>
+    </html>
