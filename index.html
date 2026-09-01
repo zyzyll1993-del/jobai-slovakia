@@ -1,1221 +1,540 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>JobAI Slovakia</title>
 
 <style>
-* {
-  box-sizing: border-box;
+
+*{
+box-sizing:border-box;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f3f6fb;
-  color: #172033;
+body{
+
+margin:0;
+
+font-family:Arial,sans-serif;
+
+background:#f3f6fb;
+
+color:#172033;
+
 }
 
-header {
-  background: #172033;
-  color: white;
-  text-align: center;
-  padding: 30px 15px;
+header{
+
+background:#172033;
+
+color:white;
+
+text-align:center;
+
+padding:25px 15px;
+
 }
 
-header h1 {
-  margin: 0;
-  font-size: 30px;
+header h1{
+
+margin:0;
+
+font-size:30px;
+
 }
 
-header p {
-  color: #cbd5e1;
+header p{
+
+color:#cbd5e1;
+
 }
 
-nav {
-  background: white;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  padding: 10px;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+.language{
+
+margin-top:15px;
+
 }
 
-nav button {
-  width: auto;
-  margin: 0;
-  padding: 11px 15px;
-  background: #e8eefc;
-  color: #172033;
+.language button{
+
+width:auto;
+
+display:inline-block;
+
+padding:8px 12px;
+
+margin:3px;
+
+background:#334155;
+
 }
 
-nav button.active {
-  background: #2563eb;
-  color: white;
+.language button.active{
+
+background:#2563eb;
+
 }
 
-.container {
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 15px;
+nav{
+
+background:white;
+
+display:flex;
+
+justify-content:center;
+
+gap:8px;
+
+padding:10px;
+
+position:sticky;
+
+top:0;
+
+z-index:10;
+
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+
 }
 
-.page {
-  display: none;
+nav button{
+
+width:auto;
+
+margin:0;
+
+padding:11px 15px;
+
+background:#e8eefc;
+
+color:#172033;
+
 }
 
-.page.active {
-  display: block;
+nav button.active{
+
+background:#2563eb;
+
+color:white;
+
 }
 
-.card {
-  background: white;
-  padding: 22px;
-  border-radius: 18px;
-  margin-bottom: 20px;
-  box-shadow: 0 8px 25px rgba(0,0,0,.08);
+.container{
+
+max-width:900px;
+
+margin:20px auto;
+
+padding:15px;
+
 }
 
-h2 {
-  margin-top: 0;
+.page{
+
+display:none;
+
 }
 
-label {
-  display: block;
-  font-weight: bold;
-  margin: 15px 0 7px;
+.page.active{
+
+display:block;
+
+}
+
+.card{
+
+background:white;
+
+padding:22px;
+
+border-radius:18px;
+
+margin-bottom:20px;
+
+box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+h2{
+
+margin-top:0;
+
+}
+
+label{
+
+display:block;
+
+font-weight:bold;
+
+margin:15px 0 7px;
+
 }
 
 input,
-textarea,
-select {
-  width: 100%;
-  padding: 13px;
-  border: 1px solid #d5dce8;
-  border-radius: 10px;
-  font-size: 16px;
-}
 
-textarea {
-  min-height: 110px;
-  resize: vertical;
-}
+textarea{
 
-button {
-  border: 0;
-  border-radius: 11px;
-  padding: 14px;
-  margin-top: 12px;
-  width: 100%;
-  background: #2563eb;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-}
+width:100%;
 
-button.secondary {
-  background: #172033;
-}
+padding:13px;
 
-button.danger {
-  background: #dc2626;
-}
+border:1px solid #d5dce8;
 
-.row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-}
+border-radius:10px;
 
-.experience {
-  border: 1px solid #e2e8f0;
-  padding: 15px;
-  border-radius: 12px;
-  margin-top: 15px;
-}
-
-.cv-preview {
-  background: white;
-  padding: 35px;
-  min-height: 700px;
-  box-shadow: 0 5px 20px rgba(0,0,0,.1);
-}
-
-.cv-name {
-  font-size: 32px;
-  font-weight: bold;
-}
-
-.cv-position {
-  color: #2563eb;
-  font-size: 19px;
-  margin-top: 5px;
-}
-
-.cv-contact {
-  margin-top: 15px;
-  color: #475569;
-}
-
-.cv-section {
-  margin-top: 28px;
-}
-
-.cv-section h3 {
-  border-bottom: 2px solid #172033;
-  padding-bottom: 7px;
-}
-
-.cv-experience {
-  margin-bottom: 18px;
-}
-
-.cv-experience strong {
-  font-size: 17px;
-}
-
-.score {
-  text-align: center;
-  font-size: 55px;
-  font-weight: bold;
-  color: #2563eb;
-  margin: 20px;
-}
-
-.progress {
-  height: 14px;
-  background: #e5e7eb;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.progress-bar {
-  height: 100%;
-  width: 0%;
-  background: #2563eb;
-  transition: width 1s;
-}
-
-.skill {
-  display: inline-block;
-  background: #e8eefc;
-  padding: 8px 11px;
-  margin: 4px;
-  border-radius: 8px;
-}
-
-.success {
-  background: #ecfdf5;
-  padding: 15px;
-  border-radius: 12px;
-  margin-top: 15px;
-}
-
-.warning {
-  background: #fff7ed;
-  padding: 15px;
-  border-radius: 12px;
-  margin-top: 15px;
-}
-
-#analysisResult {
-  display: none;
-}
-
-@media(max-width:600px) {
-
-  .row {
-    grid-template-columns: 1fr;
-  }
-
-  .cv-preview {
-    padding: 22px;
-  }
-
-  .cv-name {
-    font-size: 25px;
-  }
-
-  nav {
-    overflow-x: auto;
-    justify-content: flex-start;
-  }
+font-size:16px;
 
 }
+
+textarea{
+
+min-height:110px;
+
+resize:vertical;
+
+}
+
+button{
+
+border:0;
+
+border-radius:11px;
+
+padding:14px;
+
+margin-top:12px;
+
+width:100%;
+
+background:#2563eb;
+
+color:white;
+
+font-size:16px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+button.secondary{
+
+background:#172033;
+
+}
+
+button.danger{
+
+background:#dc2626;
+
+}
+
+.row{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:15px;
+
+}
+
+.experience{
+
+border:1px solid #e2e8f0;
+
+padding:15px;
+
+border-radius:12px;
+
+margin-top:15px;
+
+}
+
+.cv-preview{
+
+background:white;
+
+padding:35px;
+
+min-height:700px;
+
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+
+}
+
+.cv-name{
+
+font-size:32px;
+
+font-weight:bold;
+
+}
+
+.cv-position{
+
+color:#2563eb;
+
+font-size:19px;
+
+margin-top:5px;
+
+}
+
+.cv-contact{
+
+margin-top:15px;
+
+color:#475569;
+
+}
+
+.cv-section{
+
+margin-top:28px;
+
+}
+
+.cv-section h3{
+
+border-bottom:2px solid #172033;
+
+padding-bottom:7px;
+
+}
+
+.cv-experience{
+
+margin-bottom:18px;
+
+}
+
+.cv-experience strong{
+
+font-size:17px;
+
+}
+
+.score{
+
+text-align:center;
+
+font-size:55px;
+
+font-weight:bold;
+
+color:#2563eb;
+
+margin:20px;
+
+}
+
+.progress{
+
+height:14px;
+
+background:#e5e7eb;
+
+border-radius:10px;
+
+overflow:hidden;
+
+}
+
+.progress-bar{
+
+height:100%;
+
+width:0%;
+
+background:#2563eb;
+
+transition:width 1s;
+
+}
+
+.skill{
+
+display:inline-block;
+
+background:#e8eefc;
+
+padding:8px 11px;
+
+margin:4px;
+
+border-radius:8px;
+
+}
+
+.success{
+
+background:#ecfdf5;
+
+padding:15px;
+
+border-radius:12px;
+
+margin-top:15px;
+
+}
+
+.warning{
+
+background:#fff7ed;
+
+padding:15px;
+
+border-radius:12px;
+
+margin-top:15px;
+
+}
+
+#analysisResult{
+
+display:none;
+
+}
+
+@media(max-width:600px){
+
+.row{
+
+grid-template-columns:1fr;
+
+}
+
+.cv-preview{
+
+padding:22px;
+
+}
+
+.cv-name{
+
+font-size:25px;
+
+}
+
+nav{
+
+overflow-x:auto;
+
+justify-content:flex-start;
+
+}
+
+}
+
+@media print{
+
+body{
+
+background:white;
+
+}
+
+body > header,
+
+nav,
+
+.container > .card,
+
+#cv,
+
+#jobs{
+
+display:none !important;
+
+}
+
+#preview{
+
+display:block !important;
+
+}
+
+.cv-preview{
+
+box-shadow:none;
+
+}
+
+}
+
 </style>
+
 </head>
 
+
 <body>
+
 
 <header>
 
 <h1>JobAI Slovakia 🇸🇰</h1>
 
-<p>Ваш AI-помічник для пошуку роботи</p>
+<p id="subtitle">
+Ваш помічник для пошуку роботи
+</p>
+
+
+<div class="language">
+
+<button
+id="ukBtn"
+onclick="setLanguage('uk')">
+
+🇺🇦 Українська
+
+</button>
+
+<button
+id="skBtn"
+onclick="setLanguage('sk')">
+
+🇸🇰 Slovenčina
+
+</button>
+
+<button
+id="enBtn"
+onclick="setLanguage('en')">
+
+🇬🇧 English
+
+</button>
+
+</div>
 
 </header>
 
 
 <nav>
 
-<button id="btnCV" class="active" onclick="showPage('cv')">
-📝 Створити CV
+<button
+id="btnCV"
+class="active"
+onclick="showPage('cv')">
+
+📝 <span data-i18n="createResume">
+Створити резюме
+</span>
+
 </button>
-
-<button id="btnPreview" onclick="showPage('preview')">
-👁️ Перегляд CV
-</button>
-
-<button id="btnJobs" onclick="showPage('jobs')">
-🔍 Аналіз вакансії
-</button>
-
-</nav>
-
-
-<div class="container">
-
-
-<!-- ================= CV EDITOR ================= -->
-
-<div id="cv" class="page active">
-
-<div class="card">
-
-<h2>👤 Особисті дані</h2>
-
-<div class="row">
-
-<div>
-<label>Ім'я та прізвище</label>
-
-<input
-id="name"
-placeholder="Наприклад: Oleksandr Herasym"
-oninput="updateCV()">
-</div>
-
-<div>
-<label>Бажана посада</label>
-
-<input
-id="position"
-placeholder="CNC Operator"
-oninput="updateCV()">
-</div>
-
-</div>
-
-
-<div class="row">
-
-<div>
-<label>📞 Телефон</label>
-
-<input
-id="phone"
-placeholder="+421..."
-oninput="updateCV()">
-</div>
-
-<div>
-<label>📧 Email</label>
-
-<input
-id="email"
-placeholder="email@example.com"
-oninput="updateCV()">
-</div>
-
-</div>
-
-
-<label>📍 Місто</label>
-
-<input
-id="city"
-placeholder="Bratislava"
-oninput="updateCV()">
-
-
-<label>📝 Професійний профіль</label>
-
-<textarea
-id="profile"
-placeholder="Коротко розкажіть про себе, свій досвід та професійні цілі..."
-oninput="updateCV()"></textarea>
-
-</div>
-
-
-<!-- EXPERIENCE -->
-
-<div class="card">
-
-<h2>💼 Досвід роботи</h2>
-
-<div id="experienceList"></div>
-
-<button onclick="addExperience()">
-➕ Додати місце роботи
-</button>
-
-</div>
-
-
-<!-- EDUCATION -->
-
-<div class="card">
-
-<h2>🎓 Освіта</h2>
-
-<div id="educationList"></div>
-
-<button onclick="addEducation()">
-➕ Додати освіту
-</button>
-
-</div>
-
-
-<!-- SKILLS -->
-
-<div class="card">
-
-<h2>🛠️ Навички</h2>
-
-<textarea
-id="skills"
-placeholder="CNC, AutoCAD, Technical drawing, Excel..."
-oninput="updateCV()"></textarea>
-
-</div>
-
-
-<!-- LANGUAGES -->
-
-<div class="card">
-
-<h2>🌍 Мови</h2>
-
-<textarea
-id="languages"
-placeholder="Українська — рідна
-Словацька — B1
-Англійська — A2"
-oninput="updateCV()"></textarea>
-
-</div>
-
-
-<div class="card">
-
-<button onclick="saveCV()">
-💾 Зберегти CV
-</button>
-
-<button class="secondary" onclick="showPage('preview')">
-👁️ Переглянути CV
-</button>
-
-</div>
-
-</div>
-
-
-<!-- ================= PREVIEW ================= -->
-
-<div id="preview" class="page">
-
-<div class="card">
-
-<button onclick="window.print()">
-📄 Зберегти / надрукувати PDF
-</button>
-
-</div>
-
-
-<div class="cv-preview" id="cvPreview">
-
-<div class="cv-name" id="pName">
-Ваше ім'я
-</div>
-
-<div class="cv-position" id="pPosition">
-Бажана посада
-</div>
-
-<div class="cv-contact" id="pContact">
-Телефон · Email · Місто
-</div>
-
-
-<div class="cv-section">
-
-<h3>ПРОФЕСІЙНИЙ ПРОФІЛЬ</h3>
-
-<p id="pProfile">
-Ваш професійний профіль
-</p>
-
-</div>
-
-
-<div class="cv-section">
-
-<h3>ДОСВІД РОБОТИ</h3>
-
-<div id="pExperience"></div>
-
-</div>
-
-
-<div class="cv-section">
-
-<h3>ОСВІТА</h3>
-
-<div id="pEducation"></div>
-
-</div>
-
-
-<div class="cv-section">
-
-<h3>НАВИЧКИ</h3>
-
-<p id="pSkills"></p>
-
-</div>
-
-
-<div class="cv-section">
-
-<h3>МОВИ</h3>
-
-<p id="pLanguages"></p>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- ================= JOB ANALYZER ================= -->
-
-<div id="jobs" class="page">
-
-<div class="card">
-
-<h2>🔍 Аналіз вакансії</h2>
-
-<p>
-Спочатку створіть CV, потім вставте текст вакансії.
-</p>
-
-<label>💼 Текст вакансії</label>
-
-<textarea
-id="job"
-placeholder="CNC Operator
-Bratislava
-Experience with CNC machines
-Technical drawing
-Slovak language
-Forklift license..."
-></textarea>
-
-
-<button onclick="analyzeJob()">
-🎯 Аналізувати
-</button>
-
-</div>
-
-
-<div class="card" id="analysisResult">
-
-<h2>🎯 Результат</h2>
-
-<div class="score" id="score">
-0%
-</div>
-
-<div class="progress">
-
-<div
-id="progressBar"
-class="progress-bar">
-</div>
-
-</div>
-
-
-<div class="success">
-
-<h3>✅ Знайдено</h3>
-
-<div id="found"></div>
-
-</div>
-
-
-<div class="warning">
-
-<h3>⚠️ Варто перевірити</h3>
-
-<div id="missing"></div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<script>
-
-
-/* ================= DATA ================= */
-
-let experiences = [];
-
-let educations = [];
-
-
-/* ================= NAVIGATION ================= */
-
-function showPage(page) {
-
-document.querySelectorAll(".page")
-.forEach(p => p.classList.remove("active"));
-
-document.getElementById(page)
-.classList.add("active");
-
-
-document.querySelectorAll("nav button")
-.forEach(b => b.classList.remove("active"));
-
-
-if(page === "cv")
-document.getElementById("btnCV")
-.classList.add("active");
-
-if(page === "preview")
-document.getElementById("btnPreview")
-.classList.add("active");
-
-if(page === "jobs")
-document.getElementById("btnJobs")
-.classList.add("active");
-
-
-updateCV();
-
-window.scrollTo(0,0);
-
-}
-
-
-/* ================= EXPERIENCE ================= */
-
-function addExperience() {
-
-experiences.push({
-company:"",
-position:"",
-start:"",
-end:"",
-description:""
-});
-
-renderExperiences();
-
-}
-
-
-function renderExperiences() {
-
-const container =
-document.getElementById("experienceList");
-
-container.innerHTML = "";
-
-
-experiences.forEach((exp,index) => {
-
-container.innerHTML += `
-
-<div class="experience">
-
-<label>Компанія</label>
-
-<input
-value="${exp.company}"
-oninput="experiences[${index}].company=this.value;updateCV()">
-
-
-<label>Посада</label>
-
-<input
-value="${exp.position}"
-oninput="experiences[${index}].position=this.value;updateCV()">
-
-
-<div class="row">
-
-<div>
-
-<label>Початок</label>
-
-<input
-placeholder="2022"
-value="${exp.start}"
-oninput="experiences[${index}].start=this.value;updateCV()">
-
-</div>
-
-<div>
-
-<label>Кінець</label>
-
-<input
-placeholder="2025"
-value="${exp.end}"
-oninput="experiences[${index}].end=this.value;updateCV()">
-
-</div>
-
-</div>
-
-
-<label>Обов'язки та досягнення</label>
-
-<textarea
-oninput="experiences[${index}].description=this.value;updateCV()">${exp.description}</textarea>
 
 
 <button
-class="danger"
-onclick="removeExperience(${index})">
+id="btnPreview"
+onclick="showPage('preview')">
 
-🗑️ Видалити
-
-</button>
-
-</div>
-
-`;
-
-});
-
-}
-
-
-function removeExperience(index) {
-
-experiences.splice(index,1);
-
-renderExperiences();
-
-updateCV();
-
-}
-
-
-/* ================= EDUCATION ================= */
-
-function addEducation() {
-
-educations.push({
-school:"",
-speciality:"",
-year:""
-});
-
-renderEducation();
-
-}
-
-
-function renderEducation() {
-
-const container =
-document.getElementById("educationList");
-
-container.innerHTML = "";
-
-
-educations.forEach((edu,index) => {
-
-container.innerHTML += `
-
-<div class="experience">
-
-<label>Навчальний заклад</label>
-
-<input
-value="${edu.school}"
-oninput="educations[${index}].school=this.value;updateCV()">
-
-
-<label>Спеціальність</label>
-
-<input
-value="${edu.speciality}"
-oninput="educations[${index}].speciality=this.value;updateCV()">
-
-
-<label>Рік закінчення</label>
-
-<input
-value="${edu.year}"
-placeholder="2020"
-oninput="educations[${index}].year=this.value;updateCV()">
-
-
-<button
-class="danger"
-onclick="removeEducation(${index})">
-
-🗑️ Видалити
-
-</button>
-
-</div>
-
-`;
-
-});
-
-}
-
-
-function removeEducation(index) {
-
-educations.splice(index,1);
-
-renderEducation();
-
-updateCV();
-
-}
-
-
-/* ================= LIVE CV ================= */
-
-function updateCV() {
-
-const name =
-document.getElementById("name").value
-|| "Ваше ім'я";
-
-const position =
-document.getElementById("position").value
-|| "Бажана посада";
-
-const phone =
-document.getElementById("phone").value;
-
-const email =
-document.getElementById("email").value;
-
-const city =
-document.getElementById("city").value;
-
-
-document.getElementById("pName")
-.innerText = name;
-
-
-document.getElementById("pPosition")
-.innerText = position;
-
-
-document.getElementById("pContact")
-.innerText =
-[phone,email,city]
-.filter(Boolean)
-.join(" · ");
-
-
-document.getElementById("pProfile")
-.innerText =
-document.getElementById("profile").value
-|| "Ваш професійний профіль";
-
-
-document.getElementById("pSkills")
-.innerText =
-document.getElementById("skills").value;
-
-
-document.getElementById("pLanguages")
-.innerText =
-document.getElementById("languages").value;
-
-
-/* EXPERIENCE */
-
-let expHTML = "";
-
-experiences.forEach(exp => {
-
-if(
-exp.company ||
-exp.position ||
-exp.description
-) {
-
-expHTML += `
-
-<div class="cv-experience">
-
-<strong>
-${exp.position}
-</strong>
-
-<br>
-
-<b>
-${exp.company}
-</b>
-
-<div>
-${exp.start}
-${exp.start && exp.end ? " — " : ""}
-${exp.end}
-</div>
-
-<p>
-${exp.description}
-</p>
-
-</div>
-
-`;
-
-}
-
-});
-
-
-document.getElementById("pExperience")
-.innerHTML = expHTML;
-
-
-/* EDUCATION */
-
-let eduHTML = "";
-
-educations.forEach(edu => {
-
-if(
-edu.school ||
-edu.speciality
-) {
-
-eduHTML += `
-
-<div class="cv-experience">
-
-<strong>
-${edu.speciality}
-</strong>
-
-<br>
-
-${edu.school}
-
-<div>
-${edu.year}
-</div>
-
-</div>
-
-`;
-
-}
-
-});
-
-
-document.getElementById("pEducation")
-.innerHTML = eduHTML;
-
-}
-
-
-/* ================= SAVE ================= */
-
-function saveCV() {
-
-const data = {
-
-name:document.getElementById("name").value,
-
-position:document.getElementById("position").value,
-
-phone:document.getElementById("phone").value,
-
-email:document.getElementById("email").value,
-
-city:document.getElementById("city").value,
-
-profile:document.getElementById("profile").value,
-
-skills:document.getElementById("skills").value,
-
-languages:document.getElementById("languages").value,
-
-experiences:experiences,
-
-educations:educations
-
-};
-
-
-localStorage.setItem(
-"jobaiCV",
-JSON.stringify(data)
-);
-
-
-alert("✅ CV збережено на цьому телефоні.");
-
-}
-
-
-/* ================= LOAD ================= */
-
-function loadCV() {
-
-const saved =
-localStorage.getItem("jobaiCV");
-
-
-if(!saved) return;
-
-
-const data =
-JSON.parse(saved);
-
-
-document.getElementById("name").value =
-data.name || "";
-
-document.getElementById("position").value =
-data.position || "";
-
-document.getElementById("phone").value =
-data.phone || "";
-
-document.getElementById("email").value =
-data.email || "";
-
-document.getElementById("city").value =
-data.city || "";
-
-document.getElementById("profile").value =
-data.profile || "";
-
-document.getElementById("skills").value =
-data.skills || "";
-
-document.getElementById("languages").value =
-data.languages || "";
-
-
-experiences =
-data.experiences || [];
-
-educations =
-data.educations || [];
-
-
-renderExperiences();
-
-renderEducation();
-
-updateCV();
-
-}
-
-
-/* ================= JOB ANALYZER ================= */
-
-const skills = [
-
-"cnc",
-"cnc operator",
-"operator",
-"mechanic",
-"maintenance",
-"údržba",
-"výroba",
-"production",
-"warehouse",
-"sklad",
-"forklift",
-"vysokozdvižný vozík",
-"welding",
-"zváranie",
-"electrician",
-"elektrikár",
-"autocad",
-"solidworks",
-"technical drawing",
-"technický výkres",
-"english",
-"angličtina",
-"slovak",
-"slovenčina",
-"german",
-"nemčina",
-"excel",
-"ms office",
-"driving licence",
-"vodičský preukaz",
-"shift",
-"smennosť",
-"experience",
-"skúsenosti"
-];
-
-
-function analyzeJob() {
-
-const job =
-document.getElementById("job")
-.value
-.toLowerCase();
-
-
-if(!job.trim()) {
-
-alert("Вставте текст вакансії.");
-
-return;
-
-}
-
-
-let found = [];
-
-
-skills.forEach(skill => {
-
-if(job.includes(skill)) {
-
-found.push(skill);
-
-}
-
-});
-
-
-found =
-[...new Set(found)];
-
-
-let score =
-Math.min(
-100,
-Math.round(found.length / 10 * 100)
-);
-
-
-document.getElementById("score")
-.innerText = score + "%";
-
-
-document.getElementById("progressBar")
-.style.width = score + "%";
-
-
-document.getElementById("found")
-.innerHTML =
-found.length
-? found.map(
-s => `<span class="skill">✓ ${s}</span>`
-).join("")
-: "Ключові слова не знайдені.";
-
-
-const missing =
-skills
-.slice(0,10)
-.filter(s => !job.includes(s));
-
-
-document.getElementById("missing")
-.innerHTML =
-missing.map(
-s => `<span class="skill">⚠ ${s}</span>`
-).join("");
-
-
-document.getElementById("analysisResult")
-.style.display = "block";
-
-
-document.getElementById("analysisResult")
-.scrollIntoView({
-behavior:"smooth"
-});
-
-}
-
-
-/* ================= PRINT ================= */
-
-const printStyle = document.createElement("style");
-
-printStyle.innerHTML = `
-
-@media print {
-
-body {
-background:white;
-}
-
-body > header,
-nav,
-.container > .card,
-#cv,
-#jobs {
-display:none !important;
-}
-
-#preview {
-display:block !important;
-}
-
-.cv-preview {
-box-shadow:none;
-}
-
-}
-
-`;
-
-document.head.appendChild(printStyle);
-
-
-/* ================= START ================= */
-
-loadCV();
-
-</script>
-
-</body>
-</html>
+👁️ <span data-i18
