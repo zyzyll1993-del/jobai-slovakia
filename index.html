@@ -5,8 +5,7 @@
 
 <meta charset="UTF-8">
 
-<meta
-name="viewport"
+<meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
 <title>JobAI Slovakia</title>
@@ -18,419 +17,253 @@ box-sizing:border-box;
 }
 
 body{
-
 margin:0;
-
 font-family:Arial,sans-serif;
-
 background:#f3f6fb;
-
 color:#172033;
-
 }
 
 header{
-
 background:#172033;
-
 color:white;
-
 text-align:center;
-
 padding:25px 15px;
-
 }
 
 header h1{
-
 margin:0;
-
 font-size:30px;
-
 }
 
 header p{
-
 color:#cbd5e1;
-
 }
 
 .language{
-
 margin-top:15px;
-
 }
 
 .language button{
-
 width:auto;
-
 display:inline-block;
-
 padding:8px 12px;
-
 margin:3px;
-
 background:#334155;
-
 }
 
 .language button.active{
-
 background:#2563eb;
-
 }
 
 nav{
-
 background:white;
-
 display:flex;
-
 justify-content:center;
-
 gap:8px;
-
 padding:10px;
-
 position:sticky;
-
 top:0;
-
 z-index:10;
-
 box-shadow:0 2px 10px rgba(0,0,0,.08);
-
 }
 
 nav button{
-
 width:auto;
-
 margin:0;
-
 padding:11px 15px;
-
 background:#e8eefc;
-
 color:#172033;
-
 }
 
 nav button.active{
-
 background:#2563eb;
-
 color:white;
-
 }
 
 .container{
-
 max-width:900px;
-
 margin:20px auto;
-
 padding:15px;
-
 }
 
 .page{
-
 display:none;
-
 }
 
 .page.active{
-
 display:block;
-
 }
 
 .card{
-
 background:white;
-
 padding:22px;
-
 border-radius:18px;
-
 margin-bottom:20px;
-
 box-shadow:0 8px 25px rgba(0,0,0,.08);
-
-}
-
-h2{
-
-margin-top:0;
-
 }
 
 label{
-
 display:block;
-
 font-weight:bold;
-
 margin:15px 0 7px;
-
 }
 
 input,
-
 textarea{
-
 width:100%;
-
 padding:13px;
-
 border:1px solid #d5dce8;
-
 border-radius:10px;
-
 font-size:16px;
-
 }
 
 textarea{
-
 min-height:110px;
-
 resize:vertical;
-
 }
 
 button{
-
 border:0;
-
 border-radius:11px;
-
 padding:14px;
-
 margin-top:12px;
-
 width:100%;
-
 background:#2563eb;
-
 color:white;
-
 font-size:16px;
-
 font-weight:bold;
-
 cursor:pointer;
-
 }
 
 button.secondary{
-
 background:#172033;
-
 }
 
 button.danger{
-
 background:#dc2626;
-
 }
 
 .row{
-
 display:grid;
-
 grid-template-columns:1fr 1fr;
-
 gap:15px;
-
 }
 
 .experience{
-
 border:1px solid #e2e8f0;
-
 padding:15px;
-
 border-radius:12px;
-
 margin-top:15px;
-
 }
 
 .cv-preview{
-
 background:white;
-
 padding:35px;
-
 min-height:700px;
-
 box-shadow:0 5px 20px rgba(0,0,0,.1);
-
 }
 
 .cv-name{
-
 font-size:32px;
-
 font-weight:bold;
-
 }
 
 .cv-position{
-
 color:#2563eb;
-
 font-size:19px;
-
 margin-top:5px;
-
 }
 
 .cv-contact{
-
 margin-top:15px;
-
 color:#475569;
-
 }
 
 .cv-section{
-
 margin-top:28px;
-
 }
 
 .cv-section h3{
-
 border-bottom:2px solid #172033;
-
 padding-bottom:7px;
-
 }
 
 .cv-experience{
-
 margin-bottom:18px;
-
-}
-
-.cv-experience strong{
-
-font-size:17px;
-
 }
 
 .score{
-
 text-align:center;
-
 font-size:55px;
-
 font-weight:bold;
-
 color:#2563eb;
-
 margin:20px;
-
 }
 
 .progress{
-
 height:14px;
-
 background:#e5e7eb;
-
 border-radius:10px;
-
 overflow:hidden;
-
 }
 
 .progress-bar{
-
 height:100%;
-
 width:0%;
-
 background:#2563eb;
-
 transition:width 1s;
-
 }
 
 .skill{
-
 display:inline-block;
-
 background:#e8eefc;
-
 padding:8px 11px;
-
 margin:4px;
-
 border-radius:8px;
-
 }
 
 .success{
-
 background:#ecfdf5;
-
 padding:15px;
-
 border-radius:12px;
-
 margin-top:15px;
-
 }
 
 .warning{
-
 background:#fff7ed;
-
 padding:15px;
-
 border-radius:12px;
-
 margin-top:15px;
+}
 
+.info{
+background:#eff6ff;
+padding:15px;
+border-radius:12px;
+margin-top:15px;
 }
 
 #analysisResult{
-
 display:none;
-
 }
 
 @media(max-width:600px){
 
 .row{
-
 grid-template-columns:1fr;
-
 }
 
 .cv-preview{
-
 padding:22px;
-
 }
 
 .cv-name{
-
 font-size:25px;
-
 }
 
 nav{
-
 overflow-x:auto;
-
 justify-content:flex-start;
-
 }
 
 }
@@ -438,35 +271,23 @@ justify-content:flex-start;
 @media print{
 
 body{
-
 background:white;
-
 }
 
 body > header,
-
 nav,
-
 .container > .card,
-
 #cv,
-
 #jobs{
-
 display:none !important;
-
 }
 
 #preview{
-
 display:block !important;
-
 }
 
 .cv-preview{
-
 box-shadow:none;
-
 }
 
 }
@@ -485,1338 +306,4 @@ box-shadow:none;
 
 <p id="subtitle">
 Ваш помічник для пошуку роботи
-</p>
-
-
-<div class="language">
-
-<button
-id="ukBtn"
-onclick="setLanguage('uk')">
-
-🇺🇦 Українська
-
-</button>
-
-<button
-id="skBtn"
-onclick="setLanguage('sk')">
-
-🇸🇰 Slovenčina
-
-</button>
-
-<button
-id="enBtn"
-onclick="setLanguage('en')">
-
-🇬🇧 English
-
-</button>
-
-</div>
-
-</header>
-
-
-<nav>
-
-<button
-id="btnCV"
-class="active"
-onclick="showPage('cv')">
-
-📝 <span data-i18n="createResume">
-Створити резюме
-</span>
-
-</button>
-
-
-<button
-id="btnPreview"
-onclick="showPage('preview')">
-
-👁️ <span data-i18n="previewResume">
-Перегляд резюме
-</span>
-
-</button>
-
-
-<button
-id="btnJobs"
-onclick="showPage('jobs')">
-
-🔍 <span data-i18n="jobAnalysis">
-Аналіз вакансії
-</span>
-
-</button>
-
-</nav>
-
-
-<div class="container">
-
-
-<!-- РЕЗЮМЕ -->
-
-<div
-id="cv"
-class="page active">
-
-<div class="card">
-
-<h2 data-i18n="personalData">
-👤 Особисті дані
-</h2>
-
-
-<div class="row">
-
-<div>
-
-<label data-i18n="name">
-Ім'я та прізвище
-</label>
-
-<input
-id="name"
-placeholder="Oleksandr Herasym"
-oninput="updateCV()">
-
-</div>
-
-
-<div>
-
-<label data-i18n="position">
-Бажана посада
-</label>
-
-<input
-id="position"
-placeholder="CNC Operator"
-oninput="updateCV()">
-
-</div>
-
-</div>
-
-
-<div class="row">
-
-<div>
-
-<label data-i18n="phone">
-📞 Телефон
-</label>
-
-<input
-id="phone"
-placeholder="+421..."
-oninput="updateCV()">
-
-</div>
-
-
-<div>
-
-<label data-i18n="email">
-📧 Email
-</label>
-
-<input
-id="email"
-placeholder="email@example.com"
-oninput="updateCV()">
-
-</div>
-
-</div>
-
-
-<label data-i18n="city">
-📍 Місто
-</label>
-
-<input
-id="city"
-placeholder="Bratislava"
-oninput="updateCV()">
-
-
-<label data-i18n="profile">
-📝 Професійний профіль
-</label>
-
-<textarea
-id="profile"
-oninput="updateCV()"
-placeholder="Коротко розкажіть про себе...">
-</textarea>
-
-</div>
-
-
-<!-- ДОСВІД -->
-
-<div class="card">
-
-<h2 data-i18n="experience">
-💼 Досвід роботи
-</h2>
-
-<div id="experienceList"></div>
-
-<button onclick="addExperience()">
-
-➕ <span data-i18n="addExperience">
-Додати місце роботи
-</span>
-
-</button>
-
-</div>
-
-
-<!-- ОСВІТА -->
-
-<div class="card">
-
-<h2 data-i18n="education">
-🎓 Освіта
-</h2>
-
-<div id="educationList"></div>
-
-<button onclick="addEducation()">
-
-➕ <span data-i18n="addEducation">
-Додати освіту
-</span>
-
-</button>
-
-</div>
-
-
-<!-- НАВИЧКИ -->
-
-<div class="card">
-
-<h2 data-i18n="skillsTitle">
-🛠️ Навички
-</h2>
-
-<textarea
-id="skills"
-oninput="updateCV()"
-placeholder="CNC, AutoCAD, Excel...">
-</textarea>
-
-</div>
-
-
-<!-- МОВИ -->
-
-<div class="card">
-
-<h2 data-i18n="languagesTitle">
-🌍 Мови
-</h2>
-
-<textarea
-id="languages"
-oninput="updateCV()"
-placeholder="Українська — рідна&#10;Словацька — B1&#10;Англійська — A2">
-</textarea>
-
-</div>
-
-
-<div class="card">
-
-<button onclick="saveResume()">
-
-💾 <span data-i18n="saveResume">
-Зберегти резюме
-</span>
-
-</button>
-
-
-<button
-class="secondary"
-onclick="showPage('preview')">
-
-👁️ <span data-i18n="viewResume">
-Переглянути резюме
-</span>
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- ПЕРЕГЛЯД -->
-
-<div
-id="preview"
-class="page">
-
-<div class="card">
-
-<button onclick="window.print()">
-
-📄 <span data-i18n="pdf">
-Зберегти резюме як PDF
-</span>
-
-</button>
-
-</div>
-
-
-<div
-class="cv-preview"
-id="cvPreview">
-
-
-<div
-class="cv-name"
-id="pName">
-
-Ваше ім'я
-
-</div>
-
-
-<div
-class="cv-position"
-id="pPosition">
-
-Бажана посада
-
-</div>
-
-
-<div
-class="cv-contact"
-id="pContact">
-
-Телефон · Email · Місто
-
-</div>
-
-
-<div class="cv-section">
-
-<h3 data-i18n="profileTitle">
-ПРОФЕСІЙНИЙ ПРОФІЛЬ
-</h3>
-
-<p id="pProfile"></p>
-
-</div>
-
-
-<div class="cv-section">
-
-<h3 data-i18n="experienceTitle">
-ДОСВІД РОБОТИ
-</h3>
-
-<div id="pExperience"></div>
-
-</div>
-
-
-<div class="cv-section">
-
-<h3 data-i18n="educationTitle">
-ОСВІТА
-</h3>
-
-<div id="pEducation"></div>
-
-</div>
-
-
-<div class="cv-section">
-
-<h3 data-i18n="skillsTitle">
-НАВИЧКИ
-</h3>
-
-<p id="pSkills"></p>
-
-</div>
-
-
-<div class="cv-section">
-
-<h3 data-i18n="languagesTitle">
-МОВИ
-</h3>
-
-<p id="pLanguages"></p>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-<!-- АНАЛІЗ -->
-
-<div
-id="jobs"
-class="page">
-
-<div class="card">
-
-<h2 data-i18n="jobAnalysis">
-🔍 Аналіз вакансії
-</h2>
-
-<p data-i18n="jobDescription">
-
-Вставте текст вакансії нижче.
-
-</p>
-
-
-<label data-i18n="jobText">
-💼 Текст вакансії
-</label>
-
-
-<textarea
-id="job"
-placeholder="CNC Operator, Bratislava...">
-</textarea>
-
-
-<button onclick="analyzeJob()">
-
-🎯 <span data-i18n="analyze">
-Аналізувати
-</span>
-
-</button>
-
-</div>
-
-
-<div
-class="card"
-id="analysisResult">
-
-
-<h2 data-i18n="result">
-🎯 Результат
-</h2>
-
-
-<div
-class="score"
-id="score">
-
-0%
-
-</div>
-
-
-<div class="progress">
-
-<div
-id="progressBar"
-class="progress-bar">
-</div>
-
-</div>
-
-
-<div class="success">
-
-<h3 data-i18n="found">
-✅ Знайдено
-</h3>
-
-<div id="found"></div>
-
-</div>
-
-
-<div class="warning">
-
-<h3 data-i18n="missing">
-⚠️ Вимоги вакансії
-</h3>
-
-<div id="missing"></div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<script>
-
-
-/* МОВИ */
-
-const translations = {
-
-uk: {
-
-subtitle:"Ваш помічник для пошуку роботи",
-
-createResume:"Створити резюме",
-
-previewResume:"Перегляд резюме",
-
-jobAnalysis:"Аналіз вакансії",
-
-personalData:"👤 Особисті дані",
-
-name:"Ім'я та прізвище",
-
-position:"Бажана посада",
-
-phone:"📞 Телефон",
-
-email:"📧 Email",
-
-city:"📍 Місто",
-
-profile:"📝 Професійний профіль",
-
-experience:"💼 Досвід роботи",
-
-addExperience:"Додати місце роботи",
-
-education:"🎓 Освіта",
-
-addEducation:"Додати освіту",
-
-skillsTitle:"🛠️ Навички",
-
-languagesTitle:"🌍 Мови",
-
-saveResume:"Зберегти резюме",
-
-viewResume:"Переглянути резюме",
-
-pdf:"Зберегти резюме як PDF",
-
-profileTitle:"ПРОФЕСІЙНИЙ ПРОФІЛЬ",
-
-experienceTitle:"ДОСВІД РОБОТИ",
-
-educationTitle:"ОСВІТА",
-
-jobDescription:"Вставте текст вакансії нижче.",
-
-jobText:"💼 Текст вакансії",
-
-analyze:"Аналізувати",
-
-result:"🎯 Результат",
-
-found:"✅ Знайдено",
-
-missing:"⚠️ Вимоги вакансії"
-
-},
-
-
-sk: {
-
-subtitle:"Váš pomocník pri hľadaní práce",
-
-createResume:"Vytvoriť životopis",
-
-previewResume:"Náhľad životopisu",
-
-jobAnalysis:"Analýza pracovnej ponuky",
-
-personalData:"👤 Osobné údaje",
-
-name:"Meno a priezvisko",
-
-position:"Požadovaná pozícia",
-
-phone:"📞 Telefón",
-
-email:"📧 Email",
-
-city:"📍 Mesto",
-
-profile:"📝 Profesijný profil",
-
-experience:"💼 Pracovné skúsenosti",
-
-addExperience:"Pridať pracovnú skúsenosť",
-
-education:"🎓 Vzdelanie",
-
-addEducation:"Pridať vzdelanie",
-
-skillsTitle:"🛠️ Zručnosti",
-
-languagesTitle:"🌍 Jazyky",
-
-saveResume:"Uložiť životopis",
-
-viewResume:"Zobraziť životopis",
-
-pdf:"Uložiť životopis ako PDF",
-
-profileTitle:"PROFESIJNÝ PROFIL",
-
-experienceTitle:"PRACOVNÉ SKÚSENOSTI",
-
-educationTitle:"VZDELANIE",
-
-jobDescription:"Vložte text pracovnej ponuky nižšie.",
-
-jobText:"💼 Text pracovnej ponuky",
-
-analyze:"Analyzovať",
-
-result:"🎯 Výsledok",
-
-found:"✅ Nájdené",
-
-missing:"⚠️ Požiadavky pracovnej ponuky"
-
-},
-
-
-en: {
-
-subtitle:"Your assistant for finding a job",
-
-createResume:"Create resume",
-
-previewResume:"Resume preview",
-
-jobAnalysis:"Job analysis",
-
-personalData:"👤 Personal information",
-
-name:"Full name",
-
-position:"Desired position",
-
-phone:"📞 Phone",
-
-email:"📧 Email",
-
-city:"📍 City",
-
-profile:"📝 Professional profile",
-
-experience:"💼 Work experience",
-
-addExperience:"Add work experience",
-
-education:"🎓 Education",
-
-addEducation:"Add education",
-
-skillsTitle:"🛠️ Skills",
-
-languagesTitle:"🌍 Languages",
-
-saveResume:"Save resume",
-
-viewResume:"View resume",
-
-pdf:"Save resume as PDF",
-
-profileTitle:"PROFESSIONAL PROFILE",
-
-experienceTitle:"WORK EXPERIENCE",
-
-educationTitle:"EDUCATION",
-
-jobDescription:"Paste the job description below.",
-
-jobText:"💼 Job description",
-
-analyze:"Analyze",
-
-result:"🎯 Result",
-
-found:"✅ Found",
-
-missing:"⚠️ Job requirements"
-
-}
-
-};
-
-
-let currentLanguage =
-localStorage.getItem("jobaiLanguage") || "uk";
-
-
-function setLanguage(lang){
-
-currentLanguage = lang;
-
-localStorage.setItem(
-"jobaiLanguage",
-lang
-);
-
-
-document.documentElement.lang =
-lang;
-
-
-const t =
-translations[lang];
-
-
-document.querySelectorAll("[data-i18n]")
-.forEach(element => {
-
-const key =
-element.getAttribute("data-i18n");
-
-if(t[key]){
-
-element.innerText =
-t[key];
-
-}
-
-});
-
-
-document.getElementById("subtitle")
-.innerText =
-t.subtitle;
-
-
-document.getElementById("ukBtn")
-.classList.toggle(
-"active",
-lang === "uk"
-);
-
-
-document.getElementById("skBtn")
-.classList.toggle(
-"active",
-lang === "sk"
-);
-
-
-document.getElementById("enBtn")
-.classList.toggle(
-"active",
-lang === "en"
-);
-
-}
-
-
-function showPage(page){
-
-document.querySelectorAll(".page")
-.forEach(p =>
-p.classList.remove("active")
-);
-
-
-document.getElementById(page)
-.classList.add("active");
-
-
-document.querySelectorAll("nav button")
-.forEach(b =>
-b.classList.remove("active")
-);
-
-
-if(page==="cv")
-document.getElementById("btnCV")
-.classList.add("active");
-
-
-if(page==="preview")
-document.getElementById("btnPreview")
-.classList.add("active");
-
-
-if(page==="jobs")
-document.getElementById("btnJobs")
-.classList.add("active");
-
-
-updateCV();
-
-window.scrollTo(0,0);
-
-}
-
-
-/* ДОСВІД */
-
-let experiences=[];
-
-
-function addExperience(){
-
-experiences.push({
-
-company:"",
-
-position:"",
-
-start:"",
-
-end:"",
-
-description:""
-
-});
-
-
-renderExperiences();
-
-}
-
-
-function renderExperiences(){
-
-const box =
-document.getElementById(
-"experienceList"
-);
-
-box.innerHTML="";
-
-
-experiences.forEach((e,i)=>{
-
-box.innerHTML += `
-
-<div class="experience">
-
-<label>🏢</label>
-
-<input
-value="${e.company}"
-oninput="experiences[${i}].company=this.value;updateCV()">
-
-
-<label>💼</label>
-
-<input
-value="${e.position}"
-oninput="experiences[${i}].position=this.value;updateCV()">
-
-
-<div class="row">
-
-<input
-placeholder="2022"
-value="${e.start}"
-oninput="experiences[${i}].start=this.value;updateCV()">
-
-
-<input
-placeholder="2025"
-value="${e.end}"
-oninput="experiences[${i}].end=this.value;updateCV()">
-
-</div>
-
-
-<textarea
-placeholder="Опис роботи..."
-oninput="experiences[${i}].description=this.value"
->${e.description}</textarea>
-
-
-<button
-class="danger"
-onclick="experiences.splice(${i},1);renderExperiences();updateCV()">
-
-🗑️
-
-</button>
-
-</div>
-
-`;
-
-});
-
-}
-
-
-/* ОСВІТА */
-
-let educations=[];
-
-
-function addEducation(){
-
-educations.push({
-
-school:"",
-
-speciality:"",
-
-year:""
-
-});
-
-
-renderEducation();
-
-}
-
-
-function renderEducation(){
-
-const box =
-document.getElementById(
-"educationList"
-);
-
-box.innerHTML="";
-
-
-educations.forEach((e,i)=>{
-
-box.innerHTML += `
-
-<div class="experience">
-
-<input
-placeholder="Навчальний заклад"
-value="${e.school}"
-oninput="educations[${i}].school=this.value;updateCV()">
-
-
-<input
-placeholder="Спеціальність"
-value="${e.speciality}"
-oninput="educations[${i}].speciality=this.value;updateCV()">
-
-
-<input
-placeholder="Рік"
-value="${e.year}"
-oninput="educations[${i}].year=this.value;updateCV()">
-
-
-<button
-class="danger"
-onclick="educations.splice(${i},1);renderEducation();updateCV()">
-
-🗑️
-
-</button>
-
-</div>
-
-`;
-
-});
-
-}
-
-
-/* ПЕРЕГЛЯД */
-
-function updateCV(){
-
-document.getElementById("pName")
-.innerText =
-document.getElementById("name").value
-|| "Ваше ім'я";
-
-
-document.getElementById("pPosition")
-.innerText =
-document.getElementById("position").value
-|| "Бажана посада";
-
-
-document.getElementById("pContact")
-.innerText =
-[
-
-document.getElementById("phone").value,
-
-document.getElementById("email").value,
-
-document.getElementById("city").value
-
-]
-
-.filter(Boolean)
-.join(" · ");
-
-
-document.getElementById("pProfile")
-.innerText =
-document.getElementById("profile").value;
-
-
-document.getElementById("pSkills")
-.innerText =
-document.getElementById("skills").value;
-
-
-document.getElementById("pLanguages")
-.innerText =
-document.getElementById("languages").value;
-
-
-document.getElementById("pExperience")
-.innerHTML =
-experiences.map(e => `
-
-<div class="cv-experience">
-
-<strong>${e.position}</strong>
-
-<br>
-
-<b>${e.company}</b>
-
-<div>${e.start} ${e.end ? "— "+e.end : ""}</div>
-
-<p>${e.description}</p>
-
-</div>
-
-`).join("");
-
-
-document.getElementById("pEducation")
-.innerHTML =
-educations.map(e => `
-
-<div class="cv-experience">
-
-<strong>${e.speciality}</strong>
-
-<br>
-
-${e.school}
-
-<div>${e.year}</div>
-
-</div>
-
-`).join("");
-
-}
-
-
-/* ЗБЕРЕЖЕННЯ */
-
-function saveResume(){
-
-const data={
-
-name:name.value,
-
-position:position.value,
-
-phone:phone.value,
-
-email:email.value,
-
-city:city.value,
-
-profile:profile.value,
-
-skills:skills.value,
-
-languages:languages.value,
-
-experiences,
-
-educations
-
-};
-
-
-localStorage.setItem(
-"jobaiResume",
-JSON.stringify(data)
-);
-
-
-alert(
-currentLanguage==="sk"
-? "✅ Životopis bol uložený."
-: currentLanguage==="en"
-? "✅ Resume saved."
-: "✅ Резюме збережено."
-);
-
-}
-
-
-/* ЗАВАНТАЖЕННЯ */
-
-function loadResume(){
-
-const saved =
-localStorage.getItem("jobaiResume");
-
-
-if(!saved) return;
-
-
-const d =
-JSON.parse(saved);
-
-
-name.value=d.name||"";
-
-position.value=d.position||"";
-
-phone.value=d.phone||"";
-
-email.value=d.email||"";
-
-city.value=d.city||"";
-
-profile.value=d.profile||"";
-
-skills.value=d.skills||"";
-
-languages.value=d.languages||"";
-
-
-experiences=d.experiences||[];
-
-educations=d.educations||[];
-
-
-renderExperiences();
-
-renderEducation();
-
-updateCV();
-
-}
-
-/* АНАЛІЗ ВАКАНСІЇ */
-
-const jobSkills = [
-
-"cnc",
-"cnc operator",
-"operator",
-"mechanic",
-"maintenance",
-"údržba",
-"výroba",
-"production",
-"warehouse",
-"sklad",
-"forklift",
-"vysokozdvižný vozík",
-"welding",
-"zváranie",
-"electrician",
-"elektrikár",
-"autocad",
-"solidworks",
-"technical drawing",
-"technický výkres",
-"english",
-"angličtina",
-"slovak",
-"slovenčina",
-"german",
-"nemčina",
-"excel",
-"ms office",
-"driving licence",
-"vodičský preukaz",
-"shift",
-"smennosť",
-"experience",
-"skúsenosti"
-
-];
-
-
-function analyzeJob(){
-
-const job =
-document.getElementById("job")
-.value
-.toLowerCase()
-.trim();
-
-
-if(!job){
-
-alert(
-currentLanguage==="sk"
-? "Vložte text pracovnej ponuky."
-: currentLanguage==="en"
-? "Please enter the job description."
-: "Будь ласка, вставте текст вакансії."
-);
-
-return;
-
-}
-
-
-let found=[];
-
-
-jobSkills.forEach(skill=>{
-
-if(job.includes(skill)){
-
-found.push(skill);
-
-}
-
-});
-
-
-found=[...new Set(found)];
-
-
-/* Розрахунок */
-
-let score =
-Math.round(
-(found.length / 10) * 100
-);
-
-
-if(score>100){
-
-score=100;
-
-}
-
-
-/* Результат */
-
-document.getElementById("score")
-.innerText=score+"%";
-
-
-document.getElementById("progressBar")
-.style.width=score+"%";
-
-
-/* Знайдені */
-
-if(found.length){
-
-document.getElementById("found")
-.innerHTML=
-
-found.map(skill=>{
-
-return `<span class="skill">✓ ${skill}</span>`;
-
-}).join("");
-
-}else{
-
-document.getElementById("found")
-.innerHTML=
-
-currentLanguage==="sk"
-? "Nenašli sa žiadne kľúčové slová."
-: currentLanguage==="en"
-? "No matching keywords found."
-: "Ключових слів не знайдено.";
-
-}
-
-
-/* Відсутні */
-
-const importantSkills =
-jobSkills.slice(0,10);
-
-
-const missing =
-importantSkills.filter(
-skill=>!job.includes(skill)
-);
-
-
-if(missing.length){
-
-document.getElementById("missing")
-.innerHTML=
-
-missing.map(skill=>{
-
-return `<span class="skill">⚠ ${skill}</span>`;
-
-}).join("");
-
-}else{
-
-document.getElementById("missing")
-.innerHTML=
-
-currentLanguage==="sk"
-? "Základné požiadavky boli nájdené."
-: currentLanguage==="en"
-? "The main requirements were found."
-: "Основні вимоги знайдені.";
-
-}
-
-
-/* Показуємо результат */
-
-document.getElementById("analysisResult")
-.style.display="block";
-
-
-document.getElementById("analysisResult")
-.scrollIntoView({
-
-behavior:"smooth"
-
-});
-
-  }
-setLanguage(currentLanguage);
-
-loadResume();
-
-</script>
-
-</body>
-
-    </html>
+</
