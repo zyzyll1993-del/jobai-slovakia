@@ -1,204 +1,476 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JobAI Slovakia</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<title>JobAI Slovakia</title>
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f7fb;
-      color: #172033;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    header {
-      background: #172033;
-      color: white;
-      text-align: center;
-      padding: 35px 20px;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f6fb;
+  color: #172033;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 32px;
-    }
+header {
+  background: #172033;
+  color: white;
+  text-align: center;
+  padding: 35px 20px;
+}
 
-    header p {
-      margin-top: 10px;
-      color: #cbd5e1;
-    }
+header h1 {
+  margin: 0;
+  font-size: 32px;
+}
 
-    .container {
-      max-width: 700px;
-      margin: 30px auto;
-      padding: 20px;
-    }
+header p {
+  margin: 10px 0 0;
+  color: #cbd5e1;
+}
 
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 18px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-      margin-bottom: 20px;
-    }
+.container {
+  max-width: 720px;
+  margin: 25px auto;
+  padding: 15px;
+}
 
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
+.card {
+  background: white;
+  padding: 24px;
+  border-radius: 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
 
-    input[type="file"],
-    textarea {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid #d5dce8;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      font-size: 16px;
-    }
+label {
+  display: block;
+  font-weight: bold;
+  margin: 18px 0 8px;
+}
 
-    textarea {
-      min-height: 180px;
-      resize: vertical;
-    }
+input[type="file"],
+textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #d5dce8;
+  border-radius: 10px;
+  font-size: 16px;
+}
 
-    button {
-      width: 100%;
-      padding: 16px;
-      border: 0;
-      border-radius: 12px;
-      background: #2563eb;
-      color: white;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+textarea {
+  min-height: 180px;
+  resize: vertical;
+}
 
-    button:hover {
-      background: #1d4ed8;
-    }
+button {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 15px;
+  margin-top: 15px;
+  font-size: 17px;
+  font-weight: bold;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
 
-    #result {
-      display: none;
-    }
+button:hover {
+  opacity: 0.9;
+}
 
-    .score {
-      text-align: center;
-      font-size: 48px;
-      font-weight: bold;
-      color: #2563eb;
-      margin: 20px 0;
-    }
+.secondary {
+  background: #172033;
+}
 
-    .result-section {
-      margin-top: 20px;
-      padding: 15px;
-      border-radius: 12px;
-      background: #f8fafc;
-    }
+#result {
+  display: none;
+}
 
-    .action {
-      background: #172033;
-      margin-top: 12px;
-    }
-  </style>
+.score {
+  text-align: center;
+  font-size: 55px;
+  font-weight: bold;
+  margin: 15px 0;
+  color: #2563eb;
+}
+
+.progress {
+  height: 14px;
+  background: #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: #2563eb;
+  transition: width 1s;
+}
+
+.section {
+  background: #f8fafc;
+  padding: 15px;
+  border-radius: 12px;
+  margin-top: 15px;
+}
+
+.skill {
+  display: inline-block;
+  background: #e8eefc;
+  padding: 8px 11px;
+  margin: 4px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.warning {
+  background: #fff7ed;
+}
+
+.success {
+  background: #ecfdf5;
+}
+
+.small {
+  color: #64748b;
+  font-size: 14px;
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>JobAI Slovakia 🇸🇰</h1>
-  <p>AI-помічник для пошуку роботи</p>
+
+<h1>JobAI Slovakia 🇸🇰</h1>
+
+<p>
+AI-помічник для пошуку роботи
+</p>
+
 </header>
 
 <div class="container">
 
-  <div class="card">
+<div class="card">
 
-    <label>📄 Завантаж своє CV</label>
+<h2>🔍 Аналіз вакансії</h2>
 
-    <input type="file" id="cv" accept=".pdf,.doc,.docx,.txt">
+<label>📄 Завантаж CV</label>
 
-    <label>💼 Встав вакансію</label>
+<input
+  type="file"
+  id="cv"
+  accept=".pdf,.doc,.docx,.txt"
+>
 
-    <textarea
-      id="job"
-      placeholder="Встав сюди текст вакансії..."
-    ></textarea>
+<p class="small">
+Поки що файл використовується лише як підтвердження CV.
+У наступній версії додамо автоматичне читання PDF.
+</p>
 
-    <button onclick="analyze()">
-      🎯 Аналізувати
-    </button>
+<label>💼 Встав текст вакансії</label>
 
-  </div>
+<textarea
+  id="job"
+  placeholder="Наприклад:
 
-  <div class="card" id="result">
+CNC Operator
+Bratislava
+Experience with CNC machines
+Technical drawing
+English or Slovak language
+Forklift license..."
+></textarea>
 
-    <h2>Результат аналізу</h2>
-
-    <div class="score">
-      82%
-    </div>
-
-    <div class="result-section">
-      <h3>✅ Сильні сторони</h3>
-      <p>• Досвід роботи відповідає вакансії</p>
-      <p>• Є необхідні професійні навички</p>
-      <p>• Хороший рівень практичного досвіду</p>
-    </div>
-
-    <div class="result-section">
-      <h3>⚠️ Недоліки</h3>
-      <p>• Деякі ключові слова відсутні у CV</p>
-      <p>• Варто краще описати професійні досягнення</p>
-    </div>
-
-    <button class="action">
-      🪄 Покращити CV
-    </button>
-
-    <button class="action">
-      📝 Створити мотиваційний лист
-    </button>
-
-    <button class="action">
-      📄 Отримати PDF
-    </button>
-
-  </div>
+<button onclick="analyze()">
+🎯 Аналізувати
+</button>
 
 </div>
 
+
+<div class="card" id="result">
+
+<h2>🎯 Результат</h2>
+
+<div class="score" id="score">
+0%
+</div>
+
+<div class="progress">
+
+<div
+  class="progress-bar"
+  id="progressBar">
+</div>
+
+</div>
+
+
+<div class="section success">
+
+<h3>✅ Знайдені ключові слова</h3>
+
+<div id="found"></div>
+
+</div>
+
+
+<div class="section warning">
+
+<h3>⚠️ Що варто додати</h3>
+
+<div id="missing"></div>
+
+</div>
+
+
+<div class="section">
+
+<h3>💡 Рекомендація</h3>
+
+<p id="recommendation"></p>
+
+</div>
+
+
+<button class="secondary">
+🪄 Покращити CV
+</button>
+
+<button class="secondary">
+📝 Створити мотиваційний лист
+</button>
+
+<button class="secondary">
+📄 Отримати PDF
+</button>
+
+<button onclick="newAnalysis()">
+🔄 Новий аналіз
+</button>
+
+</div>
+
+</div>
+
+
 <script>
+
+const skills = [
+
+"cnc",
+"cnc operator",
+"operator",
+"mechanic",
+"mechanical",
+"maintenance",
+"údržba",
+"výroba",
+"production",
+"warehouse",
+"sklad",
+"forklift",
+"vysokozdvižný vozík",
+"welding",
+"zváranie",
+"soldier",
+"electrician",
+"elektrikár",
+"programming",
+"programovanie",
+"autocad",
+"solidworks",
+"technical drawing",
+"technický výkres",
+"english",
+"angličtina",
+"slovak",
+"slovenčina",
+"nemčina",
+"german",
+"excel",
+"ms office",
+"driving licence",
+"vodičský preukaz",
+"shift",
+"smennosť",
+"experience",
+"skúsenosti"
+];
+
+
 function analyze() {
 
-  const cv = document.getElementById("cv").files[0];
-  const job = document.getElementById("job").value;
+const cv =
+document.getElementById("cv").files[0];
 
-  if (!cv) {
-    alert("Будь ласка, завантаж CV.");
-    return;
-  }
+const job =
+document.getElementById("job").value
+.toLowerCase();
 
-  if (!job.trim()) {
-    alert("Будь ласка, встав текст вакансії.");
-    return;
-  }
 
-  document.getElementById("result").style.display = "block";
+if (!cv) {
 
-  window.scrollTo({
-    top: document.getElementById("result").offsetTop,
-    behavior: "smooth"
-  });
+alert("Будь ласка, завантаж CV.");
+
+return;
+
 }
+
+
+if (!job.trim()) {
+
+alert("Будь ласка, встав текст вакансії.");
+
+return;
+
+}
+
+
+let found = [];
+let missing = [];
+
+
+skills.forEach(skill => {
+
+if (job.includes(skill)) {
+
+found.push(skill);
+
+}
+
+});
+
+
+const uniqueFound =
+[...new Set(found)];
+
+
+let score =
+Math.round(
+(uniqueFound.length / 10) * 100
+);
+
+
+if (score > 100) {
+
+score = 100;
+
+}
+
+
+const importantSkills =
+skills.slice(0, 10);
+
+
+importantSkills.forEach(skill => {
+
+if (!job.includes(skill)) {
+
+missing.push(skill);
+
+}
+
+});
+
+
+document.getElementById("score")
+.innerText = score + "%";
+
+
+document.getElementById("progressBar")
+.style.width = score + "%";
+
+
+document.getElementById("found")
+.innerHTML =
+uniqueFound.length
+? uniqueFound
+.map(skill =>
+`<span class="skill">✓ ${skill}</span>`
+)
+.join("")
+: "<p>Ключових слів не знайдено.</p>";
+
+
+document.getElementById("missing")
+.innerHTML =
+missing.length
+? missing
+.slice(0, 8)
+.map(skill =>
+`<span class="skill">⚠ ${skill}</span>`
+)
+.join("")
+: "<p>Основні ключові слова знайдені.</p>";
+
+
+let recommendation;
+
+
+if (score >= 80) {
+
+recommendation =
+"Вакансія добре відповідає профілю. Варто подати CV та адаптувати його під ключові слова вакансії.";
+
+} else if (score >= 50) {
+
+recommendation =
+"Відповідність середня. Рекомендуємо адаптувати CV та додати релевантні навички.";
+
+} else {
+
+recommendation =
+"Відповідність низька. Варто перевірити вимоги вакансії та доповнити CV відповідним досвідом.";
+
+}
+
+
+document.getElementById("recommendation")
+.innerText = recommendation;
+
+
+document.getElementById("result")
+.style.display = "block";
+
+
+document.getElementById("result")
+.scrollIntoView({
+behavior: "smooth"
+});
+
+}
+
+
+function newAnalysis() {
+
+document.getElementById("cv").value = "";
+
+document.getElementById("job").value = "";
+
+document.getElementById("result")
+.style.display = "none";
+
+window.scrollTo({
+top: 0,
+behavior: "smooth"
+});
+
+}
+
 </script>
 
 </body>
