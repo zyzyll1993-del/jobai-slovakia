@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobAI Slovakia</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #172033;
+    }
+
+    header {
+      background: #172033;
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    header p {
+      margin-top: 10px;
+      color: #cbd5e1;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 18px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    input[type="file"],
+    textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #d5dce8;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    textarea {
+      min-height: 180px;
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      padding: 16px;
+      border: 0;
+      border-radius: 12px;
+      background: #2563eb;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    #result {
+      display: none;
+    }
+
+    .score {
+      text-align: center;
+      font-size: 48px;
+      font-weight: bold;
+      color: #2563eb;
+      margin: 20px 0;
+    }
+
+    .result-section {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 12px;
+      background: #f8fafc;
+    }
+
+    .action {
+      background: #172033;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>JobAI Slovakia 🇸🇰</h1>
+  <p>AI-помічник для пошуку роботи</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+
+    <label>📄 Завантаж своє CV</label>
+
+    <input type="file" id="cv" accept=".pdf,.doc,.docx,.txt">
+
+    <label>💼 Встав вакансію</label>
+
+    <textarea
+      id="job"
+      placeholder="Встав сюди текст вакансії..."
+    ></textarea>
+
+    <button onclick="analyze()">
+      🎯 Аналізувати
+    </button>
+
+  </div>
+
+  <div class="card" id="result">
+
+    <h2>Результат аналізу</h2>
+
+    <div class="score">
+      82%
+    </div>
+
+    <div class="result-section">
+      <h3>✅ Сильні сторони</h3>
+      <p>• Досвід роботи відповідає вакансії</p>
+      <p>• Є необхідні професійні навички</p>
+      <p>• Хороший рівень практичного досвіду</p>
+    </div>
+
+    <div class="result-section">
+      <h3>⚠️ Недоліки</h3>
+      <p>• Деякі ключові слова відсутні у CV</p>
+      <p>• Варто краще описати професійні досягнення</p>
+    </div>
+
+    <button class="action">
+      🪄 Покращити CV
+    </button>
+
+    <button class="action">
+      📝 Створити мотиваційний лист
+    </button>
+
+    <button class="action">
+      📄 Отримати PDF
+    </button>
+
+  </div>
+
+</div>
+
+<script>
+function analyze() {
+
+  const cv = document.getElementById("cv").files[0];
+  const job = document.getElementById("job").value;
+
+  if (!cv) {
+    alert("Будь ласка, завантаж CV.");
+    return;
+  }
+
+  if (!job.trim()) {
+    alert("Будь ласка, встав текст вакансії.");
+    return;
+  }
+
+  document.getElementById("result").style.display = "block";
+
+  window.scrollTo({
+    top: document.getElementById("result").offsetTop,
+    behavior: "smooth"
+  });
+}
+</script>
+
+</body>
+</html>
