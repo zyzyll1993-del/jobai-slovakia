@@ -1,545 +1,575 @@
-/* =====================================================
-   JobAI Slovakia — RESUME MODULE v0.6
-   Збереження / імпорт / експорт резюме
-   ===================================================== */
+/*
+=========================================================
+ JobAI Slovakia — Resume module
+ Фото + збереження резюме
+=========================================================
+*/
+
+const RESUME_STORAGE_KEY = "jobaiResume";
 
 
-/* =====================================================
-   ОТРИМАННЯ ДАНИХ РЕЗЮМЕ
-   ===================================================== */
+// =========================================================
+// GET RESUME DATA
+// =========================================================
 
 function getResumeData() {
 
-  return {
+    return {
 
-    name:
-      document.getElementById("name")?.value || "",
+        name: document.getElementById("name")?.value || "",
+        position: document.getElementById("position")?.value || "",
+        phone: document.getElementById("phone")?.value || "",
+        email: document.getElementById("email")?.value || "",
+        city: document.getElementById("city")?.value || "",
+        profile: document.getElementById("profile")?.value || "",
+        skills: document.getElementById("skills")?.value || "",
+        languages: document.getElementById("languages")?.value || "",
 
-    position:
-      document.getElementById("position")?.value || "",
+        experiences: window.experiences || [],
+        educations: window.educations || [],
 
-    phone:
-      document.getElementById("phone")?.value || "",
+        photo: localStorage.getItem("jobaiPhoto") || ""
 
-    email:
-      document.getElementById("email")?.value || "",
-
-    city:
-      document.getElementById("city")?.value || "",
-
-    profile:
-      document.getElementById("profile")?.value || "",
-
-    skills:
-      document.getElementById("skills")?.value || "",
-
-    languages:
-      document.getElementById("languages")?.value || "",
-
-    experiences:
-      typeof experiences !== "undefined"
-        ? experiences
-        : [],
-
-    educations:
-      typeof educations !== "undefined"
-        ? educations
-        : [],
-
-    exportedAt:
-      new Date().toISOString(),
-
-    version:
-      "0.6"
-
-  };
+    };
 
 }
 
 
-/* =====================================================
-   ЗБЕРЕЖЕННЯ В LOCAL STORAGE
-   ===================================================== */
+// =========================================================
+// SAVE RESUME
+// =========================================================
 
 function saveResumeData(showMessage = true) {
 
-  const data =
-    getResumeData();
+    const data = getResumeData();
 
-  localStorage.setItem(
-    "jobaiResume",
-    JSON.stringify(data)
-  );
-
-  if(showMessage){
-
-    const message =
-      currentLanguage === "sk"
-        ? "✅ Životopis bol uložený."
-        : currentLanguage === "en"
-          ? "✅ Resume saved."
-          : "✅ Резюме збережено.";
-
-    alert(message);
-
-  }
-
-}
-
-
-/* =====================================================
-   ЗАВАНТАЖЕННЯ З LOCAL STORAGE
-   ===================================================== */
-
-function loadResumeData() {
-
-  const saved =
-    localStorage.getItem(
-      "jobaiResume"
+    localStorage.setItem(
+        RESUME_STORAGE_KEY,
+        JSON.stringify(data)
     );
 
-  if(!saved){
-    return false;
-  }
+    if (showMessage) {
 
-  try {
-
-    const data =
-      JSON.parse(saved);
-
-    setResumeData(data);
-
-    return true;
-
-  }
-
-  catch(error){
-
-    console.error(
-      "JobAI: помилка завантаження резюме",
-      error
-    );
-
-    return false;
-
-  }
-
-}
-
-
-/* =====================================================
-   ЗАПОВНЕННЯ ФОРМИ
-   ===================================================== */
-
-function setResumeData(data) {
-
-  if(!data){
-    return;
-  }
-
-
-  const fields = [
-
-    "name",
-    "position",
-    "phone",
-    "email",
-    "city",
-    "profile",
-    "skills",
-    "languages"
-
-  ];
-
-
-  fields.forEach(field => {
-
-    const element =
-      document.getElementById(field);
-
-    if(element){
-
-      element.value =
-        data[field] || "";
+        alert("✅ Резюме збережено");
 
     }
 
-  });
-
-
-  if(
-    typeof experiences !== "undefined"
-  ){
-
-    experiences =
-      Array.isArray(data.experiences)
-        ? data.experiences
-        : [];
-
-  }
-
-
-  if(
-    typeof educations !== "undefined"
-  ){
-
-    educations =
-      Array.isArray(data.educations)
-        ? data.educations
-        : [];
-
-  }
-
-
-  if(
-    typeof renderExperiences === "function"
-  ){
-
-    renderExperiences();
-
-  }
-
-
-  if(
-    typeof renderEducation === "function"
-  ){
-
-    renderEducation();
-
-  }
-
-
-  if(
-    typeof updateCV === "function"
-  ){
-
-    updateCV();
-
-  }
-
 }
 
 
-/* =====================================================
-   ЕКСПОРТ JSON
-   ===================================================== */
+// =========================================================
+// LOAD RESUME
+// =========================================================
 
-function exportResumeJSON() {
+function loadResumeData() {
 
-  const data =
-    getResumeData();
+    const saved =
+        localStorage.getItem(
+            RESUME_STORAGE_KEY
+        );
 
+    if (!saved) {
+        return;
+    }
 
-  const json =
-    JSON.stringify(
-      data,
-      null,
-      2
-    );
+    try {
 
-
-  const blob =
-    new Blob(
-      [json],
-      {
-        type:
-          "application/json"
-      }
-    );
-
-
-  const url =
-    URL.createObjectURL(blob);
-
-
-  const link =
-    document.createElement("a");
-
-
-  link.href = url;
-
-
-  const name =
-    data.name
-      ? data.name
-          .replace(/[^a-z0-9а-яіїєґ_-]/gi,"_")
-      : "JobAI_Resume";
-
-
-  link.download =
-    name + "_resume.json";
-
-
-  document.body.appendChild(link);
-
-  link.click();
-
-  document.body.removeChild(link);
-
-  URL.revokeObjectURL(url);
-
-
-  showExportMessage();
-
-}
-
-
-/* =====================================================
-   ІМПОРТ JSON
-   ===================================================== */
-
-function importResumeJSON(event) {
-
-  const file =
-    event.target.files[0];
-
-
-  if(!file){
-    return;
-  }
-
-
-  const reader =
-    new FileReader();
-
-
-  reader.onload =
-    function(e){
-
-      try {
-
-        const data =
-          JSON.parse(
-            e.target.result
-          );
-
+        const data = JSON.parse(saved);
 
         setResumeData(data);
 
+    } catch (error) {
 
-        saveResumeData(false);
-
-
-        const message =
-          currentLanguage === "sk"
-            ? "✅ Životopis bol importovaný."
-            : currentLanguage === "en"
-              ? "✅ Resume imported."
-              : "✅ Резюме імпортовано.";
-
-
-        alert(message);
-
-      }
-
-      catch(error){
-
-        alert(
-          currentLanguage === "sk"
-            ? "❌ Súbor JSON je neplatný."
-            : currentLanguage === "en"
-              ? "❌ Invalid JSON file."
-              : "❌ Неправильний JSON-файл."
+        console.error(
+            "Помилка завантаження резюме:",
+            error
         );
 
-      }
+    }
+
+}
+
+
+// =========================================================
+// SET RESUME DATA
+// =========================================================
+
+function setResumeData(data) {
+
+    if (!data) {
+        return;
+    }
+
+
+    const fields = [
+        "name",
+        "position",
+        "phone",
+        "email",
+        "city",
+        "profile",
+        "skills",
+        "languages"
+    ];
+
+
+    fields.forEach(function (id) {
+
+        const element =
+            document.getElementById(id);
+
+        if (
+            element &&
+            data[id] !== undefined
+        ) {
+
+            element.value = data[id];
+
+        }
+
+    });
+
+
+    if (Array.isArray(data.experiences)) {
+
+        window.experiences =
+            data.experiences;
+
+    }
+
+
+    if (Array.isArray(data.educations)) {
+
+        window.educations =
+            data.educations;
+
+    }
+
+
+    if (data.photo) {
+
+        localStorage.setItem(
+            "jobaiPhoto",
+            data.photo
+        );
+
+        displayResumePhoto(
+            data.photo
+        );
+
+    }
+
+
+    if (typeof renderExperiences === "function") {
+        renderExperiences();
+    }
+
+    if (typeof renderEducation === "function") {
+        renderEducation();
+    }
+
+    if (typeof updateCV === "function") {
+        updateCV();
+    }
+
+}
+
+
+// =========================================================
+// PHOTO UPLOAD
+// =========================================================
+
+function handlePhotoUpload(event) {
+
+    const file =
+        event.target.files?.[0];
+
+    if (!file) {
+        return;
+    }
+
+
+    if (!file.type.startsWith("image/")) {
+
+        alert("❌ Будь ласка, виберіть зображення.");
+
+        return;
+
+    }
+
+
+    const maxSize =
+        5 * 1024 * 1024;
+
+
+    if (file.size > maxSize) {
+
+        alert(
+            "❌ Фото завелике. Максимальний розмір — 5 MB."
+        );
+
+        return;
+
+    }
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload = function (e) {
+
+        const photo =
+            e.target.result;
+
+
+        localStorage.setItem(
+            "jobaiPhoto",
+            photo
+        );
+
+
+        displayResumePhoto(photo);
+
+
+        if (typeof updateCV === "function") {
+
+            updateCV();
+
+        }
 
     };
 
 
-  reader.readAsText(file);
-
-
-  /*
-     Дозволяє повторно вибрати
-     той самий файл
-  */
-
-  event.target.value = "";
+    reader.readAsDataURL(file);
 
 }
 
 
-/* =====================================================
-   ПОВІДОМЛЕННЯ
-   ===================================================== */
+// =========================================================
+// DISPLAY PHOTO
+// =========================================================
 
-function showExportMessage(){
+function displayResumePhoto(photo) {
 
-  const message =
-    currentLanguage === "sk"
-      ? "✅ Životopis bol exportovaný."
-      : currentLanguage === "en"
-        ? "✅ Resume exported."
-        : "✅ Резюме експортовано.";
+    const preview =
+        document.getElementById(
+            "photoPreview"
+        );
 
-  alert(message);
-
-}
-
-
-/* =====================================================
-   ОЧИЩЕННЯ РЕЗЮМЕ
-   ===================================================== */
-
-function clearResumeData(){
-
-  const question =
-    currentLanguage === "sk"
-      ? "Naozaj chcete vymazať životopis?"
-      : currentLanguage === "en"
-        ? "Are you sure you want to delete the resume?"
-        : "Ви точно хочете видалити резюме?";
+    const image =
+        document.getElementById(
+            "resumePhoto"
+        );
 
 
-  if(!confirm(question)){
-    return;
-  }
+    if (image) {
 
-
-  localStorage.removeItem(
-    "jobaiResume"
-  );
-
-
-  const fields = [
-
-    "name",
-    "position",
-    "phone",
-    "email",
-    "city",
-    "profile",
-    "skills",
-    "languages"
-
-  ];
-
-
-  fields.forEach(field => {
-
-    const element =
-      document.getElementById(field);
-
-    if(element){
-
-      element.value = "";
+        image.src = photo;
+        image.style.display = "block";
 
     }
 
-  });
 
+    if (preview) {
 
-  if(typeof experiences !== "undefined"){
+        preview.style.display = "block";
 
-    experiences = [];
-
-  }
-
-
-  if(typeof educations !== "undefined"){
-
-    educations = [];
-
-  }
-
-
-  if(
-    typeof renderExperiences === "function"
-  ){
-
-    renderExperiences();
-
-  }
-
-
-  if(
-    typeof renderEducation === "function"
-  ){
-
-    renderEducation();
-
-  }
-
-
-  if(
-    typeof updateCV === "function"
-  ){
-
-    updateCV();
-
-  }
-
-
-  alert(
-    currentLanguage === "sk"
-      ? "🗑️ Životopis bol vymazaný."
-      : currentLanguage === "en"
-        ? "🗑️ Resume deleted."
-        : "🗑️ Резюме видалено."
-  );
+    }
 
 }
 
 
-/* =====================================================
-   АВТОЗБЕРЕЖЕННЯ
-   ===================================================== */
+// =========================================================
+// REMOVE PHOTO
+// =========================================================
 
-function enableResumeAutosave(){
+function removeResumePhoto() {
 
-  const fields = [
-
-    "name",
-    "position",
-    "phone",
-    "email",
-    "city",
-    "profile",
-    "skills",
-    "languages"
-
-  ];
+    localStorage.removeItem(
+        "jobaiPhoto"
+    );
 
 
-  fields.forEach(field => {
+    const image =
+        document.getElementById(
+            "resumePhoto"
+        );
 
-    const element =
-      document.getElementById(field);
+
+    const preview =
+        document.getElementById(
+            "photoPreview"
+        );
 
 
-    if(element){
+    if (image) {
 
-      element.addEventListener(
-        "input",
-        function(){
+        image.src = "";
+        image.style.display = "none";
 
-          saveResumeData(false);
+    }
+
+
+    if (preview) {
+
+        preview.style.display = "none";
+
+    }
+
+
+    if (typeof updateCV === "function") {
+
+        updateCV();
+
+    }
+
+}
+
+
+// =========================================================
+// EXPORT JSON
+// =========================================================
+
+function exportResumeJSON() {
+
+    const data =
+        getResumeData();
+
+
+    const json =
+        JSON.stringify(
+            data,
+            null,
+            2
+        );
+
+
+    const blob =
+        new Blob(
+            [json],
+            {
+                type: "application/json"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(blob);
+
+
+    const link =
+        document.createElement("a");
+
+
+    link.href = url;
+
+    link.download =
+        "jobai-resume.json";
+
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    link.remove();
+
+
+    URL.revokeObjectURL(url);
+
+}
+
+
+// =========================================================
+// IMPORT JSON
+// =========================================================
+
+function importResumeJSON(event) {
+
+    const file =
+        event.target.files?.[0];
+
+    if (!file) {
+        return;
+    }
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload = function (e) {
+
+        try {
+
+            const data =
+                JSON.parse(
+                    e.target.result
+                );
+
+
+            setResumeData(data);
+
+            saveResumeData(false);
+
+
+            alert(
+                "✅ Резюме імпортовано"
+            );
+
+
+        } catch (error) {
+
+            alert(
+                "❌ Невірний файл резюме."
+            );
 
         }
-      );
 
-    }
+    };
 
-  });
+
+    reader.readAsText(file);
 
 }
 
 
-/* =====================================================
-   ІНІЦІАЛІЗАЦІЯ
-   ===================================================== */
+// =========================================================
+// CLEAR RESUME
+// =========================================================
 
-function initResumeModule(){
+function clearResumeData() {
 
-  loadResumeData();
+    const confirmed =
+        confirm(
+            "Очистити все резюме та фото?"
+        );
 
-  enableResumeAutosave();
+
+    if (!confirmed) {
+        return;
+    }
+
+
+    localStorage.removeItem(
+        RESUME_STORAGE_KEY
+    );
+
+    localStorage.removeItem(
+        "jobaiPhoto"
+    );
+
+
+    location.reload();
+
+}
+
+
+// =========================================================
+// AUTOSAVE
+// =========================================================
+
+function enableResumeAutosave() {
+
+    const ids = [
+        "name",
+        "position",
+        "phone",
+        "email",
+        "city",
+        "profile",
+        "skills",
+        "languages"
+    ];
+
+
+    ids.forEach(function (id) {
+
+        const element =
+            document.getElementById(id);
+
+
+        if (!element) {
+            return;
+        }
+
+
+        element.addEventListener(
+            "input",
+            function () {
+
+                saveResumeData(false);
+
+            }
+        );
+
+    });
+
+}
+
+
+// =========================================================
+// INITIALIZATION
+// =========================================================
+
+function initResumeModule() {
+
+    loadResumeData();
+
+    enableResumeAutosave();
+
+
+    const photo =
+        localStorage.getItem(
+            "jobaiPhoto"
+        );
+
+
+    if (photo) {
+
+        displayResumePhoto(photo);
+
+    }
 
 }
 
 
 document.addEventListener(
-  "DOMContentLoaded",
-  initResumeModule
+    "DOMContentLoaded",
+    initResumeModule
 );
+
+
+// =========================================================
+// GLOBAL FUNCTIONS
+// =========================================================
+
+window.getResumeData =
+    getResumeData;
+
+window.saveResumeData =
+    saveResumeData;
+
+window.loadResumeData =
+    loadResumeData;
+
+window.setResumeData =
+    setResumeData;
+
+window.handlePhotoUpload =
+    handlePhotoUpload;
+
+window.displayResumePhoto =
+    displayResumePhoto;
+
+window.removeResumePhoto =
+    removeResumePhoto;
+
+window.exportResumeJSON =
+    exportResumeJSON;
+
+window.importResumeJSON =
+    importResumeJSON;
+
+window.clearResumeData =
+    clearResumeData;
