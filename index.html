@@ -8,7 +8,7 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>JobAI Slovakia</title>
+<title>JobAI Slovakia 🇸🇰</title>
 
 <style>
 
@@ -232,11 +232,17 @@ margin-top:15px;
 
 .template-option{
 border:2px solid #e2e8f0;
-border-radius:12px;
+border-radius:14px;
 padding:10px;
 cursor:pointer;
 background:white;
 text-align:center;
+transition:.2s;
+}
+
+.template-option:hover{
+transform:translateY(-2px);
+box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
 
 .template-option.active{
@@ -247,12 +253,131 @@ background:#eff6ff;
 .template-option strong{
 display:block;
 font-size:14px;
-margin-bottom:5px;
+margin:8px 0 4px;
 }
 
 .template-option span{
 font-size:12px;
 color:#64748b;
+}
+
+
+/* =====================================================
+TEMPLATE MINI PREVIEWS
+===================================================== */
+
+.template-preview{
+height:150px;
+border-radius:8px;
+background:white;
+border:1px solid #e2e8f0;
+overflow:hidden;
+padding:10px;
+text-align:left;
+position:relative;
+}
+
+.preview-name{
+height:9px;
+width:65%;
+background:#172033;
+border-radius:3px;
+margin-bottom:6px;
+}
+
+.preview-line{
+height:5px;
+width:85%;
+background:#cbd5e1;
+border-radius:3px;
+margin:5px 0;
+}
+
+.preview-line.short{
+width:55%;
+}
+
+.preview-title{
+height:7px;
+width:35%;
+background:#2563eb;
+border-radius:3px;
+margin-top:12px;
+margin-bottom:6px;
+}
+
+.preview-photo{
+width:35px;
+height:45px;
+background:#cbd5e1;
+border-radius:5px;
+float:right;
+}
+
+
+/* CLASSIC */
+
+.preview-classic{
+border-top:5px solid #172033;
+}
+
+
+/* MODERN */
+
+.preview-modern{
+border-top:6px solid #2563eb;
+}
+
+.preview-modern .preview-name{
+background:#2563eb;
+}
+
+
+/* PROFESSIONAL */
+
+.preview-professional{
+background:#f1f5f9;
+}
+
+.preview-professional:before{
+content:"";
+position:absolute;
+left:0;
+top:0;
+bottom:0;
+width:28%;
+background:#172033;
+}
+
+.preview-professional .preview-content{
+margin-left:35%;
+}
+
+
+/* MINIMAL */
+
+.preview-minimal{
+border:0;
+}
+
+.preview-minimal .preview-name{
+background:#64748b;
+}
+
+.preview-minimal .preview-title{
+background:#94a3b8;
+}
+
+
+/* TECHNICAL */
+
+.preview-technical{
+border-left:6px solid #172033;
+}
+
+.preview-technical .preview-title{
+background:#172033;
+height:10px;
 }
 
 
@@ -360,7 +485,7 @@ border-bottom:1px solid #bfdbfe;
 
 
 /* =====================================================
-TEMPLATE 3 — SIDEBAR
+TEMPLATE 3 — SIDEBAR / PROFESSIONAL
 ===================================================== */
 
 .cv-preview.template-sidebar{
@@ -642,19 +767,28 @@ margin:0;
 
 <div class="language">
 
-<button id="ukBtn"
+<button
+id="ukBtn"
 onclick="setLanguage('uk')">
+
 🇺🇦 Українська
+
 </button>
 
-<button id="skBtn"
+<button
+id="skBtn"
 onclick="setLanguage('sk')">
+
 🇸🇰 Slovenčina
+
 </button>
 
-<button id="enBtn"
+<button
+id="enBtn"
 onclick="setLanguage('en')">
+
 🇬🇧 English
+
 </button>
 
 </div>
@@ -664,7 +798,8 @@ onclick="setLanguage('en')">
 
 <nav>
 
-<button id="btnCV"
+<button
+id="btnCV"
 class="active"
 onclick="showPage('cv')">
 
@@ -675,7 +810,8 @@ onclick="showPage('cv')">
 </button>
 
 
-<button id="btnPreview"
+<button
+id="btnPreview"
 onclick="showPage('preview')">
 
 👁️ <span data-i18n="previewResume">
@@ -685,7 +821,8 @@ onclick="showPage('preview')">
 </button>
 
 
-<button id="btnJobs"
+<button
+id="btnJobs"
 onclick="showPage('jobs')">
 
 🔍 <span data-i18n="jobAnalysis">
@@ -704,7 +841,8 @@ onclick="showPage('jobs')">
 CV EDITOR
 ===================================================== -->
 
-<div id="cv"
+<div
+id="cv"
 class="page active">
 
 
@@ -720,13 +858,16 @@ class="page active">
 <div class="photo-upload-box">
 
 <h3>
+
 📷 <span data-i18n="photoTitle">
 Фото для резюме
 </span>
+
 </h3>
 
 
-<div id="photoPreview"
+<div
+id="photoPreview"
 class="photo-preview">
 
 <img
@@ -768,7 +909,8 @@ onclick="removeResumePhoto()">
 </div>
 
 
-<p class="photo-hint"
+<p
+class="photo-hint"
 data-i18n="photoHint">
 
 JPG або PNG, максимум 5 MB
@@ -858,7 +1000,9 @@ oninput="updateCV()"></textarea>
 </div>
 
 
-<!-- EXPERIENCE -->
+<!-- =====================================================
+EXPERIENCE
+===================================================== -->
 
 <div class="card">
 
@@ -879,7 +1023,9 @@ oninput="updateCV()"></textarea>
 </div>
 
 
-<!-- EDUCATION -->
+<!-- =====================================================
+EDUCATION
+===================================================== -->
 
 <div class="card">
 
@@ -900,7 +1046,9 @@ oninput="updateCV()"></textarea>
 </div>
 
 
-<!-- SKILLS -->
+<!-- =====================================================
+SKILLS
+===================================================== -->
 
 <div class="card">
 
@@ -910,12 +1058,15 @@ oninput="updateCV()"></textarea>
 
 <textarea
 id="skills"
+placeholder="CNC, AutoCAD, Calypso, Excel..."
 oninput="updateCV()"></textarea>
 
 </div>
 
 
-<!-- LANGUAGES -->
+<!-- =====================================================
+LANGUAGES
+===================================================== -->
 
 <div class="card">
 
@@ -925,12 +1076,15 @@ oninput="updateCV()"></textarea>
 
 <textarea
 id="languages"
+placeholder="Українська — рідна&#10;Slovenčina — B1&#10;English — A2"
 oninput="updateCV()"></textarea>
 
 </div>
 
 
-<!-- TEMPLATES -->
+<!-- =====================================================
+TEMPLATES
+===================================================== -->
 
 <div class="card">
 
@@ -945,66 +1099,183 @@ oninput="updateCV()"></textarea>
 
 <div class="template-grid">
 
+
+<!-- CLASSIC -->
+
 <div
 class="template-option active"
 data-template="classic"
 onclick="selectTemplate('classic')">
 
+<div class="template-preview preview-classic">
+
+<div class="preview-name"></div>
+
+<div class="preview-line"></div>
+
+<div class="preview-line short"></div>
+
+<div class="preview-title"></div>
+
+<div class="preview-line"></div>
+
+<div class="preview-line"></div>
+
+<div class="preview-title"></div>
+
+<div class="preview-line short"></div>
+
+</div>
+
 <strong>Classic</strong>
+
 <span>Класичний</span>
 
 </div>
 
+
+<!-- MODERN -->
 
 <div
 class="template-option"
 data-template="modern"
 onclick="selectTemplate('modern')">
 
+<div class="template-preview preview-modern">
+
+<div class="preview-photo"></div>
+
+<div class="preview-name"></div>
+
+<div class="preview-line short"></div>
+
+<div class="preview-title"></div>
+
+<div class="preview-line"></div>
+
+<div class="preview-line"></div>
+
+<div class="preview-title"></div>
+
+<div class="preview-line short"></div>
+
+</div>
+
 <strong>Modern</strong>
+
 <span>Сучасний</span>
 
 </div>
 
+
+<!-- PROFESSIONAL -->
 
 <div
 class="template-option"
 data-template="sidebar"
 onclick="selectTemplate('sidebar')">
 
+<div class="template-preview preview-professional">
+
+<div class="preview-content">
+
+<div class="preview-name"></div>
+
+<div class="preview-line short"></div>
+
+<div class="preview-title"></div>
+
+<div class="preview-line"></div>
+
+<div class="preview-line"></div>
+
+<div class="preview-title"></div>
+
+<div class="preview-line short"></div>
+
+</div>
+
+</div>
+
 <strong>Professional</strong>
+
 <span>Бокова панель</span>
 
 </div>
 
+
+<!-- MINIMAL -->
 
 <div
 class="template-option"
 data-template="minimal"
 onclick="selectTemplate('minimal')">
 
+<div class="template-preview preview-minimal">
+
+<div class="preview-name"></div>
+
+<div class="preview-line short"></div>
+
+<div class="preview-title"></div>
+
+<div class="preview-line"></div>
+
+<div class="preview-line"></div>
+
+<div class="preview-title"></div>
+
+<div class="preview-line short"></div>
+
+</div>
+
 <strong>Minimal</strong>
+
 <span>Мінімалізм</span>
 
 </div>
 
+
+<!-- TECHNICAL -->
 
 <div
 class="template-option"
 data-template="technical"
 onclick="selectTemplate('technical')">
 
+<div class="template-preview preview-technical">
+
+<div class="preview-name"></div>
+
+<div class="preview-line short"></div>
+
+<div class="preview-title"></div>
+
+<div class="preview-line"></div>
+
+<div class="preview-line"></div>
+
+<div class="preview-title"></div>
+
+<div class="preview-line short"></div>
+
+</div>
+
 <strong>Technical</strong>
+
 <span>Для технічних професій</span>
 
 </div>
 
-</div>
 
 </div>
 
+</div>
 
-<!-- SAVE -->
+
+<!-- =====================================================
+SAVE
+===================================================== -->
 
 <div class="card">
 
@@ -1072,7 +1343,8 @@ onclick="showPage('preview')">
 PREVIEW
 ===================================================== -->
 
-<div id="preview"
+<div
+id="preview"
 class="page">
 
 
@@ -1193,9 +1465,7 @@ class="cv-skills">
 МОВИ
 </h3>
 
-<p
-id="pLanguages">
-</p>
+<p id="pLanguages"></p>
 
 </div>
 
@@ -1209,7 +1479,8 @@ id="pLanguages">
 JOBS
 ===================================================== -->
 
-<div id="jobs"
+<div
+id="jobs"
 class="page">
 
 
@@ -1242,7 +1513,7 @@ JobAI порівняє інформацію з вашого резюме
 
 
 <textarea
-id="job"
+id="jobText"
 placeholder="CNC Operator, Bratislava...">
 </textarea>
 
@@ -1262,6 +1533,7 @@ placeholder="CNC Operator, Bratislava...">
 class="card"
 id="analysisResult">
 
+
 <h2 data-i18n="result">
 🎯 Результат
 </h2>
@@ -1277,7 +1549,9 @@ style="display:none;">
 <div
 class="score"
 id="score">
+
 0%
+
 </div>
 
 
@@ -1669,17 +1943,20 @@ b.classList.remove("active")
 
 
 if(page==="cv"){
-btnCV.classList.add("active");
+document.getElementById("btnCV")
+.classList.add("active");
 }
 
 
 if(page==="preview"){
-btnPreview.classList.add("active");
+document.getElementById("btnPreview")
+.classList.add("active");
 }
 
 
 if(page==="jobs"){
-btnJobs.classList.add("active");
+document.getElementById("btnJobs")
+.classList.add("active");
 }
 
 
@@ -1756,7 +2033,7 @@ currentLanguage==="en"
 </label>
 
 <input
-value="${e.company || ""}"
+value="${escapeHTML(e.company || "")}"
 oninput="
 experiences[${i}].company=this.value;
 updateCV()
@@ -1776,7 +2053,7 @@ currentLanguage==="en"
 </label>
 
 <input
-value="${e.position || ""}"
+value="${escapeHTML(e.position || "")}"
 oninput="
 experiences[${i}].position=this.value;
 updateCV()
@@ -1785,22 +2062,54 @@ updateCV()
 
 <div class="row">
 
+<div>
+
+<label>
+${
+currentLanguage==="sk"
+?"Od"
+:
+currentLanguage==="en"
+?"From"
+:
+"Від"
+}
+</label>
+
 <input
 placeholder="2022"
-value="${e.start || ""}"
+value="${escapeHTML(e.start || "")}"
 oninput="
 experiences[${i}].start=this.value;
 updateCV()
 ">
 
+</div>
+
+
+<div>
+
+<label>
+${
+currentLanguage==="sk"
+?"Do"
+:
+currentLanguage==="en"
+?"To"
+:
+"До"
+}
+</label>
 
 <input
 placeholder="2025"
-value="${e.end || ""}"
+value="${escapeHTML(e.end || "")}"
 oninput="
 experiences[${i}].end=this.value;
 updateCV()
 ">
+
+</div>
 
 </div>
 
@@ -1818,7 +2127,7 @@ currentLanguage==="en"
 oninput="
 experiences[${i}].description=this.value;
 updateCV()
-">${e.description || ""}</textarea>
+">${escapeHTML(e.description || "")}</textarea>
 
 
 <button
@@ -1830,7 +2139,7 @@ updateCV();
 saveResumeData(false);
 ">
 
-🗑️
+🗑️ Видалити
 
 </button>
 
@@ -1893,7 +2202,20 @@ box.innerHTML+=`
 <div class="experience">
 
 
+<label>
+${
+currentLanguage==="sk"
+?"Škola"
+:
+currentLanguage==="en"
+?"School"
+:
+"Навчальний заклад"
+}
+</label>
+
 <input
+
 placeholder="${
 currentLanguage==="sk"
 ?"Škola"
@@ -1903,14 +2225,29 @@ currentLanguage==="en"
 :
 "Навчальний заклад"
 }"
-value="${e.school || ""}"
+
+value="${escapeHTML(e.school || "")}"
+
 oninput="
 educations[${i}].school=this.value;
 updateCV()
 ">
 
 
+<label>
+${
+currentLanguage==="sk"
+?"Odbor"
+:
+currentLanguage==="en"
+?"Field of study"
+:
+"Спеціальність"
+}
+</label>
+
 <input
+
 placeholder="${
 currentLanguage==="sk"
 ?"Odbor"
@@ -1920,14 +2257,29 @@ currentLanguage==="en"
 :
 "Спеціальність"
 }"
-value="${e.speciality || ""}"
+
+value="${escapeHTML(e.speciality || "")}"
+
 oninput="
 educations[${i}].speciality=this.value;
 updateCV()
 ">
 
 
+<label>
+${
+currentLanguage==="sk"
+?"Rok"
+:
+currentLanguage==="en"
+?"Year"
+:
+"Рік"
+}
+</label>
+
 <input
+
 placeholder="${
 currentLanguage==="sk"
 ?"Rok"
@@ -1937,7 +2289,9 @@ currentLanguage==="en"
 :
 "Рік"
 }"
-value="${e.year || ""}"
+
+value="${escapeHTML(e.year || "")}"
+
 oninput="
 educations[${i}].year=this.value;
 updateCV()
@@ -1953,7 +2307,7 @@ updateCV();
 saveResumeData(false);
 ">
 
-🗑️
+🗑️ Видалити
 
 </button>
 
@@ -1962,6 +2316,22 @@ saveResumeData(false);
 `;
 
 });
+
+}
+
+
+/* =====================================================
+ESCAPE HTML
+===================================================== */
+
+function escapeHTML(value){
+
+return String(value || "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
 
 }
 
@@ -2081,24 +2451,25 @@ experiences.map(e=>`
 <div class="cv-experience">
 
 <strong>
-${e.position || ""}
+${escapeHTML(e.position || "")}
 </strong>
 
 <br>
 
 <b>
-${e.company || ""}
+${escapeHTML(e.company || "")}
 </b>
 
 <div>
 
-${e.start || ""}
-${e.end ? " — "+e.end : ""}
+${escapeHTML(e.start || "")}
+
+${e.end ? " — "+escapeHTML(e.end) : ""}
 
 </div>
 
 <p>
-${e.description || ""}
+${escapeHTML(e.description || "")}
 </p>
 
 </div>
@@ -2117,15 +2488,15 @@ educations.map(e=>`
 <div class="cv-experience">
 
 <strong>
-${e.speciality || ""}
+${escapeHTML(e.speciality || "")}
 </strong>
 
 <br>
 
-${e.school || ""}
+${escapeHTML(e.school || "")}
 
 <div>
-${e.year || ""}
+${escapeHTML(e.year || "")}
 </div>
 
 </div>
@@ -2147,7 +2518,7 @@ document.getElementById(
 ).innerHTML=
 
 skillList.map(skill=>
-`<span class="skill">${skill}</span>`
+`<span class="skill">${escapeHTML(skill)}</span>`
 ).join("");
 
 
@@ -2226,12 +2597,20 @@ currentTemplate
 
 
 /* =====================================================
-OLD SAVE COMPATIBILITY
+SAVE COMPATIBILITY
 ===================================================== */
 
 function saveResume(){
 
+if(typeof saveResumeData==="function"){
+
 saveResumeData(true);
+
+}else{
+
+alert("Помилка: resume.js не завантажився.");
+
+}
 
 }
 
@@ -2240,14 +2619,22 @@ saveResumeData(true);
 START
 ===================================================== */
 
+document.addEventListener(
+"DOMContentLoaded",
+function(){
+
 setLanguage(currentLanguage);
 
 selectTemplate(currentTemplate);
 
+if(typeof loadResume==="function"){
 loadResume();
+}
 
 updateCV();
 
+}
+);
 
 </script>
 
