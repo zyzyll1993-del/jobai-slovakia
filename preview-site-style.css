@@ -1,0 +1,72 @@
+/* JobAI Slovakia — Preview visual theme aligned with the main dark site */
+#preview{
+  background:#0f172a !important;
+  color:#e5e7eb !important;
+  min-height:calc(100vh - 70px);
+  padding:24px 0 40px;
+}
+#preview .jobai-preview-controls{
+  max-width:1250px !important;
+  margin:0 auto 20px !important;
+  padding:18px 20px !important;
+  background:#111827 !important;
+  border:1px solid #334155 !important;
+  border-radius:12px !important;
+  box-shadow:0 8px 24px rgba(0,0,0,.22) !important;
+  color:#e5e7eb !important;
+}
+#preview .jobai-preview-title,
+#preview .jobai-preview-label,
+#preview .jobai-setting-title,
+#preview .jobai-preview-settings label{
+  color:#94a3b8 !important;
+}
+#preview .jobai-preview-subtitle{color:#fff !important}
+#preview .jobai-preview-status{
+  color:#86efac !important;
+  background:#13251d !important;
+  border-color:#28563e !important;
+}
+#preview .template-button,
+#preview .jobai-font-option,
+#preview .jobai-font-number{
+  background:#1e293b !important;
+  border-color:#475569 !important;
+  color:#e5e7eb !important;
+}
+#preview .template-button:hover,
+#preview .jobai-font-option:hover{
+  background:#263449 !important;
+  border-color:#64748b !important;
+}
+#preview .template-button.selected,
+#preview .jobai-font-option.selected{
+  background:#172d45 !important;
+  border-color:#60a5fa !important;
+  color:#93c5fd !important;
+  box-shadow:0 0 0 2px rgba(96,165,250,.12) !important;
+}
+#preview .jobai-preview-row,
+#preview .jobai-preview-settings{border-top-color:#334155 !important}
+#preview .jobai-number-wrap span{color:#64748b !important}
+#preview .color-button{box-shadow:0 0 0 1px #64748b !important}
+#preview .color-button.selected{box-shadow:0 0 0 2px #60a5fa,0 0 0 4px #111827 !important}
+#preview .preview-wrapper{
+  max-width:1250px !important;
+  margin:0 auto !important;
+  padding:0 20px 30px !important;
+}
+#preview .a4-page{
+  box-shadow:0 14px 40px rgba(0,0,0,.45) !important;
+}
+@media(max-width:760px){
+  #preview{padding-top:14px !important}
+  #preview .jobai-preview-controls{margin:0 10px 14px !important}
+  #preview .preview-wrapper{padding:0 10px 20px !important}
+}
+@media print{
+  #preview{background:#fff !important;padding:0 !important}
+  #preview .jobai-preview-controls{display:none !important}
+  #preview .preview-wrapper{padding:0 !important}
+  #preview .a4-page{box-shadow:none !important}
+}
