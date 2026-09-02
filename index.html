@@ -3,766 +3,966 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
-    <title>JobAI Slovakia</title>
+<title>JobAI Slovakia</title>
 
-    <style>
+<style>
 
-        * {
-            box-sizing: border-box;
-        }
+/* =========================
+   BASE
+========================= */
 
-        html {
-            scroll-behavior: smooth;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #e9edf2;
-            color: #1f2937;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
+body {
+    margin: 0;
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
 
-        /* SIDE BACKGROUNDS */
+    color: #172033;
 
-        .side-panel {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            width: 18%;
-            background-size: cover;
-            background-position: center;
-            z-index: -2;
-        }
+    background:
+        #eef1f5;
+}
 
-        .side-panel.left {
-            left: 0;
 
-            background-image:
-                url("https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=80");
-        }
+/* =========================
+   APP
+========================= */
 
-        .side-panel.right {
-            right: 0;
+.app {
+    width: min(1180px, 100%);
+    margin: 0 auto;
 
-            background-image:
-                url("https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=900&q=80");
-        }
+    min-height: 100vh;
 
-        .side-panel::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(255,255,255,0.72);
-        }
+    background: #ffffff;
 
+    box-shadow:
+        0 0 50px rgba(15, 23, 42, 0.10);
+}
 
-        /* MAIN APP */
 
-        .app {
-            width: 64%;
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            min-height: 100vh;
-            box-shadow: 0 0 30px rgba(0,0,0,0.15);
-        }
+/* =========================
+   MODERN COVER
+========================= */
 
+header {
+    position: relative;
 
-        /* HEADER */
+    min-height: 390px;
 
-        header {
-            position: relative;
+    display: flex;
+    flex-direction: column;
 
-            background:
-                linear-gradient(
-                    rgba(0,0,0,0.68),
-                    rgba(0,0,0,0.68)
-                ),
-                url("https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1600&q=80");
+    justify-content: center;
+    align-items: center;
 
-            background-size: cover;
-            background-position: center;
+    text-align: center;
 
-            color: white;
+    padding: 80px 30px 70px;
 
-            padding: 70px 30px;
+    color: white;
 
-            text-align: center;
-        }
+    overflow: hidden;
 
-        .logo {
-            font-size: 42px;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(59,130,246,0.28),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(14,165,233,0.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #0b1220,
+            #111827 55%,
+            #172554
+        );
+}
 
-        .logo span {
-            color: #60a5fa;
-        }
 
-        .hero-text {
-            max-width: 750px;
-            margin: 20px auto 0;
-            font-size: 20px;
-            line-height: 1.6;
-        }
+/* technical grid */
 
+header::before {
+    content: "";
 
-        /* LANGUAGE FLAG */
+    position: absolute;
 
-        .language-box {
-            position: absolute;
+    inset: 0;
 
-            top: 18px;
-            right: 20px;
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.045) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.045) 1px,
+            transparent 1px
+        );
 
-            z-index: 50;
-        }
+    background-size: 34px 34px;
 
-        #languageSelect {
-            width: 58px;
-            height: 44px;
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent
+        );
+}
 
-            padding: 3px;
 
-            font-size: 25px;
+/* decorative line */
 
-            border-radius: 10px;
+header::after {
+    content: "";
 
-            border: 1px solid
-                rgba(255,255,255,0.4);
+    position: absolute;
 
-            background:
-                rgba(0,0,0,0.45);
+    width: 420px;
+    height: 420px;
 
-            color: white;
+    border: 1px solid
+        rgba(96,165,250,0.18);
 
-            cursor: pointer;
+    border-radius: 50%;
 
-            text-align: center;
+    right: -180px;
+    bottom: -220px;
+}
 
-            backdrop-filter: blur(8px);
 
-            -webkit-backdrop-filter: blur(8px);
-        }
+/* =========================
+   LOGO
+========================= */
 
-        #languageSelect:hover {
-            background:
-                rgba(255,255,255,0.18);
-        }
+.logo {
+    position: relative;
+    z-index: 2;
 
-        #languageSelect option {
-            background: #111827;
-            color: white;
-        }
+    font-size: clamp(38px, 6vw, 64px);
 
+    font-weight: 800;
 
-        /* NAVIGATION */
+    letter-spacing: -2px;
 
-        nav {
-            position: sticky;
-            top: 0;
+    line-height: 1;
+}
 
-            z-index: 100;
+.logo span {
+    color: #60a5fa;
+}
 
-            display: flex;
-            flex-wrap: wrap;
 
-            justify-content: center;
+/* =========================
+   HERO
+========================= */
 
-            gap: 8px;
+.hero-text {
+    position: relative;
+    z-index: 2;
 
-            padding: 12px;
+    max-width: 720px;
 
-            background: #111827;
-        }
+    margin-top: 25px;
 
-        nav button {
-            border: none;
+    font-size: clamp(17px, 2vw, 21px);
 
-            background: #374151;
+    line-height: 1.65;
 
-            color: white;
+    color: #dbeafe;
+}
 
-            padding: 12px 18px;
 
-            border-radius: 8px;
+/* =========================
+   LANGUAGE
+========================= */
 
-            cursor: pointer;
+.language-box {
+    position: absolute;
 
-            font-size: 15px;
-        }
+    top: 20px;
+    right: 22px;
 
-        nav button:hover {
-            background: #4b5563;
-        }
+    z-index: 20;
+}
 
+#languageSelect {
+    width: 54px;
+    height: 42px;
 
-        /* PAGES */
+    padding: 2px;
 
-        .page {
-            display: none;
-            padding: 35px;
-        }
+    border-radius: 10px;
 
-        .page.active {
-            display: block;
-        }
+    border:
+        1px solid
+        rgba(255,255,255,0.20);
 
-        h1 {
-            margin-top: 0;
-            font-size: 32px;
-        }
+    background:
+        rgba(15,23,42,0.75);
 
-        h2 {
-            margin-top: 35px;
-        }
+    color: white;
 
-        .intro {
-            font-size: 18px;
-            line-height: 1.7;
-        }
+    font-size: 23px;
 
+    text-align: center;
 
-        /* PROFESSIONS */
+    cursor: pointer;
 
-        .profession-grid {
-            display: grid;
+    backdrop-filter: blur(12px);
 
-            grid-template-columns:
-                repeat(4, 1fr);
+    -webkit-backdrop-filter: blur(12px);
 
-            gap: 15px;
+    outline: none;
+}
 
-            margin-top: 25px;
-        }
+#languageSelect option {
+    background: #111827;
+    color: white;
+}
 
-        .profession-card {
-            min-height: 150px;
 
-            border-radius: 14px;
+/* =========================
+   NAV
+========================= */
 
-            overflow: hidden;
+nav {
+    position: sticky;
 
-            position: relative;
+    top: 0;
 
-            display: flex;
+    z-index: 100;
 
-            align-items: flex-end;
+    display: flex;
 
-            background-size: cover;
+    justify-content: center;
 
-            background-position: center;
+    flex-wrap: wrap;
 
-            box-shadow:
-                0 5px 15px
-                rgba(0,0,0,0.15);
-        }
+    gap: 6px;
 
-        .profession-card::after {
-            content: "";
+    padding: 10px 14px;
 
-            position: absolute;
+    background:
+        rgba(15,23,42,0.96);
 
-            inset: 0;
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.08);
 
-            background:
-                linear-gradient(
-                    transparent,
-                    rgba(0,0,0,0.8)
-                );
-        }
+    backdrop-filter: blur(10px);
+}
 
-        .profession-card span {
-            position: relative;
+nav button {
+    border: none;
 
-            z-index: 2;
+    background: transparent;
 
-            color: white;
+    color: #cbd5e1;
 
-            font-size: 18px;
+    padding: 11px 17px;
 
-            font-weight: bold;
+    border-radius: 8px;
 
-            padding: 18px;
-        }
+    font-size: 14px;
 
-        .cnc {
-            background-image:
-                url("https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=800&q=80");
-        }
+    font-weight: 600;
 
-        .welder {
-            background-image:
-                url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80");
-        }
+    cursor: pointer;
 
-        .mechanic {
-            background-image:
-                url("https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=800&q=80");
-        }
+    transition:
+        background .2s,
+        color .2s;
+}
 
-        .warehouse {
-            background-image:
-                url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80");
-        }
+nav button:hover {
+    background: #1e293b;
+    color: white;
+}
 
-        .engineer {
-            background-image:
-                url("https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80");
-        }
 
-        .construction {
-            background-image:
-                url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80");
-        }
+/* =========================
+   PAGES
+========================= */
 
-        .it {
-            background-image:
-                url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80");
-        }
+.page {
+    display: none;
 
-        .logistics {
-            background-image:
-                url("https://images.unsplash.com/photo-1586528116493-da8a7f3d8d0b?auto=format&fit=crop&w=800&q=80");
-        }
+    padding:
+        50px clamp(20px, 5vw, 65px);
+}
 
+.page.active {
+    display: block;
+}
 
-        /* HOW IT WORKS */
 
-        .process-grid {
-            display: grid;
+/* =========================
+   TITLES
+========================= */
 
-            grid-template-columns:
-                repeat(4, 1fr);
+h1 {
+    margin: 0 0 15px;
 
-            gap: 15px;
+    font-size:
+        clamp(30px, 4vw, 42px);
 
-            margin-top: 25px;
-        }
+    letter-spacing: -1px;
 
-        .process-card {
-            background: #f3f4f6;
+    color: #0f172a;
+}
 
-            padding: 25px;
+h2 {
+    margin-top: 42px;
 
-            border-radius: 14px;
+    font-size: 25px;
 
-            text-align: center;
+    color: #0f172a;
+}
 
-            min-height: 150px;
-        }
+h3 {
+    color: #172033;
+}
 
-        .process-card h3 {
-            margin-top: 0;
-        }
 
+/* =========================
+   HOME
+========================= */
 
-        /* FORMS */
+.intro {
+    max-width: 760px;
 
-        .form-group {
-            margin-bottom: 18px;
-        }
+    color: #64748b;
 
-        label {
-            display: block;
+    font-size: 18px;
 
-            font-weight: bold;
+    line-height: 1.7;
+}
 
-            margin-bottom: 7px;
-        }
 
-        input,
-        textarea,
-        select {
-            width: 100%;
+/* =========================
+   PROFESSION CARDS
+========================= */
 
-            padding: 13px;
+.profession-grid {
+    display: grid;
 
-            border:
-                1px solid #cbd5e1;
+    grid-template-columns:
+        repeat(4, 1fr);
 
-            border-radius: 8px;
+    gap: 14px;
 
-            font-size: 16px;
-        }
+    margin-top: 25px;
+}
 
-        textarea {
-            min-height: 130px;
+.profession-card {
+    min-height: 125px;
 
-            resize: vertical;
-        }
+    display: flex;
 
+    align-items: flex-end;
 
-        /* BUTTONS */
+    padding: 20px;
 
-        .primary {
-            display: inline-block;
+    border:
+        1px solid #e2e8f0;
 
-            border: none;
+    border-radius: 14px;
 
-            background: #2563eb;
+    background:
+        linear-gradient(
+            145deg,
+            #f8fafc,
+            #eef2f7
+        );
 
-            color: white;
+    transition:
+        transform .2s,
+        box-shadow .2s,
+        border .2s;
+}
 
-            padding: 13px 22px;
+.profession-card:hover {
+    transform:
+        translateY(-3px);
 
-            border-radius: 8px;
+    border-color:
+        #bfdbfe;
 
-            cursor: pointer;
+    box-shadow:
+        0 12px 30px
+        rgba(15,23,42,0.08);
+}
 
-            font-size: 16px;
+.profession-card span {
+    font-weight: 700;
 
-            text-decoration: none;
-        }
+    color: #1e293b;
+}
 
-        .primary:hover {
-            background: #1d4ed8;
-        }
 
-        .secondary {
-            display: inline-block;
+/* =========================
+   PROCESS
+========================= */
 
-            border: none;
+.process-grid {
+    display: grid;
 
-            background: #64748b;
+    grid-template-columns:
+        repeat(4, 1fr);
 
-            color: white;
+    gap: 14px;
 
-            padding: 13px 22px;
+    margin-top: 25px;
+}
 
-            border-radius: 8px;
+.process-card {
+    padding: 24px;
 
-            cursor: pointer;
+    min-height: 160px;
 
-            font-size: 16px;
-        }
+    border:
+        1px solid #e2e8f0;
 
-        .danger {
-            background: #dc2626;
-        }
+    border-radius: 14px;
 
-        .button-row {
-            display: flex;
+    background: #ffffff;
 
-            flex-wrap: wrap;
+    box-shadow:
+        0 5px 20px
+        rgba(15,23,42,0.04);
+}
 
-            gap: 10px;
+.process-card h3 {
+    margin-top: 0;
 
-            margin-top: 15px;
-        }
+    font-size: 18px;
+}
 
+.process-card p {
+    color: #64748b;
 
-        /* RESUME */
+    line-height: 1.6;
+}
 
-        .resume-preview {
-            max-width: 800px;
 
-            margin: auto;
+/* =========================
+   FORMS
+========================= */
 
-            background: white;
+.form-group {
+    margin-bottom: 20px;
+}
 
-            border:
-                1px solid #d1d5db;
+label {
+    display: block;
 
-            padding: 40px;
+    margin-bottom: 7px;
 
-            min-height: 900px;
-        }
+    font-size: 14px;
 
-        .resume-photo {
-            width: 140px;
-            height: 140px;
+    font-weight: 700;
 
-            object-fit: cover;
+    color: #334155;
+}
 
-            border-radius: 10px;
+input,
+textarea {
+    width: 100%;
 
-            border:
-                1px solid #d1d5db;
-        }
+    padding: 13px 14px;
 
-        .preview-header {
-            display: flex;
+    border:
+        1px solid #cbd5e1;
 
-            gap: 25px;
+    border-radius: 9px;
 
-            align-items: flex-start;
+    background: white;
 
-            border-bottom:
-                2px solid #111827;
+    color: #172033;
 
-            padding-bottom: 20px;
-        }
+    font-size: 16px;
 
-        .preview-name {
-            font-size: 30px;
+    outline: none;
 
-            font-weight: bold;
-        }
+    transition:
+        border .2s,
+        box-shadow .2s;
+}
 
-        .preview-position {
-            font-size: 20px;
+input:focus,
+textarea:focus {
+    border-color: #3b82f6;
 
-            color: #475569;
+    box-shadow:
+        0 0 0 3px
+        rgba(59,130,246,0.10);
+}
 
-            margin-top: 8px;
-        }
+textarea {
+    min-height: 130px;
 
-        .preview-section {
-            margin-top: 25px;
-        }
+    resize: vertical;
+}
 
-        .preview-section h3 {
-            border-bottom:
-                1px solid #cbd5e1;
 
-            padding-bottom: 7px;
-        }
+/* =========================
+   BUTTONS
+========================= */
 
+.primary,
+.secondary {
+    display: inline-flex;
 
-        /* ANALYSIS */
+    align-items: center;
 
-        .analysis-box {
-            margin-top: 25px;
+    justify-content: center;
 
-            padding: 25px;
+    border: none;
 
-            background: #f8fafc;
+    border-radius: 9px;
 
-            border-radius: 12px;
+    padding: 12px 20px;
 
-            border:
-                1px solid #cbd5e1;
-        }
+    font-size: 15px;
 
-        .score {
-            font-size: 48px;
+    font-weight: 700;
 
-            font-weight: bold;
+    cursor: pointer;
 
-            text-align: center;
+    text-decoration: none;
 
-            margin: 20px 0;
-        }
+    transition:
+        transform .15s,
+        box-shadow .2s,
+        background .2s;
+}
 
-        .progress {
-            height: 20px;
+.primary {
+    background: #2563eb;
 
-            background: #e5e7eb;
+    color: white;
 
-            border-radius: 20px;
+    box-shadow:
+        0 5px 15px
+        rgba(37,99,235,0.18);
+}
 
-            overflow: hidden;
-        }
+.primary:hover {
+    background: #1d4ed8;
 
-        .progress-bar {
-            height: 100%;
+    transform:
+        translateY(-1px);
+}
 
-            width: 0;
+.secondary {
+    background: #e2e8f0;
 
-            background: #2563eb;
+    color: #334155;
+}
 
-            transition:
-                width 0.5s;
-        }
+.secondary:hover {
+    background: #cbd5e1;
+}
 
+.danger {
+    background: #fee2e2;
 
-        /* JOB SEARCH */
+    color: #b91c1c;
+}
 
-        .job-source-grid {
-            display: grid;
+.danger:hover {
+    background: #fecaca;
+}
 
-            grid-template-columns:
-                repeat(2, 1fr);
+.button-row {
+    display: flex;
 
-            gap: 18px;
+    flex-wrap: wrap;
 
-            margin-top: 25px;
-        }
+    gap: 10px;
 
-        .job-source-card {
-            background: #f8fafc;
+    margin-top: 18px;
+}
 
-            border:
-                1px solid #cbd5e1;
 
-            border-radius: 14px;
+/* =========================
+   RESUME
+========================= */
 
-            padding: 25px;
-        }
+.resume-preview {
+    max-width: 820px;
 
-        .job-source-card h3 {
-            margin-top: 0;
+    margin: auto;
 
-            font-size: 22px;
-        }
+    padding: 45px;
 
-        .source-button {
-            margin-top: 10px;
-        }
+    min-height: 900px;
 
+    background: white;
 
-        /* EXPERIENCE / EDUCATION */
+    border:
+        1px solid #e2e8f0;
 
-        .experience-item,
-        .education-item {
-            border:
-                1px solid #d1d5db;
+    border-radius: 14px;
 
-            padding: 18px;
+    box-shadow:
+        0 15px 40px
+        rgba(15,23,42,0.06);
+}
 
-            border-radius: 10px;
+.preview-header {
+    display: flex;
 
-            margin-bottom: 15px;
+    gap: 25px;
 
-            background: #f8fafc;
-        }
+    align-items: flex-start;
 
+    padding-bottom: 22px;
 
-        /* FOOTER */
+    border-bottom:
+        2px solid #0f172a;
+}
 
-        footer {
-            background: #111827;
+.resume-photo {
+    width: 140px;
+    height: 140px;
 
-            color: white;
+    object-fit: cover;
 
-            text-align: center;
+    border-radius: 10px;
 
-            padding: 30px;
-        }
+    border:
+        1px solid #cbd5e1;
+}
 
+.preview-name {
+    font-size: 31px;
 
-        /* TABLET */
+    font-weight: 800;
 
-        @media (max-width: 1000px) {
+    color: #0f172a;
+}
 
-            .side-panel {
-                display: none;
-            }
+.preview-position {
+    margin-top: 7px;
 
-            .app {
-                width: 100%;
-            }
+    font-size: 20px;
 
-            .profession-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
+    color: #64748b;
+}
 
-            .process-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
+.preview-section {
+    margin-top: 28px;
+}
 
-        }
+.preview-section h3 {
+    padding-bottom: 7px;
 
+    border-bottom:
+        1px solid #e2e8f0;
+}
 
-        /* PHONE */
 
-        @media (max-width: 600px) {
+/* =========================
+   EXPERIENCE
+========================= */
 
-            header {
-                padding:
-                    55px 20px 45px;
-            }
+.experience-item,
+.education-item {
+    margin-bottom: 15px;
 
-            .logo {
-                font-size: 32px;
-            }
+    padding: 18px;
 
-            .hero-text {
-                font-size: 17px;
-            }
+    border:
+        1px solid #e2e8f0;
 
-            .language-box {
-                top: 12px;
-                right: 12px;
-            }
+    border-radius: 10px;
 
-            #languageSelect {
-                width: 52px;
-                height: 40px;
-                font-size: 22px;
-            }
+    background: #f8fafc;
+}
 
-            .page {
-                padding:
-                    22px 15px;
-            }
 
-            .profession-grid,
-            .process-grid,
-            .job-source-grid {
-                grid-template-columns: 1fr;
-            }
+/* =========================
+   ANALYSIS
+========================= */
 
-            nav button {
-                flex:
-                    1 1 45%;
-            }
+.analysis-box {
+    margin-top: 25px;
 
-            .preview-header {
-                flex-direction: column;
-            }
+    padding: 28px;
 
-            .resume-preview {
-                padding: 20px;
-            }
+    border:
+        1px solid #e2e8f0;
 
-        }
+    border-radius: 14px;
 
+    background: #f8fafc;
+}
 
-        /* PRINT */
+.score {
+    margin: 20px 0;
 
-        @media print {
+    text-align: center;
 
-            body {
-                background: white;
-            }
+    font-size: 52px;
 
-            .side-panel,
-            header,
-            nav,
-            footer,
-            .no-print {
-                display: none !important;
-            }
+    font-weight: 800;
 
-            .app {
-                width: 100%;
+    color: #2563eb;
+}
 
-                box-shadow: none;
-            }
+.progress {
+    height: 12px;
 
-            .page {
-                display: none !important;
-            }
+    overflow: hidden;
 
-            #previewPage {
-                display: block !important;
+    border-radius: 20px;
 
-                padding: 0;
-            }
+    background: #e2e8f0;
+}
 
-            .resume-preview {
-                border: none;
+.progress-bar {
+    height: 100%;
 
-                box-shadow: none;
+    width: 0;
 
-                width: 100%;
-            }
+    background: #2563eb;
 
-        }
+    transition:
+        width .5s;
+}
 
-    </style>
+
+/* =========================
+   JOB SEARCH
+========================= */
+
+.job-source-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 16px;
+
+    margin-top: 28px;
+}
+
+.job-source-card {
+    padding: 24px;
+
+    border:
+        1px solid #e2e8f0;
+
+    border-radius: 14px;
+
+    background: white;
+
+    box-shadow:
+        0 6px 20px
+        rgba(15,23,42,0.04);
+}
+
+.job-source-card h3 {
+    margin-top: 0;
+
+    font-size: 20px;
+}
+
+.job-source-card p {
+    color: #64748b;
+
+    line-height: 1.6;
+}
+
+.source-button {
+    margin-top: 10px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 35px;
+
+    text-align: center;
+
+    background: #0f172a;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    .profession-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .process-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    header {
+        min-height: 330px;
+
+        padding:
+            75px 20px 55px;
+    }
+
+    .logo {
+        letter-spacing: -1px;
+    }
+
+    .hero-text {
+        font-size: 16px;
+    }
+
+    .language-box {
+        top: 14px;
+        right: 14px;
+    }
+
+    #languageSelect {
+        width: 50px;
+        height: 39px;
+        font-size: 21px;
+    }
+
+    nav {
+        padding: 8px;
+    }
+
+    nav button {
+        flex:
+            1 1 45%;
+
+        font-size: 13px;
+
+        padding:
+            10px 8px;
+    }
+
+    .page {
+        padding:
+            35px 16px;
+    }
+
+    .profession-grid,
+    .process-grid,
+    .job-source-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .resume-preview {
+        padding: 22px;
+
+        border-radius: 10px;
+    }
+
+    .preview-header {
+        flex-direction: column;
+    }
+
+    .button-row {
+        flex-direction: column;
+    }
+
+    .button-row button,
+    .button-row .secondary,
+    .button-row .primary {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================
+   PRINT
+========================= */
+
+@media print {
+
+    body {
+        background: white;
+    }
+
+    header,
+    nav,
+    footer,
+    .no-print {
+        display: none !important;
+    }
+
+    .app {
+        width: 100%;
+
+        box-shadow: none;
+    }
+
+    .page {
+        display: none !important;
+    }
+
+    #previewPage {
+        display: block !important;
+
+        padding: 0;
+    }
+
+    .resume-preview {
+        border: none;
+
+        box-shadow: none;
+
+        width: 100%;
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -770,741 +970,532 @@
 <body>
 
 
-<div class="side-panel left"></div>
-
-<div class="side-panel right"></div>
-
-
 <div class="app">
 
 
-    <!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
 
-    <header>
+<header>
 
-        <div class="language-box">
 
-            <select
-                id="languageSelect"
-                aria-label="Language">
+    <div class="language-box">
 
-                <option value="uk">🇺🇦</option>
+        <select
+            id="languageSelect"
+            aria-label="Language">
 
-                <option value="sk">🇸🇰</option>
+            <option value="uk">🇺🇦</option>
 
-                <option value="en">🇬🇧</option>
+            <option value="sk">🇸🇰</option>
 
-            </select>
+            <option value="en">🇬🇧</option>
+
+        </select>
+
+    </div>
+
+
+    <div class="logo">
+
+        JobAI
+        <span>Slovakia</span>
+
+    </div>
+
+
+    <div
+        class="hero-text"
+        id="heroText">
+
+        Створюйте професійне резюме,
+        аналізуйте вакансії та знаходьте
+        роботу у Словаччині.
+
+    </div>
+
+
+</header>
+
+
+<!-- =========================
+     NAV
+========================= -->
+
+<nav>
+
+    <button
+        onclick="showPage('homePage')"
+        data-i18n="navHome">
+
+        Головна
+
+    </button>
+
+
+    <button
+        onclick="showPage('resumePage')"
+        data-i18n="navResume">
+
+        Резюме
+
+    </button>
+
+
+    <button
+        onclick="showPage('previewPage')"
+        data-i18n="navPreview">
+
+        Перегляд резюме
+
+    </button>
+
+
+    <button
+        onclick="showPage('analysisPage')"
+        data-i18n="navAnalysis">
+
+        Аналіз вакансії
+
+    </button>
+
+
+    <button
+        onclick="showPage('jobsPage')"
+        data-i18n="navJobs">
+
+        Вакансії
+
+    </button>
+
+</nav>
+
+
+<!-- =========================
+     HOME
+========================= -->
+
+<section
+    id="homePage"
+    class="page active">
+
+
+    <h1 data-i18n="homeTitle">
+        JobAI Slovakia
+    </h1>
+
+
+    <p
+        class="intro"
+        data-i18n="homeDescription">
+
+        Простий інструмент для створення
+        резюме, аналізу вакансій та пошуку
+        роботи у Словаччині.
+
+    </p>
+
+
+    <h2 data-i18n="popularTitle">
+        Популярні професії
+    </h2>
+
+
+    <div class="profession-grid">
+
+
+        <div class="profession-card">
+            <span data-i18n="cnc">
+                CNC оператор
+            </span>
+        </div>
+
+
+        <div class="profession-card">
+            <span data-i18n="welder">
+                Зварювальник
+            </span>
+        </div>
+
+
+        <div class="profession-card">
+            <span data-i18n="mechanic">
+                Автомеханік
+            </span>
+        </div>
+
+
+        <div class="profession-card">
+            <span data-i18n="warehouse">
+                Працівник складу
+            </span>
+        </div>
+
+
+        <div class="profession-card">
+            <span data-i18n="engineer">
+                Інженер
+            </span>
+        </div>
+
+
+        <div class="profession-card">
+            <span data-i18n="construction">
+                Будівельник
+            </span>
+        </div>
+
+
+        <div class="profession-card">
+            <span data-i18n="it">
+                IT спеціаліст
+            </span>
+        </div>
+
+
+        <div class="profession-card">
+            <span data-i18n="logistics">
+                Логіст
+            </span>
+        </div>
+
+
+    </div>
+
+
+    <h2 data-i18n="howTitle">
+        Як це працює?
+    </h2>
+
+
+    <div class="process-grid">
+
+
+        <div class="process-card">
+
+            <h3 data-i18n="process1Title">
+                Створити резюме
+            </h3>
+
+            <p data-i18n="process1Text">
+                Заповніть інформацію про себе,
+                досвід та навички.
+            </p>
 
         </div>
 
 
-        <div class="logo">
+        <div class="process-card">
 
-            JobAI
-            <span>Slovakia</span>
+            <h3 data-i18n="process2Title">
+                Вставити вакансію
+            </h3>
+
+            <p data-i18n="process2Text">
+                Додайте текст вакансії,
+                яку ви хочете проаналізувати.
+            </p>
+
+        </div>
+
+
+        <div class="process-card">
+
+            <h3 data-i18n="process3Title">
+                Проаналізувати
+            </h3>
+
+            <p data-i18n="process3Text">
+                JobAI порівняє вимоги вакансії
+                з вашим резюме.
+            </p>
 
         </div>
 
 
-        <div
-            class="hero-text"
-            id="heroText">
-
-            Створюйте професійне резюме,
-            аналізуйте вакансії та знаходьте
-            роботу у Словаччині.
-
-        </div>
-
-    </header>
-
-
-    <!-- NAVIGATION -->
-
-    <nav>
-
-        <button
-            onclick="showPage('homePage')">
-
-            Головна
-
-        </button>
-
-
-        <button
-            onclick="showPage('resumePage')">
-
-            Резюме
-
-        </button>
-
-
-        <button
-            onclick="showPage('previewPage')">
-
-            Перегляд резюме
-
-        </button>
-
-
-        <button
-            onclick="showPage('analysisPage')">
-
-            Аналіз вакансії
-
-        </button>
-
-
-        <button
-            onclick="showPage('jobsPage')">
-
-            Вакансії
-
-        </button>
-
-    </nav>
-
-
-    <!-- HOME -->
-
-    <section
-        id="homePage"
-        class="page active">
-
-        <h1 id="homeTitle">
-
-            JobAI Slovakia
-
-        </h1>
-
-
-        <p
-            class="intro"
-            id="homeDescription">
-
-            Простий інструмент для створення
-            резюме, аналізу вакансій та пошуку
-            роботи у Словаччині.
-
-        </p>
-
-
-        <h2 id="popularTitle">
-
-            Популярні професії
-
-        </h2>
-
-
-        <div class="profession-grid">
-
-
-            <div class="profession-card cnc">
-
-                <span>
-                    CNC оператор
-                </span>
-
-            </div>
-
-
-            <div class="profession-card welder">
-
-                <span>
-                    Зварювальник
-                </span>
-
-            </div>
-
-
-            <div class="profession-card mechanic">
-
-                <span>
-                    Автомеханік
-                </span>
-
-            </div>
-
-
-            <div class="profession-card warehouse">
-
-                <span>
-                    Працівник складу
-                </span>
-
-            </div>
-
-
-            <div class="profession-card engineer">
-
-                <span>
-                    Інженер
-                </span>
-
-            </div>
-
-
-            <div class="profession-card construction">
-
-                <span>
-                    Будівельник
-                </span>
-
-            </div>
-
-
-            <div class="profession-card it">
-
-                <span>
-                    IT спеціаліст
-                </span>
-
-            </div>
-
-
-            <div class="profession-card logistics">
-
-                <span>
-                    Логіст
-                </span>
-
-            </div>
-
+        <div class="process-card">
+
+            <h3 data-i18n="process4Title">
+                Знайти роботу
+            </h3>
+
+            <p data-i18n="process4Text">
+                Шукайте актуальні вакансії
+                у Словаччині.
+            </p>
 
         </div>
 
 
-        <h2 id="howTitle">
+    </div>
 
-            Як це працює?
+</section>
 
-        </h2>
 
+<!-- =========================
+     RESUME
+========================= -->
 
-        <div class="process-grid">
+<section
+    id="resumePage"
+    class="page">
 
 
-            <div class="process-card">
+    <h1 data-i18n="resumeTitle">
+        Резюме
+    </h1>
 
-                <h3>
-                    Створити резюме
-                </h3>
 
-                <p>
-                    Заповніть інформацію про себе,
-                    досвід та навички.
-                </p>
+    <div class="form-group">
 
-            </div>
+        <label data-i18n="nameLabel">
+            Ім'я та прізвище
+        </label>
 
+        <input id="name">
 
-            <div class="process-card">
+    </div>
 
-                <h3>
-                    Вставити вакансію
-                </h3>
 
-                <p>
-                    Додайте текст вакансії,
-                    яку ви хочете проаналізувати.
-                </p>
+    <div class="form-group">
 
-            </div>
+        <label data-i18n="positionLabel">
+            Бажана професія
+        </label>
 
+        <input id="position">
 
-            <div class="process-card">
+    </div>
 
-                <h3>
-                    Проаналізувати
-                </h3>
 
-                <p>
-                    JobAI порівняє вимоги вакансії
-                    з вашим резюме.
-                </p>
+    <div class="form-group">
 
-            </div>
+        <label data-i18n="phoneLabel">
+            Телефон
+        </label>
 
+        <input id="phone">
 
-            <div class="process-card">
+    </div>
 
-                <h3>
-                    Знайти роботу
-                </h3>
 
-                <p>
-                    Шукайте актуальні вакансії
-                    у Словаччині.
-                </p>
+    <div class="form-group">
 
-            </div>
+        <label data-i18n="emailLabel">
+            Email
+        </label>
 
+        <input id="email">
 
-        </div>
+    </div>
 
-    </section>
 
+    <div class="form-group">
 
-    <!-- RESUME -->
+        <label data-i18n="cityLabel">
+            Місто
+        </label>
 
-    <section
-        id="resumePage"
-        class="page">
+        <input id="city">
 
-        <h1>
-            Резюме
-        </h1>
+    </div>
 
 
-        <div class="form-group">
+    <div class="form-group">
 
-            <label>
-                Ім'я та прізвище
-            </label>
+        <label data-i18n="profileLabel">
+            Професійний профіль
+        </label>
 
-            <input
-                id="name"
-                type="text">
+        <textarea id="profile"></textarea>
 
-        </div>
+    </div>
 
 
-        <div class="form-group">
+    <h2 data-i18n="experienceTitle">
+        Досвід роботи
+    </h2>
 
-            <label>
-                Бажана професія
-            </label>
 
-            <input
-                id="position"
-                type="text">
+    <div id="experienceList"></div>
 
-        </div>
 
+    <button
+        class="secondary"
+        onclick="addExperience()"
+        data-i18n="addExperience">
 
-        <div class="form-group">
+        Додати досвід
 
-            <label>
-                Телефон
-            </label>
+    </button>
 
-            <input
-                id="phone"
-                type="text">
 
-        </div>
+    <h2 data-i18n="educationTitle">
+        Освіта
+    </h2>
 
 
-        <div class="form-group">
+    <div id="educationList"></div>
 
-            <label>
-                Email
-            </label>
 
-            <input
-                id="email"
-                type="email">
+    <button
+        class="secondary"
+        onclick="addEducation()"
+        data-i18n="addEducation">
 
-        </div>
+        Додати освіту
 
+    </button>
 
-        <div class="form-group">
 
-            <label>
-                Місто
-            </label>
+    <h2 data-i18n="skillsTitle">
+        Навички
+    </h2>
 
-            <input
-                id="city"
-                type="text">
 
-        </div>
+    <div class="form-group">
 
+        <textarea
+            id="skills"
+            data-i18n-placeholder="skillsPlaceholder"
+            placeholder="Наприклад: CNC, Fanuc, Siemens, AutoCAD">
+        </textarea>
 
-        <div class="form-group">
+    </div>
 
-            <label>
-                Професійний профіль
-            </label>
 
-            <textarea
-                id="profile">
-            </textarea>
+    <h2 data-i18n="languagesTitle">
+        Мови
+    </h2>
 
-        </div>
 
+    <div class="form-group">
 
-        <h2>
-            Досвід роботи
-        </h2>
+        <textarea
+            id="languages"
+            data-i18n-placeholder="languagesPlaceholder"
+            placeholder="Наприклад: українська — рідна, словацька — B1">
+        </textarea>
 
+    </div>
 
-        <div
-            id="experienceList">
-        </div>
 
+    <h2 data-i18n="photoTitle">
+        Фото
+    </h2>
 
-        <button
-            class="secondary"
-            onclick="addExperience()">
 
-            Додати досвід
+    <div class="form-group">
 
-        </button>
+        <input
+            type="file"
+            id="photoInput"
+            accept="image/*"
+            onchange="handlePhotoUpload(event)">
 
+    </div>
 
-        <h2>
-            Освіта
-        </h2>
 
+    <div id="photoPreview"></div>
 
-        <div
-            id="educationList">
-        </div>
 
-
-        <button
-            class="secondary"
-            onclick="addEducation()">
-
-            Додати освіту
-
-        </button>
-
-
-        <h2>
-            Навички
-        </h2>
-
-
-        <div class="form-group">
-
-            <textarea
-                id="skills"
-                placeholder="Наприклад: CNC, Fanuc, Siemens, AutoCAD">
-            </textarea>
-
-        </div>
-
-
-        <h2>
-            Мови
-        </h2>
-
-
-        <div class="form-group">
-
-            <textarea
-                id="languages"
-                placeholder="Наприклад: українська — рідна, словацька — B1">
-            </textarea>
-
-        </div>
-
-
-        <h2>
-            Фото
-        </h2>
-
-
-        <div class="form-group">
-
-            <input
-                type="file"
-                id="photoInput"
-                accept="image/*"
-                onchange="handlePhotoUpload(event)">
-
-        </div>
-
-
-        <div id="photoPreview"></div>
-
-
-        <div class="button-row">
-
-
-            <button
-                class="primary"
-                onclick="saveResumeData()">
-
-                Зберегти резюме
-
-            </button>
-
-
-            <button
-                class="secondary"
-                onclick="exportResumeJSON()">
-
-                Експорт
-
-            </button>
-
-
-            <label class="secondary">
-
-                Імпорт
-
-                <input
-                    type="file"
-                    accept=".json"
-                    onchange="importResumeJSON(event)"
-                    style="display:none;">
-
-            </label>
-
-
-            <button
-                class="secondary danger"
-                onclick="clearResumeData()">
-
-                Очистити
-
-            </button>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- PREVIEW -->
-
-    <section
-        id="previewPage"
-        class="page">
-
-        <h1 class="no-print">
-
-            Перегляд резюме
-
-        </h1>
-
-
-        <div class="resume-preview">
-
-
-            <div class="preview-header">
-
-
-                <div
-                    id="previewPhotoContainer">
-                </div>
-
-
-                <div>
-
-                    <div
-                        id="previewName"
-                        class="preview-name">
-                    </div>
-
-
-                    <div
-                        id="previewPosition"
-                        class="preview-position">
-                    </div>
-
-
-                    <p
-                        id="previewContact">
-                    </p>
-
-                </div>
-
-
-            </div>
-
-
-            <div class="preview-section">
-
-                <h3>
-                    Профіль
-                </h3>
-
-                <p
-                    id="previewProfile">
-                </p>
-
-            </div>
-
-
-            <div class="preview-section">
-
-                <h3>
-                    Досвід роботи
-                </h3>
-
-                <div
-                    id="previewExperience">
-                </div>
-
-            </div>
-
-
-            <div class="preview-section">
-
-                <h3>
-                    Освіта
-                </h3>
-
-                <div
-                    id="previewEducation">
-                </div>
-
-            </div>
-
-
-            <div class="preview-section">
-
-                <h3>
-                    Навички
-                </h3>
-
-                <p
-                    id="previewSkills">
-                </p>
-
-            </div>
-
-
-            <div class="preview-section">
-
-                <h3>
-                    Мови
-                </h3>
-
-                <p
-                    id="previewLanguages">
-                </p>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="button-row no-print">
-
-            <button
-                class="primary"
-                onclick="window.print()">
-
-                Зберегти як PDF
-
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- ANALYSIS -->
-
-    <section
-        id="analysisPage"
-        class="page">
-
-        <h1>
-            Аналіз вакансії
-        </h1>
-
-
-        <p>
-
-            Вставте текст вакансії нижче.
-            JobAI порівняє її з вашим резюме.
-
-        </p>
-
-
-        <div class="form-group">
-
-            <textarea
-                id="jobText"
-                placeholder="Вставте текст вакансії сюди...">
-            </textarea>
-
-        </div>
+    <div class="button-row">
 
 
         <button
             class="primary"
-            onclick="analyzeJob()">
+            onclick="saveResumeData()"
+            data-i18n="saveResume">
 
-            Проаналізувати вакансію
+            Зберегти резюме
 
         </button>
 
 
-        <div
-            id="analysisResult"
-            class="analysis-box"
-            style="display:none;">
+        <button
+            class="secondary"
+            onclick="exportResumeJSON()"
+            data-i18n="export">
+
+            Експорт
+
+        </button>
 
 
-            <h2>
-                Результат
-            </h2>
+        <label class="secondary">
 
+            <span data-i18n="import">
+                Імпорт
+            </span>
 
-            <div
-                id="detectedJobs"
+            <input
+                type="file"
+                accept=".json"
+                onchange="importResumeJSON(event)"
                 style="display:none;">
-            </div>
+
+        </label>
 
 
-            <div
-                id="score"
-                class="score">
+        <button
+            class="secondary danger"
+            onclick="clearResumeData()"
+            data-i18n="clear">
 
-                0%
+            Очистити
 
-            </div>
+        </button>
 
 
-            <div class="progress">
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PREVIEW
+========================= -->
+
+<section
+    id="previewPage"
+    class="page">
+
+
+    <h1
+        class="no-print"
+        data-i18n="previewTitle">
+
+        Перегляд резюме
+
+    </h1>
+
+
+    <div class="resume-preview">
+
+
+        <div class="preview-header">
+
+
+            <div id="previewPhotoContainer"></div>
+
+
+            <div>
 
                 <div
-                    id="progressBar"
-                    class="progress-bar">
+                    id="previewName"
+                    class="preview-name">
                 </div>
 
-            </div>
 
+                <div
+                    id="previewPosition"
+                    class="preview-position">
+                </div>
 
-            <div class="preview-section">
-
-                <h3>
-                    Знайдені навички
-                </h3>
-
-                <div id="found"></div>
-
-            </div>
-
-
-            <div class="preview-section">
-
-                <h3>
-                    Відсутні навички
-                </h3>
-
-                <div id="missing"></div>
-
-            </div>
-
-
-            <div class="preview-section">
-
-                <h3>
-                    Рекомендація
-                </h3>
 
                 <p
-                    id="recommendation">
+                    id="previewContact">
                 </p>
 
             </div>
@@ -1512,118 +1503,313 @@
 
         </div>
 
-    </section>
 
+        <div class="preview-section">
 
-    <!-- JOB SEARCH -->
+            <h3 data-i18n="profileLabel">
+                Профіль
+            </h3>
 
-    <section
-        id="jobsPage"
-        class="page">
-
-
-        <h1>
-            Пошук вакансій
-        </h1>
-
-
-        <p>
-
-            Вкажіть професію, місто та ключові слова.
-            JobAI сформує пошук актуальних вакансій.
-
-        </p>
-
-
-        <div class="form-group">
-
-            <label>
-                Професія
-            </label>
-
-            <input
-                id="jobSearchPosition"
-                type="text"
-                placeholder="Наприклад: CNC operator">
+            <p id="previewProfile"></p>
 
         </div>
 
 
-        <div class="form-group">
+        <div class="preview-section">
 
-            <label>
-                Місто
-            </label>
+            <h3 data-i18n="experienceTitle">
+                Досвід роботи
+            </h3>
 
-            <input
-                id="jobSearchCity"
-                type="text"
-                placeholder="Наприклад: Bratislava">
+            <div id="previewExperience"></div>
 
         </div>
 
 
-        <div class="form-group">
+        <div class="preview-section">
 
-            <label>
-                Ключові слова
-            </label>
+            <h3 data-i18n="educationTitle">
+                Освіта
+            </h3>
 
-            <input
-                id="jobSearchKeywords"
-                type="text"
-                placeholder="Наприклад: Siemens Fanuc">
+            <div id="previewEducation"></div>
 
         </div>
 
 
-        <div class="button-row">
+        <div class="preview-section">
 
+            <h3 data-i18n="skillsTitle">
+                Навички
+            </h3>
 
-            <button
-                id="useResumeButton"
-                class="secondary"
-                onclick="useResumeForJobSearch()">
-
-                Використати дані резюме
-
-            </button>
-
-
-            <button
-                id="jobSearchButton"
-                class="primary"
-                onclick="searchJobs()">
-
-                Знайти вакансії
-
-            </button>
-
+            <p id="previewSkills"></p>
 
         </div>
+
+
+        <div class="preview-section">
+
+            <h3 data-i18n="languagesTitle">
+                Мови
+            </h3>
+
+            <p id="previewLanguages"></p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="button-row no-print">
+
+        <button
+            class="primary"
+            onclick="window.print()"
+            data-i18n="savePDF">
+
+            Зберегти як PDF
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ANALYSIS
+========================= -->
+
+<section
+    id="analysisPage"
+    class="page">
+
+
+    <h1 data-i18n="analysisTitle">
+        Аналіз вакансії
+    </h1>
+
+
+    <p data-i18n="analysisDescription">
+
+        Вставте текст вакансії нижче.
+        JobAI порівняє її з вашим резюме.
+
+    </p>
+
+
+    <div class="form-group">
+
+        <textarea
+            id="jobText"
+            data-i18n-placeholder="jobPlaceholder"
+            placeholder="Вставте текст вакансії сюди...">
+        </textarea>
+
+    </div>
+
+
+    <button
+        class="primary"
+        onclick="analyzeJob()"
+        data-i18n="analyzeButton">
+
+        Проаналізувати вакансію
+
+    </button>
+
+
+    <div
+        id="analysisResult"
+        class="analysis-box"
+        style="display:none;">
+
+
+        <h2 data-i18n="resultTitle">
+            Результат
+        </h2>
 
 
         <div
-            id="jobSearchResults"
-            class="job-source-grid"
+            id="detectedJobs"
             style="display:none;">
         </div>
 
 
-    </section>
+        <div
+            id="score"
+            class="score">
+
+            0%
+
+        </div>
 
 
-    <footer>
+        <div class="progress">
 
-        JobAI Slovakia
+            <div
+                id="progressBar"
+                class="progress-bar">
+            </div>
 
-    </footer>
+        </div>
+
+
+        <div class="preview-section">
+
+            <h3 data-i18n="foundSkills">
+                Знайдені навички
+            </h3>
+
+            <div id="found"></div>
+
+        </div>
+
+
+        <div class="preview-section">
+
+            <h3 data-i18n="missingSkills">
+                Відсутні навички
+            </h3>
+
+            <div id="missing"></div>
+
+        </div>
+
+
+        <div class="preview-section">
+
+            <h3 data-i18n="recommendationTitle">
+                Рекомендація
+            </h3>
+
+            <p id="recommendation"></p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     JOBS
+========================= -->
+
+<section
+    id="jobsPage"
+    class="page">
+
+
+    <h1 data-i18n="jobsTitle">
+        Пошук вакансій
+    </h1>
+
+
+    <p data-i18n="jobsDescription">
+
+        Вкажіть професію, місто та ключові слова.
+        JobAI сформує пошук актуальних вакансій.
+
+    </p>
+
+
+    <div class="form-group">
+
+        <label data-i18n="jobPositionLabel">
+            Професія
+        </label>
+
+        <input
+            id="jobSearchPosition"
+            data-i18n-placeholder="jobPositionPlaceholder"
+            placeholder="Наприклад: CNC operator">
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label data-i18n="jobCityLabel">
+            Місто
+        </label>
+
+        <input
+            id="jobSearchCity"
+            data-i18n-placeholder="jobCityPlaceholder"
+            placeholder="Наприклад: Bratislava">
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label data-i18n="jobKeywordsLabel">
+            Ключові слова
+        </label>
+
+        <input
+            id="jobSearchKeywords"
+            data-i18n-placeholder="jobKeywordsPlaceholder"
+            placeholder="Наприклад: Siemens Fanuc">
+
+    </div>
+
+
+    <div class="button-row">
+
+
+        <button
+            id="useResumeButton"
+            class="secondary"
+            onclick="useResumeForJobSearch()"
+            data-i18n="useResume">
+
+            Використати дані резюме
+
+        </button>
+
+
+        <button
+            id="jobSearchButton"
+            class="primary"
+            onclick="searchJobs()"
+            data-i18n="searchJobs">
+
+            Знайти вакансії
+
+        </button>
+
+
+    </div>
+
+
+    <div
+        id="jobSearchResults"
+        class="job-source-grid"
+        style="display:none;">
+    </div>
+
+
+</section>
+
+
+<footer>
+
+    JobAI Slovakia
+
+</footer>
 
 
 </div>
 
 
-<!-- JAVASCRIPT MODULES -->
+<!-- =========================
+     MODULES
+========================= -->
 
 <script src="jobs.js"></script>
 
@@ -1636,599 +1822,1142 @@
 
 <script>
 
+/* =========================
+   PAGE NAVIGATION
+========================= */
 
-    /* PAGE NAVIGATION */
+function showPage(pageId) {
 
-    function showPage(pageId) {
-
-        const pages =
-            document.querySelectorAll(".page");
-
-
-        pages.forEach(function(page) {
+    document
+        .querySelectorAll(".page")
+        .forEach(function(page) {
 
             page.classList.remove("active");
 
         });
 
 
-        const page =
-            document.getElementById(pageId);
+    const page =
+        document.getElementById(pageId);
 
 
-        if (page) {
+    if (page) {
 
-            page.classList.add("active");
+        page.classList.add("active");
 
-        }
+    }
+
+
+    if (
+        pageId === "previewPage" &&
+        typeof updateResumePreview === "function"
+    ) {
+
+        updateResumePreview();
+
+    }
+
+}
+
+
+/* =========================
+   PREVIEW
+========================= */
+
+function escapePreview(value) {
+
+    return String(value || "")
+
+        .replace(/&/g, "&amp;")
+
+        .replace(/</g, "&lt;")
+
+        .replace(/>/g, "&gt;")
+
+        .replace(/"/g, "&quot;")
+
+        .replace(/'/g, "&#039;");
+
+}
+
+
+function updateResumePreview() {
+
+    function get(id) {
+
+        const element =
+            document.getElementById(id);
+
+        return element
+            ? element.value
+            : "";
+
+    }
+
+
+    const name =
+        get("name");
+
+    const position =
+        get("position");
+
+    const phone =
+        get("phone");
+
+    const email =
+        get("email");
+
+    const city =
+        get("city");
+
+    const profile =
+        get("profile");
+
+    const skills =
+        get("skills");
+
+    const languages =
+        get("languages");
+
+
+    const previewName =
+        document.getElementById(
+            "previewName"
+        );
+
+
+    const previewPosition =
+        document.getElementById(
+            "previewPosition"
+        );
+
+
+    const previewContact =
+        document.getElementById(
+            "previewContact"
+        );
+
+
+    const previewProfile =
+        document.getElementById(
+            "previewProfile"
+        );
+
+
+    const previewSkills =
+        document.getElementById(
+            "previewSkills"
+        );
+
+
+    const previewLanguages =
+        document.getElementById(
+            "previewLanguages"
+        );
+
+
+    if (previewName) {
+
+        previewName.innerText =
+            name || "Ваше ім'я";
+
+    }
+
+
+    if (previewPosition) {
+
+        previewPosition.innerText =
+            position || "Бажана професія";
+
+    }
+
+
+    if (previewContact) {
+
+        previewContact.innerText =
+            [
+                phone,
+                email,
+                city
+            ]
+            .filter(Boolean)
+            .join(" | ");
+
+    }
+
+
+    if (previewProfile) {
+
+        previewProfile.innerText =
+            profile || "—";
+
+    }
+
+
+    if (previewSkills) {
+
+        previewSkills.innerText =
+            skills || "—";
+
+    }
+
+
+    if (previewLanguages) {
+
+        previewLanguages.innerText =
+            languages || "—";
+
+    }
+
+
+    const experienceContainer =
+        document.getElementById(
+            "previewExperience"
+        );
+
+
+    if (experienceContainer) {
+
+        experienceContainer.innerHTML = "";
 
 
         if (
-            pageId === "previewPage"
+            Array.isArray(
+                window.experiences
+            )
         ) {
 
-            if (
-                typeof updateResumePreview ===
-                "function"
-            ) {
-
-                updateResumePreview();
-
-            }
-
-        }
-
-    }
-
-
-    /* HTML ESCAPE */
-
-    function escapePreview(value) {
-
-        return String(value || "")
-
-            .replace(/&/g, "&amp;")
-
-            .replace(/</g, "&lt;")
-
-            .replace(/>/g, "&gt;")
-
-            .replace(/"/g, "&quot;")
-
-            .replace(/'/g, "&#039;");
-
-    }
-
-
-    /* RESUME PREVIEW */
-
-    function updateResumePreview() {
-
-
-        const get =
-            function(id) {
-
-                const element =
-                    document.getElementById(id);
-
-                return element
-                    ? element.value
-                    : "";
-
-            };
-
-
-        const name =
-            get("name");
-
-        const position =
-            get("position");
-
-        const phone =
-            get("phone");
-
-        const email =
-            get("email");
-
-        const city =
-            get("city");
-
-        const profile =
-            get("profile");
-
-        const skills =
-            get("skills");
-
-        const languages =
-            get("languages");
-
-
-        const previewName =
-            document.getElementById(
-                "previewName"
-            );
-
-
-        const previewPosition =
-            document.getElementById(
-                "previewPosition"
-            );
-
-
-        const previewContact =
-            document.getElementById(
-                "previewContact"
-            );
-
-
-        const previewProfile =
-            document.getElementById(
-                "previewProfile"
-            );
-
-
-        const previewSkills =
-            document.getElementById(
-                "previewSkills"
-            );
-
-
-        const previewLanguages =
-            document.getElementById(
-                "previewLanguages"
-            );
-
-
-        if (previewName) {
-
-            previewName.innerText =
-                name || "Ваше ім'я";
-
-        }
-
-
-        if (previewPosition) {
-
-            previewPosition.innerText =
-                position || "Бажана професія";
-
-        }
-
-
-        if (previewContact) {
-
-            previewContact.innerText =
-
-                [
-                    phone,
-                    email,
-                    city
-                ]
-
-                .filter(Boolean)
-
-                .join(" | ");
-
-        }
-
-
-        if (previewProfile) {
-
-            previewProfile.innerText =
-                profile || "—";
-
-        }
-
-
-        if (previewSkills) {
-
-            previewSkills.innerText =
-                skills || "—";
-
-        }
-
-
-        if (previewLanguages) {
-
-            previewLanguages.innerText =
-                languages || "—";
-
-        }
-
-
-        const experienceContainer =
-            document.getElementById(
-                "previewExperience"
-            );
-
-
-        if (experienceContainer) {
-
-            experienceContainer.innerHTML = "";
-
-
-            if (
-                Array.isArray(
-                    window.experiences
-                )
-            ) {
-
-                window.experiences.forEach(
-                    function(item) {
-
-
-                        const div =
-                            document.createElement(
-                                "div"
-                            );
-
-
-                        div.innerHTML = `
-
-                            <strong>
-                                ${escapePreview(
-                                    item.position
-                                )}
-                            </strong>
-
-                            <br>
-
-                            ${escapePreview(
-                                item.company
-                            )}
-
-                            <br>
-
-                            ${escapePreview(
-                                item.start
-                            )}
-
-                            -
-
-                            ${escapePreview(
-                                item.end
-                            )}
-
-                            <p>
-                                ${escapePreview(
-                                    item.description
-                                )}
-                            </p>
-
-                        `;
-
-
-                        experienceContainer
-                            .appendChild(div);
-
-                    }
-                );
-
-            }
-
-        }
-
-
-        const educationContainer =
-            document.getElementById(
-                "previewEducation"
-            );
-
-
-        if (educationContainer) {
-
-            educationContainer.innerHTML = "";
-
-
-            if (
-                Array.isArray(
-                    window.educations
-                )
-            ) {
-
-                window.educations.forEach(
-                    function(item) {
-
-
-                        const div =
-                            document.createElement(
-                                "div"
-                            );
-
-
-                        const speciality =
-                            item.speciality ||
-                            item.specialty ||
-                            "";
-
-
-                        div.innerHTML = `
-
-                            <strong>
-                                ${escapePreview(
-                                    item.school
-                                )}
-                            </strong>
-
-                            <br>
-
-                            ${escapePreview(
-                                speciality
-                            )}
-
-                            <br>
-
-                            ${escapePreview(
-                                item.year
-                            )}
-
-                        `;
-
-
-                        educationContainer
-                            .appendChild(div);
-
-                    }
-                );
-
-            }
-
-        }
-
-
-        const photo =
-            localStorage.getItem(
-                "jobaiPhoto"
-            );
-
-
-        const photoContainer =
-            document.getElementById(
-                "previewPhotoContainer"
-            );
-
-
-        if (photoContainer) {
-
-            photoContainer.innerHTML = "";
-
-
-            if (photo) {
-
-                const img =
-                    document.createElement(
-                        "img"
-                    );
-
-
-                img.src = photo;
-
-
-                img.className =
-                    "resume-photo";
-
-
-                photoContainer
-                    .appendChild(img);
-
-            }
-
-        }
-
-    }
-
-
-    /* START */
-
-    document.addEventListener(
-        "DOMContentLoaded",
-        function() {
-
-
-            if (
-                typeof initResumeModule ===
-                "function"
-            ) {
-
-                initResumeModule();
-
-            }
-
-
-            if (
-                typeof enableResumeAutosave ===
-                "function"
-            ) {
-
-                enableResumeAutosave();
-
-            }
-
-
-            updateResumePreview();
-
-
-        }
-    );
-
-
-    /* LANGUAGES */
-
-    const translations = {
-
-
-        uk: {
-
-            hero:
-                "Створюйте професійне резюме, аналізуйте вакансії та знаходьте роботу у Словаччині.",
-
-            home:
-                "Головна",
-
-            resume:
-                "Резюме",
-
-            preview:
-                "Перегляд резюме",
-
-            analysis:
-                "Аналіз вакансії",
-
-            jobs:
-                "Вакансії"
-
-        },
-
-
-        sk: {
-
-            hero:
-                "Vytvorte profesionálny životopis, analyzujte pracovné ponuky a hľadajte prácu na Slovensku.",
-
-            home:
-                "Domov",
-
-            resume:
-                "Životopis",
-
-            preview:
-                "Náhľad životopisu",
-
-            analysis:
-                "Analýza pracovnej ponuky",
-
-            jobs:
-                "Pracovné ponuky"
-
-        },
-
-
-        en: {
-
-            hero:
-                "Create a professional resume, analyze job offers and find work in Slovakia.",
-
-            home:
-                "Home",
-
-            resume:
-                "Resume",
-
-            preview:
-                "Resume preview",
-
-            analysis:
-                "Job analysis",
-
-            jobs:
-                "Jobs"
-
-        }
-
-    };
-
-
-    function setLanguage(language) {
-
-
-        const t =
-            translations[language];
-
-
-        if (!t) {
-            return;
-        }
-
-
-        document.documentElement.lang =
-            language;
-
-
-        const hero =
-            document.getElementById(
-                "heroText"
-            );
-
-
-        if (hero) {
-
-            hero.innerText =
-                t.hero;
-
-        }
-
-
-        const navButtons =
-            document.querySelectorAll(
-                "nav button"
-            );
-
-
-        if (
-            navButtons.length >= 5
-        ) {
-
-
-            navButtons[0].innerText =
-                t.home;
-
-
-            navButtons[1].innerText =
-                t.resume;
-
-
-            navButtons[2].innerText =
-                t.preview;
-
-
-            navButtons[3].innerText =
-                t.analysis;
-
-
-            navButtons[4].innerText =
-                t.jobs;
-
-        }
-
-    }
-
-
-    /* LANGUAGE SELECT */
-
-    document.addEventListener(
-        "DOMContentLoaded",
-        function() {
-
-
-            const languageSelect =
-                document.getElementById(
-                    "languageSelect"
-                );
-
-
-            if (languageSelect) {
-
-
-                languageSelect.addEventListener(
-                    "change",
-                    function() {
-
-
-                        setLanguage(
-                            this.value
+            window.experiences.forEach(
+                function(item) {
+
+                    const div =
+                        document.createElement(
+                            "div"
                         );
 
 
-                    }
+                    div.innerHTML = `
+
+                        <strong>
+                            ${escapePreview(
+                                item.position
+                            )}
+                        </strong>
+
+                        <br>
+
+                        ${escapePreview(
+                            item.company
+                        )}
+
+                        <br>
+
+                        ${escapePreview(
+                            item.start
+                        )}
+
+                        -
+
+                        ${escapePreview(
+                            item.end
+                        )}
+
+                        <p>
+                            ${escapePreview(
+                                item.description
+                            )}
+                        </p>
+
+                    `;
+
+
+                    experienceContainer
+                        .appendChild(div);
+
+                }
+            );
+
+        }
+
+    }
+
+
+    const educationContainer =
+        document.getElementById(
+            "previewEducation"
+        );
+
+
+    if (educationContainer) {
+
+        educationContainer.innerHTML = "";
+
+
+        if (
+            Array.isArray(
+                window.educations
+            )
+        ) {
+
+            window.educations.forEach(
+                function(item) {
+
+                    const div =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    const speciality =
+                        item.speciality ||
+                        item.specialty ||
+                        "";
+
+
+                    div.innerHTML = `
+
+                        <strong>
+                            ${escapePreview(
+                                item.school
+                            )}
+                        </strong>
+
+                        <br>
+
+                        ${escapePreview(
+                            speciality
+                        )}
+
+                        <br>
+
+                        ${escapePreview(
+                            item.year
+                        )}
+
+                    `;
+
+
+                    educationContainer
+                        .appendChild(div);
+
+                }
+            );
+
+        }
+
+    }
+
+
+    const photo =
+        localStorage.getItem(
+            "jobaiPhoto"
+        );
+
+
+    const photoContainer =
+        document.getElementById(
+            "previewPhotoContainer"
+        );
+
+
+    if (photoContainer) {
+
+        photoContainer.innerHTML = "";
+
+
+        if (photo) {
+
+            const img =
+                document.createElement(
+                    "img"
                 );
 
 
-            }
+            img.src = photo;
 
+            img.className =
+                "resume-photo";
+
+
+            photoContainer
+                .appendChild(img);
 
         }
+
+    }
+
+}
+
+
+/* =========================
+   TRANSLATIONS
+========================= */
+
+const translations = {
+
+    uk: {
+
+        hero:
+            "Створюйте професійне резюме, аналізуйте вакансії та знаходьте роботу у Словаччині.",
+
+        navHome:
+            "Головна",
+
+        navResume:
+            "Резюме",
+
+        navPreview:
+            "Перегляд резюме",
+
+        navAnalysis:
+            "Аналіз вакансії",
+
+        navJobs:
+            "Вакансії",
+
+        homeTitle:
+            "JobAI Slovakia",
+
+        homeDescription:
+            "Простий інструмент для створення резюме, аналізу вакансій та пошуку роботи у Словаччині.",
+
+        popularTitle:
+            "Популярні професії",
+
+        cnc:
+            "CNC оператор",
+
+        welder:
+            "Зварювальник",
+
+        mechanic:
+            "Автомеханік",
+
+        warehouse:
+            "Працівник складу",
+
+        engineer:
+            "Інженер",
+
+        construction:
+            "Будівельник",
+
+        it:
+            "IT спеціаліст",
+
+        logistics:
+            "Логіст",
+
+        howTitle:
+            "Як це працює?",
+
+        process1Title:
+            "Створити резюме",
+
+        process1Text:
+            "Заповніть інформацію про себе, досвід та навички.",
+
+        process2Title:
+            "Вставити вакансію",
+
+        process2Text:
+            "Додайте текст вакансії, яку ви хочете проаналізувати.",
+
+        process3Title:
+            "Проаналізувати",
+
+        process3Text:
+            "JobAI порівняє вимоги вакансії з вашим резюме.",
+
+        process4Title:
+            "Знайти роботу",
+
+        process4Text:
+            "Шукайте актуальні вакансії у Словаччині.",
+
+        resumeTitle:
+            "Резюме",
+
+        nameLabel:
+            "Ім'я та прізвище",
+
+        positionLabel:
+            "Бажана професія",
+
+        phoneLabel:
+            "Телефон",
+
+        emailLabel:
+            "Email",
+
+        cityLabel:
+            "Місто",
+
+        profileLabel:
+            "Професійний профіль",
+
+        experienceTitle:
+            "Досвід роботи",
+
+        addExperience:
+            "Додати досвід",
+
+        educationTitle:
+            "Освіта",
+
+        addEducation:
+            "Додати освіту",
+
+        skillsTitle:
+            "Навички",
+
+        languagesTitle:
+            "Мови",
+
+        photoTitle:
+            "Фото",
+
+        saveResume:
+            "Зберегти резюме",
+
+        export:
+            "Експорт",
+
+        import:
+            "Імпорт",
+
+        clear:
+            "Очистити",
+
+        previewTitle:
+            "Перегляд резюме",
+
+        savePDF:
+            "Зберегти як PDF",
+
+        analysisTitle:
+            "Аналіз вакансії",
+
+        analysisDescription:
+            "Вставте текст вакансії нижче. JobAI порівняє її з вашим резюме.",
+
+        analyzeButton:
+            "Проаналізувати вакансію",
+
+        resultTitle:
+            "Результат",
+
+        foundSkills:
+            "Знайдені навички",
+
+        missingSkills:
+            "Відсутні навички",
+
+        recommendationTitle:
+            "Рекомендація",
+
+        jobsTitle:
+            "Пошук вакансій",
+
+        jobsDescription:
+            "Вкажіть професію, місто та ключові слова. JobAI сформує пошук актуальних вакансій.",
+
+        jobPositionLabel:
+            "Професія",
+
+        jobCityLabel:
+            "Місто",
+
+        jobKeywordsLabel:
+            "Ключові слова",
+
+        useResume:
+            "Використати дані резюме",
+
+        searchJobs:
+            "Знайти вакансії",
+
+        skillsPlaceholder:
+            "Наприклад: CNC, Fanuc, Siemens, AutoCAD",
+
+        languagesPlaceholder:
+            "Наприклад: українська — рідна, словацька — B1",
+
+        jobPlaceholder:
+            "Вставте текст вакансії сюди...",
+
+        jobPositionPlaceholder:
+            "Наприклад: CNC operator",
+
+        jobCityPlaceholder:
+            "Наприклад: Bratislava",
+
+        jobKeywordsPlaceholder:
+            "Наприклад: Siemens Fanuc"
+
+    },
+
+
+    sk: {
+
+        hero:
+            "Vytvorte profesionálny životopis, analyzujte pracovné ponuky a nájdite si prácu na Slovensku.",
+
+        navHome:
+            "Domov",
+
+        navResume:
+            "Životopis",
+
+        navPreview:
+            "Náhľad životopisu",
+
+        navAnalysis:
+            "Analýza ponuky",
+
+        navJobs:
+            "Pracovné ponuky",
+
+        homeTitle:
+            "JobAI Slovakia",
+
+        homeDescription:
+            "Jednoduchý nástroj na tvorbu životopisu, analýzu pracovných ponúk a hľadanie práce na Slovensku.",
+
+        popularTitle:
+            "Populárne profesie",
+
+        cnc:
+            "CNC operátor",
+
+        welder:
+            "Zvárač",
+
+        mechanic:
+            "Automechanik",
+
+        warehouse:
+            "Pracovník skladu",
+
+        engineer:
+            "Inžinier",
+
+        construction:
+            "Stavebný pracovník",
+
+        it:
+            "IT špecialista",
+
+        logistics:
+            "Logistik",
+
+        howTitle:
+            "Ako to funguje?",
+
+        process1Title:
+            "Vytvoriť životopis",
+
+        process1Text:
+            "Vyplňte svoje údaje, pracovné skúsenosti a zručnosti.",
+
+        process2Title:
+            "Vložiť pracovnú ponuku",
+
+        process2Text:
+            "Pridajte text pracovnej ponuky, ktorú chcete analyzovať.",
+
+        process3Title:
+            "Analyzovať",
+
+        process3Text:
+            "JobAI porovná požiadavky pracovnej ponuky s vaším životopisom.",
+
+        process4Title:
+            "Nájsť prácu",
+
+        process4Text:
+            "Vyhľadajte aktuálne pracovné ponuky na Slovensku.",
+
+        resumeTitle:
+            "Životopis",
+
+        nameLabel:
+            "Meno a priezvisko",
+
+        positionLabel:
+            "Požadovaná pozícia",
+
+        phoneLabel:
+            "Telefón",
+
+        emailLabel:
+            "Email",
+
+        cityLabel:
+            "Mesto",
+
+        profileLabel:
+            "Profesionálny profil",
+
+        experienceTitle:
+            "Pracovné skúsenosti",
+
+        addExperience:
+            "Pridať skúsenosť",
+
+        educationTitle:
+            "Vzdelanie",
+
+        addEducation:
+            "Pridať vzdelanie",
+
+        skillsTitle:
+            "Zručnosti",
+
+        languagesTitle:
+            "Jazyky",
+
+        photoTitle:
+            "Fotografia",
+
+        saveResume:
+            "Uložiť životopis",
+
+        export:
+            "Export",
+
+        import:
+            "Import",
+
+        clear:
+            "Vymazať",
+
+        previewTitle:
+            "Náhľad životopisu",
+
+        savePDF:
+            "Uložiť ako PDF",
+
+        analysisTitle:
+            "Analýza pracovnej ponuky",
+
+        analysisDescription:
+            "Vložte text pracovnej ponuky. JobAI ju porovná s vaším životopisom.",
+
+        analyzeButton:
+            "Analyzovať ponuku",
+
+        resultTitle:
+            "Výsledok",
+
+        foundSkills:
+            "Nájdené zručnosti",
+
+        missingSkills:
+            "Chýbajúce zručnosti",
+
+        recommendationTitle:
+            "Odporúčanie",
+
+        jobsTitle:
+            "Vyhľadávanie pracovných ponúk",
+
+        jobsDescription:
+            "Zadajte profesiu, mesto a kľúčové slová. JobAI vytvorí vyhľadávanie aktuálnych ponúk.",
+
+        jobPositionLabel:
+            "Profesia",
+
+        jobCityLabel:
+            "Mesto",
+
+        jobKeywordsLabel:
+            "Kľúčové slová",
+
+        useResume:
+            "Použiť údaje zo životopisu",
+
+        searchJobs:
+            "Nájsť pracovné ponuky",
+
+        skillsPlaceholder:
+            "Napríklad: CNC, Fanuc, Siemens, AutoCAD",
+
+        languagesPlaceholder:
+            "Napríklad: ukrajinčina — materinský jazyk, slovenčina — B1",
+
+        jobPlaceholder:
+            "Vložte text pracovnej ponuky...",
+
+        jobPositionPlaceholder:
+            "Napríklad: CNC operátor",
+
+        jobCityPlaceholder:
+            "Napríklad: Bratislava",
+
+        jobKeywordsPlaceholder:
+            "Napríklad: Siemens Fanuc"
+
+    },
+
+
+    en: {
+
+        hero:
+            "Create a professional resume, analyze job offers and find work in Slovakia.",
+
+        navHome:
+            "Home",
+
+        navResume:
+            "Resume",
+
+        navPreview:
+            "Resume preview",
+
+        navAnalysis:
+            "Job analysis",
+
+        navJobs:
+            "Jobs",
+
+        homeTitle:
+            "JobAI Slovakia",
+
+        homeDescription:
+            "A simple tool for creating resumes, analyzing job offers and finding work in Slovakia.",
+
+        popularTitle:
+            "Popular professions",
+
+        cnc:
+            "CNC operator",
+
+        welder:
+            "Welder",
+
+        mechanic:
+            "Auto mechanic",
+
+        warehouse:
+            "Warehouse worker",
+
+        engineer:
+            "Engineer",
+
+        construction:
+            "Construction worker",
+
+        it:
+            "IT specialist",
+
+        logistics:
+            "Logistics specialist",
+
+        howTitle:
+            "How it works",
+
+        process1Title:
+            "Create a resume",
+
+        process1Text:
+            "Enter your personal information, experience and skills.",
+
+        process2Title:
+            "Insert a job offer",
+
+        process2Text:
+            "Add the text of the job offer you want to analyze.",
+
+        process3Title:
+            "Analyze",
+
+        process3Text:
+            "JobAI compares the job requirements with your resume.",
+
+        process4Title:
+            "Find a job",
+
+        process4Text:
+            "Search for current job opportunities in Slovakia.",
+
+        resumeTitle:
+            "Resume",
+
+        nameLabel:
+            "Full name",
+
+        positionLabel:
+            "Desired position",
+
+        phoneLabel:
+            "Phone",
+
+        emailLabel:
+            "Email",
+
+        cityLabel:
+            "City",
+
+        profileLabel:
+            "Professional profile",
+
+        experienceTitle:
+            "Work experience",
+
+        addExperience:
+            "Add experience",
+
+        educationTitle:
+            "Education",
+
+        addEducation:
+            "Add education",
+
+        skillsTitle:
+            "Skills",
+
+        languagesTitle:
+            "Languages",
+
+        photoTitle:
+            "Photo",
+
+        saveResume:
+            "Save resume",
+
+        export:
+            "Export",
+
+        import:
+            "Import",
+
+        clear:
+            "Clear",
+
+        previewTitle:
+            "Resume preview",
+
+        savePDF:
+            "Save as PDF",
+
+        analysisTitle:
+            "Job analysis",
+
+        analysisDescription:
+            "Paste the job offer below. JobAI will compare it with your resume.",
+
+        analyzeButton:
+            "Analyze job offer",
+
+        resultTitle:
+            "Result",
+
+        foundSkills:
+            "Matching skills",
+
+        missingSkills:
+            "Missing skills",
+
+        recommendationTitle:
+            "Recommendation",
+
+        jobsTitle:
+            "Job search",
+
+        jobsDescription:
+            "Enter a profession, city and keywords. JobAI will create a search for current job offers.",
+
+        jobPositionLabel:
+            "Profession",
+
+        jobCityLabel:
+            "City",
+
+        jobKeywordsLabel:
+            "Keywords",
+
+        useResume:
+            "Use resume data",
+
+        searchJobs:
+            "Find jobs",
+
+        skillsPlaceholder:
+            "For example: CNC, Fanuc, Siemens, AutoCAD",
+
+        languagesPlaceholder:
+            "For example: Ukrainian — native, Slovak — B1",
+
+        jobPlaceholder:
+            "Paste the job offer here...",
+
+        jobPositionPlaceholder:
+            "For example: CNC operator",
+
+        jobCityPlaceholder:
+            "For example: Bratislava",
+
+        jobKeywordsPlaceholder:
+            "For example: Siemens Fanuc"
+
+    }
+
+};
+
+
+/* =========================
+   LANGUAGE ENGINE
+========================= */
+
+function setLanguage(language) {
+
+    const t =
+        translations[language];
+
+    if (!t) {
+        return;
+    }
+
+
+    document.documentElement.lang =
+        language;
+
+
+    const hero =
+        document.getElementById(
+            "heroText"
+        );
+
+    if (hero) {
+
+        hero.innerText =
+            t.hero;
+
+    }
+
+
+    document
+        .querySelectorAll("[data-i18n]")
+        .forEach(function(element) {
+
+            const key =
+                element.dataset.i18n;
+
+            if (
+                Object.prototype.hasOwnProperty
+                .call(t, key)
+            ) {
+
+                element.innerText =
+                    t[key];
+
+            }
+
+        });
+
+
+    document
+        .querySelectorAll(
+            "[data-i18n-placeholder]"
+        )
+        .forEach(function(element) {
+
+            const key =
+                element.dataset
+                    .i18nPlaceholder;
+
+            if (
+                Object.prototype.hasOwnProperty
+                .call(t, key)
+            ) {
+
+                element.placeholder =
+                    t[key];
+
+            }
+
+        });
+
+
+    localStorage.setItem(
+        "jobaiLanguage",
+        language
     );
 
+}
+
+
+/* =========================
+   START
+========================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+
+        if (
+            typeof initResumeModule ===
+            "function"
+        ) {
+
+            initResumeModule();
+
+        }
+
+
+        if (
+            typeof enableResumeAutosave ===
+            "function"
+        ) {
+
+            enableResumeAutosave();
+
+        }
+
+
+        updateResumePreview();
+
+
+        const languageSelect =
+            document.getElementById(
+                "languageSelect"
+            );
+
+
+        const savedLanguage =
+            localStorage.getItem(
+                "jobaiLanguage"
+            ) || "uk";
+
+
+        if (languageSelect) {
+
+            languageSelect.value =
+                savedLanguage;
+
+
+            languageSelect.addEventListener(
+                "change",
+                function() {
+
+                    setLanguage(
+                        this.value
+                    );
+
+                }
+            );
+
+        }
+
+
+        setLanguage(
+            savedLanguage
+        );
+
+    }
+);
 
 </script>
 
