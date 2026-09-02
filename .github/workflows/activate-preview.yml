@@ -28,6 +28,9 @@ jobs:
           if 'preview-controls.js?v=' not in s:
               marker = '<script src="analysis.js?v=7"></script>'
               s = s.replace(marker, marker + '\n<script src="preview-controls.js?v=2"></script>')
+          if 'resume-editor-style.js?v=1' not in s:
+              marker = '<script src="preview-controls.js?v=2"></script>'
+              s = s.replace(marker, marker + '\n<script src="resume-editor-style.js?v=1"></script>')
           p.write_text(s, encoding='utf-8')
           PY
 
@@ -41,5 +44,5 @@ jobs:
             echo "No changes needed"
             exit 0
           fi
-          git commit -m "Activate Preview controls"
+          git commit -m "Activate Resume editor builder"
           git push
