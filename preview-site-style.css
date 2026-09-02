@@ -1,31 +1,34 @@
-/* JobAI Slovakia — Preview fixed compact left bar */
+/* JobAI Slovakia — Preview controls: left row + right appearance */
 #preview{background:#0f172a!important;color:#e5e7eb!important;min-height:calc(100vh - 70px);padding:24px 0 40px}
-html body #preview .jobai-preview-controls{position:fixed!important;left:14px!important;top:86px!important;width:calc(100vw - 28px)!important;max-width:1100px!important;height:auto!important;max-height:96px!important;overflow:visible!important;margin:0!important;padding:10px 12px!important;box-sizing:border-box;background:#111827!important;border:1px solid #334155!important;border-radius:12px!important;box-shadow:0 10px 30px rgba(0,0,0,.4)!important;color:#e5e7eb!important;z-index:99999!important}
-html body #preview .jobai-preview-head{display:flex!important;align-items:center!important;gap:14px!important;margin:0 0 7px!important}
-html body #preview .jobai-preview-head>div:first-child{display:flex!important;align-items:baseline!important;gap:8px!important;white-space:nowrap!important}
+html body #preview .jobai-preview-controls{position:fixed!important;left:14px!important;right:14px!important;top:86px!important;width:auto!important;max-width:none!important;height:62px!important;max-height:62px!important;overflow:hidden!important;margin:0!important;padding:8px 12px!important;box-sizing:border-box;background:#111827!important;border:1px solid #334155!important;border-radius:12px!important;box-shadow:0 10px 30px rgba(0,0,0,.4)!important;color:#e5e7eb!important;z-index:99999!important;display:flex!important;align-items:center!important;gap:12px!important;white-space:nowrap!important}
+html body #preview .jobai-preview-head{order:99!important;display:flex!important;align-items:center!important;gap:10px!important;margin:0 0 0 auto!important;flex:0 0 auto!important}
+html body #preview .jobai-preview-head>div:first-child{display:flex!important;align-items:baseline!important;gap:7px!important;white-space:nowrap!important}
 #preview .jobai-preview-title{font-size:10px!important;font-weight:800!important;color:#94a3b8!important;text-transform:uppercase!important;letter-spacing:.06em!important}
 #preview .jobai-preview-subtitle{font-size:15px!important;font-weight:800!important;color:#fff!important;margin:0!important}
 #preview .jobai-preview-status{font-size:10px!important;padding:4px 7px!important;white-space:nowrap!important;color:#86efac!important;background:#13251d!important;border-color:#28563e!important}
 html body #preview .jobai-preview-section{margin:0!important}
-html body #preview .jobai-preview-label,html body #preview .jobai-setting-title{font-size:10px!important;margin:0 0 4px!important;color:#94a3b8!important}
-html body #preview .template-grid{display:flex!important;gap:5px!important;flex-wrap:nowrap!important}
+html body #preview .jobai-preview-label,html body #preview .jobai-setting-title{font-size:9px!important;margin:0 4px 0 0!important;color:#94a3b8!important;display:inline-block!important}
+html body #preview .template-grid{display:flex!important;align-items:center!important;gap:5px!important;flex-wrap:nowrap!important}
 html body #preview .template-button{min-height:28px!important;height:28px!important;padding:3px 8px!important;font-size:10px!important;white-space:nowrap!important}
-html body #preview .jobai-preview-row{display:flex!important;align-items:center!important;gap:12px!important;border:0!important;margin:0!important;padding:0!important}
-html body #preview .jobai-preview-half{display:flex!important;align-items:center!important;gap:6px!important}
-html body #preview .color-options{display:flex!important;gap:5px!important;flex-wrap:nowrap!important}
-#preview .color-button{width:20px!important;height:20px!important;min-width:20px!important}
-html body #preview .jobai-font-options{display:flex!important;gap:5px!important;flex-wrap:nowrap!important}
-html body #preview .jobai-font-option{min-height:28px!important;height:28px!important;padding:3px 7px!important;font-size:10px!important;white-space:nowrap!important}
-html body #preview .jobai-preview-settings{display:flex!important;align-items:center!important;gap:8px!important;border:0!important;margin:0!important;padding:0!important}
-html body #preview .jobai-preview-settings>label,html body #preview .jobai-preview-settings>div{display:flex!important;align-items:center!important;gap:5px!important;white-space:nowrap!important}
-#preview .jobai-font-number{width:48px!important;height:28px!important;padding:3px 5px!important;font-size:11px!important}
-#preview .jobai-number-wrap{display:flex!important;align-items:center!important;gap:3px!important}
-#preview .jobai-number-wrap span{font-size:9px!important;color:#64748b!important}
+html body #preview .jobai-preview-row{display:flex!important;align-items:center!important;gap:10px!important;border:0!important;margin:0!important;padding:0!important;flex:0 0 auto!important}
+html body #preview .jobai-preview-half{display:flex!important;align-items:center!important;gap:4px!important}
+html body #preview .color-options{display:flex!important;gap:4px!important;flex-wrap:nowrap!important}
+#preview .color-button{width:19px!important;height:19px!important;min-width:19px!important}
+html body #preview .jobai-font-options{display:flex!important;gap:4px!important;flex-wrap:nowrap!important}
+html body #preview .jobai-font-option{min-height:28px!important;height:28px!important;padding:3px 6px!important;font-size:10px!important;white-space:nowrap!important}
+html body #preview .jobai-preview-settings{display:flex!important;align-items:center!important;gap:7px!important;border:0!important;margin:0!important;padding:0!important;flex:0 0 auto!important}
+html body #preview .jobai-preview-settings>label,html body #preview .jobai-preview-settings>div{display:flex!important;align-items:center!important;gap:4px!important;white-space:nowrap!important}
+#preview .jobai-font-number{width:44px!important;height:28px!important;padding:3px 4px!important;font-size:10px!important}
+#preview .jobai-number-wrap{display:flex!important;align-items:center!important;gap:2px!important}
+#preview .jobai-number-wrap span{font-size:8px!important;color:#64748b!important}
 #preview .preview-wrapper{max-width:none!important;margin:0!important;padding:0 20px 30px!important}
 #preview .a4-page{box-shadow:0 14px 40px rgba(0,0,0,.45)!important}
+@media(max-width:1100px){
+  html body #preview .jobai-preview-controls{overflow-x:auto!important;overflow-y:hidden!important}
+}
 @media(max-width:760px){
-  html body #preview .jobai-preview-controls{position:relative!important;left:auto!important;top:auto!important;width:calc(100% - 20px)!important;max-width:none!important;height:auto!important;max-height:none!important;overflow:visible!important;margin:0 10px 14px!important}
-  html body #preview .jobai-preview-head{flex-wrap:wrap!important}
+  html body #preview .jobai-preview-controls{position:relative!important;left:auto!important;right:auto!important;top:auto!important;width:calc(100% - 20px)!important;height:auto!important;max-height:none!important;overflow:visible!important;margin:0 10px 14px!important;white-space:normal!important;flex-wrap:wrap!important}
+  html body #preview .jobai-preview-head{order:0!important;margin-left:0!important;flex:1 1 100%!important}
   html body #preview .template-grid,html body #preview .jobai-font-options{flex-wrap:wrap!important}
   html body #preview .jobai-preview-row,html body #preview .jobai-preview-settings{flex-wrap:wrap!important}
   #preview .preview-wrapper{padding:0 10px 20px!important}
