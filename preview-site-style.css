@@ -1,39 +1,43 @@
-/* JobAI Slovakia — Preview controls: stable non-overlapping layout */
+/* JobAI Slovakia — Preview: isolated rows, no overlap */
 #preview{background:#0f172a!important;color:#e5e7eb!important;min-height:calc(100vh - 70px);padding:24px 0 40px}
-html body #preview .jobai-preview-controls{position:relative!important;width:calc(100% - 28px)!important;max-width:1250px!important;margin:0 auto 18px!important;padding:14px 16px!important;box-sizing:border-box!important;background:#111827!important;border:1px solid #334155!important;border-radius:12px!important;box-shadow:0 10px 30px rgba(0,0,0,.4)!important;color:#e5e7eb!important;z-index:20!important;display:block!important;overflow:visible!important;height:auto!important;max-height:none!important;white-space:normal!important}
-html body #preview .jobai-preview-head{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;margin:0 0 12px!important;white-space:normal!important}
-html body #preview .jobai-preview-head>div:first-child{display:flex!important;align-items:baseline!important;gap:7px!important;white-space:nowrap!important}
-#preview .jobai-preview-title{font-size:10px!important;font-weight:800!important;color:#94a3b8!important;text-transform:uppercase!important;letter-spacing:.06em!important}
-#preview .jobai-preview-subtitle{font-size:15px!important;font-weight:800!important;color:#fff!important;margin:0!important}
-#preview .jobai-preview-status{font-size:10px!important;padding:4px 7px!important;white-space:nowrap!important;color:#86efac!important;background:#13251d!important;border:1px solid #28563e!important;border-radius:999px!important}
-html body #preview .jobai-preview-controls>.jobai-preview-section,
-html body #preview .jobai-preview-controls>.jobai-preview-row,
-html body #preview .jobai-preview-controls>.jobai-preview-settings{display:flex!important;position:relative!important;float:none!important;clear:both!important;box-sizing:border-box!important;width:100%!important;max-width:100%!important;margin:0 0 10px!important;padding:0!important;border:0!important;transform:none!important}
-html body #preview .jobai-preview-controls>.jobai-preview-section:first-of-type{align-items:center!important;gap:8px!important}
-html body #preview .jobai-preview-label,html body #preview .jobai-setting-title{font-size:9px!important;margin:0 5px 0 0!important;color:#94a3b8!important;display:inline-block!important;white-space:nowrap!important}
-html body #preview .template-grid{display:flex!important;align-items:center!important;gap:6px!important;flex-wrap:wrap!important;width:100%!important}
-html body #preview .template-button{min-height:30px!important;height:30px!important;padding:4px 9px!important;font-size:10px!important;white-space:nowrap!important;flex:0 0 auto!important;box-sizing:border-box!important}
-html body #preview .jobai-preview-row{align-items:center!important;gap:18px!important;flex-wrap:wrap!important}
-html body #preview .jobai-preview-half{display:flex!important;align-items:center!important;gap:5px!important;flex:0 0 auto!important;min-width:0!important}
-html body #preview .color-options{display:flex!important;align-items:center!important;gap:6px!important;flex-wrap:nowrap!important}
-#preview .color-button{width:22px!important;height:22px!important;min-width:22px!important;max-width:22px!important;border-radius:4px!important;display:block!important;padding:0!important;margin:0!important;flex:0 0 22px!important;box-sizing:border-box!important}
-html body #preview .jobai-font-options{display:flex!important;align-items:center!important;gap:5px!important;flex-wrap:wrap!important}
-html body #preview .jobai-font-option{min-height:30px!important;height:30px!important;padding:4px 8px!important;font-size:10px!important;white-space:nowrap!important;flex:0 0 auto!important;box-sizing:border-box!important}
-html body #preview .jobai-preview-settings{align-items:center!important;gap:12px!important;flex-wrap:wrap!important;margin-bottom:0!important}
-html body #preview .jobai-preview-settings>label,html body #preview .jobai-preview-settings>div{display:flex!important;align-items:center!important;gap:5px!important;white-space:nowrap!important;flex:0 0 auto!important}
-#preview .jobai-font-number{width:48px!important;height:30px!important;padding:3px 5px!important;font-size:11px!important;box-sizing:border-box!important}
+#preview .jobai-preview-controls{position:relative!important;display:block!important;width:calc(100% - 24px)!important;max-width:1250px!important;height:auto!important;min-height:0!important;max-height:none!important;margin:0 auto 20px!important;padding:16px!important;box-sizing:border-box!important;background:#111827!important;border:1px solid #334155!important;border-radius:12px!important;box-shadow:0 10px 30px rgba(0,0,0,.4)!important;overflow:visible!important;white-space:normal!important}
+#preview .jobai-preview-head{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:16px!important;width:100%!important;margin:0 0 16px!important;box-sizing:border-box!important}
+#preview .jobai-preview-head>div:first-child{display:flex!important;align-items:baseline!important;gap:8px!important;white-space:nowrap!important}
+#preview .jobai-preview-title{font-size:10px!important;font-weight:800!important;color:#94a3b8!important;text-transform:uppercase!important}
+#preview .jobai-preview-subtitle{font-size:16px!important;font-weight:800!important;color:#fff!important;margin:0!important}
+#preview .jobai-preview-status{font-size:10px!important;padding:5px 8px!important;white-space:nowrap!important;color:#86efac!important;background:#13251d!important;border:1px solid #28563e!important;border-radius:999px!important}
+#preview .jobai-preview-controls>.jobai-preview-section{display:block!important;width:100%!important;margin:0 0 14px!important;box-sizing:border-box!important}
+#preview .jobai-preview-controls>.jobai-preview-section:first-of-type{display:block!important}
+#preview .jobai-preview-label,#preview .jobai-setting-title{display:block!important;font-size:10px!important;font-weight:800!important;color:#94a3b8!important;margin:0 0 6px!important;white-space:normal!important}
+#preview .template-grid{display:flex!important;align-items:center!important;gap:6px!important;flex-wrap:wrap!important;width:100%!important;box-sizing:border-box!important}
+#preview .template-button{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:0 0 auto!important;height:32px!important;min-height:32px!important;width:auto!important;padding:4px 10px!important;box-sizing:border-box!important;font-size:11px!important;white-space:nowrap!important;border:1px solid #475569!important;border-radius:7px!important;background:#1e293b!important;color:#e5e7eb!important}
+#preview .jobai-preview-row{display:flex!important;align-items:flex-start!important;gap:24px!important;width:100%!important;border:0!important;margin:0 0 14px!important;padding:12px 0 0!important;border-top:1px solid #334155!important;box-sizing:border-box!important;flex-wrap:wrap!important}
+#preview .jobai-preview-half{display:flex!important;align-items:center!important;gap:8px!important;flex:0 1 auto!important;min-width:0!important;margin:0!important}
+#preview .jobai-preview-half .jobai-preview-label{display:block!important;margin:0!important;white-space:nowrap!important}
+#preview .color-options{display:flex!important;align-items:center!important;gap:7px!important;flex-wrap:nowrap!important}
+#preview .color-button{display:block!important;width:22px!important;height:22px!important;min-width:22px!important;max-width:22px!important;min-height:22px!important;max-height:22px!important;padding:0!important;margin:0!important;box-sizing:border-box!important;border-radius:4px!important;border:2px solid #fff!important;flex:0 0 22px!important;cursor:pointer!important}
+#preview .jobai-font-options{display:flex!important;align-items:center!important;gap:5px!important;flex-wrap:wrap!important}
+#preview .jobai-font-option{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:0 0 auto!important;height:30px!important;min-height:30px!important;width:auto!important;padding:4px 8px!important;box-sizing:border-box!important;font-size:10px!important;white-space:nowrap!important;border:1px solid #475569!important;border-radius:7px!important;background:#1e293b!important;color:#e5e7eb!important}
+#preview .jobai-preview-settings{display:flex!important;align-items:flex-start!important;gap:18px!important;width:100%!important;border:0!important;margin:0!important;padding:12px 0 0!important;border-top:1px solid #334155!important;box-sizing:border-box!important;flex-wrap:wrap!important}
+#preview .jobai-preview-settings>label,#preview .jobai-preview-settings>div{display:flex!important;align-items:center!important;gap:6px!important;white-space:nowrap!important}
+#preview .jobai-preview-settings>label{flex-direction:column!important;align-items:flex-start!important;gap:5px!important}
+#preview .jobai-preview-settings>div{align-items:flex-end!important;flex-wrap:wrap!important}
+#preview .jobai-setting-title{margin:0 0 5px!important;width:100%!important}
+#preview .jobai-font-number{width:55px!important;height:30px!important;padding:4px 6px!important;box-sizing:border-box!important;font-size:11px!important}
 #preview .jobai-number-wrap{display:flex!important;align-items:center!important;gap:3px!important}
-#preview .jobai-number-wrap span{font-size:8px!important;color:#64748b!important}
+#preview .jobai-number-wrap span{font-size:9px!important;color:#94a3b8!important}
 #preview .preview-wrapper{max-width:none!important;margin:0!important;padding:0 20px 30px!important}
 #preview .a4-page{box-shadow:0 14px 40px rgba(0,0,0,.45)!important}
 @media(max-width:760px){
-  html body #preview .jobai-preview-controls{width:calc(100% - 20px)!important;margin:0 10px 14px!important;padding:10px!important}
-  html body #preview .jobai-preview-head{align-items:flex-start!important;flex-wrap:wrap!important}
-  html body #preview .jobai-preview-head>div:first-child{flex-wrap:wrap!important}
-  html body #preview .jobai-preview-controls>.jobai-preview-section:first-of-type,
-  html body #preview .jobai-preview-row,
-  html body #preview .jobai-preview-settings{align-items:flex-start!important;flex-wrap:wrap!important}
-  html body #preview .template-grid{width:100%!important}
-  #preview .preview-wrapper{padding:0 10px 20px!important}
+#preview .jobai-preview-controls{width:calc(100% - 20px)!important;margin:0 10px 14px!important;padding:12px!important}
+#preview .jobai-preview-head{align-items:flex-start!important;flex-direction:column!important;gap:8px!important}
+#preview .jobai-preview-head>div:first-child{flex-wrap:wrap!important;white-space:normal!important}
+#preview .template-grid{width:100%!important}
+#preview .jobai-preview-row{gap:12px!important}
+#preview .jobai-preview-half{width:100%!important;flex-wrap:wrap!important}
+#preview .jobai-preview-half .jobai-preview-label{width:100%!important}
+#preview .color-options{flex-wrap:wrap!important}
+#preview .jobai-preview-settings{gap:12px!important}
+#preview .preview-wrapper{padding:0 10px 20px!important}
 }
 @media print{#preview{background:#fff!important;padding:0!important}#preview .jobai-preview-controls{display:none!important}#preview .preview-wrapper{padding:0!important}#preview .a4-page{box-shadow:none!important}}
