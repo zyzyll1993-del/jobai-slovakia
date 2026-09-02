@@ -1,0 +1,33 @@
+/* JobAI Slovakia — professional compact CV preview */
+#preview .a4-page{border-radius:2px;box-shadow:0 16px 45px rgba(15,23,42,.22);overflow:hidden}
+#preview .resume-page-inner{font-size:14px;line-height:1.45}
+#preview .resume-page-inner h1{letter-spacing:-.02em}
+#preview .resume-page-inner h2{letter-spacing:.025em}
+#preview .resume-page-inner h3{line-height:1.25}
+#preview .resume-page-inner p{margin-top:4px;margin-bottom:0}
+#preview .resume-item{margin-bottom:12px}
+#preview .resume-item h3{margin-bottom:3px}
+#preview .resume-item .date{margin-bottom:4px}
+#preview .resume-list{line-height:1.4;margin-top:5px}
+#preview .modern-side{padding:28px 22px}
+#preview .modern-main{padding:32px 34px}
+#preview .modern-section{margin-top:18px}
+#preview .modern-section h3{margin:0 0 8px;padding-bottom:5px}
+#preview .modern-main h2{margin:0 0 12px;padding-bottom:5px}
+#preview .template-professional{padding:34px 40px}
+#preview .prof-header{padding-bottom:14px;margin-bottom:18px}
+#preview .prof-section{margin-bottom:18px}
+#preview .prof-section-title{margin-bottom:9px;padding-bottom:4px}
+#preview .prof-experience{gap:12px;margin-bottom:12px}
+#preview .exec-top{padding:25px 32px}
+#preview .exec-side{padding:24px 20px;min-height:900px}
+#preview .exec-main{padding:28px 30px}
+#preview .template-creative{padding:30px}
+#preview .template-ats{padding:34px 40px}
+#preview .resume-photo{width:100px;height:100px}
+@media print{
+  #preview .a4-page{box-shadow:none;border-radius:0}
+}
+@media(max-width:760px){
+  #preview .a4-page{box-shadow:0 8px 25px rgba(15,23,42,.18)}
+}
