@@ -1,12 +1,29 @@
-/* JobAI Slovakia — compact Preview controls */
+/* JobAI Slovakia — compact Preview controls + full translation */
 (function () {
   "use strict";
 
+  var lastLanguage = "";
+
   function labels(){
     var lang=(localStorage.getItem("jobaiLanguage")||"ua").toLowerCase();
-    if(lang==="sk") return {title:"Náhľad životopisu",design:"Vzhľad",template:"Šablóna",color:"Farba",font:"Písmo",text:"Veľkosť textu",name:"Veľkosť mena",weight:"Hrúbka",line:"Riadkovanie",normal:"Normálne",bold:"Polotučné"};
-    if(lang==="en") return {title:"Resume preview",design:"Appearance",template:"Template",color:"Color",font:"Font",text:"Text size",name:"Name size",weight:"Weight",line:"Line spacing",normal:"Regular",bold:"Semibold"};
-    return {title:"Перегляд резюме",design:"Вигляд",template:"Шаблон",color:"Колір",font:"Шрифт",text:"Розмір тексту",name:"Розмір імені",weight:"Товщина",line:"Міжрядковий інтервал",normal:"Звичайний",bold:"Напівжирний"};
+    if(lang==="sk") return {
+      title:"Náhľad životopisu",design:"Vzhľad",template:"Šablóna",color:"Farba",font:"Písmo",
+      text:"Veľkosť textu",name:"Veľkosť mena",weight:"Hrúbka",line:"Riadkovanie",normal:"Normálne",bold:"Polotučné",
+      auto:"● Automaticky uložené",
+      templates:["Moderný","Profesionálny","Výkonný","Kreatívny","ATS Simple"]
+    };
+    if(lang==="en") return {
+      title:"Resume preview",design:"Appearance",template:"Template",color:"Color",font:"Font",
+      text:"Text size",name:"Name size",weight:"Weight",line:"Line spacing",normal:"Regular",bold:"Semibold",
+      auto:"● Saved automatically",
+      templates:["Modern","Professional","Executive","Creative","ATS Simple"]
+    };
+    return {
+      title:"Перегляд резюме",design:"Вигляд",template:"Шаблон",color:"Колір",font:"Шрифт",
+      text:"Розмір тексту",name:"Розмір імені",weight:"Товщина",line:"Міжрядковий інтервал",normal:"Звичайний",bold:"Напівжирний",
+      auto:"● Зберігається автоматично",
+      templates:["Сучасний","Професійний","Керівник","Креативний","ATS Simple"]
+    };
   }
 
   function init(){
@@ -22,16 +39,16 @@
     box.innerHTML=`
       <div class="jobai-preview-head">
         <div><div class="jobai-preview-title">${l.design}</div><div class="jobai-preview-subtitle">${l.title}</div></div>
-        <div class="jobai-preview-status">● Auto</div>
+        <div class="jobai-preview-status">${l.auto}</div>
       </div>
       <div class="jobai-preview-section">
-        <div class="jobai-preview-label">${l.template}</div>
+        <div class="jobai-preview-label" data-preview-i18n="template">${l.template}</div>
         <div class="template-grid">
-          <button class="template-button" data-t="modern">Modern</button>
-          <button class="template-button" data-t="professional">Professional</button>
-          <button class="template-button" data-t="executive">Executive</button>
-          <button class="template-button" data-t="creative">Creative</button>
-          <button class="template-button" data-t="ats">ATS Simple</button>
+          <button class="template-button" data-t="modern">${l.templates[0]}</button>
+          <button class="template-button" data-t="professional">${l.templates[1]}</button>
+          <button class="template-button" data-t="executive">${l.templates[2]}</button>
+          <button class="template-button" data-t="creative">${l.templates[3]}</button>
+          <button class="template-button" data-t="ats">${l.templates[4]}</button>
         </div>
       </div>
       <div class="jobai-preview-row">
@@ -45,14 +62,13 @@
         </div>
       </div>
       <div class="jobai-preview-settings">
-        <label>${l.text}<div class="jobai-number-wrap"><input id="jobaiTextSizePx" class="jobai-font-number" type="number" min="8" max="30" step="1" value="14"><span>px</span></div></label>
-        <label>${l.name}<div class="jobai-number-wrap"><input id="jobaiNameSizePx" class="jobai-font-number" type="number" min="18" max="60" step="1" value="32"><span>px</span></div></label>
-        <div><div class="jobai-setting-title">${l.weight}</div><button class="jobai-font-option" data-w="400">${l.normal}</button><button class="jobai-font-option" data-w="600">${l.bold}</button></div>
-        <div><div class="jobai-setting-title">${l.line}</div><button class="jobai-font-option" data-l="1.25">1.25</button><button class="jobai-font-option" data-l="1.5">1.5</button><button class="jobai-font-option" data-l="1.8">1.8</button></div>
+        <label data-preview-label="text">${l.text}<div class="jobai-number-wrap"><input id="jobaiTextSizePx" class="jobai-font-number" type="number" min="8" max="30" step="1" value="14"><span>px</span></div></label>
+        <label data-preview-label="name">${l.name}<div class="jobai-number-wrap"><input id="jobaiNameSizePx" class="jobai-font-number" type="number" min="18" max="60" step="1" value="32"><span>px</span></div></label>
+        <div><div class="jobai-setting-title" data-preview-label="weight">${l.weight}</div><button class="jobai-font-option" data-w="400">${l.normal}</button><button class="jobai-font-option" data-w="600">${l.bold}</button></div>
+        <div><div class="jobai-setting-title" data-preview-label="line">${l.line}</div><button class="jobai-font-option" data-l="1.25">1.25</button><button class="jobai-font-option" data-l="1.5">1.5</button><button class="jobai-font-option" data-l="1.8">1.8</button></div>
       </div>`;
 
     wrapper.parentNode.insertBefore(box,wrapper);
-
     box.querySelectorAll("[data-t]").forEach(b=>b.onclick=()=>{localStorage.setItem("jobaiResumeTemplate",b.dataset.t);if(window.selectTemplate)window.selectTemplate(b.dataset.t);setTimeout(apply,0);refresh();});
     box.querySelectorAll("[data-c]").forEach(b=>b.onclick=()=>{localStorage.setItem("jobaiResumeColor",b.dataset.c);if(window.selectColor)window.selectColor(b.dataset.c);setTimeout(apply,0);refresh();});
     box.querySelectorAll("[data-f]").forEach(b=>b.onclick=()=>{localStorage.setItem("jobaiResumeFont",b.dataset.f);apply();});
@@ -63,6 +79,8 @@
     ni.addEventListener("input",function(){var v=Math.max(18,Math.min(60,parseInt(this.value)||32));localStorage.setItem("jobaiResumeNameSizePx",v);apply();});
     injectStyle();
     apply();refresh();
+    translateResume();
+    lastLanguage=(localStorage.getItem("jobaiLanguage")||"ua").toLowerCase();
   }
 
   function getTextSize(){var v=localStorage.getItem("jobaiResumeFontSizePx");if(v)return parseInt(v)||14;var old=localStorage.getItem("jobaiResumeFontSize");return old==="small"?12:old==="large"?16:14;}
@@ -89,6 +107,46 @@
     box.querySelectorAll("[data-c]").forEach(b=>b.classList.toggle("selected",b.dataset.c===c));
   }
 
+  function translateResume(){
+    var p=document.getElementById("resumePreview");
+    if(!p)return;
+    var lang=(localStorage.getItem("jobaiLanguage")||"ua").toLowerCase();
+    var dict={
+      ua:{
+        "Профіль":"Профіль","Досвід роботи":"Досвід роботи","Освіта":"Освіта","Навички":"Навички","Мови":"Мови",
+        "Особисті дані":"Особисті дані","Ваше ім'я":"Ваше ім'я","Бажана посада":"Бажана посада",
+        "Телефон · Email · Місто":"Телефон · Email · Місто","Посада":"Посада","Спеціальність":"Спеціальність","Фото":"Фото"
+      },
+      sk:{
+        "Профіль":"Profil","Досвід роботи":"Pracovné skúsenosti","Освіта":"Vzdelanie","Навички":"Zručnosti","Мови":"Jazyky",
+        "Особисті дані":"Osobné údaje","Ваше ім'я":"Vaše meno","Бажана посада":"Požadovaná pozícia",
+        "Телефон · Email · Місто":"Telefón · Email · Mesto","Посада":"Pozícia","Спеціальність":"Špecializácia","Фото":"Foto"
+      },
+      en:{
+        "Профіль":"Profile","Досвід роботи":"Experience","Освіта":"Education","Навички":"Skills","Мови":"Languages",
+        "Особисті дані":"Personal information","Ваше ім'я":"Your name","Бажана посада":"Desired position",
+        "Телефон · Email · Місто":"Phone · Email · City","Посада":"Position","Спеціальність":"Specialization","Фото":"Photo"
+      }
+    }[lang] || null;
+    if(!dict)return;
+    p.querySelectorAll("*").forEach(function(el){
+      if(el.children.length!==0)return;
+      var text=(el.textContent||"").trim();
+      if(dict[text])el.textContent=dict[text];
+    });
+    var h=labels();
+    var box=document.getElementById("jobaiPreviewControls");
+    if(box){
+      var title=box.querySelector(".jobai-preview-title"),sub=box.querySelector(".jobai-preview-subtitle"),status=box.querySelector(".jobai-preview-status");
+      if(title)title.textContent=h.design;if(sub)sub.textContent=h.title;if(status)status.textContent=h.auto;
+      var names=h.templates;box.querySelectorAll("[data-t]").forEach(function(b){var i={modern:0,professional:1,executive:2,creative:3,ats:4}[b.dataset.t];if(i!==undefined)b.textContent=names[i];});
+      var keys={template:h.template,color:h.color,font:h.font,text:h.text,name:h.name,weight:h.weight,line:h.line};
+      var tl=box.querySelector('[data-preview-i18n="template"]');if(tl)tl.textContent=keys.template;
+      box.querySelectorAll("[data-preview-label]").forEach(function(el){el.firstChild.textContent=keys[el.dataset.previewLabel];});
+      var ws=box.querySelectorAll("[data-w]");if(ws.length>1){ws[0].textContent=h.normal;ws[1].textContent=h.bold;}
+    }
+  }
+
   function injectStyle(){
     if(document.getElementById("jobaiPreviewCompactStyles"))return;
     var s=document.createElement("style");s.id="jobaiPreviewCompactStyles";s.textContent=`
@@ -112,7 +170,12 @@
     `;document.head.appendChild(s);
   }
 
-  function start(){setTimeout(init,100);}
+  function languageTick(){
+    var lang=(localStorage.getItem("jobaiLanguage")||"ua").toLowerCase();
+    if(lang!==lastLanguage){lastLanguage=lang;translateResume();}
+  }
+
+  function start(){setTimeout(init,100);setInterval(languageTick,200);}
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",start);else start();
   var oldShow=window.showTab;
   if(typeof oldShow==="function")window.showTab=function(t){var r=oldShow.apply(this,arguments);if(t==="preview")setTimeout(init,50);return r;};
