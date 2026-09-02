@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>JobAI Slovakia 🇸🇰</title>
+<title>JobAI Slovakia</title>
 
 <style>
 
@@ -19,9 +19,109 @@ html{
 body{
     margin:0;
     font-family:Arial,Helvetica,sans-serif;
-    background:#f3f6fa;
+    background:#8d949b;
     color:#172033;
 }
+
+/* =========================
+   DESKTOP SIDE PANELS
+========================= */
+
+.side-panel{
+    position:fixed;
+    top:0;
+    bottom:0;
+    width:calc((100% - 1160px)/2);
+    min-width:120px;
+    z-index:-1;
+
+    background:#737a81;
+
+    overflow:hidden;
+}
+
+.side-left{
+    left:0;
+}
+
+.side-right{
+    right:0;
+}
+
+.side-item{
+    position:absolute;
+
+    width:100%;
+    height:25%;
+
+    background-size:cover;
+    background-position:center;
+
+    opacity:.42;
+
+    border-bottom:2px solid rgba(255,255,255,.15);
+
+    filter:grayscale(20%);
+}
+
+.side-item::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            rgba(30,35,40,.35),
+            rgba(30,35,40,.65)
+        );
+}
+
+.side-1{
+    top:0;
+
+    background-image:
+    url("https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=700&q=80");
+}
+
+.side-2{
+    top:25%;
+
+    background-image:
+    url("https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=700&q=80");
+}
+
+.side-3{
+    top:50%;
+
+    background-image:
+    url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=700&q=80");
+}
+
+.side-4{
+    top:75%;
+
+    background-image:
+    url("https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=700&q=80");
+}
+
+
+/* =========================
+   MAIN APP
+========================= */
+
+.app{
+    max-width:1160px;
+    margin:auto;
+
+    background:#f3f6fa;
+
+    min-height:100vh;
+
+    box-shadow:
+        0 0 35px rgba(0,0,0,.25);
+}
+
 
 /* =========================
    HEADER
@@ -29,6 +129,7 @@ body{
 
 header{
     position:relative;
+
     min-height:520px;
 
     display:flex;
@@ -36,69 +137,87 @@ header{
     justify-content:center;
 
     text-align:center;
+
     color:white;
 
     overflow:hidden;
 
     background:
         linear-gradient(
-            rgba(0,25,55,.72),
-            rgba(0,20,45,.80)
+            rgba(8,25,42,.70),
+            rgba(8,25,42,.84)
         ),
-        url("https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1800&q=80")
+        url("https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1800&q=85")
         center/cover;
 }
 
 .hero{
     width:100%;
-    max-width:1000px;
-    padding:80px 20px 40px;
+    max-width:950px;
+
+    padding:90px 20px 50px;
 }
 
 .logo{
-    font-size:52px;
-    font-weight:800;
+    font-size:48px;
+    font-weight:900;
+
+    letter-spacing:-1px;
+
     margin-bottom:15px;
 }
 
 .hero h1{
     font-size:42px;
+
     margin:10px 0;
 }
 
 .hero p{
-    font-size:20px;
-    opacity:.95;
-    max-width:700px;
+    font-size:19px;
+
+    line-height:1.55;
+
+    max-width:720px;
+
     margin:15px auto 30px;
-    line-height:1.5;
+
+    opacity:.95;
 }
 
+
 /* =========================
-   LANGUAGE SWITCHER
+   LANGUAGE
 ========================= */
 
 .language{
     position:absolute;
+
     right:18px;
     top:18px;
+
     z-index:10;
 }
 
 .language select{
-    min-width:190px;
-    min-height:52px;
+    min-width:120px;
+    min-height:50px;
 
-    padding:12px 16px;
+    padding:10px 15px;
 
     border-radius:12px;
+
     border:2px solid rgba(255,255,255,.7);
 
     background:rgba(255,255,255,.96);
+
     color:#172033;
 
-    font-size:17px;
-    font-weight:bold;
+    font-size:18px;
+
+    font-weight:800;
+
+    text-align:center;
 
     cursor:pointer;
 
@@ -106,35 +225,42 @@ header{
         0 5px 18px rgba(0,0,0,.25);
 }
 
+
 /* =========================
    HERO BUTTONS
 ========================= */
 
 .hero-buttons{
     display:flex;
+
     justify-content:center;
+
     gap:12px;
+
     flex-wrap:wrap;
 }
 
 .hero-button{
-    display:inline-block;
+    padding:15px 25px;
 
-    padding:15px 24px;
-
-    border-radius:12px;
-
-    background:white;
-    color:#1261a0;
-
-    text-decoration:none;
-    font-weight:bold;
+    border-radius:11px;
 
     border:none;
 
-    cursor:pointer;
+    background:white;
+
+    color:#1261a0;
 
     font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    text-decoration:none;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.15);
 }
 
 .hero-button.dark{
@@ -142,17 +268,20 @@ header{
     color:white;
 }
 
+.hero-button:hover{
+    transform:translateY(-2px);
+}
+
+
 /* =========================
-   NAVIGATION
+   NAV
 ========================= */
 
 nav{
-    background:white;
-
-    box-shadow:
-        0 2px 10px rgba(0,0,0,.08);
+    background:#ffffff;
 
     display:flex;
+
     justify-content:center;
 
     gap:8px;
@@ -160,9 +289,13 @@ nav{
     padding:12px;
 
     position:sticky;
+
     top:0;
 
     z-index:20;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,.10);
 
     flex-wrap:wrap;
 }
@@ -170,9 +303,9 @@ nav{
 nav button{
     border:none;
 
-    background:#eef3f8;
+    background:#eef2f6;
 
-    padding:11px 16px;
+    padding:11px 17px;
 
     border-radius:9px;
 
@@ -186,17 +319,20 @@ nav button{
 }
 
 nav button:hover{
-    background:#dce8f5;
+    background:#dbe5ef;
 }
 
+
 /* =========================
-   GENERAL
+   CONTENT
 ========================= */
 
 .container{
+    padding:35px 22px;
+
     max-width:1100px;
+
     margin:auto;
-    padding:30px 15px;
 }
 
 .page{
@@ -209,46 +345,299 @@ nav button:hover{
 
 .section-title{
     text-align:center;
-    margin:15px 0 30px;
+
+    margin:10px 0 30px;
 }
 
 .section-title h2{
     font-size:32px;
+
     margin-bottom:8px;
 }
 
 .section-title p{
-    color:#64748b;
+    color:#657385;
 }
+
+
+/* =========================
+   TECHNO STYLE CARD
+========================= */
 
 .card{
     background:white;
 
-    border-radius:16px;
+    border-radius:15px;
 
     padding:22px;
 
     margin-bottom:20px;
 
+    border:1px solid #e0e6ec;
+
     box-shadow:
-        0 4px 18px rgba(20,40,70,.08);
+        0 5px 20px rgba(20,40,70,.07);
 }
+
+
+/* =========================
+   HOW IT WORKS
+========================= */
+
+.tech-process{
+    position:relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            #252c33,
+            #414b54
+        );
+
+    border-radius:18px;
+
+    padding:25px;
+
+    color:white;
+
+    overflow:hidden;
+
+    border:
+        1px solid #626c75;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.22);
+}
+
+.tech-process::before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        );
+
+    background-size:30px 30px;
+
+    pointer-events:none;
+}
+
+.tech-process h2{
+    position:relative;
+
+    text-align:center;
+
+    margin-top:0;
+
+    font-size:27px;
+}
+
+.process-grid{
+    position:relative;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:12px;
+
+    margin-top:25px;
+}
+
+.process-step{
+    background:
+        rgba(255,255,255,.08);
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    border-radius:12px;
+
+    padding:18px;
+
+    min-height:155px;
+
+    position:relative;
+
+    backdrop-filter:blur(3px);
+}
+
+.process-number{
+    font-size:13px;
+
+    font-weight:bold;
+
+    color:#9fc7e8;
+
+    letter-spacing:2px;
+}
+
+.process-icon{
+    font-size:30px;
+
+    margin:10px 0;
+}
+
+.process-step h3{
+    margin:5px 0;
+
+    font-size:17px;
+}
+
+.process-step p{
+    margin:0;
+
+    color:#d8e0e7;
+
+    font-size:13px;
+
+    line-height:1.45;
+}
+
+
+/* =========================
+   PROFESSIONS
+========================= */
+
+.professions{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:15px;
+}
+
+.profession{
+    min-height:160px;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    color:white;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.15);
+
+    transition:.2s;
+
+    background-position:center;
+
+    background-size:cover;
+}
+
+.profession:hover{
+    transform:translateY(-4px);
+}
+
+.profession-content{
+    width:100%;
+
+    padding:17px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,.82)
+        );
+}
+
+.profession h3{
+    margin:0;
+
+    font-size:18px;
+}
+
+.profession p{
+    margin:5px 0 0;
+
+    font-size:13px;
+
+    opacity:.9;
+}
+
+
+/* =========================
+   PROFESSION PHOTOS
+========================= */
+
+.cnc{
+    background-image:
+    url("https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=700&q=80");
+}
+
+.welder{
+    background-image:
+    url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=700&q=80");
+}
+
+.mechanic{
+    background-image:
+    url("https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=700&q=80");
+}
+
+.warehouse{
+    background-image:
+    url("https://images.unsplash.com/photo-1586528116493-da8b9c6c7d4f?auto=format&fit=crop&w=700&q=80");
+}
+
+.engineer{
+    background-image:
+    url("https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=700&q=80");
+}
+
+.construction{
+    background-image:
+    url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=700&q=80");
+}
+
+.it{
+    background-image:
+    url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=700&q=80");
+}
+
+.logistics{
+    background-image:
+    url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=700&q=80");
+}
+
 
 /* =========================
    FORM
 ========================= */
 
 input,
-textarea,
-select{
+textarea{
     width:100%;
 
     padding:12px;
 
     margin-top:7px;
+
     margin-bottom:14px;
 
-    border:1px solid #d6dee8;
+    border:
+        1px solid #d4dde6;
 
     border-radius:9px;
 
@@ -259,17 +648,16 @@ select{
 
 textarea{
     min-height:150px;
+
     resize:vertical;
 }
 
 label{
-    font-weight:bold;
     display:block;
-    margin-top:8px;
-}
 
-button{
-    font-family:inherit;
+    font-weight:bold;
+
+    margin-top:8px;
 }
 
 .primary{
@@ -282,9 +670,11 @@ button{
     border-radius:10px;
 
     background:#1261a0;
+
     color:white;
 
     font-size:16px;
+
     font-weight:bold;
 
     cursor:pointer;
@@ -301,163 +691,17 @@ button{
 
     border-radius:9px;
 
-    background:#e8eef5;
+    background:#e7edf3;
 
     cursor:pointer;
 }
 
 .danger{
     background:#dc3545;
-    color:white;
-}
-
-/* =========================
-   PROFESSIONS
-========================= */
-
-.professions{
-    display:grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(170px,1fr));
-
-    gap:15px;
-}
-
-.profession{
-    min-height:150px;
-
-    border-radius:15px;
-
-    overflow:hidden;
-
-    position:relative;
 
     color:white;
-
-    display:flex;
-    align-items:flex-end;
-
-    cursor:pointer;
-
-    box-shadow:
-        0 5px 15px rgba(0,0,0,.15);
-
-    transition:.2s;
 }
 
-.profession:hover{
-    transform:translateY(-4px);
-}
-
-.profession-content{
-    width:100%;
-
-    padding:18px;
-
-    background:
-        linear-gradient(
-            transparent,
-            rgba(0,0,0,.8)
-        );
-}
-
-.profession h3{
-    margin:0;
-    font-size:19px;
-}
-
-.profession p{
-    margin:5px 0 0;
-
-    font-size:13px;
-
-    opacity:.9;
-}
-
-/* =========================
-   PROFESSION IMAGES
-========================= */
-
-.cnc{
-    background:
-        linear-gradient(
-            rgba(0,0,0,.1),
-            rgba(0,0,0,.2)
-        ),
-        url("https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=700&q=80")
-        center/cover;
-}
-
-.welder{
-    background:
-        linear-gradient(
-            rgba(0,0,0,.1),
-            rgba(0,0,0,.2)
-        ),
-        url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=700&q=80")
-        center/cover;
-}
-
-.mechanic{
-    background:
-        linear-gradient(
-            rgba(0,0,0,.1),
-            rgba(0,0,0,.2)
-        ),
-        url("https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=700&q=80")
-        center/cover;
-}
-
-.warehouse{
-    background:
-        linear-gradient(
-            rgba(0,0,0,.1),
-            rgba(0,0,0,.2)
-        ),
-        url("https://images.unsplash.com/photo-1586528116493-da8b9c6c7d4f?auto=format&fit=crop&w=700&q=80")
-        center/cover;
-}
-
-.engineer{
-    background:
-        linear-gradient(
-            rgba(0,0,0,.1),
-            rgba(0,0,0,.2)
-        ),
-        url("https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=700&q=80")
-        center/cover;
-}
-
-.construction{
-    background:
-        linear-gradient(
-            rgba(0,0,0,.1),
-            rgba(0,0,0,.2)
-        ),
-        url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=700&q=80")
-        center/cover;
-}
-
-.it{
-    background:
-        linear-gradient(
-            rgba(0,0,0,.1),
-            rgba(0,0,0,.2)
-        ),
-        url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=700&q=80")
-        center/cover;
-}
-
-.logistics{
-    background:
-        linear-gradient(
-            rgba(0,0,0,.1),
-            rgba(0,0,0,.2)
-        ),
-        url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=700&q=80")
-        center/cover;
-}
 
 /* =========================
    PHOTO
@@ -465,6 +709,7 @@ button{
 
 .photo-box{
     text-align:center;
+
     margin-bottom:20px;
 }
 
@@ -480,11 +725,13 @@ button{
 
     margin:10px auto;
 
-    border:4px solid #1261a0;
+    border:
+        4px solid #1261a0;
 }
 
+
 /* =========================
-   RESUME PREVIEW
+   PREVIEW
 ========================= */
 
 .resume-preview{
@@ -525,6 +772,7 @@ button{
 
     padding-bottom:5px;
 }
+
 
 /* =========================
    ANALYSIS
@@ -584,36 +832,63 @@ button{
     background:#eaf3fb;
 }
 
+
 /* =========================
    FOOTER
 ========================= */
 
 footer{
-    background:#172033;
+    background:#202830;
 
     color:white;
 
     text-align:center;
 
     padding:30px 15px;
-
-    margin-top:40px;
 }
+
 
 /* =========================
    MOBILE
 ========================= */
 
+@media(max-width:850px){
+
+    body{
+        background:#f3f6fa;
+    }
+
+    .side-panel{
+        display:none;
+    }
+
+    .app{
+        width:100%;
+
+        box-shadow:none;
+    }
+
+    .professions{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .process-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
 @media(max-width:600px){
 
     header{
-        min-height:560px;
+        min-height:580px;
     }
 
     .language{
-        position:absolute;
-
         left:15px;
+
         right:15px;
 
         top:15px;
@@ -632,7 +907,7 @@ footer{
     }
 
     .logo{
-        font-size:36px;
+        font-size:34px;
     }
 
     .hero h1{
@@ -643,8 +918,15 @@ footer{
         font-size:16px;
     }
 
+    .hero-buttons{
+        flex-direction:column;
+
+        align-items:center;
+    }
+
     .hero-button{
         width:100%;
+
         max-width:320px;
     }
 
@@ -653,8 +935,28 @@ footer{
     }
 
     nav button{
-        padding:10px 11px;
+        padding:9px 10px;
+
         font-size:12px;
+    }
+
+    .container{
+        padding:25px 12px;
+    }
+
+    .professions{
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:10px;
+    }
+
+    .profession{
+        min-height:145px;
+    }
+
+    .process-grid{
+        grid-template-columns:1fr;
     }
 
     .resume-preview{
@@ -666,7 +968,40 @@ footer{
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =========================
+     DESKTOP DECORATION
+========================= -->
+
+<div class="side-panel side-left">
+
+    <div class="side-item side-1"></div>
+    <div class="side-item side-2"></div>
+    <div class="side-item side-3"></div>
+    <div class="side-item side-4"></div>
+
+</div>
+
+
+<div class="side-panel side-right">
+
+    <div class="side-item side-1"></div>
+    <div class="side-item side-2"></div>
+    <div class="side-item side-3"></div>
+    <div class="side-item side-4"></div>
+
+</div>
+
+
+<div class="app">
+
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -674,11 +1009,11 @@ footer{
 
 <select id="languageSelect">
 
-<option value="uk">🇺🇦 Українська</option>
+<option value="uk">UA</option>
 
-<option value="sk">🇸🇰 Slovenčina</option>
+<option value="en">EN</option>
 
-<option value="en">🇬🇧 English</option>
+<option value="sk">SK</option>
 
 </select>
 
@@ -688,17 +1023,20 @@ footer{
 <div class="hero">
 
 <div class="logo">
-🤖 JobAI Slovakia 🇸🇰
+🤖 JobAI Slovakia
 </div>
+
 
 <h1 id="heroTitle">
 Знайди роботу швидше
 </h1>
 
+
 <p id="heroText">
 Створи професійне резюме, проаналізуй вакансію
 та дізнайся, наскільки твої навички відповідають роботі.
 </p>
+
 
 <div class="hero-buttons">
 
@@ -727,6 +1065,10 @@ id="heroAnalysisButton">
 
 </header>
 
+
+<!-- =========================
+     NAVIGATION
+========================= -->
 
 <nav>
 
@@ -758,6 +1100,7 @@ id="heroAnalysisButton">
 
 <section id="homePage" class="page active">
 
+
 <div class="section-title">
 
 <h2 id="professionsTitle">
@@ -781,7 +1124,7 @@ onclick="selectProfession('CNC Operator')">
 <div class="profession-content">
 
 <h3 id="professionCNC">
-⚙️ CNC Operator
+⚙️ Оператор CNC
 </h3>
 
 <p id="professionCNCDesc">
@@ -800,7 +1143,7 @@ onclick="selectProfession('Welder')">
 <div class="profession-content">
 
 <h3 id="professionWelder">
-🔥 Welder
+🔥 Зварювальник
 </h3>
 
 <p id="professionWelderDesc">
@@ -819,7 +1162,7 @@ onclick="selectProfession('Auto Mechanic')">
 <div class="profession-content">
 
 <h3 id="professionMechanic">
-🔧 Mechanic
+🔧 Автомеханік
 </h3>
 
 <p id="professionMechanicDesc">
@@ -838,7 +1181,7 @@ onclick="selectProfession('Warehouse Worker')">
 <div class="profession-content">
 
 <h3 id="professionWarehouse">
-📦 Warehouse
+📦 Працівник складу
 </h3>
 
 <p id="professionWarehouseDesc">
@@ -857,7 +1200,7 @@ onclick="selectProfession('Mechanical Engineer')">
 <div class="profession-content">
 
 <h3 id="professionEngineer">
-📐 Engineer
+📐 Інженер
 </h3>
 
 <p id="professionEngineerDesc">
@@ -876,7 +1219,7 @@ onclick="selectProfession('Construction Worker')">
 <div class="profession-content">
 
 <h3 id="professionConstruction">
-🏗️ Construction
+🏗️ Будівельник
 </h3>
 
 <p id="professionConstructionDesc">
@@ -895,7 +1238,7 @@ onclick="selectProfession('IT Specialist')">
 <div class="profession-content">
 
 <h3 id="professionIT">
-💻 IT
+💻 IT-спеціаліст
 </h3>
 
 <p id="professionITDesc">
@@ -914,7 +1257,7 @@ onclick="selectProfession('Logistics Worker')">
 <div class="profession-content">
 
 <h3 id="professionLogistics">
-🚚 Logistics
+🚚 Логіст
 </h3>
 
 <p id="professionLogisticsDesc">
@@ -929,34 +1272,110 @@ onclick="selectProfession('Logistics Worker')">
 </div>
 
 
-<div
-class="card"
-style="margin-top:30px;text-align:center">
+<!-- =========================
+     HOW IT WORKS
+========================= -->
+
+<div class="tech-process" style="margin-top:30px">
 
 <h2 id="howWorks">
-🚀 Як це працює?
+⚙️ Як це працює?
 </h2>
 
+
+<div class="process-grid">
+
+
+<div class="process-step">
+
+<div class="process-number">
+01
+</div>
+
+<div class="process-icon">
+📄
+</div>
+
+<h3 id="step1Title">
+Створи резюме
+</h3>
+
 <p id="step1">
-1️⃣ Створи своє резюме
-</p>
-
-<p id="step2">
-2️⃣ Встав текст вакансії
-</p>
-
-<p id="step3">
-3️⃣ JobAI знайде необхідні навички
-</p>
-
-<p id="step4">
-4️⃣ Отримаєш відсоток відповідності
+Заповни професійні дані та навички.
 </p>
 
 </div>
 
-</section>
 
+<div class="process-step">
+
+<div class="process-number">
+02
+</div>
+
+<div class="process-icon">
+📋
+</div>
+
+<h3 id="step2Title">
+Встав вакансію
+</h3>
+
+<p id="step2">
+Додай текст актуальної вакансії.
+</p>
+
+</div>
+
+
+<div class="process-step">
+
+<div class="process-number">
+03
+</div>
+
+<div class="process-icon">
+🤖
+</div>
+
+<h3 id="step3Title">
+AI аналіз
+</h3>
+
+<p id="step3">
+JobAI знаходить потрібні навички.
+</p>
+
+</div>
+
+
+<div class="process-step">
+
+<div class="process-number">
+04
+</div>
+
+<div class="process-icon">
+🎯
+</div>
+
+<h3 id="step4Title">
+Результат
+</h3>
+
+<p id="step4">
+Отримай відсоток відповідності.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</section>
 
 
 <!-- =========================
@@ -964,6 +1383,7 @@ style="margin-top:30px;text-align:center">
 ========================= -->
 
 <section id="resumePage" class="page">
+
 
 <div class="section-title">
 
@@ -984,12 +1404,14 @@ style="margin-top:30px;text-align:center">
 
 <img id="photoPreview">
 
+
 <input
 type="file"
 id="photoInput"
 accept="image/*"
 onchange="handlePhotoUpload(event)"
 >
+
 
 <button
 class="secondary"
@@ -1138,6 +1560,7 @@ id="saveCVButton">
 
 <br><br>
 
+
 <button
 class="secondary"
 onclick="exportResumeJSON()"
@@ -1147,6 +1570,7 @@ id="exportJSONButton">
 
 </button>
 
+
 <label
 style="margin-top:15px"
 id="importJSONLabel">
@@ -1155,13 +1579,16 @@ id="importJSONLabel">
 
 </label>
 
+
 <input
 type="file"
 accept=".json"
 onchange="importResumeJSON(event)"
 >
 
+
 <br>
+
 
 <button
 class="secondary danger"
@@ -1177,12 +1604,12 @@ id="clearCVButton">
 </section>
 
 
-
 <!-- =========================
      PREVIEW
 ========================= -->
 
 <section id="previewPage" class="page">
+
 
 <div class="section-title">
 
@@ -1200,6 +1627,7 @@ id="clearCVButton">
 <div
 class="resume-preview"
 id="resumePreview">
+
 
 <div class="resume-header">
 
@@ -1274,10 +1702,12 @@ id="resumePreview">
 
 </div>
 
+
 </div>
 
 
 <br>
+
 
 <button
 class="primary"
@@ -1291,12 +1721,12 @@ id="printButton">
 </section>
 
 
-
 <!-- =========================
      ANALYSIS
 ========================= -->
 
 <section id="analysisPage" class="page">
+
 
 <div class="section-title">
 
@@ -1316,6 +1746,7 @@ id="printButton">
 <label id="jobTextLabel">
 📋 Текст вакансії
 </label>
+
 
 <textarea
 id="jobText"
@@ -1345,10 +1776,10 @@ id="analyzeButton">
 </div>
 
 
-
 <div
 class="card"
 id="analysisResult">
+
 
 <h2 id="resultTitle">
 🎯 Результат
@@ -1423,6 +1854,7 @@ class="progress-bar">
 
 </section>
 
+
 </main>
 
 
@@ -1443,16 +1875,18 @@ AI-помічник для пошуку роботи та створення р�
 </footer>
 
 
+</div>
+
+
+<!-- =========================
+     TRANSLATIONS
+========================= -->
 
 <script>
 
-/* =========================
-   TRANSLATIONS
-========================= */
-
 const translations = {
 
-uk: {
+uk:{
 
 heroTitle:"Знайди роботу швидше",
 
@@ -1477,97 +1911,74 @@ professionsText:
 "Обери професію та швидко перейди до аналізу вакансії",
 
 cnc:"⚙️ Оператор CNC",
-
 cncDesc:"Верстати та виробництво",
 
 welder:"🔥 Зварювальник",
-
 welderDesc:"Зварювання",
 
 mechanic:"🔧 Автомеханік",
-
 mechanicDesc:"Автомобілі",
 
 warehouse:"📦 Працівник складу",
-
 warehouseDesc:"Логістика та склад",
 
 engineer:"📐 Інженер",
-
 engineerDesc:"Технічні професії",
 
 construction:"🏗️ Будівельник",
-
 constructionDesc:"Будівництво",
 
 it:"💻 IT-спеціаліст",
-
 itDesc:"Технології",
 
 logistics:"🚚 Логіст",
-
 logisticsDesc:"Транспорт",
 
-howWorks:"🚀 Як це працює?",
+howWorks:"⚙️ Як це працює?",
 
-step1:"1️⃣ Створи своє резюме",
+step1Title:"Створи резюме",
+step1:"Заповни професійні дані та навички.",
 
-step2:"2️⃣ Встав текст вакансії",
+step2Title:"Встав вакансію",
+step2:"Додай текст актуальної вакансії.",
 
-step3:"3️⃣ JobAI знайде необхідні навички",
+step3Title:"AI аналіз",
+step3:"JobAI знаходить потрібні навички.",
 
-step4:"4️⃣ Отримаєш відсоток відповідності",
+step4Title:"Результат",
+step4:"Отримай відсоток відповідності.",
 
 cvTitle:"📄 Моє резюме",
-
 cvSubtitle:"Заповни інформацію про себе",
 
 name:"Ім'я та прізвище",
-
 position:"Бажана посада",
-
 phone:"Телефон",
-
 email:"Email",
-
 city:"Місто",
-
 profile:"Професійний профіль",
-
 skills:"Навички",
-
 languages:"Мови",
 
 experience:"💼 Досвід роботи",
-
 education:"🎓 Освіта",
 
 addExperience:"➕ Додати досвід",
-
 addEducation:"➕ Додати освіту",
 
 saveCV:"💾 Зберегти резюме",
-
 exportJSON:"📤 Експорт даних",
-
 importJSON:"📥 Імпорт даних",
-
 clearCV:"🗑️ Очистити резюме",
-
 removePhoto:"🗑️ Видалити фото",
 
 previewTitle:"👁️ Перегляд резюме",
-
 previewSubtitle:"Так виглядатиме твоє резюме",
 
 profileTitle:"Профіль",
-
 skillsTitle:"Навички",
-
 languagesTitle:"Мови",
-
 experienceTitle:"Досвід роботи",
-
 educationTitle:"Освіта",
 
 print:"🖨️ Друк / Зберегти PDF",
@@ -1598,7 +2009,7 @@ footer:
 },
 
 
-sk: {
+sk:{
 
 heroTitle:"Nájdite si prácu rýchlejšie",
 
@@ -1623,97 +2034,74 @@ professionsText:
 "Vyberte profesiu a prejdite na analýzu pracovnej ponuky",
 
 cnc:"⚙️ CNC operátor",
-
 cncDesc:"Stroje a výroba",
 
 welder:"🔥 Zvárač",
-
 welderDesc:"Zváranie",
 
 mechanic:"🔧 Automechanik",
-
 mechanicDesc:"Automobily",
 
 warehouse:"📦 Pracovník skladu",
-
 warehouseDesc:"Logistika a sklad",
 
 engineer:"📐 Inžinier",
-
 engineerDesc:"Technické profesie",
 
 construction:"🏗️ Stavebný pracovník",
-
 constructionDesc:"Stavebníctvo",
 
 it:"💻 IT špecialista",
-
 itDesc:"Technológie",
 
 logistics:"🚚 Logistik",
-
 logisticsDesc:"Doprava",
 
-howWorks:"🚀 Ako to funguje?",
+howWorks:"⚙️ Ako to funguje?",
 
-step1:"1️⃣ Vytvorte si životopis",
+step1Title:"Vytvorte životopis",
+step1:"Vyplňte profesionálne údaje a zručnosti.",
 
-step2:"2️⃣ Vložte text pracovnej ponuky",
+step2Title:"Vložte ponuku",
+step2:"Pridajte text aktuálnej pracovnej ponuky.",
 
-step3:"3️⃣ JobAI nájde potrebné zručnosti",
+step3Title:"AI analýza",
+step3:"JobAI nájde potrebné zručnosti.",
 
-step4:"4️⃣ Dostanete percento zhody",
+step4Title:"Výsledok",
+step4:"Získate percento zhody.",
 
 cvTitle:"📄 Môj životopis",
-
 cvSubtitle:"Vyplňte svoje údaje",
 
 name:"Meno a priezvisko",
-
 position:"Požadovaná pozícia",
-
 phone:"Telefón",
-
 email:"Email",
-
 city:"Mesto",
-
 profile:"Profesionálny profil",
-
 skills:"Zručnosti",
-
 languages:"Jazyky",
 
 experience:"💼 Pracovné skúsenosti",
-
 education:"🎓 Vzdelanie",
 
 addExperience:"➕ Pridať skúsenosť",
-
 addEducation:"➕ Pridať vzdelanie",
 
 saveCV:"💾 Uložiť životopis",
-
 exportJSON:"📤 Export údajov",
-
 importJSON:"📥 Import údajov",
-
 clearCV:"🗑️ Vymazať životopis",
-
 removePhoto:"🗑️ Odstrániť foto",
 
 previewTitle:"👁️ Náhľad životopisu",
-
 previewSubtitle:"Takto bude vyzerať váš životopis",
 
 profileTitle:"Profil",
-
 skillsTitle:"Zručnosti",
-
 languagesTitle:"Jazyky",
-
 experienceTitle:"Pracovné skúsenosti",
-
 educationTitle:"Vzdelanie",
 
 print:"🖨️ Tlačiť / Uložiť PDF",
@@ -1744,7 +2132,7 @@ footer:
 },
 
 
-en: {
+en:{
 
 heroTitle:"Find a job faster",
 
@@ -1769,97 +2157,74 @@ professionsText:
 "Choose a profession and quickly analyze a job offer",
 
 cnc:"⚙️ CNC Operator",
-
 cncDesc:"Machines and production",
 
 welder:"🔥 Welder",
-
 welderDesc:"Welding",
 
 mechanic:"🔧 Auto Mechanic",
-
 mechanicDesc:"Automotive",
 
 warehouse:"📦 Warehouse Worker",
-
 warehouseDesc:"Logistics and warehouse",
 
 engineer:"📐 Engineer",
-
 engineerDesc:"Technical professions",
 
 construction:"🏗️ Construction Worker",
-
 constructionDesc:"Construction",
 
 it:"💻 IT Specialist",
-
 itDesc:"Technology",
 
 logistics:"🚚 Logistics Worker",
-
 logisticsDesc:"Transport",
 
-howWorks:"🚀 How does it work?",
+howWorks:"⚙️ How does it work?",
 
-step1:"1️⃣ Create your resume",
+step1Title:"Create your resume",
+step1:"Fill in your professional data and skills.",
 
-step2:"2️⃣ Paste the job offer",
+step2Title:"Paste a job",
+step2:"Add the text of a current job offer.",
 
-step3:"3️⃣ JobAI finds the required skills",
+step3Title:"AI analysis",
+step3:"JobAI finds the required skills.",
 
-step4:"4️⃣ Get your match percentage",
+step4Title:"Result",
+step4:"Get your match percentage.",
 
 cvTitle:"📄 My Resume",
-
 cvSubtitle:"Fill in your information",
 
 name:"Full name",
-
 position:"Desired position",
-
 phone:"Phone",
-
 email:"Email",
-
 city:"City",
-
 profile:"Professional profile",
-
 skills:"Skills",
-
 languages:"Languages",
 
 experience:"💼 Work experience",
-
 education:"🎓 Education",
 
 addExperience:"➕ Add experience",
-
 addEducation:"➕ Add education",
 
 saveCV:"💾 Save Resume",
-
 exportJSON:"📤 Export Data",
-
 importJSON:"📥 Import Data",
-
 clearCV:"🗑️ Clear Resume",
-
 removePhoto:"🗑️ Remove photo",
 
 previewTitle:"👁️ Resume Preview",
-
 previewSubtitle:"This is how your resume will look",
 
 profileTitle:"Profile",
-
 skillsTitle:"Skills",
-
 languagesTitle:"Languages",
-
 experienceTitle:"Work experience",
-
 educationTitle:"Education",
 
 print:"🖨️ Print / Save PDF",
@@ -1893,18 +2258,18 @@ footer:
 
 
 /* =========================
-   PAGE NAVIGATION
+   FUNCTIONS
 ========================= */
 
 function showPage(pageId){
 
     document
-        .querySelectorAll(".page")
-        .forEach(function(page){
+    .querySelectorAll(".page")
+    .forEach(function(page){
 
-            page.classList.remove("active");
+        page.classList.remove("active");
 
-        });
+    });
 
 
     const page =
@@ -1925,10 +2290,6 @@ function showPage(pageId){
 }
 
 
-/* =========================
-   TEXT HELPER
-========================= */
-
 function setText(id,text){
 
     const element =
@@ -1942,10 +2303,6 @@ function setText(id,text){
 
 }
 
-
-/* =========================
-   LANGUAGE
-========================= */
 
 function setLanguage(language){
 
@@ -1996,9 +2353,17 @@ function setLanguage(language){
 
 
     setText("howWorks",t.howWorks);
+
+    setText("step1Title",t.step1Title);
     setText("step1",t.step1);
+
+    setText("step2Title",t.step2Title);
     setText("step2",t.step2);
+
+    setText("step3Title",t.step3Title);
     setText("step3",t.step3);
+
+    setText("step4Title",t.step4Title);
     setText("step4",t.step4);
 
 
@@ -2037,7 +2402,6 @@ function setLanguage(language){
     setText("previewExperienceTitle",t.experienceTitle);
     setText("previewEducationTitle",t.educationTitle);
 
-
     setText("printButton",t.print);
 
 
@@ -2066,10 +2430,6 @@ function setLanguage(language){
 }
 
 
-/* =========================
-   PROFESSION
-========================= */
-
 function selectProfession(profession){
 
     showPage("analysisPage");
@@ -2096,7 +2456,7 @@ function selectProfession(profession){
 
 
 /* =========================
-   START
+   INITIALIZATION
 ========================= */
 
 document.addEventListener(
@@ -2154,9 +2514,14 @@ function(){
 </script>
 
 
+<!-- =========================
+     PROJECT MODULES
+========================= -->
+
 <script src="jobs.js"></script>
 <script src="resume.js"></script>
 <script src="analysis.js"></script>
+
 
 </body>
 </html>
