@@ -120,15 +120,15 @@
             top: 18px;
             right: 18px;
 
-            z-index: 50;
+            z-index: 100;
 
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
 
             padding: 7px;
 
-            background: rgba(15, 23, 42, 0.96);
+            background: rgba(15, 23, 42, 0.97);
 
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
@@ -139,25 +139,27 @@
 
             box-shadow:
                 0 8px 30px rgba(0,0,0,0.45);
+
+            visibility: visible;
+            opacity: 1;
         }
 
         .language-switcher button {
-            width: 48px;
+            width: 50px;
             height: 42px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            border: 1px solid transparent;
+            padding: 5px;
+
+            border: 1px solid rgba(255,255,255,0.10);
             border-radius: 11px;
 
-            background: rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.05);
 
             cursor: pointer;
-
-            font-size: 25px;
-            line-height: 1;
 
             transition:
                 transform 0.2s,
@@ -167,18 +169,40 @@
         }
 
         .language-switcher button:hover {
-            background: rgba(255,255,255,0.14);
-
+            background: rgba(255,255,255,0.12);
             transform: scale(1.05);
         }
 
         .language-switcher button.active {
             background: rgba(59,130,246,0.28);
 
-            border: 1px solid rgba(147,197,253,0.65);
+            border: 2px solid rgba(147,197,253,0.85);
 
             box-shadow:
-                0 0 12px rgba(59,130,246,0.25);
+                0 0 14px rgba(59,130,246,0.35);
+        }
+
+        .language-flag {
+            width: 34px;
+            height: 24px;
+
+            display: block;
+
+            border-radius: 4px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 2px 5px rgba(0,0,0,0.35);
+
+            flex-shrink: 0;
+        }
+
+        .language-flag svg {
+            display: block;
+
+            width: 100%;
+            height: 100%;
         }
 
         .hero {
@@ -785,7 +809,12 @@
                 width: 43px;
                 height: 38px;
 
-                font-size: 23px;
+                padding: 4px;
+            }
+
+            .language-flag {
+                width: 31px;
+                height: 22px;
             }
 
             nav {
@@ -889,24 +918,93 @@
             class="active"
             onclick="setLanguage('uk')"
             aria-label="Українська">
-            🇺🇦
+
+            <span class="language-flag">
+                <svg viewBox="0 0 34 24" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="34" height="12" fill="#0057B7"/>
+                    <rect y="12" width="34" height="12" fill="#FFD700"/>
+                </svg>
+            </span>
+
         </button>
+
 
         <button
             id="lang-sk"
             onclick="setLanguage('sk')"
             aria-label="Slovenčina">
-            🇸🇰
+
+            <span class="language-flag">
+                <svg viewBox="0 0 34 24" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="34" height="8" fill="#FFFFFF"/>
+                    <rect y="8" width="34" height="8" fill="#0B4EA2"/>
+                    <rect y="16" width="34" height="8" fill="#EE1C25"/>
+                </svg>
+            </span>
+
         </button>
+
 
         <button
             id="lang-en"
             onclick="setLanguage('en')"
             aria-label="English">
-            🇬🇧
+
+            <span class="language-flag">
+                <svg viewBox="0 0 34 24" xmlns="http://www.w3.org/2000/svg">
+
+                    <rect width="34" height="24" fill="#B22234"/>
+
+                    <path
+                        d="M0 3.7h34v2.1H0z
+                           M0 7.9h34V10H0z
+                           M0 12.1h34v2.1H0z
+                           M0 16.3h34v2.1H0z
+                           M0 20.5h34v2.1H0z"
+                        fill="#FFFFFF"/>
+
+                    <rect
+                        width="15"
+                        height="13"
+                        fill="#3C3B6E"/>
+
+                    <g fill="#FFFFFF">
+                        <circle cx="2.2" cy="2" r=".65"/>
+                        <circle cx="5" cy="2" r=".65"/>
+                        <circle cx="7.8" cy="2" r=".65"/>
+                        <circle cx="10.6" cy="2" r=".65"/>
+                        <circle cx="13.4" cy="2" r=".65"/>
+
+                        <circle cx="3.6" cy="4.1" r=".65"/>
+                        <circle cx="6.4" cy="4.1" r=".65"/>
+                        <circle cx="9.2" cy="4.1" r=".65"/>
+                        <circle cx="12" cy="4.1" r=".65"/>
+
+                        <circle cx="2.2" cy="6.2" r=".65"/>
+                        <circle cx="5" cy="6.2" r=".65"/>
+                        <circle cx="7.8" cy="6.2" r=".65"/>
+                        <circle cx="10.6" cy="6.2" r=".65"/>
+                        <circle cx="13.4" cy="6.2" r=".65"/>
+
+                        <circle cx="3.6" cy="8.3" r=".65"/>
+                        <circle cx="6.4" cy="8.3" r=".65"/>
+                        <circle cx="9.2" cy="8.3" r=".65"/>
+                        <circle cx="12" cy="8.3" r=".65"/>
+
+                        <circle cx="2.2" cy="10.4" r=".65"/>
+                        <circle cx="5" cy="10.4" r=".65"/>
+                        <circle cx="7.8" cy="10.4" r=".65"/>
+                        <circle cx="10.6" cy="10.4" r=".65"/>
+                        <circle cx="13.4" cy="10.4" r=".65"/>
+                    </g>
+
+                </svg>
+            </span>
+
         </button>
 
     </div>
+
 
     <div class="hero">
 
@@ -1015,6 +1113,7 @@
 
             <div
                 class="profession-card"
+                data-profession-key="cnc"
                 onclick="selectProfession('CNC оператор')"
                 style="
                     background-image:
@@ -1023,9 +1122,11 @@
 
                 <div class="profession-content">
 
-                    <h3>CNC оператор</h3>
+                    <h3 data-profession-title="cnc">
+                        CNC оператор
+                    </h3>
 
-                    <p>
+                    <p data-profession-description="cnc">
                         Виробництво та металообробка
                     </p>
 
@@ -1036,6 +1137,7 @@
 
             <div
                 class="profession-card"
+                data-profession-key="welder"
                 onclick="selectProfession('Зварювальник')"
                 style="
                     background-image:
@@ -1044,9 +1146,11 @@
 
                 <div class="profession-content">
 
-                    <h3>Зварювальник</h3>
+                    <h3 data-profession-title="welder">
+                        Зварювальник
+                    </h3>
 
-                    <p>
+                    <p data-profession-description="welder">
                         Метал та виробництво
                     </p>
 
@@ -1057,6 +1161,7 @@
 
             <div
                 class="profession-card"
+                data-profession-key="production"
                 onclick="selectProfession('Оператор виробництва')"
                 style="
                     background-image:
@@ -1065,9 +1170,11 @@
 
                 <div class="profession-content">
 
-                    <h3>Оператор виробництва</h3>
+                    <h3 data-profession-title="production">
+                        Оператор виробництва
+                    </h3>
 
-                    <p>
+                    <p data-profession-description="production">
                         Промислове виробництво
                     </p>
 
@@ -1078,6 +1185,7 @@
 
             <div
                 class="profession-card"
+                data-profession-key="mechanic"
                 onclick="selectProfession('Механік')"
                 style="
                     background-image:
@@ -1086,9 +1194,11 @@
 
                 <div class="profession-content">
 
-                    <h3>Механік</h3>
+                    <h3 data-profession-title="mechanic">
+                        Механік
+                    </h3>
 
-                    <p>
+                    <p data-profession-description="mechanic">
                         Автомобілі та техніка
                     </p>
 
@@ -1099,6 +1209,7 @@
 
             <div
                 class="profession-card"
+                data-profession-key="electrician"
                 onclick="selectProfession('Електрик')"
                 style="
                     background-image:
@@ -1107,9 +1218,11 @@
 
                 <div class="profession-content">
 
-                    <h3>Електрик</h3>
+                    <h3 data-profession-title="electrician">
+                        Електрик
+                    </h3>
 
-                    <p>
+                    <p data-profession-description="electrician">
                         Електрика та монтаж
                     </p>
 
@@ -1118,10 +1231,9 @@
             </div>
 
 
-            <!-- ВОДІЙ — ЗМІНЕНО ТІЛЬКИ ФОТО -->
-
             <div
                 class="profession-card"
+                data-profession-key="driver"
                 onclick="selectProfession('Водій')"
                 style="
                     background-image:
@@ -1130,9 +1242,11 @@
 
                 <div class="profession-content">
 
-                    <h3>Водій</h3>
+                    <h3 data-profession-title="driver">
+                        Водій
+                    </h3>
 
-                    <p>
+                    <p data-profession-description="driver">
                         Транспорт та логістика
                     </p>
 
@@ -1143,6 +1257,7 @@
 
             <div
                 class="profession-card"
+                data-profession-key="warehouse"
                 onclick="selectProfession('Складський працівник')"
                 style="
                     background-image:
@@ -1151,9 +1266,11 @@
 
                 <div class="profession-content">
 
-                    <h3>Складський працівник</h3>
+                    <h3 data-profession-title="warehouse">
+                        Складський працівник
+                    </h3>
 
-                    <p>
+                    <p data-profession-description="warehouse">
                         Склад та логістика
                     </p>
 
@@ -1164,6 +1281,7 @@
 
             <div
                 class="profession-card"
+                data-profession-key="programmer"
                 onclick="selectProfession('Програміст')"
                 style="
                     background-image:
@@ -1172,9 +1290,11 @@
 
                 <div class="profession-content">
 
-                    <h3>Програміст</h3>
+                    <h3 data-profession-title="programmer">
+                        Програміст
+                    </h3>
 
-                    <p>
+                    <p data-profession-description="programmer">
                         IT та технології
                     </p>
 
@@ -1185,6 +1305,7 @@
 
             <div
                 class="profession-card"
+                data-profession-key="builder"
                 onclick="selectProfession('Будівельник')"
                 style="
                     background-image:
@@ -1193,9 +1314,11 @@
 
                 <div class="profession-content">
 
-                    <h3>Будівельник</h3>
+                    <h3 data-profession-title="builder">
+                        Будівельник
+                    </h3>
 
-                    <p>
+                    <p data-profession-description="builder">
                         Будівництво
                     </p>
 
@@ -1206,6 +1329,7 @@
 
             <div
                 class="profession-card"
+                data-profession-key="cook"
                 onclick="selectProfession('Кухар')"
                 style="
                     background-image:
@@ -1214,9 +1338,11 @@
 
                 <div class="profession-content">
 
-                    <h3>Кухар</h3>
+                    <h3 data-profession-title="cook">
+                        Кухар
+                    </h3>
 
-                    <p>
+                    <p data-profession-description="cook">
                         Готельно-ресторанна сфера
                     </p>
 
@@ -1227,6 +1353,7 @@
 
             <div
                 class="profession-card"
+                data-profession-key="medical"
                 onclick="selectProfession('Медичний працівник')"
                 style="
                     background-image:
@@ -1235,9 +1362,11 @@
 
                 <div class="profession-content">
 
-                    <h3>Медичний працівник</h3>
+                    <h3 data-profession-title="medical">
+                        Медичний працівник
+                    </h3>
 
-                    <p>
+                    <p data-profession-description="medical">
                         Медицина та догляд
                     </p>
 
@@ -1248,6 +1377,7 @@
 
             <div
                 class="profession-card"
+                data-profession-key="quality"
                 onclick="selectProfession('Контроль якості')"
                 style="
                     background-image:
@@ -1256,9 +1386,11 @@
 
                 <div class="profession-content">
 
-                    <h3>Контроль якості</h3>
+                    <h3 data-profession-title="quality">
+                        Контроль якості
+                    </h3>
 
-                    <p>
+                    <p data-profession-description="quality">
                         Якість та виробництво
                     </p>
 
@@ -2114,7 +2246,71 @@
                 "Використати професію з резюме",
 
             footerText:
-                "Інструмент для створення резюме та пошуку роботи."
+                "Інструмент для створення резюме та пошуку роботи.",
+
+            professions: {
+
+                cnc: {
+                    title: "CNC оператор",
+                    description: "Виробництво та металообробка"
+                },
+
+                welder: {
+                    title: "Зварювальник",
+                    description: "Метал та виробництво"
+                },
+
+                production: {
+                    title: "Оператор виробництва",
+                    description: "Промислове виробництво"
+                },
+
+                mechanic: {
+                    title: "Механік",
+                    description: "Автомобілі та техніка"
+                },
+
+                electrician: {
+                    title: "Електрик",
+                    description: "Електрика та монтаж"
+                },
+
+                driver: {
+                    title: "Водій",
+                    description: "Транспорт та логістика"
+                },
+
+                warehouse: {
+                    title: "Складський працівник",
+                    description: "Склад та логістика"
+                },
+
+                programmer: {
+                    title: "Програміст",
+                    description: "IT та технології"
+                },
+
+                builder: {
+                    title: "Будівельник",
+                    description: "Будівництво"
+                },
+
+                cook: {
+                    title: "Кухар",
+                    description: "Готельно-ресторанна сфера"
+                },
+
+                medical: {
+                    title: "Медичний працівник",
+                    description: "Медицина та догляд"
+                },
+
+                quality: {
+                    title: "Контроль якості",
+                    description: "Якість та виробництво"
+                }
+
+            }
 
         },
 
@@ -2290,7 +2486,71 @@
                 "Použiť profesiu zo životopisu",
 
             footerText:
-                "Nástroj na vytváranie životopisu a hľadanie práce."
+                "Nástroj na vytváranie životopisu a hľadanie práce.",
+
+            professions: {
+
+                cnc: {
+                    title: "CNC operátor",
+                    description: "Výroba a obrábanie kovov"
+                },
+
+                welder: {
+                    title: "Zvárač",
+                    description: "Kovovýroba a výroba"
+                },
+
+                production: {
+                    title: "Operátor výroby",
+                    description: "Priemyselná výroba"
+                },
+
+                mechanic: {
+                    title: "Mechanik",
+                    description: "Automobily a technika"
+                },
+
+                electrician: {
+                    title: "Elektrikár",
+                    description: "Elektrina a montáž"
+                },
+
+                driver: {
+                    title: "Vodič",
+                    description: "Doprava a logistika"
+                },
+
+                warehouse: {
+                    title: "Skladník",
+                    description: "Sklad a logistika"
+                },
+
+                programmer: {
+                    title: "Programátor",
+                    description: "IT a technológie"
+                },
+
+                builder: {
+                    title: "Stavebný pracovník",
+                    description: "Stavebníctvo"
+                },
+
+                cook: {
+                    title: "Kuchár",
+                    description: "Hotely a gastronómia"
+                },
+
+                medical: {
+                    title: "Zdravotnícky pracovník",
+                    description: "Zdravotníctvo a starostlivosť"
+                },
+
+                quality: {
+                    title: "Kontrola kvality",
+                    description: "Kvalita a výroba"
+                }
+
+            }
 
         },
 
@@ -2466,7 +2726,71 @@
                 "Use profession from resume",
 
             footerText:
-                "Tool for creating resumes and finding jobs."
+                "Tool for creating resumes and finding jobs.",
+
+            professions: {
+
+                cnc: {
+                    title: "CNC Operator",
+                    description: "Manufacturing and metalworking"
+                },
+
+                welder: {
+                    title: "Welder",
+                    description: "Metalworking and manufacturing"
+                },
+
+                production: {
+                    title: "Production Operator",
+                    description: "Industrial production"
+                },
+
+                mechanic: {
+                    title: "Mechanic",
+                    description: "Cars and machinery"
+                },
+
+                electrician: {
+                    title: "Electrician",
+                    description: "Electrical work and installation"
+                },
+
+                driver: {
+                    title: "Driver",
+                    description: "Transport and logistics"
+                },
+
+                warehouse: {
+                    title: "Warehouse Worker",
+                    description: "Warehouse and logistics"
+                },
+
+                programmer: {
+                    title: "Programmer",
+                    description: "IT and technology"
+                },
+
+                builder: {
+                    title: "Construction Worker",
+                    description: "Construction"
+                },
+
+                cook: {
+                    title: "Cook",
+                    description: "Hospitality and gastronomy"
+                },
+
+                medical: {
+                    title: "Healthcare Worker",
+                    description: "Healthcare and care"
+                },
+
+                quality: {
+                    title: "Quality Control",
+                    description: "Quality and manufacturing"
+                }
+
+            }
 
         }
 
@@ -2486,8 +2810,10 @@
             return;
         }
 
+
         document.documentElement.lang =
             language;
+
 
         document
             .querySelectorAll("[data-i18n]")
@@ -2497,8 +2823,10 @@
                     element.getAttribute("data-i18n");
 
                 if (dictionary[key]) {
+
                     element.textContent =
                         dictionary[key];
+
                 }
 
             });
@@ -2514,17 +2842,73 @@
                     );
 
                 if (dictionary[key]) {
+
                     element.placeholder =
                         dictionary[key];
+
                 }
 
             });
 
 
+        /* =========================
+           PROFESSION TRANSLATIONS
+        ========================= */
+
+        if (dictionary.professions) {
+
+            document
+                .querySelectorAll("[data-profession-title]")
+                .forEach(function(element) {
+
+                    const key =
+                        element.getAttribute(
+                            "data-profession-title"
+                        );
+
+                    if (
+                        dictionary.professions[key] &&
+                        dictionary.professions[key].title
+                    ) {
+
+                        element.textContent =
+                            dictionary.professions[key].title;
+
+                    }
+
+                });
+
+
+            document
+                .querySelectorAll("[data-profession-description]")
+                .forEach(function(element) {
+
+                    const key =
+                        element.getAttribute(
+                            "data-profession-description"
+                        );
+
+                    if (
+                        dictionary.professions[key] &&
+                        dictionary.professions[key].description
+                    ) {
+
+                        element.textContent =
+                            dictionary.professions[key].description;
+
+                    }
+
+                });
+
+        }
+
+
         document
             .querySelectorAll(".language-switcher button")
             .forEach(function(button) {
+
                 button.classList.remove("active");
+
             });
 
 
@@ -2533,8 +2917,11 @@
                 "lang-" + language
             );
 
+
         if (activeButton) {
+
             activeButton.classList.add("active");
+
         }
 
 
@@ -2564,8 +2951,11 @@
         const page =
             document.getElementById(pageId);
 
+
         if (page) {
+
             page.classList.add("active");
+
         }
 
 
@@ -2583,8 +2973,11 @@
                 "nav-" + pageId
             );
 
+
         if (navButton) {
+
             navButton.classList.add("active");
+
         }
 
 
@@ -2592,7 +2985,9 @@
             pageId === "preview" &&
             typeof updateResumePreview === "function"
         ) {
+
             updateResumePreview();
+
         }
 
 
@@ -2618,14 +3013,18 @@
 
 
         if (position) {
+
             position.value =
                 profession;
+
         }
 
 
         if (jobQuery) {
+
             jobQuery.value =
                 profession;
+
         }
 
 
@@ -2792,7 +3191,7 @@
                     target="_blank"
                     rel="noopener"
                     href="${googleBase}${linkedinQuery}">
-                    Otvoriť ponуки
+                    Otvoriť ponuky
                 </a>
 
             </div>
@@ -2825,7 +3224,9 @@
                 typeof initResumeModule ===
                 "function"
             ) {
+
                 initResumeModule();
+
             }
 
 
@@ -2833,7 +3234,9 @@
                 typeof enableResumeAutosave ===
                 "function"
             ) {
+
                 enableResumeAutosave();
+
             }
 
 
@@ -2841,7 +3244,9 @@
                 typeof updateResumePreview ===
                 "function"
             ) {
+
                 updateResumePreview();
+
             }
 
         }
