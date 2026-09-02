@@ -4946,5 +4946,406 @@ document.addEventListener(
 <script src="resume.js?v=6"></script>
 <script src="analysis.js?v=6"></script>
 
+<!-- =========================================================
+     FINAL JOBAI COMPATIBILITY + PDF FIX
+========================================================= -->
+
+<style>
+
+@media print {
+
+    @page {
+        size: A4 portrait;
+        margin: 0;
+    }
+
+    html,
+    body {
+        width: 210mm;
+        min-width: 210mm;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #fff !important;
+        color: #111 !important;
+    }
+
+    body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .header,
+    footer,
+    .card,
+    #home,
+    #resume,
+    #analysis,
+    .preview-wrapper > .card,
+    #resumePreviewTitle,
+    #editResumeButton,
+    #printSaveButton {
+        display: none !important;
+    }
+
+    main.container {
+        width: 210mm !important;
+        max-width: 210mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #preview {
+        display: block !important;
+        width: 210mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .preview-wrapper {
+        display: block !important;
+        width: 210mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+    }
+
+    #resumePreview {
+        display: block !important;
+        width: 210mm !important;
+        min-width: 210mm !important;
+        max-width: 210mm !important;
+        height: auto !important;
+        min-height: 297mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+        box-shadow: none !important;
+        background: #fff !important;
+        color: #111 !important;
+    }
+
+    #resumePreviewContent {
+        display: block !important;
+        width: 210mm !important;
+        min-height: 297mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .resume-page-inner {
+        width: 210mm !important;
+        min-height: 297mm !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        page-break-after: avoid !important;
+        break-after: avoid-page !important;
+    }
+
+    .template-modern,
+    .template-executive,
+    .template-creative {
+        min-height: 297mm !important;
+    }
+
+    .modern-side,
+    .modern-main,
+    .exec-top,
+    .exec-side,
+    .exec-main,
+    .creative-header,
+    .creative-side,
+    .creative-main,
+    .template-professional,
+    .template-ats {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+}
+
+
+/* =========================================================
+   MOBILE PREVIEW
+========================================================= */
+
+@media(max-width:900px){
+
+    #preview .preview-wrapper {
+        overflow-x:auto;
+        overflow-y:visible;
+        -webkit-overflow-scrolling:touch;
+    }
+
+    #resumePreview {
+        margin-left:0 !important;
+        margin-right:0 !important;
+    }
+
+}
+
+
+/* =========================================================
+   PREVIEW SAFETY
+========================================================= */
+
+#resumePreviewContent {
+    width:100%;
+    min-height:100%;
+}
+
+#resumePreviewContent img {
+    max-width:100%;
+}
+
+</style>
+
+
+<script>
+
+/*
+=========================================================
+JOBAI SLOVAKIA
+FINAL PREVIEW FIX
+
+resume.js contains an older updateResumePreview().
+Because external scripts are loaded after index.html,
+it can overwrite our modern template renderer.
+
+This explicitly restores the JobAI renderer.
+=========================================================
+*/
+
+(function(){
+
+    /*
+       Save the correct renderer created by index.html
+       before any compatibility code can replace it.
+    */
+
+    const jobAIPreviewRenderer =
+        updateResumePreview;
+
+
+    /*
+       Restore the correct renderer globally.
+    */
+
+    window.updateResumePreview =
+        jobAIPreviewRenderer;
+
+
+    /*
+       Restore all important JobAI functions globally.
+    */
+
+    window.saveAll =
+        saveAll;
+
+    window.clearAll =
+        clearAll;
+
+    window.removePhoto =
+        removePhoto;
+
+    window.handlePhotoUpload =
+        handlePhotoUpload;
+
+    window.selectTemplate =
+        selectTemplate;
+
+    window.selectColor =
+        selectColor;
+
+    window.addExperience =
+        addExperience;
+
+    window.addEducation =
+        addEducation;
+
+    window.removeExperience =
+        removeExperience;
+
+    window.removeEducation =
+        removeEducation;
+
+    window.showTab =
+        showTab;
+
+    window.setLanguage =
+        setLanguage;
+
+    window.useProfession =
+        useProfession;
+
+    window.exportResume =
+        exportResume;
+
+    window.importResume =
+        importResume;
+
+    window.clearVacancy =
+        clearVacancy;
+
+
+    /*
+       Do NOT replace analyzeJob if analysis.js
+       already supplied it.
+    */
+
+    if(typeof window.analyzeJob !== "function"){
+
+        window.analyzeJob =
+            function(){
+
+                alert(
+                    currentLanguage === "ua"
+                        ? "Функція аналізу вакансії ще не завантажена."
+                        : currentLanguage === "sk"
+                            ? "Funkcia analýzy pracovnej ponuky ešte nebola načítaná."
+                            : "The job analysis function has not loaded yet."
+                );
+
+            };
+
+    }
+
+
+    /*
+       Force correct preview after all scripts load.
+    */
+
+    function refreshJobAIPreview(){
+
+        try{
+
+            updateTemplateButtons();
+
+        }catch(error){
+            console.error(error);
+        }
+
+
+        try{
+
+            updateColorButtons();
+
+        }catch(error){
+            console.error(error);
+        }
+
+
+        try{
+
+            updatePhotoPreview();
+
+        }catch(error){
+            console.error(error);
+        }
+
+
+        try{
+
+            jobAIPreviewRenderer();
+
+        }catch(error){
+
+            console.error(
+                "JobAI Preview error:",
+                error
+            );
+
+        }
+
+    }
+
+
+    /*
+       DOM already exists because this script is at
+       the bottom of the document.
+    */
+
+    if(
+        document.readyState === "loading"
+    ){
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function(){
+
+                setTimeout(
+                    refreshJobAIPreview,
+                    50
+                );
+
+            }
+        );
+
+    }else{
+
+        setTimeout(
+            refreshJobAIPreview,
+            50
+        );
+
+    }
+
+
+    /*
+       When Preview is opened, always render again.
+    */
+
+    const originalShowTab =
+        window.showTab;
+
+
+    if(typeof originalShowTab === "function"){
+
+        window.showTab =
+            function(tabName){
+
+                originalShowTab(tabName);
+
+
+                if(tabName === "preview"){
+
+                    setTimeout(
+                        refreshJobAIPreview,
+                        20
+                    );
+
+                }
+
+            };
+
+    }
+
+
+    /*
+       Before printing, make absolutely sure the
+       current resume is rendered.
+    */
+
+    window.addEventListener(
+        "beforeprint",
+        function(){
+
+            refreshJobAIPreview();
+
+        }
+    );
+
+
+})();
+
+</script>
+
 </body>
 </html>
