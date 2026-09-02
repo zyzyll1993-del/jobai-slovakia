@@ -1,43 +1,52 @@
-/*
-=========================================================
- JobAI Slovakia — Resume module
- Фото + збереження резюме
-=========================================================
-*/
-
 const RESUME_STORAGE_KEY = "jobaiResume";
 
+window.experiences = [];
+window.educations = [];
 
-// =========================================================
-// GET RESUME DATA
-// =========================================================
+let resumeAutosaveTimer = null;
+
+
+/* =========================================================
+   GET RESUME DATA
+========================================================= */
 
 function getResumeData() {
 
+    const getValue = function(id) {
+
+        const element = document.getElementById(id);
+
+        return element ? element.value : "";
+    };
+
     return {
 
-        name: document.getElementById("name")?.value || "",
-        position: document.getElementById("position")?.value || "",
-        phone: document.getElementById("phone")?.value || "",
-        email: document.getElementById("email")?.value || "",
-        city: document.getElementById("city")?.value || "",
-        profile: document.getElementById("profile")?.value || "",
-        skills: document.getElementById("skills")?.value || "",
-        languages: document.getElementById("languages")?.value || "",
+        name: getValue("name"),
+        position: getValue("position"),
+        phone: getValue("phone"),
+        email: getValue("email"),
+        city: getValue("city"),
+        profile: getValue("profile"),
+        skills: getValue("skills"),
+        languages: getValue("languages"),
 
-        experiences: window.experiences || [],
-        educations: window.educations || [],
+        experiences: Array.isArray(window.experiences)
+            ? window.experiences
+            : [],
+
+        educations: Array.isArray(window.educations)
+            ? window.educations
+            : [],
 
         photo: localStorage.getItem("jobaiPhoto") || ""
 
     };
-
 }
 
 
-// =========================================================
-// SAVE RESUME
-// =========================================================
+/* =========================================================
+   SAVE RESUME
+========================================================= */
 
 function saveResumeData(showMessage = true) {
 
@@ -50,31 +59,44 @@ function saveResumeData(showMessage = true) {
 
     if (showMessage) {
 
-        alert("✅ Резюме збережено");
+        alert(
+            "Резюме успішно збережено."
+        );
 
     }
 
+    updateResumePreview();
 }
 
 
-// =========================================================
-// LOAD RESUME
-// =========================================================
+/* =========================================================
+   LOAD RESUME
+========================================================= */
 
 function loadResumeData() {
 
     const saved =
-        localStorage.getItem(
-            RESUME_STORAGE_KEY
-        );
+        localStorage.getItem(RESUME_STORAGE_KEY);
 
     if (!saved) {
+
+        window.experiences = [];
+        window.educations = [];
+
+        renderExperiences();
+        renderEducations();
+
+        displayResumePhoto(
+            localStorage.getItem("jobaiPhoto") || ""
+        );
+
         return;
     }
 
     try {
 
-        const data = JSON.parse(saved);
+        const data =
+            JSON.parse(saved);
 
         setResumeData(data);
 
@@ -90,16 +112,13 @@ function loadResumeData() {
 }
 
 
-// =========================================================
-// SET RESUME DATA
-// =========================================================
+/* =========================================================
+   SET RESUME DATA
+========================================================= */
 
 function setResumeData(data) {
 
-    if (!data) {
-        return;
-    }
-
+    data = data || {};
 
     const fields = [
         "name",
@@ -112,38 +131,31 @@ function setResumeData(data) {
         "languages"
     ];
 
-
-    fields.forEach(function (id) {
+    fields.forEach(function(id) {
 
         const element =
             document.getElementById(id);
 
-        if (
-            element &&
-            data[id] !== undefined
-        ) {
+        if (element) {
 
-            element.value = data[id];
+            element.value =
+                data[id] || "";
 
         }
 
     });
 
 
-    if (Array.isArray(data.experiences)) {
-
-        window.experiences =
-            data.experiences;
-
-    }
+    window.experiences =
+        Array.isArray(data.experiences)
+            ? data.experiences
+            : [];
 
 
-    if (Array.isArray(data.educations)) {
-
-        window.educations =
-            data.educations;
-
-    }
+    window.educations =
+        Array.isArray(data.educations)
+            ? data.educations
+            : [];
 
 
     if (data.photo) {
@@ -153,36 +165,40 @@ function setResumeData(data) {
             data.photo
         );
 
-        displayResumePhoto(
-            data.photo
-        );
-
     }
 
 
-    if (typeof renderExperiences === "function") {
-        renderExperiences();
-    }
+    renderExperiences();
+    renderEducations();
 
-    if (typeof renderEducation === "function") {
-        renderEducation();
-    }
+    displayResumePhoto(
+        data.photo ||
+        localStorage.getItem("jobaiPhoto") ||
+        ""
+    );
 
-    if (typeof updateCV === "function") {
-        updateCV();
-    }
+
+    setTimeout(function() {
+
+        updateResumePreview();
+
+    }, 50);
 
 }
 
 
-// =========================================================
-// PHOTO UPLOAD
-// =========================================================
+/* =========================================================
+   PHOTO UPLOAD
+========================================================= */
 
 function handlePhotoUpload(event) {
 
     const file =
-        event.target.files?.[0];
+        event &&
+        event.target &&
+        event.target.files
+            ? event.target.files[0]
+            : null;
 
     if (!file) {
         return;
@@ -191,25 +207,21 @@ function handlePhotoUpload(event) {
 
     if (!file.type.startsWith("image/")) {
 
-        alert("❌ Будь ласка, виберіть зображення.");
-
-        return;
-
-    }
-
-
-    const maxSize =
-        5 * 1024 * 1024;
-
-
-    if (file.size > maxSize) {
-
         alert(
-            "❌ Фото завелике. Максимальний розмір — 5 MB."
+            "Будь ласка, виберіть зображення."
         );
 
         return;
+    }
 
+
+    if (file.size > 5 * 1024 * 1024) {
+
+        alert(
+            "Фото не повинно перевищувати 5 MB."
+        );
+
+        return;
     }
 
 
@@ -217,26 +229,28 @@ function handlePhotoUpload(event) {
         new FileReader();
 
 
-    reader.onload = function (e) {
+    reader.onload = function(e) {
 
         const photo =
             e.target.result;
-
 
         localStorage.setItem(
             "jobaiPhoto",
             photo
         );
 
-
         displayResumePhoto(photo);
 
+        saveResumeData(false);
 
-        if (typeof updateCV === "function") {
+    };
 
-            updateCV();
 
-        }
+    reader.onerror = function() {
+
+        alert(
+            "Не вдалося завантажити фото."
+        );
 
     };
 
@@ -246,43 +260,49 @@ function handlePhotoUpload(event) {
 }
 
 
-// =========================================================
-// DISPLAY PHOTO
-// =========================================================
+/* =========================================================
+   DISPLAY PHOTO
+========================================================= */
 
 function displayResumePhoto(photo) {
 
     const preview =
-        document.getElementById(
-            "photoPreview"
-        );
+        document.getElementById("photoPreview");
 
-    const image =
-        document.getElementById(
-            "resumePhoto"
-        );
+    const placeholder =
+        document.getElementById("photoPlaceholder");
 
 
-    if (image) {
-
-        image.src = photo;
-        image.style.display = "block";
-
+    if (!preview) {
+        return;
     }
 
 
-    if (preview) {
+    if (!photo) {
 
-        preview.style.display = "block";
+        preview.innerHTML =
+            '<span id="photoPlaceholder">Фото не завантажено</span>';
 
+        return;
     }
 
+
+    preview.innerHTML = `
+
+        <img
+            src="${photo}"
+            alt="Фото резюме">
+
+    `;
+
+
+    updateResumePreview();
 }
 
 
-// =========================================================
-// REMOVE PHOTO
-// =========================================================
+/* =========================================================
+   REMOVE PHOTO
+========================================================= */
 
 function removeResumePhoto() {
 
@@ -291,45 +311,916 @@ function removeResumePhoto() {
     );
 
 
-    const image =
-        document.getElementById(
-            "resumePhoto"
-        );
+    const input =
+        document.getElementById("photoInput");
 
-
-    const preview =
-        document.getElementById(
-            "photoPreview"
-        );
-
-
-    if (image) {
-
-        image.src = "";
-        image.style.display = "none";
-
+    if (input) {
+        input.value = "";
     }
 
 
-    if (preview) {
+    displayResumePhoto("");
 
-        preview.style.display = "none";
-
-    }
-
-
-    if (typeof updateCV === "function") {
-
-        updateCV();
-
-    }
+    saveResumeData(false);
 
 }
 
 
-// =========================================================
-// EXPORT JSON
-// =========================================================
+/* =========================================================
+   ADD EXPERIENCE
+========================================================= */
+
+function addExperience(data = {}) {
+
+    window.experiences.push({
+
+        company: data.company || "",
+        position: data.position || "",
+        start: data.start || "",
+        end: data.end || "",
+        description: data.description || ""
+
+    });
+
+
+    renderExperiences();
+
+    saveResumeData(false);
+
+}
+
+
+/* =========================================================
+   REMOVE EXPERIENCE
+========================================================= */
+
+function removeExperience(index) {
+
+    if (
+        index < 0 ||
+        index >= window.experiences.length
+    ) {
+        return;
+    }
+
+
+    window.experiences.splice(
+        index,
+        1
+    );
+
+
+    renderExperiences();
+
+    saveResumeData(false);
+
+}
+
+
+/* =========================================================
+   UPDATE EXPERIENCE
+========================================================= */
+
+function updateExperience(
+    index,
+    field,
+    value
+) {
+
+    if (!window.experiences[index]) {
+        return;
+    }
+
+
+    window.experiences[index][field] =
+        value;
+
+
+    saveResumeData(false);
+
+    updateResumePreview();
+
+}
+
+
+/* =========================================================
+   RENDER EXPERIENCES
+========================================================= */
+
+function renderExperiences() {
+
+    const container =
+        document.getElementById(
+            "experienceList"
+        );
+
+    if (!container) {
+        return;
+    }
+
+
+    if (
+        !Array.isArray(window.experiences) ||
+        window.experiences.length === 0
+    ) {
+
+        container.innerHTML = `
+            <p style="color:#7f8a96;">
+                Додайте свій досвід роботи.
+            </p>
+        `;
+
+        return;
+    }
+
+
+    container.innerHTML =
+        window.experiences
+            .map(function(experience, index) {
+
+                return `
+
+                    <div class="experience-item">
+
+                        <h4>
+                            Досвід роботи #${index + 1}
+                        </h4>
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label>
+                                    Компанія
+                                </label>
+
+                                <input
+                                    type="text"
+                                    value="${escapeResumeHTML(
+                                        experience.company
+                                    )}"
+                                    oninput="
+                                        updateExperience(
+                                            ${index},
+                                            'company',
+                                            this.value
+                                        )
+                                    ">
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Посада
+                                </label>
+
+                                <input
+                                    type="text"
+                                    value="${escapeResumeHTML(
+                                        experience.position
+                                    )}"
+                                    oninput="
+                                        updateExperience(
+                                            ${index},
+                                            'position',
+                                            this.value
+                                        )
+                                    ">
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Початок
+                                </label>
+
+                                <input
+                                    type="text"
+                                    placeholder="01/2023"
+                                    value="${escapeResumeHTML(
+                                        experience.start
+                                    )}"
+                                    oninput="
+                                        updateExperience(
+                                            ${index},
+                                            'start',
+                                            this.value
+                                        )
+                                    ">
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Кінець
+                                </label>
+
+                                <input
+                                    type="text"
+                                    placeholder="12/2025"
+                                    value="${escapeResumeHTML(
+                                        experience.end
+                                    )}"
+                                    oninput="
+                                        updateExperience(
+                                            ${index},
+                                            'end',
+                                            this.value
+                                        )
+                                    ">
+
+                            </div>
+
+
+                            <div class="form-group full">
+
+                                <label>
+                                    Опис роботи
+                                </label>
+
+                                <textarea
+                                    oninput="
+                                        updateExperience(
+                                            ${index},
+                                            'description',
+                                            this.value
+                                        )
+                                    ">${escapeResumeHTML(
+                                        experience.description
+                                    )}</textarea>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="actions">
+
+                            <button
+                                class="btn danger"
+                                type="button"
+                                onclick="
+                                    removeExperience(${index})
+                                ">
+
+                                Видалити
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            })
+            .join("");
+
+}
+
+
+/* =========================================================
+   ADD EDUCATION
+========================================================= */
+
+function addEducation(data = {}) {
+
+    window.educations.push({
+
+        school: data.school || "",
+        speciality:
+            data.speciality ||
+            data.specialty ||
+            "",
+        year: data.year || ""
+
+    });
+
+
+    renderEducations();
+
+    saveResumeData(false);
+
+}
+
+
+/* =========================================================
+   REMOVE EDUCATION
+========================================================= */
+
+function removeEducation(index) {
+
+    if (
+        index < 0 ||
+        index >= window.educations.length
+    ) {
+        return;
+    }
+
+
+    window.educations.splice(
+        index,
+        1
+    );
+
+
+    renderEducations();
+
+    saveResumeData(false);
+
+}
+
+
+/* =========================================================
+   UPDATE EDUCATION
+========================================================= */
+
+function updateEducation(
+    index,
+    field,
+    value
+) {
+
+    if (!window.educations[index]) {
+        return;
+    }
+
+
+    window.educations[index][field] =
+        value;
+
+
+    saveResumeData(false);
+
+    updateResumePreview();
+
+}
+
+
+/* =========================================================
+   RENDER EDUCATION
+========================================================= */
+
+function renderEducations() {
+
+    const container =
+        document.getElementById(
+            "educationList"
+        );
+
+    if (!container) {
+        return;
+    }
+
+
+    if (
+        !Array.isArray(window.educations) ||
+        window.educations.length === 0
+    ) {
+
+        container.innerHTML = `
+            <p style="color:#7f8a96;">
+                Додайте освіту.
+            </p>
+        `;
+
+        return;
+    }
+
+
+    container.innerHTML =
+        window.educations
+            .map(function(education, index) {
+
+                return `
+
+                    <div class="education-item">
+
+                        <h4>
+                            Освіта #${index + 1}
+                        </h4>
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label>
+                                    Навчальний заклад
+                                </label>
+
+                                <input
+                                    type="text"
+                                    value="${escapeResumeHTML(
+                                        education.school
+                                    )}"
+                                    oninput="
+                                        updateEducation(
+                                            ${index},
+                                            'school',
+                                            this.value
+                                        )
+                                    ">
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Спеціальність
+                                </label>
+
+                                <input
+                                    type="text"
+                                    value="${escapeResumeHTML(
+                                        education.speciality
+                                    )}"
+                                    oninput="
+                                        updateEducation(
+                                            ${index},
+                                            'speciality',
+                                            this.value
+                                        )
+                                    ">
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Рік
+                                </label>
+
+                                <input
+                                    type="text"
+                                    placeholder="2024"
+                                    value="${escapeResumeHTML(
+                                        education.year
+                                    )}"
+                                    oninput="
+                                        updateEducation(
+                                            ${index},
+                                            'year',
+                                            this.value
+                                        )
+                                    ">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="actions">
+
+                            <button
+                                class="btn danger"
+                                type="button"
+                                onclick="
+                                    removeEducation(${index})
+                                ">
+
+                                Видалити
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            })
+            .join("");
+
+}
+
+
+/* =========================================================
+   UPDATE RESUME PREVIEW
+========================================================= */
+
+function updateResumePreview() {
+
+    const preview =
+        document.getElementById(
+            "resumePreview"
+        );
+
+    if (!preview) {
+        return;
+    }
+
+
+    const getValue = function(id) {
+
+        const element =
+            document.getElementById(id);
+
+        return element
+            ? element.value
+            : "";
+
+    };
+
+
+    const name =
+        getValue("name") ||
+        "Ваше ім'я";
+
+
+    const position =
+        getValue("position") ||
+        "Бажана посада";
+
+
+    const phone =
+        getValue("phone");
+
+
+    const email =
+        getValue("email");
+
+
+    const city =
+        getValue("city");
+
+
+    const profile =
+        getValue("profile");
+
+
+    const skills =
+        getValue("skills");
+
+
+    const languages =
+        getValue("languages");
+
+
+    const previewName =
+        document.getElementById(
+            "previewName"
+        );
+
+    if (previewName) {
+        previewName.textContent =
+            name;
+    }
+
+
+    const previewPosition =
+        document.getElementById(
+            "previewPosition"
+        );
+
+    if (previewPosition) {
+        previewPosition.textContent =
+            position;
+    }
+
+
+    const previewContact =
+        document.getElementById(
+            "previewContact"
+        );
+
+    if (previewContact) {
+
+        const contactParts = [
+            phone,
+            email,
+            city
+        ].filter(Boolean);
+
+        previewContact.textContent =
+            contactParts.length
+                ? contactParts.join(" · ")
+                : "Телефон · Email · Місто";
+
+    }
+
+
+    const previewProfile =
+        document.getElementById(
+            "previewProfile"
+        );
+
+    if (previewProfile) {
+
+        previewProfile.textContent =
+            profile || "—";
+
+    }
+
+
+    const previewLanguages =
+        document.getElementById(
+            "previewLanguages"
+        );
+
+    if (previewLanguages) {
+
+        previewLanguages.textContent =
+            languages || "—";
+
+    }
+
+
+    renderPreviewSkills(
+        skills
+    );
+
+
+    renderPreviewExperience();
+
+    renderPreviewEducation();
+
+    renderPreviewPhoto();
+
+}
+
+
+/* =========================================================
+   PREVIEW SKILLS
+========================================================= */
+
+function renderPreviewSkills(skills) {
+
+    const container =
+        document.getElementById(
+            "previewSkills"
+        );
+
+    if (!container) {
+        return;
+    }
+
+
+    if (!skills.trim()) {
+
+        container.innerHTML =
+            "—";
+
+        return;
+    }
+
+
+    const items =
+        skills
+            .split(/[,;\n]+/)
+            .map(function(skill) {
+                return skill.trim();
+            })
+            .filter(Boolean);
+
+
+    container.innerHTML =
+        items
+            .map(function(skill) {
+
+                return `
+                    <span class="resume-skill">
+                        ${escapeResumeHTML(skill)}
+                    </span>
+                `;
+
+            })
+            .join("");
+
+}
+
+
+/* =========================================================
+   PREVIEW EXPERIENCE
+========================================================= */
+
+function renderPreviewExperience() {
+
+    const container =
+        document.getElementById(
+            "previewExperience"
+        );
+
+    if (!container) {
+        return;
+    }
+
+
+    if (
+        !Array.isArray(window.experiences) ||
+        window.experiences.length === 0
+    ) {
+
+        container.innerHTML =
+            "—";
+
+        return;
+    }
+
+
+    container.innerHTML =
+        window.experiences
+            .filter(function(experience) {
+
+                return (
+                    experience.company ||
+                    experience.position ||
+                    experience.description
+                );
+
+            })
+            .map(function(experience) {
+
+                const dates = [
+                    experience.start,
+                    experience.end
+                ]
+                .filter(Boolean)
+                .join(" – ");
+
+
+                return `
+
+                    <div class="resume-item">
+
+                        <strong>
+                            ${escapeResumeHTML(
+                                experience.position ||
+                                "Посада"
+                            )}
+                        </strong>
+
+                        <span>
+                            ${escapeResumeHTML(
+                                experience.company ||
+                                ""
+                            )}
+
+                            ${
+                                dates
+                                    ? " · " +
+                                      escapeResumeHTML(
+                                          dates
+                                      )
+                                    : ""
+                            }
+
+                        </span>
+
+                        ${
+                            experience.description
+                                ? `
+                                    <p>
+                                        ${escapeResumeHTML(
+                                            experience.description
+                                        )}
+                                    </p>
+                                  `
+                                : ""
+                        }
+
+                    </div>
+
+                `;
+
+            })
+            .join("") || "—";
+
+}
+
+
+/* =========================================================
+   PREVIEW EDUCATION
+========================================================= */
+
+function renderPreviewEducation() {
+
+    const container =
+        document.getElementById(
+            "previewEducation"
+        );
+
+    if (!container) {
+        return;
+    }
+
+
+    if (
+        !Array.isArray(window.educations) ||
+        window.educations.length === 0
+    ) {
+
+        container.innerHTML =
+            "—";
+
+        return;
+    }
+
+
+    container.innerHTML =
+        window.educations
+            .filter(function(education) {
+
+                return (
+                    education.school ||
+                    education.speciality ||
+                    education.year
+                );
+
+            })
+            .map(function(education) {
+
+                return `
+
+                    <div class="resume-item">
+
+                        <strong>
+                            ${escapeResumeHTML(
+                                education.speciality ||
+                                "Спеціальність"
+                            )}
+                        </strong>
+
+                        <span>
+                            ${escapeResumeHTML(
+                                education.school ||
+                                ""
+                            )}
+
+                            ${
+                                education.year
+                                    ? " · " +
+                                      escapeResumeHTML(
+                                          education.year
+                                      )
+                                    : ""
+                            }
+
+                        </span>
+
+                    </div>
+
+                `;
+
+            })
+            .join("") || "—";
+
+}
+
+
+/* =========================================================
+   PREVIEW PHOTO
+========================================================= */
+
+function renderPreviewPhoto() {
+
+    const container =
+        document.getElementById(
+            "previewPhotoContainer"
+        );
+
+    if (!container) {
+        return;
+    }
+
+
+    const photo =
+        localStorage.getItem(
+            "jobaiPhoto"
+        );
+
+
+    if (!photo) {
+
+        container.innerHTML =
+            "";
+
+        return;
+    }
+
+
+    container.innerHTML = `
+
+        <img
+            class="resume-photo"
+            src="${photo}"
+            alt="Фото">
+
+    `;
+
+}
+
+
+/* =========================================================
+   EXPORT JSON
+========================================================= */
 
 function exportResumeJSON() {
 
@@ -372,7 +1263,7 @@ function exportResumeJSON() {
 
     link.click();
 
-    link.remove();
+    document.body.removeChild(link);
 
 
     URL.revokeObjectURL(url);
@@ -380,14 +1271,19 @@ function exportResumeJSON() {
 }
 
 
-// =========================================================
-// IMPORT JSON
-// =========================================================
+/* =========================================================
+   IMPORT JSON
+========================================================= */
 
 function importResumeJSON(event) {
 
     const file =
-        event.target.files?.[0];
+        event &&
+        event.target &&
+        event.target.files
+            ? event.target.files[0]
+            : null;
+
 
     if (!file) {
         return;
@@ -398,7 +1294,7 @@ function importResumeJSON(event) {
         new FileReader();
 
 
-    reader.onload = function (e) {
+    reader.onload = function(e) {
 
         try {
 
@@ -408,23 +1304,46 @@ function importResumeJSON(event) {
                 );
 
 
+            if (
+                !data ||
+                typeof data !== "object"
+            ) {
+
+                throw new Error(
+                    "Invalid JSON"
+                );
+
+            }
+
+
             setResumeData(data);
 
             saveResumeData(false);
 
 
             alert(
-                "✅ Резюме імпортовано"
+                "Резюме успішно імпортовано."
             );
 
 
         } catch (error) {
 
+            console.error(error);
+
             alert(
-                "❌ Невірний файл резюме."
+                "Помилка імпорту JSON."
             );
 
         }
+
+    };
+
+
+    reader.onerror = function() {
+
+        alert(
+            "Не вдалося прочитати файл."
+        );
 
     };
 
@@ -434,15 +1353,15 @@ function importResumeJSON(event) {
 }
 
 
-// =========================================================
-// CLEAR RESUME
-// =========================================================
+/* =========================================================
+   CLEAR RESUME
+========================================================= */
 
 function clearResumeData() {
 
     const confirmed =
         confirm(
-            "Очистити все резюме та фото?"
+            "Ви впевнені, що хочете очистити все резюме?"
         );
 
 
@@ -460,18 +1379,12 @@ function clearResumeData() {
     );
 
 
-    location.reload();
+    window.experiences = [];
 
-}
+    window.educations = [];
 
 
-// =========================================================
-// AUTOSAVE
-// =========================================================
-
-function enableResumeAutosave() {
-
-    const ids = [
+    const fields = [
         "name",
         "position",
         "phone",
@@ -483,11 +1396,66 @@ function enableResumeAutosave() {
     ];
 
 
-    ids.forEach(function (id) {
+    fields.forEach(function(id) {
 
         const element =
             document.getElementById(id);
 
+        if (element) {
+            element.value = "";
+        }
+
+    });
+
+
+    const photoInput =
+        document.getElementById(
+            "photoInput"
+        );
+
+    if (photoInput) {
+        photoInput.value = "";
+    }
+
+
+    renderExperiences();
+
+    renderEducations();
+
+    displayResumePhoto("");
+
+    updateResumePreview();
+
+
+    alert(
+        "Резюме очищено."
+    );
+
+}
+
+
+/* =========================================================
+   AUTOSAVE
+========================================================= */
+
+function enableResumeAutosave() {
+
+    const fields = [
+        "name",
+        "position",
+        "phone",
+        "email",
+        "city",
+        "profile",
+        "skills",
+        "languages"
+    ];
+
+
+    fields.forEach(function(id) {
+
+        const element =
+            document.getElementById(id);
 
         if (!element) {
             return;
@@ -496,9 +1464,24 @@ function enableResumeAutosave() {
 
         element.addEventListener(
             "input",
-            function () {
+            function() {
 
-                saveResumeData(false);
+                clearTimeout(
+                    resumeAutosaveTimer
+                );
+
+
+                resumeAutosaveTimer =
+                    setTimeout(
+                        function() {
+
+                            saveResumeData(
+                                false
+                            );
+
+                        },
+                        500
+                    );
 
             }
         );
@@ -508,15 +1491,25 @@ function enableResumeAutosave() {
 }
 
 
-// =========================================================
-// INITIALIZATION
-// =========================================================
+/* =========================================================
+   INITIALIZE MODULE
+========================================================= */
 
 function initResumeModule() {
 
-    loadResumeData();
+    if (!Array.isArray(window.experiences)) {
+        window.experiences = [];
+    }
 
-    enableResumeAutosave();
+
+    if (!Array.isArray(window.educations)) {
+        window.educations = [];
+    }
+
+
+    renderExperiences();
+
+    renderEducations();
 
 
     const photo =
@@ -526,23 +1519,31 @@ function initResumeModule() {
 
 
     if (photo) {
-
         displayResumePhoto(photo);
-
     }
 
 }
 
 
-document.addEventListener(
-    "DOMContentLoaded",
-    initResumeModule
-);
+/* =========================================================
+   HTML ESCAPE
+========================================================= */
+
+function escapeResumeHTML(value) {
+
+    return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
 
 
-// =========================================================
-// GLOBAL FUNCTIONS
-// =========================================================
+/* =========================================================
+   GLOBAL EXPORTS
+========================================================= */
 
 window.getResumeData =
     getResumeData;
@@ -565,6 +1566,33 @@ window.displayResumePhoto =
 window.removeResumePhoto =
     removeResumePhoto;
 
+window.addExperience =
+    addExperience;
+
+window.removeExperience =
+    removeExperience;
+
+window.updateExperience =
+    updateExperience;
+
+window.renderExperiences =
+    renderExperiences;
+
+window.addEducation =
+    addEducation;
+
+window.removeEducation =
+    removeEducation;
+
+window.updateEducation =
+    updateEducation;
+
+window.renderEducations =
+    renderEducations;
+
+window.updateResumePreview =
+    updateResumePreview;
+
 window.exportResumeJSON =
     exportResumeJSON;
 
@@ -573,3 +1601,9 @@ window.importResumeJSON =
 
 window.clearResumeData =
     clearResumeData;
+
+window.enableResumeAutosave =
+    enableResumeAutosave;
+
+window.initResumeModule =
+    initResumeModule;
