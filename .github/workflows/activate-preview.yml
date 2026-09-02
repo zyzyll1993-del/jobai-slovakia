@@ -1,0 +1,44 @@
+name: Activate Preview controls
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  activate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Activate Preview scripts
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('<script src="jobs.js?v=6"></script>', '<script src="jobs.js?v=7"></script>')
+          s = s.replace('<script src="resume.js?v=6"></script>', '<script src="resume.js?v=7"></script>')
+          s = s.replace('<script src="analysis.js?v=6"></script>', '<script src="analysis.js?v=7"></script>')
+          if 'preview-controls.js?v=1' not in s:
+              marker = '<script src="analysis.js?v=7"></script>'
+              s = s.replace(marker, marker + '\n<script src="preview-controls.js?v=1"></script>')
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Commit activated scripts
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "No changes needed"
+            exit 0
+          fi
+          git commit -m "Activate Preview controls"
+          git push
