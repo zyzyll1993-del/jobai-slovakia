@@ -4,9 +4,9 @@
 
   function labels() {
     var lang = localStorage.getItem("jobaiLanguage") || "ua";
-    if (lang === "sk") return {title:"Upraviť životopis",done:"Uloženie je automatické",next:"Ďalšia sekcia"};
-    if (lang === "en") return {title:"Edit resume",done:"Changes are saved automatically",next:"Next section"};
-    return {title:"Редагування резюме",done:"Зміни зберігаються автоматично",next:"Наступний розділ"};
+    if (lang === "sk") return {title:"Upraviť životopis",done:"Uloženie je automatické"};
+    if (lang === "en") return {title:"Edit resume",done:"Changes are saved automatically"};
+    return {title:"Редагування резюме",done:"Зміни зберігаються автоматично"};
   }
 
   function init() {
@@ -15,9 +15,7 @@
     root.dataset.jobaiBuilderReady = "1";
     root.classList.add("jobai-resume-builder");
 
-    var cards = Array.prototype.slice.call(root.querySelectorAll(":scope > .card"));
-    if (!cards.length) cards = Array.prototype.slice.call(root.querySelectorAll(".card"));
-
+    var existing = Array.prototype.slice.call(root.children);
     var shell = document.createElement("div");
     shell.className = "jobai-editor-shell";
 
@@ -32,12 +30,16 @@
     main.className = "jobai-editor-main";
     var nav = side.querySelector(".jobai-editor-nav");
 
+    existing.forEach(function(el){ main.appendChild(el); });
+
+    var cards = Array.prototype.slice.call(main.querySelectorAll(":scope > .card"));
+    if (!cards.length) cards = Array.prototype.slice.call(main.querySelectorAll(".card"));
+
     cards.forEach(function(card, i) {
       var heading = card.querySelector("h2, h3");
       var title = heading ? heading.textContent.trim() : ("Section " + (i + 1));
       if (!title) title = "Section " + (i + 1);
-      var anchor = "jobai-editor-section-" + i;
-      card.id = card.id || anchor;
+      card.id = card.id || ("jobai-editor-section-" + i);
       card.classList.add("jobai-editor-card");
 
       var button = document.createElement("button");
@@ -50,17 +52,12 @@
         button.classList.add("active");
       });
       nav.appendChild(button);
-      main.appendChild(card);
     });
 
     shell.appendChild(side);
     shell.appendChild(main);
-    root.innerHTML = "";
     root.appendChild(shell);
-
-    if (cards.length) {
-      nav.firstElementChild && nav.firstElementChild.classList.add("active");
-    }
+    nav.firstElementChild && nav.firstElementChild.classList.add("active");
 
     var style = document.createElement("style");
     style.id = "jobaiResumeEditorBuilderStyles";
