@@ -1,6 +1,7 @@
 /* JobAI Slovakia — professional compact CV preview */
 #preview .preview-wrapper{width:100%;max-width:none;overflow-x:auto;overflow-y:visible;display:block;padding:24px 20px 40px;box-sizing:border-box}
-#preview .a4-page{width:794px !important;min-width:794px !important;max-width:794px !important;height:auto;min-height:1123px !important;margin:0 auto !important;box-sizing:border-box;flex:0 0 794px;border-radius:2px;box-shadow:0 16px 45px rgba(15,23,42,.22);overflow:hidden}
+#preview .a4-page{width:794px!important;min-width:794px!important;max-width:794px!important;height:auto;min-height:1123px!important;margin:0 auto!important;box-sizing:border-box;flex:0 0 794px;border-radius:2px;box-shadow:0 16px 45px rgba(15,23,42,.22);overflow:hidden}
+#preview #resumePreview{width:794px!important;min-width:794px!important;max-width:794px!important;margin:0 auto;box-sizing:border-box}
 #preview .resume-page-inner{width:100%;min-width:0;box-sizing:border-box;font-size:14px;line-height:1.45}
 #preview .resume-page-inner h1{letter-spacing:-.02em}
 #preview .resume-page-inner h2{letter-spacing:.025em}
@@ -28,12 +29,11 @@
 #preview .resume-photo{width:100px;height:100px}
 @media(max-width:834px){
   #preview .preview-wrapper{padding-left:10px;padding-right:10px}
-  #preview .a4-page{margin-left:0 !important;margin-right:0 !important}
+  #preview #resumePreview,#preview .a4-page{margin-left:0!important;margin-right:0!important}
 }
 @media print{
   #preview .preview-wrapper{overflow:visible;padding:0}
-  #preview .a4-page{width:794px !important;min-width:794px !important;max-width:794px !important;min-height:1123px !important;margin:0 auto !important;box-shadow:none;border-radius:0}
+  #preview #resumePreview,#preview .a4-page{width:794px!important;min-width:794px!important;max-width:794px!important;min-height:1123px!important;margin:0 auto!important}
+  #preview .a4-page{box-shadow:none;border-radius:0}
 }
-@media(max-width:760px){
-  #preview .a4-page{box-shadow:0 8px 25px rgba(15,23,42,.18)}
-}
+@media(max-width:760px){#preview .a4-page{box-shadow:0 8px 25px rgba(15,23,42,.18)}}
