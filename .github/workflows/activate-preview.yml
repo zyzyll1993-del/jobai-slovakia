@@ -33,12 +33,9 @@ jobs:
           if 'resume-editor-style.js?v=' not in s:
               marker = '<script src="preview-controls.js?v=3"></script>'
               s = s.replace(marker, marker + '\n<script src="resume-editor-style.js?v=2"></script>')
-          if 'preview-pro.css?v=1' not in s:
-              marker = '<link rel="stylesheet" href="resume-editor-style.css">'
-              if marker in s:
-                  s = s.replace(marker, marker + '\n<link rel="stylesheet" href="preview-pro.css?v=1">')
-              else:
-                  s = s.replace('</head>', '<link rel="stylesheet" href="preview-pro.css?v=1">\n</head>')
+          s = s.replace('preview-pro.css?v=1', 'preview-site-style.css?v=1')
+          if 'preview-site-style.css?v=' not in s:
+              s = s.replace('</head>', '<link rel="stylesheet" href="preview-site-style.css?v=1">\n</head>')
           p.write_text(s, encoding='utf-8')
           PY
 
@@ -52,5 +49,5 @@ jobs:
             echo "No changes needed"
             exit 0
           fi
-          git commit -m "Load professional compact Preview styling"
+          git commit -m "Match Preview styling to JobAI site"
           git push
