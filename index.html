@@ -357,14 +357,6 @@ button{
     padding-bottom:5px;
 }
 
-.experience-item,
-.education-item{
-    border:1px solid #ddd;
-    padding:15px;
-    border-radius:10px;
-    margin-bottom:10px;
-}
-
 .score{
     text-align:center;
     font-size:48px;
@@ -447,12 +439,19 @@ footer{
 <header>
 
 <div class="language">
+
 <select id="languageSelect">
+
 <option value="uk">🇺🇦 Українська</option>
+
 <option value="sk">🇸🇰 Slovenčina</option>
+
 <option value="en">🇬🇧 English</option>
+
 </select>
+
 </div>
+
 
 <div class="hero">
 
@@ -460,23 +459,34 @@ footer{
 🤖 JobAI Slovakia 🇸🇰
 </div>
 
-<h1>
+<h1 id="heroTitle">
 Знайди роботу швидше
 </h1>
 
-<p>
+<p id="heroText">
 Створи професійне CV, проаналізуй вакансію
 та дізнайся, наскільки твої навички відповідають роботі.
 </p>
 
 <div class="hero-buttons">
 
-<button class="hero-button" onclick="showPage('resumePage')">
+<button
+class="hero-button"
+onclick="showPage('resumePage')"
+id="createCVButton">
+
 📄 Створити CV
+
 </button>
 
-<button class="hero-button dark" onclick="showPage('analysisPage')">
+
+<button
+class="hero-button dark"
+onclick="showPage('analysisPage')"
+id="heroAnalysisButton">
+
 🎯 Аналіз вакансії
+
 </button>
 
 </div>
@@ -488,19 +498,19 @@ footer{
 
 <nav>
 
-<button onclick="showPage('homePage')">
+<button onclick="showPage('homePage')" id="navHome">
 🏠 Головна
 </button>
 
-<button onclick="showPage('resumePage')">
+<button onclick="showPage('resumePage')" id="navCV">
 📄 Моє CV
 </button>
 
-<button onclick="showPage('previewPage')">
+<button onclick="showPage('previewPage')" id="navPreview">
 👁️ Перегляд CV
 </button>
 
-<button onclick="showPage('analysisPage')">
+<button onclick="showPage('analysisPage')" id="navAnalysis">
 🎯 Аналіз вакансії
 </button>
 
@@ -516,9 +526,11 @@ footer{
 
 <div class="section-title">
 
-<h2>Популярні професії</h2>
+<h2 id="professionsTitle">
+Популярні професії
+</h2>
 
-<p>
+<p id="professionsText">
 Обери професію та швидко перейди до аналізу вакансії
 </p>
 
@@ -527,13 +539,19 @@ footer{
 
 <div class="professions">
 
+
 <div class="profession cnc"
 onclick="selectProfession('CNC Operator')">
 
 <div class="profession-content">
 
-<h3>⚙️ CNC Operator</h3>
-<p>Верстати та виробництво</p>
+<h3 id="professionCNC">
+⚙️ CNC Operator
+</h3>
+
+<p id="professionCNCDesc">
+Верстати та виробництво
+</p>
 
 </div>
 
@@ -545,8 +563,13 @@ onclick="selectProfession('Welder')">
 
 <div class="profession-content">
 
-<h3>🔥 Welder</h3>
-<p>Зварювання</p>
+<h3 id="professionWelder">
+🔥 Welder
+</h3>
+
+<p id="professionWelderDesc">
+Зварювання
+</p>
 
 </div>
 
@@ -558,8 +581,13 @@ onclick="selectProfession('Auto Mechanic')">
 
 <div class="profession-content">
 
-<h3>🔧 Mechanic</h3>
-<p>Автомобілі</p>
+<h3 id="professionMechanic">
+🔧 Mechanic
+</h3>
+
+<p id="professionMechanicDesc">
+Автомобілі
+</p>
 
 </div>
 
@@ -571,8 +599,13 @@ onclick="selectProfession('Warehouse Worker')">
 
 <div class="profession-content">
 
-<h3>📦 Warehouse</h3>
-<p>Логістика та склад</p>
+<h3 id="professionWarehouse">
+📦 Warehouse
+</h3>
+
+<p id="professionWarehouseDesc">
+Логістика та склад
+</p>
 
 </div>
 
@@ -584,8 +617,13 @@ onclick="selectProfession('Mechanical Engineer')">
 
 <div class="profession-content">
 
-<h3>📐 Engineer</h3>
-<p>Технічні професії</p>
+<h3 id="professionEngineer">
+📐 Engineer
+</h3>
+
+<p id="professionEngineerDesc">
+Технічні професії
+</p>
 
 </div>
 
@@ -597,8 +635,13 @@ onclick="selectProfession('Construction Worker')">
 
 <div class="profession-content">
 
-<h3>🏗️ Construction</h3>
-<p>Будівництво</p>
+<h3 id="professionConstruction">
+🏗️ Construction
+</h3>
+
+<p id="professionConstructionDesc">
+Будівництво
+</p>
 
 </div>
 
@@ -610,8 +653,13 @@ onclick="selectProfession('IT Specialist')">
 
 <div class="profession-content">
 
-<h3>💻 IT</h3>
-<p>Технології</p>
+<h3 id="professionIT">
+💻 IT
+</h3>
+
+<p id="professionITDesc">
+Технології
+</p>
 
 </div>
 
@@ -623,24 +671,43 @@ onclick="selectProfession('Logistics Worker')">
 
 <div class="profession-content">
 
-<h3>🚚 Logistics</h3>
-<p>Транспорт</p>
+<h3 id="professionLogistics">
+🚚 Logistics
+</h3>
+
+<p id="professionLogisticsDesc">
+Транспорт
+</p>
 
 </div>
 
 </div>
+
 
 </div>
 
 
 <div class="card" style="margin-top:30px;text-align:center">
 
-<h2>🚀 Як це працює?</h2>
+<h2 id="howWorks">
+🚀 Як це працює?
+</h2>
 
-<p>1️⃣ Створи своє CV</p>
-<p>2️⃣ Встав текст вакансії</p>
-<p>3️⃣ JobAI знайде необхідні навички</p>
-<p>4️⃣ Отримаєш відсоток відповідності</p>
+<p id="step1">
+1️⃣ Створи своє CV
+</p>
+
+<p id="step2">
+2️⃣ Встав текст вакансії
+</p>
+
+<p id="step3">
+3️⃣ JobAI знайде необхідні навички
+</p>
+
+<p id="step4">
+4️⃣ Отримаєш відсоток відповідності
+</p>
 
 </div>
 
@@ -654,9 +721,13 @@ onclick="selectProfession('Logistics Worker')">
 
 <div class="section-title">
 
-<h2>📄 Моє резюме</h2>
+<h2 id="cvTitle">
+📄 Моє резюме
+</h2>
 
-<p>Заповни інформацію про себе</p>
+<p id="cvSubtitle">
+Заповни інформацію про себе
+</p>
 
 </div>
 
@@ -676,60 +747,113 @@ onchange="handlePhotoUpload(event)"
 
 <button
 class="secondary"
-onclick="removeResumePhoto()">
+onclick="removeResumePhoto()"
+id="removePhotoButton">
+
 🗑️ Видалити фото
+
 </button>
 
 </div>
 
 
-<label>Ім'я та прізвище</label>
-<input id="name" placeholder="Oleksandr Herasym">
+<label id="nameLabel">
+Ім'я та прізвище
+</label>
+
+<input
+id="name"
+placeholder="Oleksandr Herasym"
+>
 
 
-<label>Бажана посада</label>
-<input id="position" placeholder="CNC Operator">
+<label id="positionLabel">
+Бажана посада
+</label>
+
+<input
+id="position"
+placeholder="CNC Operator"
+>
 
 
-<label>Телефон</label>
-<input id="phone" placeholder="+421...">
+<label id="phoneLabel">
+Телефон
+</label>
+
+<input
+id="phone"
+placeholder="+421..."
+>
 
 
-<label>Email</label>
-<input id="email" placeholder="example@email.com">
+<label id="emailLabel">
+Email
+</label>
+
+<input
+id="email"
+placeholder="example@email.com"
+>
 
 
-<label>Місто</label>
-<input id="city" placeholder="Bratislava">
+<label id="cityLabel">
+Місто
+</label>
+
+<input
+id="city"
+placeholder="Bratislava"
+>
 
 
-<label>Професійний профіль</label>
-<textarea id="profile"
-placeholder="Коротко розкажіть про ваш досвід..."></textarea>
+<label id="profileLabel">
+Професійний профіль
+</label>
+
+<textarea
+id="profile"
+placeholder="Коротко розкажіть про ваш досвід..."
+></textarea>
 
 
-<label>Навички</label>
-<textarea id="skills"
-placeholder="CNC, Calypso, AutoCAD, измерение..."></textarea>
+<label id="skillsLabel">
+Навички
+</label>
+
+<textarea
+id="skills"
+placeholder="CNC, Calypso, AutoCAD, meranie..."
+></textarea>
 
 
-<label>Мови</label>
-<textarea id="languages"
-placeholder="Slovak - B1&#10;English - A2"></textarea>
+<label id="languagesLabel">
+Мови
+</label>
+
+<textarea
+id="languages"
+placeholder="Slovak - B1&#10;English - A2"
+></textarea>
 
 </div>
 
 
 <div class="card">
 
-<h2>💼 Досвід роботи</h2>
+<h2 id="experienceTitle">
+💼 Досвід роботи
+</h2>
 
 <div id="experienceContainer"></div>
 
 <button
 class="secondary"
-onclick="addExperience()">
+onclick="addExperience()"
+id="addExperienceButton">
+
 ➕ Додати досвід
+
 </button>
 
 </div>
@@ -737,14 +861,19 @@ onclick="addExperience()">
 
 <div class="card">
 
-<h2>🎓 Освіта</h2>
+<h2 id="educationTitle">
+🎓 Освіта
+</h2>
 
 <div id="educationContainer"></div>
 
 <button
 class="secondary"
-onclick="addEducation()">
+onclick="addEducation()"
+id="addEducationButton">
+
 ➕ Додати освіту
+
 </button>
 
 </div>
@@ -754,20 +883,30 @@ onclick="addEducation()">
 
 <button
 class="primary"
-onclick="saveResumeData()">
+onclick="saveResumeData()"
+id="saveCVButton">
+
 💾 Зберегти CV
+
 </button>
 
 <br><br>
 
 <button
 class="secondary"
-onclick="exportResumeJSON()">
+onclick="exportResumeJSON()"
+id="exportJSONButton">
+
 📤 Експорт JSON
+
 </button>
 
-<label style="margin-top:15px">
+<label
+style="margin-top:15px"
+id="importJSONLabel">
+
 📥 Імпорт JSON
+
 </label>
 
 <input
@@ -780,8 +919,11 @@ onchange="importResumeJSON(event)"
 
 <button
 class="secondary danger"
-onclick="clearResumeData()">
+onclick="clearResumeData()"
+id="clearCVButton">
+
 🗑️ Очистити CV
+
 </button>
 
 </div>
@@ -796,9 +938,13 @@ onclick="clearResumeData()">
 
 <div class="section-title">
 
-<h2>👁️ Перегляд CV</h2>
+<h2 id="previewTitle">
+👁️ Перегляд CV
+</h2>
 
-<p>Так виглядатиме твоє резюме</p>
+<p id="previewSubtitle">
+Так виглядатиме твоє резюме
+</p>
 
 </div>
 
@@ -823,7 +969,9 @@ onclick="clearResumeData()">
 
 <div class="resume-section">
 
-<h3>Профіль</h3>
+<h3 id="previewProfileTitle">
+Профіль
+</h3>
 
 <p id="previewProfile">
 </p>
@@ -833,7 +981,9 @@ onclick="clearResumeData()">
 
 <div class="resume-section">
 
-<h3>Навички</h3>
+<h3 id="previewSkillsTitle">
+Навички
+</h3>
 
 <p id="previewSkills">
 </p>
@@ -843,7 +993,9 @@ onclick="clearResumeData()">
 
 <div class="resume-section">
 
-<h3>Мови</h3>
+<h3 id="previewLanguagesTitle">
+Мови
+</h3>
 
 <p id="previewLanguages">
 </p>
@@ -853,7 +1005,9 @@ onclick="clearResumeData()">
 
 <div class="resume-section">
 
-<h3>Досвід роботи</h3>
+<h3 id="previewExperienceTitle">
+Досвід роботи
+</h3>
 
 <div id="previewExperience"></div>
 
@@ -862,7 +1016,9 @@ onclick="clearResumeData()">
 
 <div class="resume-section">
 
-<h3>Освіта</h3>
+<h3 id="previewEducationTitle">
+Освіта
+</h3>
 
 <div id="previewEducation"></div>
 
@@ -873,8 +1029,13 @@ onclick="clearResumeData()">
 
 <br>
 
-<button class="primary" onclick="window.print()">
+<button
+class="primary"
+onclick="window.print()"
+id="printButton">
+
 🖨️ Друк / Зберегти PDF
+
 </button>
 
 </section>
@@ -887,9 +1048,11 @@ onclick="clearResumeData()">
 
 <div class="section-title">
 
-<h2>🎯 Аналіз вакансії</h2>
+<h2 id="analysisTitle">
+🎯 Аналіз вакансії
+</h2>
 
-<p>
+<p id="analysisSubtitle">
 Встав текст вакансії та перевір відповідність свого CV
 </p>
 
@@ -898,7 +1061,7 @@ onclick="clearResumeData()">
 
 <div class="card">
 
-<label>
+<label id="jobTextLabel">
 📋 Текст вакансії
 </label>
 
@@ -920,7 +1083,8 @@ Požadujeme:
 
 <button
 class="primary"
-onclick="analyzeJob()">
+onclick="analyzeJob()"
+id="analyzeButton">
 
 🎯 Аналізувати вакансію
 
@@ -932,7 +1096,9 @@ onclick="analyzeJob()">
 
 <div class="card" id="analysisResult">
 
-<h2>🎯 Результат</h2>
+<h2 id="resultTitle">
+🎯 Результат
+</h2>
 
 
 <div
@@ -959,7 +1125,7 @@ class="progress-bar">
 
 <div class="success">
 
-<h3>
+<h3 id="foundTitle">
 ✅ Є у вашому резюме
 </h3>
 
@@ -972,7 +1138,7 @@ class="progress-bar">
 
 <div class="warning">
 
-<h3>
+<h3 id="missingTitle">
 ⚠️ Відсутнє або не знайдено
 </h3>
 
@@ -985,7 +1151,7 @@ class="progress-bar">
 
 <div class="info">
 
-<h3>
+<h3 id="recommendationTitle">
 💡 Рекомендація
 </h3>
 
@@ -1008,7 +1174,7 @@ class="progress-bar">
 🤖 JobAI Slovakia 🇸🇰
 </strong>
 
-<p>
+<p id="footerText">
 AI-помічник для пошуку роботи та створення CV
 </p>
 
@@ -1022,6 +1188,431 @@ AI-помічник для пошуку роботи та створення CV
 
 <script>
 
+const translations = {
+
+uk: {
+
+heroTitle:"Знайди роботу швидше",
+
+heroText:"Створи професійне CV, проаналізуй вакансію та дізнайся, наскільки твої навички відповідають роботі.",
+
+createCV:"📄 Створити CV",
+
+analyzeJob:"🎯 Аналіз вакансії",
+
+home:"🏠 Головна",
+
+myCV:"📄 Моє CV",
+
+preview:"👁️ Перегляд CV",
+
+analysis:"🎯 Аналіз вакансії",
+
+professionsTitle:"Популярні професії",
+
+professionsText:"Обери професію та швидко перейди до аналізу вакансії",
+
+cnc:"⚙️ CNC Operator",
+
+cncDesc:"Верстати та виробництво",
+
+welder:"🔥 Welder",
+
+welderDesc:"Зварювання",
+
+mechanic:"🔧 Mechanic",
+
+mechanicDesc:"Автомобілі",
+
+warehouse:"📦 Warehouse",
+
+warehouseDesc:"Логістика та склад",
+
+engineer:"📐 Engineer",
+
+engineerDesc:"Технічні професії",
+
+construction:"🏗️ Construction",
+
+constructionDesc:"Будівництво",
+
+it:"💻 IT",
+
+itDesc:"Технології",
+
+logistics:"🚚 Logistics",
+
+logisticsDesc:"Транспорт",
+
+howWorks:"🚀 Як це працює?",
+
+step1:"1️⃣ Створи своє CV",
+
+step2:"2️⃣ Встав текст вакансії",
+
+step3:"3️⃣ JobAI знайде необхідні навички",
+
+step4:"4️⃣ Отримаєш відсоток відповідності",
+
+cvTitle:"📄 Моє резюме",
+
+cvSubtitle:"Заповни інформацію про себе",
+
+name:"Ім'я та прізвище",
+
+position:"Бажана посада",
+
+phone:"Телефон",
+
+email:"Email",
+
+city:"Місто",
+
+profile:"Професійний профіль",
+
+skills:"Навички",
+
+languages:"Мови",
+
+experience:"💼 Досвід роботи",
+
+education:"🎓 Освіта",
+
+addExperience:"➕ Додати досвід",
+
+addEducation:"➕ Додати освіту",
+
+saveCV:"💾 Зберегти CV",
+
+exportJSON:"📤 Експорт JSON",
+
+importJSON:"📥 Імпорт JSON",
+
+clearCV:"🗑️ Очистити CV",
+
+removePhoto:"🗑️ Видалити фото",
+
+previewTitle:"👁️ Перегляд CV",
+
+previewSubtitle:"Так виглядатиме твоє резюме",
+
+profileTitle:"Профіль",
+
+skillsTitle:"Навички",
+
+languagesTitle:"Мови",
+
+experienceTitle:"Досвід роботи",
+
+educationTitle:"Освіта",
+
+print:"🖨️ Друк / Зберегти PDF",
+
+analysisTitle:"🎯 Аналіз вакансії",
+
+analysisSubtitle:"Встав текст вакансії та перевір відповідність свого CV",
+
+jobText:"📋 Текст вакансії",
+
+analyzeButton:"🎯 Аналізувати вакансію",
+
+result:"🎯 Результат",
+
+found:"✅ Є у вашому резюме",
+
+missing:"⚠️ Відсутнє або не знайдено",
+
+recommendation:"💡 Рекомендація",
+
+recommendationDefault:"Вставте текст вакансії та натисніть «Аналізувати».",
+
+footer:"AI-помічник для пошуку роботи та створення CV"
+
+},
+
+sk: {
+
+heroTitle:"Nájdite si prácu rýchlejšie",
+
+heroText:"Vytvorte profesionálne CV, analyzujte pracovnú ponuku a zistite, ako vaše zručnosti zodpovedajú práci.",
+
+createCV:"📄 Vytvoriť CV",
+
+analyzeJob:"🎯 Analyzovať ponuku",
+
+home:"🏠 Domov",
+
+myCV:"📄 Moje CV",
+
+preview:"👁️ Náhľad CV",
+
+analysis:"🎯 Analýza ponuky",
+
+professionsTitle:"Populárne profesie",
+
+professionsText:"Vyberte profesiu a prejdite na analýzu pracovnej ponuky",
+
+cnc:"⚙️ CNC operátor",
+
+cncDesc:"Stroje a výroba",
+
+welder:"🔥 Zvárač",
+
+welderDesc:"Zváranie",
+
+mechanic:"🔧 Automechanik",
+
+mechanicDesc:"Automobily",
+
+warehouse:"📦 Pracovník skladu",
+
+warehouseDesc:"Logistika a sklad",
+
+engineer:"📐 Technik / Inžinier",
+
+engineerDesc:"Technické profesie",
+
+construction:"🏗️ Stavebný pracovník",
+
+constructionDesc:"Stavebníctvo",
+
+it:"💻 IT špecialista",
+
+itDesc:"Technológie",
+
+logistics:"🚚 Logistik",
+
+logisticsDesc:"Doprava",
+
+howWorks:"🚀 Ako to funguje?",
+
+step1:"1️⃣ Vytvorte si CV",
+
+step2:"2️⃣ Vložte text pracovnej ponuky",
+
+step3:"3️⃣ JobAI nájde potrebné zručnosti",
+
+step4:"4️⃣ Dostanete percento zhody",
+
+cvTitle:"📄 Moje CV",
+
+cvSubtitle:"Vyplňte svoje údaje",
+
+name:"Meno a priezvisko",
+
+position:"Požadovaná pozícia",
+
+phone:"Telefón",
+
+email:"Email",
+
+city:"Mesto",
+
+profile:"Profesionálny profil",
+
+skills:"Zručnosti",
+
+languages:"Jazyky",
+
+experience:"💼 Pracovné skúsenosti",
+
+education:"🎓 Vzdelanie",
+
+addExperience:"➕ Pridať skúsenosť",
+
+addEducation:"➕ Pridať vzdelanie",
+
+saveCV:"💾 Uložiť CV",
+
+exportJSON:"📤 Export JSON",
+
+importJSON:"📥 Import JSON",
+
+clearCV:"🗑️ Vymazať CV",
+
+removePhoto:"🗑️ Odstrániť foto",
+
+previewTitle:"👁️ Náhľad CV",
+
+previewSubtitle:"Takto bude vyzerať vaše CV",
+
+profileTitle:"Profil",
+
+skillsTitle:"Zručnosti",
+
+languagesTitle:"Jazyky",
+
+experienceTitle:"Pracovné skúsenosti",
+
+educationTitle:"Vzdelanie",
+
+print:"🖨️ Tlačiť / Uložiť PDF",
+
+analysisTitle:"🎯 Analýza pracovnej ponuky",
+
+analysisSubtitle:"Vložte text pracovnej ponuky a skontrolujte zhodu s vaším CV",
+
+jobText:"📋 Text pracovnej ponuky",
+
+analyzeButton:"🎯 Analyzovať ponuku",
+
+result:"🎯 Výsledok",
+
+found:"✅ Vo vašom CV",
+
+missing:"⚠️ Chýba alebo nebolo nájdené",
+
+recommendation:"💡 Odporúčanie",
+
+recommendationDefault:"Vložte text pracovnej ponuky a kliknite na „Analyzovať“.",
+
+footer:"AI pomocník pre hľadanie práce a tvorbu CV"
+
+},
+
+en: {
+
+heroTitle:"Find a job faster",
+
+heroText:"Create a professional CV, analyze job offers and see how well your skills match the job.",
+
+createCV:"📄 Create CV",
+
+analyzeJob:"🎯 Analyze job",
+
+home:"🏠 Home",
+
+myCV:"📄 My CV",
+
+preview:"👁️ CV Preview",
+
+analysis:"🎯 Job Analysis",
+
+professionsTitle:"Popular professions",
+
+professionsText:"Choose a profession and quickly analyze a job offer",
+
+cnc:"⚙️ CNC Operator",
+
+cncDesc:"Machines and production",
+
+welder:"🔥 Welder",
+
+welderDesc:"Welding",
+
+mechanic:"🔧 Auto Mechanic",
+
+mechanicDesc:"Automotive",
+
+warehouse:"📦 Warehouse",
+
+warehouseDesc:"Logistics and warehouse",
+
+engineer:"📐 Engineer",
+
+engineerDesc:"Technical professions",
+
+construction:"🏗️ Construction Worker",
+
+constructionDesc:"Construction",
+
+it:"💻 IT Specialist",
+
+itDesc:"Technology",
+
+logistics:"🚚 Logistics",
+
+logisticsDesc:"Transport",
+
+howWorks:"🚀 How does it work?",
+
+step1:"1️⃣ Create your CV",
+
+step2:"2️⃣ Paste the job offer",
+
+step3:"3️⃣ JobAI finds the required skills",
+
+step4:"4️⃣ Get your match percentage",
+
+cvTitle:"📄 My CV",
+
+cvSubtitle:"Fill in your information",
+
+name:"Full name",
+
+position:"Desired position",
+
+phone:"Phone",
+
+email:"Email",
+
+city:"City",
+
+profile:"Professional profile",
+
+skills:"Skills",
+
+languages:"Languages",
+
+experience:"💼 Work experience",
+
+education:"🎓 Education",
+
+addExperience:"➕ Add experience",
+
+addEducation:"➕ Add education",
+
+saveCV:"💾 Save CV",
+
+exportJSON:"📤 Export JSON",
+
+importJSON:"📥 Import JSON",
+
+clearCV:"🗑️ Clear CV",
+
+removePhoto:"🗑️ Remove photo",
+
+previewTitle:"👁️ CV Preview",
+
+previewSubtitle:"This is how your CV will look",
+
+profileTitle:"Profile",
+
+skillsTitle:"Skills",
+
+languagesTitle:"Languages",
+
+experienceTitle:"Work experience",
+
+educationTitle:"Education",
+
+print:"🖨️ Print / Save PDF",
+
+analysisTitle:"🎯 Job analysis",
+
+analysisSubtitle:"Paste a job offer and check how well your CV matches",
+
+jobText:"📋 Job offer text",
+
+analyzeButton:"🎯 Analyze job",
+
+result:"🎯 Result",
+
+found:"✅ Found in your CV",
+
+missing:"⚠️ Missing or not found",
+
+recommendation:"💡 Recommendation",
+
+recommendationDefault:"Paste a job offer and click “Analyze”.",
+
+footer:"AI assistant for job searching and CV creation"
+
+}
+
+};
+
+
 function showPage(pageId){
 
     document
@@ -1032,8 +1623,10 @@ function showPage(pageId){
 
         });
 
+
     const page =
         document.getElementById(pageId);
+
 
     if(page){
 
@@ -1049,14 +1642,161 @@ function showPage(pageId){
 }
 
 
+function setText(id,text){
+
+    const element =
+        document.getElementById(id);
+
+    if(element){
+        element.innerText = text;
+    }
+
+}
+
+
+function setLanguage(language){
+
+    const t =
+        translations[language] ||
+        translations.uk;
+
+
+    setText("heroTitle",t.heroTitle);
+    setText("heroText",t.heroText);
+    setText("createCVButton",t.createCV);
+    setText("heroAnalysisButton",t.analyzeJob);
+
+    setText("navHome",t.home);
+    setText("navCV",t.myCV);
+    setText("navPreview",t.preview);
+    setText("navAnalysis",t.analysis);
+
+    setText("professionsTitle",t.professionsTitle);
+    setText("professionsText",t.professionsText);
+
+    setText("professionCNC",t.cnc);
+    setText("professionCNCDesc",t.cncDesc);
+
+    setText("professionWelder",t.welder);
+    setText("professionWelderDesc",t.welderDesc);
+
+    setText("professionMechanic",t.mechanic);
+    setText("professionMechanicDesc",t.mechanicDesc);
+
+    setText("professionWarehouse",t.warehouse);
+    setText("professionWarehouseDesc",t.warehouseDesc);
+
+    setText("professionEngineer",t.engineer);
+    setText("professionEngineerDesc",t.engineerDesc);
+
+    setText("professionConstruction",t.construction);
+    setText("professionConstructionDesc",t.constructionDesc);
+
+    setText("professionIT",t.it);
+    setText("professionITDesc",t.itDesc);
+
+    setText("professionLogistics",t.logistics);
+    setText("professionLogisticsDesc",t.logisticsDesc);
+
+    setText("howWorks",t.howWorks);
+    setText("step1",t.step1);
+    setText("step2",t.step2);
+    setText("step3",t.step3);
+    setText("step4",t.step4);
+
+    setText("cvTitle",t.cvTitle);
+    setText("cvSubtitle",t.cvSubtitle);
+
+    setText("nameLabel",t.name);
+    setText("positionLabel",t.position);
+    setText("phoneLabel",t.phone);
+    setText("emailLabel",t.email);
+    setText("cityLabel",t.city);
+    setText("profileLabel",t.profile);
+    setText("skillsLabel",t.skills);
+    setText("languagesLabel",t.languages);
+
+    setText("experienceTitle",t.experience);
+    setText("educationTitle",t.education);
+
+    setText("addExperienceButton",t.addExperience);
+    setText("addEducationButton",t.addEducation);
+
+    setText("saveCVButton",t.saveCV);
+    setText("exportJSONButton",t.exportJSON);
+    setText("importJSONLabel",t.importJSON);
+    setText("clearCVButton",t.clearCV);
+    setText("removePhotoButton",t.removePhoto);
+
+    setText("previewTitle",t.previewTitle);
+    setText("previewSubtitle",t.previewSubtitle);
+
+    setText("previewProfileTitle",t.profileTitle);
+    setText("previewSkillsTitle",t.skillsTitle);
+    setText("previewLanguagesTitle",t.languagesTitle);
+    setText("previewExperienceTitle",t.experienceTitle);
+    setText("previewEducationTitle",t.educationTitle);
+
+    setText("printButton",t.print);
+
+    setText("analysisTitle",t.analysisTitle);
+    setText("analysisSubtitle",t.analysisSubtitle);
+    setText("jobTextLabel",t.jobText);
+    setText("analyzeButton",t.analyzeButton);
+    setText("resultTitle",t.result);
+    setText("foundTitle",t.found);
+    setText("missingTitle",t.missing);
+    setText("recommendationTitle",t.recommendation);
+
+    const recommendation =
+        document.getElementById("recommendation");
+
+    if(
+        recommendation &&
+        (
+            recommendation.innerText ===
+            translations.uk.recommendationDefault ||
+
+            recommendation.innerText ===
+            translations.sk.recommendationDefault ||
+
+            recommendation.innerText ===
+            translations.en.recommendationDefault ||
+
+            recommendation.innerText === ""
+        )
+    ){
+
+        recommendation.innerText =
+            t.recommendationDefault;
+
+    }
+
+    setText("footerText",t.footer);
+
+
+    document.documentElement.lang =
+        language;
+
+
+    localStorage.setItem(
+        "jobaiLanguage",
+        language
+    );
+
+}
+
+
 function selectProfession(profession){
 
     showPage("analysisPage");
+
 
     setTimeout(function(){
 
         const field =
             document.getElementById("jobText");
+
 
         if(field){
 
@@ -1072,28 +1812,46 @@ function selectProfession(profession){
 }
 
 
-document
-.getElementById("languageSelect")
-.addEventListener("change",function(){
-
-    const language =
-        this.value;
-
-    if(
-        typeof setLanguage ===
-        "function"
-    ){
-
-        setLanguage(language);
-
-    }
-
-});
-
-
 document.addEventListener(
 "DOMContentLoaded",
 function(){
+
+    const selector =
+        document.getElementById(
+            "languageSelect"
+        );
+
+
+    const savedLanguage =
+        localStorage.getItem(
+            "jobaiLanguage"
+        ) || "uk";
+
+
+    if(selector){
+
+        selector.value =
+            savedLanguage;
+
+
+        selector.addEventListener(
+            "change",
+            function(){
+
+                setLanguage(
+                    this.value
+                );
+
+            }
+        );
+
+    }
+
+
+    setLanguage(
+        savedLanguage
+    );
+
 
     if(
         typeof initResumeModule ===
