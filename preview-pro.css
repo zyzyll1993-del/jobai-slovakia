@@ -1,16 +1,16 @@
 /* JobAI Slovakia — professional compact CV preview */
+html body #preview .jobai-preview-controls{width:560px!important;max-width:560px!important;margin:0 0 18px 0!important;box-sizing:border-box}
+html body #preview .jobai-preview-head{margin-bottom:10px!important}
+html body #preview .jobai-preview-subtitle{font-size:18px!important}
+html body #preview .jobai-preview-row{grid-template-columns:150px 1fr!important;gap:16px!important;margin-top:10px!important;padding-top:10px!important}
+html body #preview .template-grid{grid-template-columns:repeat(5,1fr)!important;gap:6px!important}
+html body #preview .template-button{min-height:34px!important;padding:5px 6px!important;font-size:11px!important}
+html body #preview .jobai-preview-settings{display:grid!important;grid-template-columns:1fr 1fr 1fr 1.15fr!important;gap:12px!important;margin-top:12px!important;padding-top:12px!important}
+html body #preview .jobai-preview-settings label,html body #preview .jobai-preview-settings>div{min-width:0!important}
+html body #preview .jobai-number-wrap{display:flex!important;align-items:center!important;gap:4px!important}
+html body #preview .jobai-font-number{width:58px!important}
+html body #preview .jobai-font-option{min-height:32px!important;padding:5px 7px!important;font-size:11px!important}
 #preview .preview-wrapper{width:100%;max-width:none;overflow-x:auto;overflow-y:visible;display:block;padding:24px 20px 40px;box-sizing:border-box}
-#preview .jobai-preview-controls{width:560px!important;max-width:560px!important;margin:0 0 18px 0!important;padding:14px 16px!important;box-sizing:border-box}
-#preview .jobai-preview-head{margin-bottom:10px!important}
-#preview .jobai-preview-subtitle{font-size:18px!important}
-#preview .jobai-preview-row{grid-template-columns:150px 1fr!important;gap:16px!important;margin-top:10px!important;padding-top:10px!important}
-#preview .template-grid{grid-template-columns:repeat(5,1fr)!important;gap:6px!important}
-#preview .template-button{min-height:34px!important;padding:5px 6px!important;font-size:11px!important}
-#preview .jobai-preview-settings{display:grid!important;grid-template-columns:1fr 1fr 1fr 1.15fr!important;gap:12px!important;margin-top:12px!important;padding-top:12px!important}
-#preview .jobai-preview-settings label,.jobai-preview-settings>div{min-width:0!important}
-#preview .jobai-number-wrap{display:flex!important;align-items:center!important;gap:4px!important}
-#preview .jobai-font-number{width:58px!important}
-#preview .jobai-font-option{min-height:32px!important;padding:5px 7px!important;font-size:11px!important}
 #preview .a4-page{width:794px!important;min-width:794px!important;max-width:794px!important;height:auto;min-height:1123px!important;margin:0 auto!important;box-sizing:border-box;flex:0 0 794px;border-radius:2px;box-shadow:0 16px 45px rgba(15,23,42,.22);overflow:hidden}
 #preview #resumePreview{width:794px!important;min-width:794px!important;max-width:794px!important;margin:0 auto;box-sizing:border-box}
 #preview .resume-page-inner{width:100%;min-width:0;box-sizing:border-box;font-size:14px;line-height:1.45}
@@ -40,7 +40,7 @@
 #preview .resume-photo{width:100px;height:100px}
 @media(max-width:834px){
   #preview .preview-wrapper{padding-left:10px;padding-right:10px}
-  #preview .jobai-preview-controls{width:100%!important;max-width:560px!important}
+  html body #preview .jobai-preview-controls{width:100%!important;max-width:560px!important}
   #preview #resumePreview,#preview .a4-page{margin-left:0!important;margin-right:0!important}
   #preview .jobai-preview-settings{grid-template-columns:1fr 1fr!important}
 }
