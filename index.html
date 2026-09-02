@@ -4,10 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>JobAI Slovakia</title>
+<title>JobAI Slovakia 🇸🇰</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
 
 body{
     margin:0;
@@ -16,8 +22,16 @@ body{
     color:#e5e7eb;
 }
 
-button,input,textarea,select{font:inherit}
-button{cursor:pointer}
+button,
+input,
+textarea,
+select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
 
 .header{
     position:sticky;
@@ -25,32 +39,49 @@ button{cursor:pointer}
     z-index:1000;
     background:#111827;
     border-bottom:1px solid #334155;
-    box-shadow:0 3px 15px rgba(0,0,0,.25);
+    box-shadow:0 4px 20px rgba(0,0,0,.25);
 }
 
 .header-inner{
-    max-width:1200px;
+    max-width:1250px;
     margin:auto;
-    padding:12px 18px;
+    min-height:70px;
+    padding:12px 20px;
     display:flex;
     align-items:center;
-    gap:20px;
+    gap:18px;
 }
 
 .logo{
-    font-size:22px;
+    font-size:24px;
     font-weight:800;
     color:#fff;
     white-space:nowrap;
+    margin-right:auto;
 }
 
-.logo span{color:#60a5fa}
+.logo span{
+    color:#60a5fa;
+}
 
 .header-actions{
-    margin-left:auto;
     display:flex;
     align-items:center;
     gap:10px;
+}
+
+.home-button{
+    height:38px;
+    padding:0 16px;
+    border-radius:8px;
+    border:1px solid #475569;
+    background:#1e293b;
+    color:#fff;
+    font-weight:700;
+}
+
+.home-button:hover{
+    background:#334155;
 }
 
 .language-switcher{
@@ -74,81 +105,121 @@ button{cursor:pointer}
     font-weight:700;
 }
 
+.language-switcher button:hover{
+    background:#334155;
+}
+
 .language-switcher button.active{
     background:#1976d2;
     color:#fff;
 }
 
-.home-button,
-.primary-button,
-.action-button{
-    border:0;
+.nav{
+    max-width:1250px;
+    margin:auto;
+    padding:0 20px 12px;
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.nav button{
+    border:1px solid #475569;
+    background:#1e293b;
+    color:#dbe7f5;
+    padding:9px 16px;
     border-radius:8px;
-    background:#1976d2;
-    color:#fff;
-    padding:10px 16px;
     font-weight:700;
 }
 
-.secondary-button{
-    border:0;
-    border-radius:8px;
-    background:#334155;
+.nav button:hover,
+.nav button.active{
+    background:#1976d2;
     color:#fff;
-    padding:14px 24px;
-    font-weight:700;
+    border-color:#1976d2;
 }
 
 .container{
-    max-width:1200px;
-    margin:auto;
-    padding:25px 18px 60px;
+    max-width:1250px;
+    margin:0 auto;
+    padding:30px 20px 70px;
 }
 
-.tab{display:none}
-.tab.active{display:block}
+.tab{
+    display:none;
+}
+
+.tab.active{
+    display:block;
+}
 
 /* HOME */
 
 .hero{
+    padding:55px 20px;
+    border:1px solid #334155;
+    border-radius:20px;
+    background:linear-gradient(135deg,#172554,#111827 55%,#0f172a);
     text-align:center;
-    padding:55px 20px 45px;
+    margin-bottom:28px;
 }
 
 .hero h1{
+    margin:0 0 14px;
     font-size:48px;
-    margin:0 0 15px;
     color:#fff;
 }
 
-.hero h1 span{color:#60a5fa}
+.hero h1 span{
+    color:#60a5fa;
+}
 
 .hero p{
     max-width:760px;
-    margin:0 auto 30px;
+    margin:0 auto 28px;
     color:#cbd5e1;
-    font-size:18px;
+    font-size:19px;
     line-height:1.6;
 }
 
 .hero-buttons{
     display:flex;
     justify-content:center;
-    gap:15px;
+    gap:12px;
     flex-wrap:wrap;
 }
 
 .primary-button,
 .secondary-button{
-    font-size:16px;
-    padding:14px 24px;
+    border-radius:10px;
+    padding:13px 22px;
+    font-weight:800;
+    border:1px solid transparent;
+}
+
+.primary-button{
+    background:#1976d2;
+    color:#fff;
+}
+
+.primary-button:hover{
+    background:#1565b8;
+}
+
+.secondary-button{
+    background:#1e293b;
+    border-color:#475569;
+    color:#fff;
+}
+
+.secondary-button:hover{
+    background:#334155;
 }
 
 .section-title{
-    text-align:center;
     color:#fff;
-    margin:35px 0 22px;
     font-size:28px;
+    margin:35px 0 18px;
 }
 
 .features{
@@ -157,36 +228,35 @@ button{cursor:pointer}
     gap:18px;
 }
 
-.feature{
-    background:#1e293b;
+.feature-card{
+    background:#172033;
     border:1px solid #334155;
-    border-radius:12px;
-    padding:25px;
+    border-radius:14px;
+    padding:22px;
 }
 
-.feature h3{
-    margin-top:0;
+.feature-card h3{
+    margin:0 0 10px;
     color:#fff;
 }
 
-.feature p{
-    color:#cbd5e1;
-    line-height:1.5;
+.feature-card p{
+    margin:0;
+    color:#aebbd0;
+    line-height:1.55;
 }
 
-/* PROFESSIONS */
-
-.professions{
+.profession-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:20px;
 }
 
 .profession-card{
-    background:#1e293b;
-    border:1px solid #334155;
-    border-radius:12px;
     overflow:hidden;
+    background:#172033;
+    border:1px solid #334155;
+    border-radius:14px;
     transition:.2s;
 }
 
@@ -197,13 +267,14 @@ button{cursor:pointer}
 
 .profession-card img{
     width:100%;
-    height:180px;
-    object-fit:cover;
+    height:190px;
     display:block;
+    object-fit:cover;
+    background:#1e293b;
 }
 
 .profession-content{
-    padding:18px;
+    padding:17px;
 }
 
 .profession-content h3{
@@ -212,63 +283,70 @@ button{cursor:pointer}
 }
 
 .profession-content p{
-    color:#cbd5e1;
-    min-height:45px;
-    line-height:1.4;
+    margin:0 0 15px;
+    color:#aebbd0;
+    line-height:1.45;
+    min-height:42px;
 }
 
 .profession-content button{
     width:100%;
-    background:#1976d2;
-    color:#fff;
-    border:0;
-    border-radius:7px;
-    padding:10px;
-    font-weight:700;
-}
-
-/* JOB SEARCH */
-
-.job-search{
+    border:1px solid #475569;
     background:#1e293b;
-    border:1px solid #334155;
-    border-radius:12px;
-    padding:25px;
-    margin-top:30px;
-}
-
-.job-search p{
-    color:#cbd5e1;
-}
-
-.job-links{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:12px;
-}
-
-.job-links a{
-    display:block;
-    text-align:center;
-    text-decoration:none;
-    color:white;
-    background:#334155;
-    padding:13px;
+    color:#fff;
+    padding:10px;
     border-radius:8px;
     font-weight:700;
 }
 
-/* FORMS */
+.profession-content button:hover{
+    background:#1976d2;
+    border-color:#1976d2;
+}
 
-.card{
-    background:#1e293b;
+.job-search{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.job-link{
+    display:block;
+    text-decoration:none;
+    color:#fff;
+    background:#172033;
     border:1px solid #334155;
     border-radius:12px;
+    padding:22px;
+}
+
+.job-link:hover{
+    border-color:#60a5fa;
+    background:#1b2940;
+}
+
+.job-link strong{
+    display:block;
+    margin-bottom:8px;
+    font-size:18px;
+}
+
+.job-link span{
+    color:#aebbd0;
+}
+
+/* COMMON */
+
+.card{
+    background:#172033;
+    border:1px solid #334155;
+    border-radius:14px;
     padding:22px;
     margin-bottom:20px;
 }
 
-.card h2{
+.card h2,
+.card h3{
     margin-top:0;
     color:#fff;
 }
@@ -276,345 +354,641 @@ button{cursor:pointer}
 .form-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:15px;
+    gap:16px;
 }
 
-.field{
+.form-group{
     display:flex;
     flex-direction:column;
-    gap:6px;
+    gap:7px;
 }
 
-.field.full{
+.form-group.full{
     grid-column:1/-1;
 }
 
 label{
     font-weight:700;
-    color:#e2e8f0;
+    color:#dbe7f5;
 }
 
 input,
 textarea,
 select{
     width:100%;
-    background:#0f172a;
-    color:#fff;
     border:1px solid #475569;
-    border-radius:7px;
-    padding:11px;
+    background:#0f172a;
+    color:#f8fafc;
+    border-radius:8px;
+    padding:11px 12px;
+    outline:none;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    border-color:#60a5fa;
 }
 
 textarea{
-    min-height:110px;
+    min-height:120px;
     resize:vertical;
 }
 
-.action-row{
+.photo-box{
     display:flex;
+    align-items:center;
+    gap:20px;
     flex-wrap:wrap;
-    gap:10px;
-    margin-top:15px;
 }
-
-.action-button.gray{background:#475569}
-.action-button.red{background:#b91c1c}
-
-.experience-item,
-.education-item{
-    border:1px solid #475569;
-    border-radius:9px;
-    padding:15px;
-    margin-top:12px;
-}
-
-/* PHOTO */
 
 .photo-preview{
-    margin-top:15px;
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    overflow:hidden;
+    border:2px solid #475569;
+    background:#0f172a;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#94a3b8;
+    text-align:center;
+    font-size:13px;
 }
 
 .photo-preview img{
-    width:130px;
-    height:130px;
+    width:100%;
+    height:100%;
     object-fit:cover;
+}
+
+.button-row{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:15px;
+}
+
+.action-button{
+    border:1px solid #475569;
+    background:#1e293b;
+    color:#fff;
+    padding:10px 16px;
+    border-radius:8px;
+    font-weight:700;
+}
+
+.action-button:hover{
+    background:#334155;
+}
+
+.action-button.primary{
+    background:#1976d2;
+    border-color:#1976d2;
+}
+
+.action-button.danger{
+    background:#7f1d1d;
+    border-color:#991b1b;
+}
+
+.entry{
+    border:1px solid #334155;
+    background:#111827;
+    border-radius:10px;
+    padding:18px;
+    margin-top:15px;
+}
+
+.entry-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.entry-header h3{
+    margin:0;
+    font-size:17px;
+}
+
+.design-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.color-options{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+}
+
+.color-button{
+    width:35px;
+    height:35px;
     border-radius:50%;
-    border:3px solid #475569;
+    border:3px solid transparent;
+    cursor:pointer;
+}
+
+.color-button.selected{
+    border-color:#fff;
+    box-shadow:0 0 0 2px #60a5fa;
+}
+
+.template-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+}
+
+.template-button{
+    border:1px solid #475569;
+    background:#1e293b;
+    color:#fff;
+    border-radius:8px;
+    padding:12px 8px;
+    font-weight:700;
+}
+
+.template-button.selected{
+    background:#1976d2;
+    border-color:#1976d2;
 }
 
 /* PREVIEW */
 
 .preview-wrapper{
-    overflow-x:auto;
-    padding:10px;
+    overflow:auto;
+    padding:20px 0;
 }
 
-.resume-page{
+.a4-page{
     width:794px;
     min-height:1123px;
     margin:0 auto;
     background:#fff;
     color:#111;
-    box-shadow:0 3px 20px rgba(0,0,0,.4);
+    box-shadow:0 5px 30px rgba(0,0,0,.35);
+    position:relative;
     overflow:hidden;
 }
 
-.resume-page *{
-    color:inherit;
+.resume-normal-text{
+    color:#111 !important;
 }
 
-.resume-header{
-    padding:30px;
-}
-
-.resume-name{
-    font-size:32px;
-    font-weight:800;
-    margin-bottom:5px;
-}
-
-.resume-position{
-    font-size:18px;
-    margin-bottom:15px;
-}
-
-.resume-contact{
-    font-size:13px;
-    line-height:1.6;
-}
-
-.resume-section{
-    margin-bottom:22px;
-}
-
-.resume-section-title{
-    font-size:18px;
-    font-weight:800;
-    border-bottom:2px solid currentColor;
-    padding-bottom:5px;
-    margin-bottom:10px;
-}
-
-.resume-photo{
-    width:125px;
-    height:125px;
-    object-fit:cover;
-    border-radius:50%;
-}
-
-.resume-two-column{
-    display:grid;
-    grid-template-columns:250px 1fr;
+.resume-page-inner{
     min-height:1123px;
 }
 
-.resume-sidebar{
-    padding:30px;
+.resume-photo{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    object-fit:cover;
 }
 
-.resume-main{
-    padding:30px;
-}
-
-.resume-sidebar .resume-section-title{
-    color:inherit;
-}
-
-.resume-experience-item{
-    margin-bottom:15px;
-}
-
-.resume-date{
+.resume-no-photo{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    background:#e5e7eb;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#555;
     font-size:12px;
-    opacity:.8;
-    margin-bottom:3px;
+    text-align:center;
 }
 
-.resume-company{
-    font-weight:800;
+/* MODERN */
+
+.template-modern{
+    display:grid;
+    grid-template-columns:260px 1fr;
 }
 
-.resume-job{
-    font-weight:700;
-    margin-bottom:5px;
+.modern-side{
+    padding:35px 25px;
+    color:#fff;
 }
 
-.resume-description{
-    white-space:pre-line;
+.modern-main{
+    padding:40px;
+    color:#111;
+}
+
+.modern-side h1{
+    font-size:28px;
+    margin:20px 0 7px;
+}
+
+.modern-side h2{
+    font-size:15px;
+    margin:0 0 25px;
+    opacity:.9;
+}
+
+.modern-section{
+    margin-top:25px;
+}
+
+.modern-section h3{
+    font-size:14px;
+    text-transform:uppercase;
+    border-bottom:1px solid rgba(255,255,255,.4);
+    padding-bottom:7px;
+}
+
+.modern-main h2{
+    font-size:18px;
+    text-transform:uppercase;
+    padding-bottom:7px;
+    border-bottom:2px solid;
+}
+
+.resume-item{
+    margin-bottom:18px;
+}
+
+.resume-item h3{
+    margin:0 0 4px;
+    font-size:16px;
+}
+
+.resume-item .date{
+    color:#666;
+    font-size:12px;
+    margin-bottom:6px;
+}
+
+.resume-item p{
+    margin:0;
     line-height:1.5;
+    white-space:pre-line;
 }
 
 .resume-list{
-    margin:5px 0;
     padding-left:18px;
-    white-space:pre-line;
+    line-height:1.55;
 }
 
-.preview-empty{
-    padding:60px 20px;
-    text-align:center;
-    color:#64748b;
+/* PROFESSIONAL */
+
+.template-professional{
+    padding:45px;
+}
+
+.prof-header{
+    border-bottom:3px solid;
+    padding-bottom:20px;
+    margin-bottom:25px;
+}
+
+.prof-header h1{
+    font-size:32px;
+    margin:0 0 7px;
+}
+
+.prof-header h2{
+    margin:0 0 10px;
+    font-size:17px;
+    font-weight:normal;
+    color:#555;
+}
+
+.prof-contact{
+    color:#444;
+    font-size:13px;
+}
+
+.prof-section{
+    margin-bottom:25px;
+}
+
+.prof-section-title{
+    font-size:17px;
+    text-transform:uppercase;
+    border-bottom:1px solid #bbb;
+    padding-bottom:6px;
+    margin-bottom:13px;
+    font-weight:800;
+}
+
+.prof-experience{
+    display:grid;
+    grid-template-columns:125px 1fr;
+    gap:15px;
+    margin-bottom:17px;
+}
+
+.prof-date{
+    font-size:12px;
+    color:#555;
+}
+
+.prof-company{
+    font-weight:800;
+}
+
+.prof-position{
+    font-weight:700;
+    margin:3px 0 7px;
+}
+
+/* EXECUTIVE */
+
+.template-executive{
+    display:grid;
+    grid-template-columns:245px 1fr;
+}
+
+.exec-top{
+    grid-column:1/-1;
+    padding:32px 38px;
+    color:#fff;
+}
+
+.exec-top h1{
+    margin:0 0 5px;
+    font-size:32px;
+}
+
+.exec-top h2{
+    margin:0;
+    font-size:16px;
+    font-weight:normal;
+}
+
+.exec-side{
+    padding:30px 24px;
+    color:#fff;
+    min-height:900px;
+}
+
+.exec-main{
+    padding:35px;
+}
+
+.exec-side h3,
+.exec-main h2{
+    text-transform:uppercase;
+    font-size:14px;
+    letter-spacing:.5px;
+}
+
+.exec-side h3{
+    border-bottom:1px solid rgba(255,255,255,.35);
+    padding-bottom:7px;
+}
+
+.exec-main h2{
+    border-bottom:2px solid;
+    padding-bottom:7px;
+}
+
+/* CREATIVE */
+
+.template-creative{
+    display:grid;
+    grid-template-columns:205px 1fr;
+}
+
+.creative-header{
+    grid-column:1/-1;
+    padding:35px;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.creative-header h1{
+    margin:0 0 5px;
+    font-size:32px;
+}
+
+.creative-header h2{
+    margin:0;
+    font-size:16px;
+    font-weight:normal;
+}
+
+.creative-side{
+    padding:30px 20px;
+    color:#fff;
+    min-height:900px;
+}
+
+.creative-main{
+    padding:35px;
+}
+
+.creative-side h3{
+    font-size:14px;
+    text-transform:uppercase;
+    border-bottom:1px solid rgba(255,255,255,.4);
+    padding-bottom:7px;
+}
+
+.creative-main h2{
+    font-size:18px;
+    text-transform:uppercase;
+    border-bottom:2px solid;
+    padding-bottom:7px;
+}
+
+/* ATS */
+
+.template-ats{
+    padding:48px;
+}
+
+.ats-header{
+    border-bottom:2px solid;
+    padding-bottom:18px;
+    margin-bottom:25px;
+}
+
+.ats-header h1{
+    margin:0 0 5px;
+    font-size:30px;
+}
+
+.ats-header h2{
+    margin:0 0 8px;
+    font-size:16px;
+    font-weight:normal;
+}
+
+.ats-section{
+    margin-bottom:22px;
+}
+
+.ats-section h2{
+    font-size:16px;
+    text-transform:uppercase;
+    border-bottom:1px solid #aaa;
+    padding-bottom:5px;
+}
+
+.ats-section p{
+    line-height:1.5;
+    white-space:pre-line;
 }
 
 /* ANALYSIS */
 
-.analysis-box{
-    background:#1e293b;
-    border:1px solid #334155;
-    border-radius:12px;
-    padding:22px;
-}
-
-.analysis-box p{
-    color:#cbd5e1;
+.analysis-input{
+    min-height:250px;
 }
 
 .analysis-result{
     display:none;
-    margin-top:20px;
 }
 
 .score-box{
     text-align:center;
-    padding:20px;
+    margin:20px 0;
 }
 
 .score{
-    font-size:48px;
-    font-weight:800;
-    color:#60a5fa;
+    font-size:50px;
+    font-weight:900;
 }
 
 .progress{
-    width:100%;
-    height:14px;
-    background:#0f172a;
+    height:15px;
+    background:#334155;
     border-radius:10px;
     overflow:hidden;
+    margin-top:10px;
 }
 
 .progress-bar{
     width:0;
     height:100%;
     background:#1976d2;
-    transition:.4s;
+    transition:width .5s;
 }
 
-.result-grid{
+.analysis-columns{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
-    margin-top:20px;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
 }
 
-.result-box{
-    background:#0f172a;
+.analysis-column{
+    background:#111827;
     border:1px solid #334155;
-    border-radius:9px;
+    border-radius:10px;
     padding:18px;
 }
 
-.result-box h3{
+.analysis-column h3{
     margin-top:0;
-    color:#fff;
 }
 
-.result-box ul{
-    padding-left:20px;
+.analysis-column ul{
+    line-height:1.7;
 }
 
-.recommendation{
-    margin-top:18px;
-    background:#172554;
-    border:1px solid #2563eb;
-    border-radius:9px;
-    padding:18px;
+/* FOOTER */
+
+footer{
+    text-align:center;
+    color:#64748b;
+    padding:25px;
+    border-top:1px solid #1e293b;
 }
 
 /* MOBILE */
 
-@media(max-width:800px){
-
+@media(max-width:900px){
     .header-inner{
         flex-wrap:wrap;
     }
 
+    .logo{
+        width:100%;
+        margin-right:0;
+    }
+
     .header-actions{
-        margin-left:0;
         width:100%;
         justify-content:space-between;
     }
 
-    .hero{
-        padding:35px 10px;
+    .nav{
+        padding-top:0;
+    }
+
+    .features,
+    .profession-grid,
+    .job-search{
+        grid-template-columns:1fr;
+    }
+
+    .form-grid,
+    .design-grid,
+    .analysis-columns{
+        grid-template-columns:1fr;
+    }
+
+    .template-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
     .hero h1{
         font-size:36px;
     }
 
-    .features,
-    .professions,
-    .job-links,
-    .form-grid,
-    .result-grid{
-        grid-template-columns:1fr;
-    }
-
-    .profession-card img{
-        height:200px;
-    }
-
-    .container{
-        padding:18px 12px 45px;
-    }
-
-    .resume-page{
+    .a4-page{
         transform-origin:top left;
-        transform:scale(.43);
-        margin-bottom:-620px;
-    }
-
-    .preview-wrapper{
-        height:500px;
+        margin-left:0;
     }
 }
 
-@media print{
-
-    body{
-        background:#fff;
-    }
-
-    .header,
-    .container > .tab:not(#preview),
-    #preview > .card > h2,
-    #preview > .card > .action-row{
-        display:none !important;
-    }
-
+@media(max-width:600px){
     .container{
-        padding:0;
-        margin:0;
+        padding:20px 12px 50px;
     }
 
-    #preview{
-        display:block !important;
+    .header-inner{
+        padding:10px 12px;
+    }
+
+    .nav{
+        padding:0 12px 10px;
+    }
+
+    .nav button{
+        flex:1;
+        min-width:100px;
+    }
+
+    .hero{
+        padding:35px 16px;
+    }
+
+    .hero h1{
+        font-size:31px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .profession-card img{
+        height:210px;
     }
 
     .card{
-        border:0;
-        padding:0;
-        margin:0;
-    }
-
-    .preview-wrapper{
-        padding:0;
-    }
-
-    .resume-page{
-        box-shadow:none;
-        margin:0;
+        padding:16px;
     }
 }
 </style>
@@ -624,3788 +998,3953 @@ textarea{
 
 <header class="header">
 
-<div class="header-inner">
+    <div class="header-inner">
 
-<div class="logo">
-JobAI <span>Slovakia</span>
-</div>
+        <div class="logo">
+            JobAI <span>Slovakia</span> 🇸🇰
+        </div>
 
-<div class="header-actions">
+        <div class="header-actions">
 
-<button
-class="home-button"
-onclick="showTab('home')"
-data-i18n="home">
-Головна
-</button>
+            <button class="home-button" id="homeButton" onclick="showTab('home')">
+                Головна
+            </button>
 
-<div class="language-switcher">
+            <div class="language-switcher">
+                <button id="langUA" onclick="setLanguage('ua')">UA</button>
+                <button id="langSK" onclick="setLanguage('sk')">SK</button>
+                <button id="langEN" onclick="setLanguage('en')">EN</button>
+            </div>
 
-<button
-id="langUA"
-onclick="setLanguage('ua')">
-UA
-</button>
+        </div>
 
-<button
-id="langSK"
-onclick="setLanguage('sk')">
-SK
-</button>
+    </div>
 
-<button
-id="langEN"
-onclick="setLanguage('en')">
-EN
-</button>
+    <nav class="nav">
 
-</div>
+        <button id="navHome" onclick="showTab('home')">
+            Головна
+        </button>
 
-</div>
+        <button id="navResume" onclick="showTab('resume')">
+            Резюме
+        </button>
 
-</div>
+        <button id="navPreview" onclick="showTab('preview')">
+            Перегляд
+        </button>
+
+        <button id="navAnalysis" onclick="showTab('analysis')">
+            Аналіз вакансії
+        </button>
+
+    </nav>
 
 </header>
 
 
 <main class="container">
 
-
-<!-- ================= HOME ================= -->
+<!-- =========================================================
+     HOME
+========================================================= -->
 
 <section id="home" class="tab active">
 
-<div class="hero">
+    <div class="hero">
 
-<h1>
-JobAI <span>Slovakia</span>
-</h1>
+        <h1>
+            JobAI <span>Slovakia</span> 🇸🇰
+        </h1>
 
-<p data-i18n="homeSubtitle">
-Створюйте професійне резюме, аналізуйте вакансії та знаходьте роботу у Словаччині за допомогою AI.
-</p>
+        <p id="homeSubtitle">
+            Розумний помічник для пошуку роботи у Словаччині.
+            Створюйте професійне резюме, аналізуйте вакансії
+            та знаходьте відповідні пропозиції роботи.
+        </p>
 
-<div class="hero-buttons">
+        <div class="hero-buttons">
 
-<button
-class="primary-button"
-onclick="showTab('resume')"
-data-i18n="homeCreateResume">
-Створити резюме
-</button>
+            <button class="primary-button" onclick="showTab('resume')">
+                Створити резюме
+            </button>
 
-<button
-class="secondary-button"
-onclick="showTab('analysis')"
-data-i18n="homeAnalyzeJob">
-Аналізувати вакансію
-</button>
+            <button class="secondary-button" onclick="showTab('analysis')">
+                Аналізувати вакансію
+            </button>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 
-<h2 class="section-title" data-i18n="homeFeatures">
-Що вміє JobAI
-</h2>
+    <h2 class="section-title" id="homeFeaturesTitle">
+        Що вміє JobAI
+    </h2>
 
-<div class="features">
+    <div class="features">
 
-<div class="feature">
-<h3 data-i18n="homeFeatureResume">
-Професійне резюме
-</h3>
+        <div class="feature-card">
 
-<p data-i18n="homeFeatureResumeText">
-Створіть сучасне резюме для роботи у Словаччині та виберіть один із професійних шаблонів.
-</p>
-</div>
+            <h3 id="homeFeatureResume">
+                Професійне резюме
+            </h3>
 
+            <p id="homeFeatureResumeText">
+                Створіть сучасне резюме у зручному форматі
+                та виберіть один із п'яти професійних шаблонів.
+            </p>
 
-<div class="feature">
-<h3 data-i18n="homeFeatureAnalysis">
-Аналіз вакансії
-</h3>
+        </div>
 
-<p data-i18n="homeFeatureAnalysisText">
-Вставте текст вакансії та дізнайтеся, наскільки ваш досвід відповідає вимогам.
-</p>
-</div>
+        <div class="feature-card">
 
+            <h3 id="homeFeatureAnalysis">
+                Аналіз вакансії
+            </h3>
 
-<div class="feature">
-<h3 data-i18n="homeFeatureJobs">
-Пошук роботи
-</h3>
+            <p id="homeFeatureAnalysisText">
+                Вставте текст вакансії та дізнайтеся,
+                наскільки ваш досвід і навички відповідають вимогам.
+            </p>
 
-<p data-i18n="homeFeatureJobsText">
-Швидкий доступ до популярних сайтів пошуку роботи у Словаччині.
-</p>
-</div>
+        </div>
 
-</div>
+        <div class="feature-card">
 
+            <h3 id="homeFeatureJobs">
+                Пошук роботи
+            </h3>
 
-<h2 class="section-title" data-i18n="homePopular">
-Популярні професії
-</h2>
+            <p id="homeFeatureJobsText">
+                Швидкий доступ до популярних платформ
+                пошуку роботи у Словаччині.
+            </p>
 
+        </div>
 
-<div class="professions">
+    </div>
 
 
-<div class="profession-card">
+    <h2 class="section-title" id="homePopular">
+        Популярні професії
+    </h2>
 
-<img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=85">
+    <div class="profession-grid">
 
-<div class="profession-content">
 
-<h3 data-i18n="professionCNC">
-CNC оператор
-</h3>
+        <!-- CNC -->
 
-<p data-i18n="professionCNCDesc">
-Оператор CNC, верстатник, наладчик.
-</p>
+        <div class="profession-card">
 
-<button
-onclick="useProfession('CNC operator')"
-data-i18n="homeUseProfession">
-Використати професію
-</button>
+            <img
+                src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=85"
+                alt="CNC">
 
-</div>
-</div>
+            <div class="profession-content">
 
+                <h3 id="professionCNCTitle">
+                    CNC оператор
+                </h3>
 
-<div class="profession-card">
+                <p id="professionCNCDesc">
+                    CNC верстати, токарні та фрезерні роботи.
+                </p>
 
-<img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=900&q=85">
+                <button onclick="useProfession('CNC operátor')">
+                    <span class="useProfessionText">Використати професію</span>
+                </button>
 
-<div class="profession-content">
+            </div>
 
-<h3 data-i18n="professionMetrology">
-Метролог / CMM
-</h3>
+        </div>
 
-<p data-i18n="professionMetrologyDesc">
-Контроль якості, CMM, вимірювання.
-</p>
 
-<button
-onclick="useProfession('Metrologist / CMM')"
-data-i18n="homeUseProfession">
-Використати професію
-</button>
+        <!-- METROLOGY -->
 
-</div>
-</div>
+        <div class="profession-card">
 
+            <img
+                src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=900&q=85"
+                alt="Metrology CMM">
 
-<div class="profession-card">
+            <div class="profession-content">
 
-<img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=85">
+                <h3 id="professionMetrologyTitle">
+                    Метролог / CMM
+                </h3>
 
-<div class="profession-content">
+                <p id="professionMetrologyDesc">
+                    Вимірювання, контроль якості та CMM.
+                </p>
 
-<h3 data-i18n="professionProduction">
-Працівник виробництва
-</h3>
+                <button onclick="useProfession('Metrológ / CMM')">
+                    <span class="useProfessionText">Використати професію</span>
+                </button>
 
-<p data-i18n="professionProductionDesc">
-Виробництво, монтаж, контроль якості.
-</p>
+            </div>
 
-<button
-onclick="useProfession('Production worker')"
-data-i18n="homeUseProfession">
-Використати професію
-</button>
+        </div>
 
-</div>
-</div>
 
+        <!-- PRODUCTION -->
 
-<div class="profession-card">
+        <div class="profession-card">
 
-<img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=85">
+            <img
+                src="https://images.unsplash.com/photo-1565610222536-ef125c59da2e?auto=format&fit=crop&w=900&q=85"
+                alt="Production">
 
-<div class="profession-content">
+            <div class="profession-content">
 
-<h3 data-i18n="professionWelder">
-Зварювальник
-</h3>
+                <h3 id="professionProductionTitle">
+                    Працівник виробництва
+                </h3>
 
-<p data-i18n="professionWelderDesc">
-MIG/MAG, TIG, ручне зварювання.
-</p>
+                <p id="professionProductionDesc">
+                    Виробництво, складання та контроль продукції.
+                </p>
 
-<button
-onclick="useProfession('Welder')"
-data-i18n="homeUseProfession">
-Використати професію
-</button>
+                <button onclick="useProfession('Pracovník výroby')">
+                    <span class="useProfessionText">Використати професію</span>
+                </button>
 
-</div>
-</div>
+            </div>
 
+        </div>
 
-<div class="profession-card">
 
-<img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=85">
+        <!-- WELDER -->
 
-<div class="profession-content">
+        <div class="profession-card">
 
-<h3 data-i18n="professionElectrician">
-Електрик / електромонтер
-</h3>
+            <img
+                src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=85"
+                alt="Welder">
 
-<p data-i18n="professionElectricianDesc">
-Електромонтаж, автоматика та обслуговування.
-</p>
+            <div class="profession-content">
 
-<button
-onclick="useProfession('Electrician')"
-data-i18n="homeUseProfession">
-Використати професію
-</button>
+                <h3 id="professionWelderTitle">
+                    Зварювальник
+                </h3>
 
-</div>
-</div>
+                <p id="professionWelderDesc">
+                    MIG/MAG, TIG та інші види зварювання.
+                </p>
 
+                <button onclick="useProfession('Zvárač')">
+                    <span class="useProfessionText">Використати професію</span>
+                </button>
 
-<div class="profession-card">
+            </div>
 
-<img src="https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&w=900&q=85">
+        </div>
 
-<div class="profession-content">
 
-<h3 data-i18n="professionMechanic">
-Автомеханік
-</h3>
+        <!-- ELECTRICIAN -->
 
-<p data-i18n="professionMechanicDesc">
-Ремонт автомобілів, діагностика та сервіс.
-</p>
+        <div class="profession-card">
 
-<button
-onclick="useProfession('Car mechanic')"
-data-i18n="homeUseProfession">
-Використати професію
-</button>
+            <img
+                src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=900&q=85"
+                alt="Electrician">
 
-</div>
-</div>
+            <div class="profession-content">
 
+                <h3 id="professionElectricianTitle">
+                    Електрик / електромонтер
+                </h3>
 
-<div class="profession-card">
+                <p id="professionElectricianDesc">
+                    Електрообладнання, монтаж та обслуговування.
+                </p>
 
-<img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=900&q=85">
+                <button onclick="useProfession('Elektrik / elektromechanik')">
+                    <span class="useProfessionText">Використати професію</span>
+                </button>
 
-<div class="profession-content">
+            </div>
 
-<h3 data-i18n="professionDriver">
-Водій
-</h3>
+        </div>
 
-<p data-i18n="professionDriverDesc">
-Водій вантажівки, автобуса або доставки.
-</p>
 
-<button
-onclick="useProfession('Driver')"
-data-i18n="homeUseProfession">
-Використати професію
-</button>
+        <!-- MECHANIC -->
 
-</div>
-</div>
+        <div class="profession-card">
 
+            <img
+                src="https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&w=900&q=85"
+                alt="Mechanic">
 
-<div class="profession-card">
+            <div class="profession-content">
 
-<img src="https://images.unsplash.com/photo-1586528116493-da8b1b7f1f4a?auto=format&fit=crop&w=900&q=85">
+                <h3 id="professionMechanicTitle">
+                    Автомеханік
+                </h3>
 
-<div class="profession-content">
+                <p id="professionMechanicDesc">
+                    Діагностика, ремонт та обслуговування автомобілів.
+                </p>
 
-<h3 data-i18n="professionLogistics">
-Склад / логістика
-</h3>
+                <button onclick="useProfession('Automechanik')">
+                    <span class="useProfessionText">Використати професію</span>
+                </button>
 
-<p data-i18n="professionLogisticsDesc">
-Склад, комплектація, логістика та навантаження.
-</p>
+            </div>
 
-<button
-onclick="useProfession('Warehouse / Logistics')"
-data-i18n="homeUseProfession">
-Використати професію
-</button>
+        </div>
 
-</div>
-</div>
 
+        <!-- DRIVER -->
 
-<div class="profession-card">
+        <div class="profession-card">
 
-<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=85">
+            <img
+                src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=900&q=85"
+                alt="Driver">
 
-<div class="profession-content">
+            <div class="profession-content">
 
-<h3 data-i18n="professionIT">
-IT / програміст
-</h3>
+                <h3 id="professionDriverTitle">
+                    Водій
+                </h3>
 
-<p data-i18n="professionITDesc">
-Програмування, веброзробка та IT.
-</p>
+                <p id="professionDriverDesc">
+                    Вантажні та пасажирські перевезення.
+                </p>
 
-<button
-onclick="useProfession('IT / Programmer')"
-data-i18n="homeUseProfession">
-Використати професію
-</button>
+                <button onclick="useProfession('Vodič')">
+                    <span class="useProfessionText">Використати професію</span>
+                </button>
 
-</div>
-</div>
+            </div>
 
-</div>
+        </div>
 
 
-<div class="job-search">
+        <!-- LOGISTICS -->
 
-<h2 data-i18n="homeJobSearch">
-Пошук роботи в Словаччині
-</h2>
+        <div class="profession-card">
 
-<p data-i18n="homeJobSearchText">
-Перейдіть на популярні платформи та знайдіть актуальні вакансії.
-</p>
+            <img
+                src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=85"
+                alt="Склад та логістика"
+                onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=900&q=85';">
 
-<div class="job-links">
+            <div class="profession-content">
 
-<a href="https://www.profesia.sk/" target="_blank">
-Profesia.sk
-</a>
+                <h3 id="professionLogisticsTitle">
+                    Склад / логістика
+                </h3>
 
-<a href="https://www.istp.sk/" target="_blank">
-ISTP.sk
-</a>
+                <p id="professionLogisticsDesc">
+                    Склади, навантаження, комплектація та логістика.
+                </p>
 
-<a href="https://www.linkedin.com/jobs/" target="_blank">
-LinkedIn Jobs
-</a>
+                <button onclick="useProfession('Skladník / logistika')">
+                    <span class="useProfessionText">Використати професію</span>
+                </button>
 
-</div>
+            </div>
 
-</div>
+        </div>
+
+
+        <!-- IT -->
+
+        <div class="profession-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=85"
+                alt="IT">
+
+            <div class="profession-content">
+
+                <h3 id="professionITTitle">
+                    IT / програміст
+                </h3>
+
+                <p id="professionITDesc">
+                    Програмування, веброзробка та IT.
+                </p>
+
+                <button onclick="useProfession('Programátor')">
+                    <span class="useProfessionText">Використати професію</span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <h2 class="section-title" id="homeJobSearch">
+        Пошук роботи в Словаччині
+    </h2>
+
+    <div class="job-search">
+
+        <a
+            class="job-link"
+            href="https://www.profesia.sk/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <strong>Profesia.sk</strong>
+
+            <span id="profesiaText">
+                Популярний портал вакансій у Словаччині.
+            </span>
+
+        </a>
+
+
+        <a
+            class="job-link"
+            href="https://www.istp.sk/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <strong>ISTP.sk</strong>
+
+            <span id="istpText">
+                Пошук вакансій та інформація про професії.
+            </span>
+
+        </a>
+
+
+        <a
+            class="job-link"
+            href="https://www.linkedin.com/jobs/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <strong>LinkedIn Jobs</strong>
+
+            <span id="linkedinText">
+                Вакансії від компаній та рекрутерів.
+            </span>
+
+        </a>
+
+    </div>
 
 </section>
 
 
-<!-- ================= RESUME ================= -->
+<!-- =========================================================
+     RESUME
+========================================================= -->
 
 <section id="resume" class="tab">
 
+    <div class="card">
 
-<div class="card">
+        <h2 id="personalData">
+            Особисті дані
+        </h2>
 
-<h2 data-i18n="personalData">
-Особисті дані
-</h2>
+        <div class="form-grid">
 
-<div class="form-grid">
+            <div class="form-group">
 
-<div class="field">
+                <label for="name" id="nameLabel">
+                    Ім'я та прізвище
+                </label>
 
-<label data-i18n="name">
-Ім'я та прізвище
-</label>
+                <input
+                    id="name"
+                    type="text"
+                    placeholder="Ваше ім'я та прізвище"
+                    data-placeholder="namePlaceholder">
 
-<input
-id="name"
-data-i18n-placeholder="namePlaceholder"
-placeholder="Ваше ім'я">
+            </div>
 
-</div>
 
+            <div class="form-group">
 
-<div class="field">
+                <label for="position" id="positionLabel">
+                    Бажана посада
+                </label>
 
-<label data-i18n="position">
-Бажана посада
-</label>
+                <input
+                    id="position"
+                    type="text"
+                    placeholder="Наприклад: CNC оператор"
+                    data-placeholder="positionPlaceholder">
 
-<input
-id="position"
-data-i18n-placeholder="positionPlaceholder"
-placeholder="Наприклад: CNC оператор">
+            </div>
 
-</div>
 
+            <div class="form-group">
 
-<div class="field">
+                <label for="phone" id="phoneLabel">
+                    Телефон
+                </label>
 
-<label data-i18n="phone">
-Телефон
-</label>
+                <input
+                    id="phone"
+                    type="tel"
+                    placeholder="+421..."
+                    data-placeholder="phonePlaceholder">
 
-<input
-id="phone"
-data-i18n-placeholder="phonePlaceholder"
-placeholder="+421...">
+            </div>
 
-</div>
 
+            <div class="form-group">
 
-<div class="field">
+                <label for="email" id="emailLabel">
+                    Email
+                </label>
 
-<label data-i18n="email">
-Email
-</label>
+                <input
+                    id="email"
+                    type="email"
+                    placeholder="email@example.com"
+                    data-placeholder="emailPlaceholder">
 
-<input
-id="email"
-data-i18n-placeholder="emailPlaceholder"
-placeholder="email@example.com">
+            </div>
 
-</div>
 
+            <div class="form-group">
 
-<div class="field full">
+                <label for="city" id="cityLabel">
+                    Місто
+                </label>
 
-<label data-i18n="city">
-Місто
-</label>
+                <input
+                    id="city"
+                    type="text"
+                    placeholder="Наприклад: Bratislava"
+                    data-placeholder="cityPlaceholder">
 
-<input
-id="city"
-data-i18n-placeholder="cityPlaceholder"
-placeholder="Наприклад: Bratislava">
+            </div>
 
-</div>
 
-</div>
+            <div class="form-group full">
 
-</div>
+                <label for="profile" id="profileLabel">
+                    Професійний профіль
+                </label>
 
+                <textarea
+                    id="profile"
+                    placeholder="Коротко розкажіть про свій досвід..."
+                    data-placeholder="profilePlaceholder"></textarea>
 
-<div class="card">
+            </div>
 
-<h2 data-i18n="profile">
-Професійний профіль
-</h2>
 
-<textarea
-id="profile"
-data-i18n-placeholder="profilePlaceholder"
-placeholder="Коротко розкажіть про себе, досвід та професійні цілі"></textarea>
+            <div class="form-group full">
 
-</div>
+                <label for="skills" id="skillsLabel">
+                    Навички
+                </label>
 
+                <textarea
+                    id="skills"
+                    placeholder="Наприклад: CNC, Fanuc, AutoCAD, контроль якості..."
+                    data-placeholder="skillsPlaceholder"></textarea>
 
-<div class="card">
+            </div>
 
-<h2 data-i18n="skills">
-Навички
-</h2>
 
-<textarea
-id="skills"
-data-i18n-placeholder="skillsPlaceholder"
-placeholder="Наприклад: CNC, Fanuc, вимірювання, AutoCAD"></textarea>
+            <div class="form-group full">
 
-</div>
+                <label for="languages" id="languagesLabel">
+                    Мови
+                </label>
 
+                <textarea
+                    id="languages"
+                    placeholder="Наприклад: Українська — рідна, Словацька — B1, Англійська — A2"
+                    data-placeholder="languagesPlaceholder"></textarea>
 
-<div class="card">
+            </div>
 
-<h2 data-i18n="languages">
-Мови
-</h2>
+        </div>
 
-<textarea
-id="languages"
-data-i18n-placeholder="languagesPlaceholder"
-placeholder="Українська — рідна, Словацька — B1, Англійська — A2"></textarea>
+    </div>
 
-</div>
 
+    <!-- PHOTO -->
 
-<div class="card">
+    <div class="card">
 
-<h2 data-i18n="experience">
-Досвід роботи
-</h2>
+        <h2 id="photoTitle">
+            Фотографія
+        </h2>
 
-<div id="experienceList"></div>
+        <div class="photo-box">
 
-<div class="action-row">
+            <div id="photoPreview" class="photo-preview">
+                <span id="noPhoto">
+                    Без фото
+                </span>
+            </div>
 
-<button
-class="action-button"
-onclick="addExperience()"
-data-i18n="addExperience">
-Додати досвід
-</button>
+            <div>
 
-</div>
+                <input
+                    id="photoInput"
+                    type="file"
+                    accept="image/*"
+                    style="display:none"
+                    onchange="handlePhotoUpload(event)">
 
-</div>
+                <div class="button-row">
 
+                    <button
+                        class="action-button primary"
+                        onclick="document.getElementById('photoInput').click()"
+                        id="choosePhoto">
+                        Вибрати фото
+                    </button>
 
-<div class="card">
+                    <button
+                        class="action-button"
+                        onclick="removePhoto()"
+                        id="removePhoto">
+                        Видалити фото
+                    </button>
 
-<h2 data-i18n="education">
-Освіта
-</h2>
+                </div>
 
-<div id="educationList"></div>
+            </div>
 
-<div class="action-row">
+        </div>
 
-<button
-class="action-button"
-onclick="addEducation()"
-data-i18n="addEducation">
-Додати освіту
-</button>
+    </div>
 
-</div>
 
-</div>
+    <!-- EXPERIENCE -->
 
+    <div class="card">
 
-<div class="card">
+        <h2 id="experienceTitle">
+            Досвід роботи
+        </h2>
 
-<h2 data-i18n="photo">
-Фотографія
-</h2>
+        <div id="experienceContainer"></div>
 
-<input
-type="file"
-id="photoInput"
-accept="image/*"
-onchange="handlePhotoUpload(event)">
+        <button
+            class="action-button primary"
+            onclick="addExperience()"
+            id="addExperience">
+            Додати досвід
+        </button>
 
-<div id="photoPreview" class="photo-preview"></div>
+    </div>
 
-<div class="action-row">
 
-<button
-class="action-button red"
-onclick="removePhoto()"
-data-i18n="removePhoto">
-Видалити фото
-</button>
+    <!-- EDUCATION -->
 
-</div>
+    <div class="card">
 
-</div>
+        <h2 id="educationTitle">
+            Освіта
+        </h2>
 
+        <div id="educationContainer"></div>
 
-<div class="card">
+        <button
+            class="action-button primary"
+            onclick="addEducation()"
+            id="addEducation">
+            Додати освіту
+        </button>
 
-<h2 data-i18n="resumeDesign">
-Дизайн резюме
-</h2>
+    </div>
 
-<div class="form-grid">
 
-<div class="field">
+    <!-- DESIGN -->
 
-<label data-i18n="template">
-Шаблон
-</label>
+    <div class="card">
 
-<select id="templateSelect"
-onchange="changeTemplate(this.value)">
+        <h2 id="resumeDesign">
+            Дизайн резюме
+        </h2>
 
-<option value="modern" data-i18n="modern">
-Modern
-</option>
+        <div class="design-grid">
 
-<option value="professional" data-i18n="professional">
-Professional
-</option>
+            <div>
 
-<option value="executive" data-i18n="executive">
-Executive
-</option>
+                <h3 id="templateTitle">
+                    Шаблон
+                </h3>
 
-<option value="creative" data-i18n="creative">
-Creative
-</option>
+                <div class="template-grid">
 
-<option value="ats" data-i18n="ats">
-ATS Simple
-</option>
+                    <button
+                        class="template-button"
+                        id="templateModern"
+                        onclick="selectTemplate('modern')">
+                        Modern
+                    </button>
 
-</select>
+                    <button
+                        class="template-button"
+                        id="templateProfessional"
+                        onclick="selectTemplate('professional')">
+                        Professional
+                    </button>
 
-</div>
+                    <button
+                        class="template-button"
+                        id="templateExecutive"
+                        onclick="selectTemplate('executive')">
+                        Executive
+                    </button>
 
+                    <button
+                        class="template-button"
+                        id="templateCreative"
+                        onclick="selectTemplate('creative')">
+                        Creative
+                    </button>
 
-<div class="field">
+                    <button
+                        class="template-button"
+                        id="templateATS"
+                        onclick="selectTemplate('ats')">
+                        ATS Simple
+                    </button>
 
-<label data-i18n="color">
-Колір
-</label>
+                </div>
 
-<select id="colorSelect"
-onchange="changeColor(this.value)">
+            </div>
 
-<option value="blue">Blue</option>
-<option value="black">Black</option>
-<option value="green">Green</option>
-<option value="purple">Purple</option>
-<option value="orange">Orange</option>
-<option value="red">Red</option>
-<option value="teal">Teal</option>
-<option value="navy">Navy</option>
 
-</select>
+            <div>
 
-</div>
+                <h3 id="colorTitle">
+                    Колір
+                </h3>
 
-</div>
+                <div class="color-options">
 
+                    <button class="color-button" style="background:#1976d2" onclick="selectColor('blue')" data-color="blue"></button>
 
-<div class="action-row">
+                    <button class="color-button" style="background:#222" onclick="selectColor('black')" data-color="black"></button>
 
-<button
-class="action-button"
-onclick="saveAll()"
-data-i18n="save">
-Зберегти
-</button>
+                    <button class="color-button" style="background:#198754" onclick="selectColor('green')" data-color="green"></button>
 
-<button
-class="action-button"
-onclick="exportResume()"
-data-i18n="export">
-Експорт
-</button>
+                    <button class="color-button" style="background:#7048a8" onclick="selectColor('purple')" data-color="purple"></button>
 
-<button
-class="action-button gray"
-onclick="document.getElementById('importFile').click()"
-data-i18n="import">
-Імпорт
-</button>
+                    <button class="color-button" style="background:#d97706" onclick="selectColor('orange')" data-color="orange"></button>
 
-<button
-class="action-button red"
-onclick="clearAll()"
-data-i18n="clear">
-Очистити
-</button>
+                    <button class="color-button" style="background:#c0392b" onclick="selectColor('red')" data-color="red"></button>
 
-</div>
+                    <button class="color-button" style="background:#168b8b" onclick="selectColor('teal')" data-color="teal"></button>
 
-<input
-type="file"
-id="importFile"
-accept=".json"
-style="display:none"
-onchange="importResume(event)">
+                    <button class="color-button" style="background:#243b64" onclick="selectColor('navy')" data-color="navy"></button>
 
-</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ACTIONS -->
+
+    <div class="card">
+
+        <div class="button-row">
+
+            <button
+                class="action-button primary"
+                onclick="saveAll()"
+                id="saveButton">
+                Зберегти
+            </button>
+
+            <button
+                class="action-button"
+                onclick="showTab('preview')"
+                id="previewResumeButton">
+                Переглянути резюме
+            </button>
+
+            <button
+                class="action-button"
+                onclick="exportResume()"
+                id="exportButton">
+                Експорт
+            </button>
+
+            <button
+                class="action-button"
+                onclick="document.getElementById('importInput').click()"
+                id="importButton">
+                Імпорт
+            </button>
+
+            <button
+                class="action-button danger"
+                onclick="clearAll()"
+                id="clearButton">
+                Очистити
+            </button>
+
+            <input
+                id="importInput"
+                type="file"
+                accept=".json,application/json"
+                style="display:none"
+                onchange="importResume(event)">
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- ================= PREVIEW ================= -->
+<!-- =========================================================
+     PREVIEW
+========================================================= -->
 
 <section id="preview" class="tab">
 
-<div class="card">
+    <div class="card">
 
-<h2 data-i18n="resumePreview">
-Перегляд резюме
-</h2>
+        <h2 id="resumePreviewTitle">
+            Перегляд резюме
+        </h2>
 
-<div class="preview-wrapper">
+        <div class="button-row">
 
-<div id="resumePreview"></div>
+            <button
+                class="action-button"
+                onclick="showTab('resume')"
+                id="editResumeButton">
+                Редагувати резюме
+            </button>
 
-</div>
+            <button
+                class="action-button primary"
+                onclick="window.print()"
+                id="printSaveButton">
+                Друк / Зберегти PDF
+            </button>
 
-<div class="action-row">
+        </div>
 
-<button
-class="action-button"
-onclick="window.print()"
-data-i18n="printSave">
-Друк / Зберегти PDF
-</button>
+    </div>
 
-<button
-class="action-button gray"
-onclick="showTab('resume')"
-data-i18n="editResume">
-Редагувати резюме
-</button>
 
-</div>
+    <div class="preview-wrapper">
 
-</div>
+        <div id="resumePreview" class="a4-page">
+
+            <div id="resumePreviewContent"></div>
+
+            <!-- Legacy compatibility elements -->
+
+            <div id="previewName" style="display:none"></div>
+            <div id="previewPosition" style="display:none"></div>
+            <div id="previewContact" style="display:none"></div>
+            <div id="previewProfile" style="display:none"></div>
+            <div id="previewLanguages" style="display:none"></div>
+            <div id="previewSkills" style="display:none"></div>
+            <div id="previewExperience" style="display:none"></div>
+            <div id="previewEducation" style="display:none"></div>
+            <div id="previewPhotoContainer" style="display:none"></div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- ================= ANALYSIS ================= -->
+<!-- =========================================================
+     ANALYSIS
+========================================================= -->
 
 <section id="analysis" class="tab">
 
-<div class="analysis-box">
+    <div class="card">
 
-<h2 data-i18n="analysisTitle">
-Аналіз вакансії
-</h2>
+        <h2 id="analysisTitle">
+            Аналіз вакансії
+        </h2>
 
-<p data-i18n="analysisDescription">
-Вставте текст вакансії, щоб JobAI порівняв її з вашим резюме.
-</p>
+        <p id="analysisDescription">
+            Вставте текст вакансії нижче, щоб JobAI визначив професію,
+            необхідні навички та приблизну відповідність вашого резюме.
+        </p>
 
-<textarea
-id="jobText"
-data-i18n-placeholder="jobPlaceholder"
-placeholder="Вставте сюди текст вакансії..."></textarea>
+        <textarea
+            id="jobText"
+            class="analysis-input"
+            placeholder="Вставте сюди текст вакансії..."
+            data-placeholder="jobPlaceholder"></textarea>
 
-<div class="action-row">
+        <div class="button-row">
 
-<button
-class="action-button"
-onclick="analyzeJob()"
-data-i18n="analyze">
-Аналізувати
-</button>
+            <button
+                class="action-button primary"
+                onclick="analyzeJob()"
+                id="analyzeButton">
+                Аналізувати
+            </button>
 
-<button
-class="action-button gray"
-onclick="clearVacancy()"
-data-i18n="clearVacancy">
-Очистити
-</button>
+            <button
+                class="action-button"
+                onclick="clearVacancy()"
+                id="clearVacancyButton">
+                Очистити вакансію
+            </button>
 
-</div>
+        </div>
 
-
-<div id="analysisResult" class="analysis-result">
-
-<div class="score-box">
-
-<div id="score" class="score">
-0%
-</div>
-
-<div class="progress">
-
-<div id="progressBar"
-class="progress-bar">
-</div>
-
-</div>
-
-<h3 data-i18n="matchScore">
-Відповідність
-</h3>
-
-</div>
+    </div>
 
 
-<div id="detectedJobs"
-class="result-box"
-style="display:none">
-</div>
+    <div
+        id="analysisResult"
+        class="card analysis-result">
+
+        <h2 id="matchScoreTitle">
+            Відповідність
+        </h2>
+
+        <div class="score-box">
+
+            <div
+                id="score"
+                class="score">
+                0%
+            </div>
+
+            <div class="progress">
+
+                <div
+                    id="progressBar"
+                    class="progress-bar">
+                </div>
+
+            </div>
+
+        </div>
 
 
-<div class="result-grid">
-
-<div class="result-box">
-
-<h3 data-i18n="foundSkills">
-Знайдені навички
-</h3>
-
-<div id="found">
-<p>—</p>
-</div>
-
-</div>
+        <div
+            id="detectedJobs"
+            class="analysis-column"
+            style="display:none;margin-bottom:20px;">
+        </div>
 
 
-<div class="result-box">
+        <div class="analysis-columns">
 
-<h3 data-i18n="missingSkills">
-Відсутні навички
-</h3>
+            <div class="analysis-column">
 
-<div id="missing">
-<p>—</p>
-</div>
+                <h3 id="foundSkillsTitle">
+                    Знайдені навички
+                </h3>
 
-</div>
+                <div id="found">
+                    <p>—</p>
+                </div>
 
-</div>
+            </div>
 
 
-<div class="recommendation">
+            <div class="analysis-column">
 
-<strong data-i18n="recommendationTitle">
-Рекомендація
-</strong>
+                <h3 id="missingSkillsTitle">
+                    Відсутні навички
+                </h3>
 
-<p id="recommendation">
-—
-</p>
+                <div id="missing">
+                    <p>—</p>
+                </div>
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-</div>
+
+        <div
+            class="analysis-column"
+            style="margin-top:20px;">
+
+            <h3 id="recommendationTitle">
+                Рекомендація
+            </h3>
+
+            <p id="recommendation">
+                —
+            </p>
+
+        </div>
+
+    </div>
 
 </section>
 
 </main>
 
 
+<footer>
+    JobAI Slovakia 🇸🇰 — <span id="footerText">розумний помічник для пошуку роботи</span>
+</footer>
+
+
 <script>
 
 /* =========================================================
-   TRANSLATIONS
-   ========================================================= */
+   LANGUAGE
+========================================================= */
 
-const translations={
+const translations = {
 
-ua:{
+    ua: {
 
-home:"Головна",
+        home:"Головна",
 
-homeSubtitle:
-"Створюйте професійне резюме, аналізуйте вакансії та знаходьте роботу у Словаччині за допомогою AI.",
+        homeSubtitle:"Розумний помічник для пошуку роботи у Словаччині. Створюйте професійне резюме, аналізуйте вакансії та знаходьте відповідні пропозиції роботи.",
 
-homeCreateResume:"Створити резюме",
-homeAnalyzeJob:"Аналізувати вакансію",
+        homeFeatures:"Що вміє JobAI",
 
-homeFeatures:"Що вміє JobAI",
+        homeFeatureResume:"Професійне резюме",
+        homeFeatureResumeText:"Створіть сучасне резюме у зручному форматі та виберіть один із п'яти професійних шаблонів.",
 
-homeFeatureResume:"Професійне резюме",
-homeFeatureResumeText:
-"Створіть сучасне резюме для роботи у Словаччині та виберіть один із професійних шаблонів.",
+        homeFeatureAnalysis:"Аналіз вакансії",
+        homeFeatureAnalysisText:"Вставте текст вакансії та дізнайтеся, наскільки ваш досвід і навички відповідають вимогам.",
 
-homeFeatureAnalysis:"Аналіз вакансії",
-homeFeatureAnalysisText:
-"Вставте текст вакансії та дізнайтеся, наскільки ваш досвід відповідає вимогам.",
+        homeFeatureJobs:"Пошук роботи",
+        homeFeatureJobsText:"Швидкий доступ до популярних платформ пошуку роботи у Словаччині.",
 
-homeFeatureJobs:"Пошук роботи",
-homeFeatureJobsText:
-"Швидкий доступ до популярних сайтів пошуку роботи у Словаччині.",
+        homePopular:"Популярні професії",
 
-homePopular:"Популярні професії",
+        homeJobSearch:"Пошук роботи в Словаччині",
 
-homeJobSearch:"Пошук роботи в Словаччині",
+        profesiaText:"Популярний портал вакансій у Словаччині.",
+        istpText:"Пошук вакансій та інформація про професії.",
+        linkedinText:"Вакансії від компаній та рекрутерів.",
 
-homeJobSearchText:
-"Перейдіть на популярні платформи та знайдіть актуальні вакансії.",
+        tabResume:"Резюме",
+        tabPreview:"Перегляд",
+        tabAnalysis:"Аналіз вакансії",
 
-homeUseProfession:"Використати професію",
+        personalData:"Особисті дані",
 
-professionCNC:"CNC оператор",
-professionCNCDesc:"Оператор CNC, верстатник, наладчик.",
+        name:"Ім'я та прізвище",
+        namePlaceholder:"Ваше ім'я та прізвище",
 
-professionMetrology:"Метролог / CMM",
-professionMetrologyDesc:"Контроль якості, CMM, вимірювання.",
+        position:"Бажана посада",
+        positionPlaceholder:"Наприклад: CNC оператор",
 
-professionProduction:"Працівник виробництва",
-professionProductionDesc:"Виробництво, монтаж, контроль якості.",
+        phone:"Телефон",
+        phonePlaceholder:"+421...",
 
-professionWelder:"Зварювальник",
-professionWelderDesc:"MIG/MAG, TIG, ручне зварювання.",
+        email:"Email",
+        emailPlaceholder:"email@example.com",
 
-professionElectrician:"Електрик / електромонтер",
-professionElectricianDesc:"Електромонтаж, автоматика та обслуговування.",
+        city:"Місто",
+        cityPlaceholder:"Наприклад: Bratislava",
 
-professionMechanic:"Автомеханік",
-professionMechanicDesc:"Ремонт автомобілів, діагностика та сервіс.",
+        profile:"Професійний профіль",
+        profilePlaceholder:"Коротко розкажіть про свій досвід...",
 
-professionDriver:"Водій",
-professionDriverDesc:"Водій вантажівки, автобуса або доставки.",
+        skills:"Навички",
+        skillsPlaceholder:"Наприклад: CNC, Fanuc, AutoCAD, контроль якості...",
 
-professionLogistics:"Склад / логістика",
-professionLogisticsDesc:"Склад, комплектація, логістика та навантаження.",
+        languages:"Мови",
+        languagesPlaceholder:"Наприклад: Українська — рідна, Словацька — B1, Англійська — A2",
 
-professionIT:"IT / програміст",
-professionITDesc:"Програмування, веброзробка та IT.",
+        photo:"Фотографія",
+        noPhoto:"Без фото",
+        choosePhoto:"Вибрати фото",
+        removePhoto:"Видалити фото",
 
-personalData:"Особисті дані",
-name:"Ім'я та прізвище",
-namePlaceholder:"Ваше ім'я",
+        experience:"Досвід роботи",
+        addExperience:"Додати досвід",
 
-position:"Бажана посада",
-positionPlaceholder:"Наприклад: CNC оператор",
+        company:"Компанія",
+        companyPlaceholder:"Назва компанії",
 
-phone:"Телефон",
-phonePlaceholder:"+421...",
+        jobPosition:"Посада",
+        jobPositionPlaceholder:"Ваша посада",
 
-email:"Email",
-emailPlaceholder:"email@example.com",
+        start:"Початок",
+        end:"Кінець",
 
-city:"Місто",
-cityPlaceholder:"Наприклад: Bratislava",
+        description:"Опис",
+        descriptionPlaceholder:"Ваші обов'язки та досягнення",
 
-profile:"Професійний профіль",
-profilePlaceholder:"Коротко розкажіть про себе, досвід та професійні цілі.",
+        education:"Освіта",
+        addEducation:"Додати освіту",
 
-skills:"Навички",
-skillsPlaceholder:"Наприклад: CNC, Fanuc, вимірювання, AutoCAD",
+        school:"Навчальний заклад",
+        schoolPlaceholder:"Назва навчального закладу",
 
-languages:"Мови",
-languagesPlaceholder:"Українська — рідна, Словацька — B1, Англійська — A2",
+        specialty:"Спеціальність",
+        specialtyPlaceholder:"Спеціальність",
 
-photo:"Фотографія",
-removePhoto:"Видалити фото",
+        year:"Рік",
 
-experience:"Досвід роботи",
-addExperience:"Додати досвід",
+        delete:"Видалити",
 
-company:"Компанія",
-companyPlaceholder:"Назва компанії",
+        resumeDesign:"Дизайн резюме",
+        template:"Шаблон",
+        color:"Колір",
 
-jobPosition:"Посада",
-start:"Початок",
-end:"Кінець",
+        modern:"Modern",
+        professional:"Professional",
+        executive:"Executive",
+        creative:"Creative",
+        ats:"ATS Simple",
 
-description:"Опис роботи",
-descriptionPlaceholder:"Ваші обов'язки та досягнення",
+        save:"Зберегти",
+        export:"Експорт",
+        import:"Імпорт",
+        clear:"Очистити",
 
-delete:"Видалити",
+        previewResume:"Переглянути резюме",
+        resumePreview:"Перегляд резюме",
+        printSave:"Друк / Зберегти PDF",
+        editResume:"Редагувати резюме",
 
-education:"Освіта",
-addEducation:"Додати освіту",
+        useProfession:"Використати професію",
 
-school:"Навчальний заклад",
-schoolPlaceholder:"Назва навчального закладу",
+        professionCNC:"CNC оператор",
+        professionCNCDesc:"CNC верстати, токарні та фрезерні роботи.",
 
-specialty:"Спеціальність",
-specialtyPlaceholder:"Ваша спеціальність",
+        professionMetrology:"Метролог / CMM",
+        professionMetrologyDesc:"Вимірювання, контроль якості та CMM.",
 
-year:"Рік",
+        professionProduction:"Працівник виробництва",
+        professionProductionDesc:"Виробництво, складання та контроль продукції.",
 
-resumeDesign:"Дизайн резюме",
-template:"Шаблон",
-color:"Колір",
+        professionWelder:"Зварювальник",
+        professionWelderDesc:"MIG/MAG, TIG та інші види зварювання.",
 
-modern:"Modern",
-professional:"Professional",
-executive:"Executive",
-creative:"Creative",
-ats:"ATS Simple",
+        professionElectrician:"Електрик / електромонтер",
+        professionElectricianDesc:"Електрообладнання, монтаж та обслуговування.",
 
-save:"Зберегти",
-export:"Експорт",
-import:"Імпорт",
-clear:"Очистити",
+        professionMechanic:"Автомеханік",
+        professionMechanicDesc:"Діагностика, ремонт та обслуговування автомобілів.",
 
-resumePreview:"Перегляд резюме",
-printSave:"Друк / Зберегти PDF",
-editResume:"Редагувати резюме",
+        professionDriver:"Водій",
+        professionDriverDesc:"Вантажні та пасажирські перевезення.",
 
-analysisTitle:"Аналіз вакансії",
+        professionLogistics:"Склад / логістика",
+        professionLogisticsDesc:"Склади, навантаження, комплектація та логістика.",
 
-analysisDescription:
-"Вставте текст вакансії, щоб JobAI порівняв її з вашим резюме.",
+        professionIT:"IT / програміст",
+        professionITDesc:"Програмування, веброзробка та IT.",
 
-jobPlaceholder:"Вставте сюди текст вакансії...",
+        analysisTitle:"Аналіз вакансії",
 
-analyze:"Аналізувати",
-clearVacancy:"Очистити",
+        analysisDescription:"Вставте текст вакансії нижче, щоб JobAI визначив професію, необхідні навички та приблизну відповідність вашого резюме.",
 
-matchScore:"Відповідність",
-detectedProfession:"Розпізнана професія",
+        jobPlaceholder:"Вставте сюди текст вакансії...",
 
-foundSkills:"Знайдені навички",
-missingSkills:"Відсутні навички",
+        analyze:"Аналізувати",
+        clearVacancy:"Очистити вакансію",
 
-recommendationTitle:"Рекомендація",
+        matchScore:"Відповідність",
+        detectedProfession:"Розпізнана професія",
+        foundSkills:"Знайдені навички",
+        missingSkills:"Відсутні навички",
 
-profileSection:"Профіль",
-contactSection:"Контакти",
-languagesSection:"Мови",
-skillsSection:"Навички",
-experienceSection:"Досвід роботи",
-educationSection:"Освіта",
+        recommendationTitle:"Рекомендація",
 
-veryGood:
-"Дуже хороша відповідність. Ви маєте більшість необхідних навичок для цієї вакансії.",
+        veryGood:"Дуже хороша відповідність. Ви маєте більшість необхідних навичок для цієї вакансії.",
+        good:"Хороша відповідність. Резюме варто трохи доповнити відсутніми навичками.",
+        partial:"Часткова відповідність. Рекомендується додати релевантний досвід та навички.",
+        low:"Низька відповідність. Варто адаптувати резюме під цю вакансію.",
 
-good:
-"Хороша відповідність. Резюме варто трохи доповнити відсутніми навичками.",
+        emptyVacancy:"Вставте текст вакансії.",
 
-partial:
-"Часткова відповідність. Рекомендується додати релевантний досвід та навички.",
+        profileSection:"Професійний профіль",
+        contactSection:"Контакти",
+        languagesSection:"Мови",
+        skillsSection:"Навички",
+        experienceSection:"Досвід роботи",
+        educationSection:"Освіта",
 
-low:
-"Низька відповідність. Варто адаптувати резюме під цю вакансію.",
+        alertVacancy:"Не знайдено поле вакансії або блок результату.",
+        saved:"Резюме збережено.",
+        cleared:"Резюме очищено.",
+        photoRemoved:"Фото видалено.",
+        imported:"Резюме імпортовано.",
+        invalidFile:"Не вдалося імпортувати файл.",
 
-emptyVacancy:"Вставте текст вакансії.",
+        footer:"розумний помічник для пошуку роботи"
+    },
 
-saved:"Резюме збережено.",
-cleared:"Дані резюме очищено.",
-photoRemoved:"Фото видалено.",
-imported:"Резюме імпортовано.",
-invalidFile:"Неправильний файл."
 
-},
+    sk: {
 
+        home:"Domov",
 
-sk:{
+        homeSubtitle:"Inteligentný pomocník pri hľadaní práce na Slovensku. Vytvorte profesionálny životopis, analyzujte pracovné ponuky a nájdite vhodné pracovné príležitosti.",
 
-home:"Domov",
+        homeFeatures:"Čo JobAI dokáže",
 
-homeSubtitle:
-"Vytvorte profesionálny životopis, analyzujte pracovné ponuky a nájdite si prácu na Slovensku pomocou AI.",
+        homeFeatureResume:"Profesionálny životopis",
+        homeFeatureResumeText:"Vytvorte moderný životopis a vyberte si jeden z piatich profesionálnych dizajnov.",
 
-homeCreateResume:"Vytvoriť životopis",
-homeAnalyzeJob:"Analyzovať pracovnú ponuku",
+        homeFeatureAnalysis:"Analýza pracovnej ponuky",
+        homeFeatureAnalysisText:"Vložte text pracovnej ponuky a zistite, ako vaše skúsenosti a zručnosti zodpovedajú požiadavkám.",
 
-homeFeatures:"Čo JobAI dokáže",
+        homeFeatureJobs:"Hľadanie práce",
+        homeFeatureJobsText:"Rýchly prístup k obľúbeným platformám na hľadanie práce na Slovensku.",
 
-homeFeatureResume:"Profesionálny životopis",
-homeFeatureResumeText:
-"Vytvorte moderný životopis pre prácu na Slovensku a vyberte si profesionálnu šablónu.",
+        homePopular:"Populárne profesie",
 
-homeFeatureAnalysis:"Analýza pracovnej ponuky",
-homeFeatureAnalysisText:
-"Vložte text pracovnej ponuky a zistite, ako vaše skúsenosti zodpovedajú požiadavkám.",
+        homeJobSearch:"Hľadanie práce na Slovensku",
 
-homeFeatureJobs:"Hľadanie práce",
-homeFeatureJobsText:
-"Rýchly prístup k populárnym pracovným portálom na Slovensku.",
+        profesiaText:"Populárny pracovný portál na Slovensku.",
+        istpText:"Vyhľadávanie pracovných ponúk a informácie o profesiách.",
+        linkedinText:"Pracovné ponuky od spoločností a recruiterov.",
 
-homePopular:"Populárne profesie",
+        tabResume:"Životopis",
+        tabPreview:"Náhľad",
+        tabAnalysis:"Analýza pracovnej ponuky",
 
-homeJobSearch:"Hľadanie práce na Slovensku",
+        personalData:"Osobné údaje",
 
-homeJobSearchText:
-"Navštívte populárne pracovné portály a nájdite aktuálne pracovné ponuky.",
+        name:"Meno a priezvisko",
+        namePlaceholder:"Vaše meno a priezvisko",
 
-homeUseProfession:"Použiť profesiu",
+        position:"Požadovaná pozícia",
+        positionPlaceholder:"Napríklad: CNC operátor",
 
-professionCNC:"CNC operátor",
-professionCNCDesc:"CNC operátor, obrábač, nastavovač.",
+        phone:"Telefón",
+        phonePlaceholder:"+421...",
 
-professionMetrology:"Metrológ / CMM",
-professionMetrologyDesc:"Kontrola kvality, CMM, meranie.",
+        email:"Email",
+        emailPlaceholder:"email@example.com",
 
-professionProduction:"Pracovník výroby",
-professionProductionDesc:"Výroba, montáž, kontrola kvality.",
+        city:"Mesto",
+        cityPlaceholder:"Napríklad: Bratislava",
 
-professionWelder:"Zvárač",
-professionWelderDesc:"MIG/MAG, TIG, ručné zváranie.",
+        profile:"Profesionálny profil",
+        profilePlaceholder:"Stručne opíšte svoje skúsenosti...",
 
-professionElectrician:"Elektrikár / elektromechanik",
-professionElectricianDesc:"Elektromontáž, automatizácia a údržba.",
+        skills:"Zručnosti",
+        skillsPlaceholder:"Napríklad: CNC, Fanuc, AutoCAD, kontrola kvality...",
 
-professionMechanic:"Automechanik",
-professionMechanicDesc:"Oprava automobilov, diagnostika a servis.",
+        languages:"Jazyky",
+        languagesPlaceholder:"Napríklad: Ukrajinčina — materinský jazyk, Slovenčina — B1, Angličtina — A2",
 
-professionDriver:"Vodič",
-professionDriverDesc:"Vodič kamiónu, autobusu alebo rozvozu.",
+        photo:"Fotografia",
+        noPhoto:"Bez fotografie",
+        choosePhoto:"Vybrať fotografiu",
+        removePhoto:"Odstrániť fotografiu",
 
-professionLogistics:"Sklad / logistika",
-professionLogisticsDesc:"Sklad, kompletizácia, logistika a nakladanie.",
+        experience:"Pracovné skúsenosti",
+        addExperience:"Pridať skúsenosť",
 
-professionIT:"IT / programátor",
-professionITDesc:"Programovanie, webový vývoj a IT.",
+        company:"Spoločnosť",
+        companyPlaceholder:"Názov spoločnosti",
 
-personalData:"Osobné údaje",
-name:"Meno a priezvisko",
-namePlaceholder:"Vaše meno",
+        jobPosition:"Pozícia",
+        jobPositionPlaceholder:"Vaša pozícia",
 
-position:"Požadovaná pozícia",
-positionPlaceholder:"Napríklad: CNC operátor",
+        start:"Začiatok",
+        end:"Koniec",
 
-phone:"Telefón",
-phonePlaceholder:"+421...",
+        description:"Popis",
+        descriptionPlaceholder:"Vaše pracovné povinnosti a úspechy",
 
-email:"Email",
-emailPlaceholder:"email@example.com",
+        education:"Vzdelanie",
+        addEducation:"Pridať vzdelanie",
 
-city:"Mesto",
-cityPlaceholder:"Napríklad: Bratislava",
+        school:"Vzdelávacia inštitúcia",
+        schoolPlaceholder:"Názov školy",
 
-profile:"Profesionálny profil",
-profilePlaceholder:"Stručne opíšte svoje skúsenosti a profesionálne ciele.",
+        specialty:"Odbor",
+        specialtyPlaceholder:"Odbor",
 
-skills:"Zručnosti",
-skillsPlaceholder:"Napríklad: CNC, Fanuc, meranie, AutoCAD",
+        year:"Rok",
 
-languages:"Jazyky",
-languagesPlaceholder:"Ukrajinčina — materinský, Slovenčina — B1, Angličtina — A2",
+        delete:"Odstrániť",
 
-photo:"Fotografia",
-removePhoto:"Odstrániť fotografiu",
+        resumeDesign:"Dizajn životopisu",
+        template:"Šablóna",
+        color:"Farba",
 
-experience:"Pracovné skúsenosti",
-addExperience:"Pridať skúsenosť",
+        modern:"Modern",
+        professional:"Professional",
+        executive:"Executive",
+        creative:"Creative",
+        ats:"ATS Simple",
 
-company:"Spoločnosť",
-companyPlaceholder:"Názov spoločnosti",
+        save:"Uložiť",
+        export:"Export",
+        import:"Import",
+        clear:"Vymazať",
 
-jobPosition:"Pozícia",
-start:"Začiatok",
-end:"Koniec",
+        previewResume:"Zobraziť životopis",
+        resumePreview:"Náhľad životopisu",
+        printSave:"Tlač / Uložiť PDF",
+        editResume:"Upraviť životopis",
 
-description:"Popis práce",
-descriptionPlaceholder:"Vaše pracovné povinnosti a úspechy",
+        useProfession:"Použiť profesiu",
 
-delete:"Odstrániť",
+        professionCNC:"CNC operátor",
+        professionCNCDesc:"CNC stroje, sústruženie a frézovanie.",
 
-education:"Vzdelanie",
-addEducation:"Pridať vzdelanie",
+        professionMetrology:"Metrológ / CMM",
+        professionMetrologyDesc:"Meranie, kontrola kvality a CMM.",
 
-school:"Vzdelávacia inštitúcia",
-schoolPlaceholder:"Názov školy",
+        professionProduction:"Pracovník výroby",
+        professionProductionDesc:"Výroba, montáž a kontrola výrobkov.",
 
-specialty:"Špecializácia",
-specialtyPlaceholder:"Vaša špecializácia",
+        professionWelder:"Zvárač",
+        professionWelderDesc:"MIG/MAG, TIG a ďalšie druhy zvárania.",
 
-year:"Rok",
+        professionElectrician:"Elektrikár / elektromechanik",
+        professionElectricianDesc:"Elektrické zariadenia, montáž a údržba.",
 
-resumeDesign:"Dizajn životopisu",
-template:"Šablóna",
-color:"Farba",
+        professionMechanic:"Automechanik",
+        professionMechanicDesc:"Diagnostika, opravy a údržba automobilov.",
 
-modern:"Modern",
-professional:"Professional",
-executive:"Executive",
-creative:"Creative",
-ats:"ATS Simple",
+        professionDriver:"Vodič",
+        professionDriverDesc:"Nákladná a osobná doprava.",
 
-save:"Uložiť",
-export:"Export",
-import:"Import",
-clear:"Vymazať",
+        professionLogistics:"Sklad / logistika",
+        professionLogisticsDesc:"Sklady, nakladanie, kompletizácia a logistika.",
 
-resumePreview:"Náhľad životopisu",
-printSave:"Tlačiť / Uložiť PDF",
-editResume:"Upraviť životopis",
+        professionIT:"IT / programátor",
+        professionITDesc:"Programovanie, webový vývoj a IT.",
 
-analysisTitle:"Analýza pracovnej ponuky",
+        analysisTitle:"Analýza pracovnej ponuky",
 
-analysisDescription:
-"Vložte text pracovnej ponuky a JobAI ho porovná s vaším životopisom.",
+        analysisDescription:"Vložte text pracovnej ponuky a JobAI určí profesiu, potrebné zručnosti a približnú zhodu s vaším životopisom.",
 
-jobPlaceholder:"Vložte sem text pracovnej ponuky...",
+        jobPlaceholder:"Vložte sem text pracovnej ponuky...",
 
-analyze:"Analyzovať",
-clearVacancy:"Vymazať",
+        analyze:"Analyzovať",
+        clearVacancy:"Vymazať ponuku",
 
-matchScore:"Zhoda",
-detectedProfession:"Rozpoznaná profesia",
+        matchScore:"Zhoda",
+        detectedProfession:"Rozpoznaná profesia",
+        foundSkills:"Nájdené zručnosti",
+        missingSkills:"Chýbajúce zručnosti",
 
-foundSkills:"Nájdené zručnosti",
-missingSkills:"Chýbajúce zručnosti",
+        recommendationTitle:"Odporúčanie",
 
-recommendationTitle:"Odporúčanie",
+        veryGood:"Veľmi dobrá zhoda. Máte väčšinu potrebných zručností pre túto pracovnú ponuku.",
+        good:"Dobrá zhoda. Životopis sa oplatí doplniť o chýbajúce zručnosti.",
+        partial:"Čiastočná zhoda. Odporúčame doplniť relevantné skúsenosti a zručnosti.",
+        low:"Nízka zhoda. Odporúčame prispôsobiť životopis tejto pracovnej ponuke.",
 
-profileSection:"Profil",
-contactSection:"Kontakty",
-languagesSection:"Jazyky",
-skillsSection:"Zručnosti",
-experienceSection:"Pracovné skúsenosti",
-educationSection:"Vzdelanie",
+        emptyVacancy:"Vložte text pracovnej ponuky.",
 
-veryGood:
-"Veľmi dobrá zhoda. Máte väčšinu potrebných zručností pre túto pracovnú ponuku.",
+        profileSection:"Profesionálny profil",
+        contactSection:"Kontakty",
+        languagesSection:"Jazyky",
+        skillsSection:"Zručnosti",
+        experienceSection:"Pracovné skúsenosti",
+        educationSection:"Vzdelanie",
 
-good:
-"Dobrá zhoda. Životopis sa oplatí doplniť o chýbajúce zručnosti.",
+        alertVacancy:"Pole pracovnej ponuky alebo výsledok analýzy nebol nájdený.",
+        saved:"Životopis bol uložený.",
+        cleared:"Životopis bol vymazaný.",
+        photoRemoved:"Fotografia bola odstránená.",
+        imported:"Životopis bol importovaný.",
+        invalidFile:"Súbor sa nepodarilo importovať.",
 
-partial:
-"Čiastočná zhoda. Odporúčame doplniť relevantné skúsenosti a zručnosti.",
+        footer:"inteligentný pomocník pri hľadaní práce"
+    },
 
-low:
-"Nízka zhoda. Odporúčame prispôsobiť životopis tejto pracovnej ponuke.",
 
-emptyVacancy:"Vložte text pracovnej ponuky.",
+    en: {
 
-saved:"Životopis bol uložený.",
-cleared:"Údaje životopisu boli vymazané.",
-photoRemoved:"Fotografia bola odstránená.",
-imported:"Životopis bol importovaný.",
-invalidFile:"Neplatný súbor."
+        home:"Home",
 
-},
+        homeSubtitle:"Your smart assistant for finding a job in Slovakia. Create a professional resume, analyze job vacancies and find suitable opportunities.",
 
+        homeFeatures:"What JobAI can do",
 
-en:{
+        homeFeatureResume:"Professional resume",
+        homeFeatureResumeText:"Create a modern resume and choose one of five professional templates.",
 
-home:"Home",
+        homeFeatureAnalysis:"Job analysis",
+        homeFeatureAnalysisText:"Paste a job vacancy and find out how well your experience and skills match the requirements.",
 
-homeSubtitle:
-"Create a professional resume, analyze job offers and find work in Slovakia with AI.",
+        homeFeatureJobs:"Job search",
+        homeFeatureJobsText:"Quick access to popular job-search platforms in Slovakia.",
 
-homeCreateResume:"Create Resume",
-homeAnalyzeJob:"Analyze Job",
+        homePopular:"Popular professions",
 
-homeFeatures:"What JobAI can do",
+        homeJobSearch:"Find a job in Slovakia",
 
-homeFeatureResume:"Professional Resume",
-homeFeatureResumeText:
-"Create a modern resume for jobs in Slovakia and choose from professional templates.",
+        profesiaText:"Popular job portal in Slovakia.",
+        istpText:"Job search and profession information.",
+        linkedinText:"Jobs from companies and recruiters.",
 
-homeFeatureAnalysis:"Job Analysis",
-homeFeatureAnalysisText:
-"Paste a job description and see how well your experience matches the requirements.",
+        tabResume:"Resume",
+        tabPreview:"Preview",
+        tabAnalysis:"Job Analysis",
 
-homeFeatureJobs:"Job Search",
-homeFeatureJobsText:
-"Quick access to popular job search websites in Slovakia.",
+        personalData:"Personal data",
 
-homePopular:"Popular Professions",
+        name:"Full name",
+        namePlaceholder:"Your full name",
 
-homeJobSearch:"Find Jobs in Slovakia",
+        position:"Desired position",
+        positionPlaceholder:"For example: CNC operator",
 
-homeJobSearchText:
-"Visit popular job platforms and find current job opportunities.",
+        phone:"Phone",
+        phonePlaceholder:"+421...",
 
-homeUseProfession:"Use Profession",
+        email:"Email",
+        emailPlaceholder:"email@example.com",
 
-professionCNC:"CNC Operator",
-professionCNCDesc:"CNC operator, machinist, setter.",
+        city:"City",
+        cityPlaceholder:"For example: Bratislava",
 
-professionMetrology:"Metrologist / CMM",
-professionMetrologyDesc:"Quality control, CMM and measurement.",
+        profile:"Professional profile",
+        profilePlaceholder:"Briefly describe your experience...",
 
-professionProduction:"Production Worker",
-professionProductionDesc:"Production, assembly and quality control.",
+        skills:"Skills",
+        skillsPlaceholder:"For example: CNC, Fanuc, AutoCAD, quality control...",
 
-professionWelder:"Welder",
-professionWelderDesc:"MIG/MAG, TIG and manual welding.",
+        languages:"Languages",
+        languagesPlaceholder:"For example: Ukrainian — native, Slovak — B1, English — A2",
 
-professionElectrician:"Electrician / Electromechanic",
-professionElectricianDesc:"Electrical installation, automation and maintenance.",
+        photo:"Photo",
+        noPhoto:"No photo",
+        choosePhoto:"Choose photo",
+        removePhoto:"Remove photo",
 
-professionMechanic:"Car Mechanic",
-professionMechanicDesc:"Vehicle repair, diagnostics and servicing.",
+        experience:"Work experience",
+        addExperience:"Add experience",
 
-professionDriver:"Driver",
-professionDriverDesc:"Truck, bus or delivery driver.",
+        company:"Company",
+        companyPlaceholder:"Company name",
 
-professionLogistics:"Warehouse / Logistics",
-professionLogisticsDesc:"Warehouse work, picking, logistics and loading.",
+        jobPosition:"Position",
+        jobPositionPlaceholder:"Your position",
 
-professionIT:"IT / Programmer",
-professionITDesc:"Programming, web development and IT.",
+        start:"Start",
+        end:"End",
 
-personalData:"Personal Information",
-name:"Full Name",
-namePlaceholder:"Your name",
+        description:"Description",
+        descriptionPlaceholder:"Your responsibilities and achievements",
 
-position:"Desired Position",
-positionPlaceholder:"For example: CNC Operator",
+        education:"Education",
+        addEducation:"Add education",
 
-phone:"Phone",
-phonePlaceholder:"+421...",
+        school:"Educational institution",
+        schoolPlaceholder:"School name",
 
-email:"Email",
-emailPlaceholder:"email@example.com",
+        specialty:"Specialization",
+        specialtyPlaceholder:"Specialization",
 
-city:"City",
-cityPlaceholder:"For example: Bratislava",
+        year:"Year",
 
-profile:"Professional Profile",
-profilePlaceholder:
-"Briefly describe your experience and professional goals.",
+        delete:"Delete",
 
-skills:"Skills",
-skillsPlaceholder:
-"For example: CNC, Fanuc, measurement, AutoCAD",
+        resumeDesign:"Resume design",
+        template:"Template",
+        color:"Color",
 
-languages:"Languages",
-languagesPlaceholder:
-"Ukrainian — native, Slovak — B1, English — A2",
+        modern:"Modern",
+        professional:"Professional",
+        executive:"Executive",
+        creative:"Creative",
+        ats:"ATS Simple",
 
-photo:"Photo",
-removePhoto:"Remove Photo",
+        save:"Save",
+        export:"Export",
+        import:"Import",
+        clear:"Clear",
 
-experience:"Work Experience",
-addExperience:"Add Experience",
+        previewResume:"Preview resume",
+        resumePreview:"Resume preview",
+        printSave:"Print / Save PDF",
+        editResume:"Edit resume",
 
-company:"Company",
-companyPlaceholder:"Company name",
+        useProfession:"Use profession",
 
-jobPosition:"Position",
-start:"Start",
-end:"End",
+        professionCNC:"CNC operator",
+        professionCNCDesc:"CNC machines, turning and milling.",
 
-description:"Job Description",
-descriptionPlaceholder:
-"Your responsibilities and achievements",
+        professionMetrology:"Metrologist / CMM",
+        professionMetrologyDesc:"Measurement, quality control and CMM.",
 
-delete:"Delete",
+        professionProduction:"Production worker",
+        professionProductionDesc:"Production, assembly and product inspection.",
 
-education:"Education",
-addEducation:"Add Education",
+        professionWelder:"Welder",
+        professionWelderDesc:"MIG/MAG, TIG and other welding methods.",
 
-school:"Educational Institution",
-schoolPlaceholder:
-"School or university name",
+        professionElectrician:"Electrician",
+        professionElectricianDesc:"Electrical equipment, installation and maintenance.",
 
-specialty:"Specialization",
-specialtyPlaceholder:
-"Your specialization",
+        professionMechanic:"Automotive mechanic",
+        professionMechanicDesc:"Vehicle diagnostics, repair and maintenance.",
 
-year:"Year",
+        professionDriver:"Driver",
+        professionDriverDesc:"Freight and passenger transport.",
 
-resumeDesign:"Resume Design",
-template:"Template",
-color:"Color",
+        professionLogistics:"Warehouse / logistics",
+        professionLogisticsDesc:"Warehouses, loading, picking and logistics.",
 
-modern:"Modern",
-professional:"Professional",
-executive:"Executive",
-creative:"Creative",
-ats:"ATS Simple",
+        professionIT:"IT / programmer",
+        professionITDesc:"Programming, web development and IT.",
 
-save:"Save",
-export:"Export",
-import:"Import",
-clear:"Clear",
+        analysisTitle:"Job vacancy analysis",
 
-resumePreview:"Resume Preview",
-printSave:"Print / Save PDF",
-editResume:"Edit Resume",
+        analysisDescription:"Paste the job vacancy below and JobAI will identify the profession, required skills and approximate match with your resume.",
 
-analysisTitle:"Job Analysis",
+        jobPlaceholder:"Paste the job vacancy here...",
 
-analysisDescription:
-"Paste a job description and JobAI will compare it with your resume.",
+        analyze:"Analyze",
+        clearVacancy:"Clear vacancy",
 
-jobPlaceholder:
-"Paste the job description here...",
+        matchScore:"Match",
+        detectedProfession:"Detected profession",
+        foundSkills:"Matching skills",
+        missingSkills:"Missing skills",
 
-analyze:"Analyze",
-clearVacancy:"Clear",
+        recommendationTitle:"Recommendation",
 
-matchScore:"Match",
-detectedProfession:"Detected Profession",
+        veryGood:"Very good match. You have most of the skills required for this job.",
+        good:"Good match. Consider adding the missing skills to your resume.",
+        partial:"Partial match. Consider adding relevant experience and skills.",
+        low:"Low match. Consider adapting your resume to this job.",
 
-foundSkills:"Matching Skills",
-missingSkills:"Missing Skills",
+        emptyVacancy:"Paste the job vacancy.",
 
-recommendationTitle:"Recommendation",
+        profileSection:"Professional profile",
+        contactSection:"Contact",
+        languagesSection:"Languages",
+        skillsSection:"Skills",
+        experienceSection:"Work experience",
+        educationSection:"Education",
 
-profileSection:"Profile",
-contactSection:"Contact",
-languagesSection:"Languages",
-skillsSection:"Skills",
-experienceSection:"Work Experience",
-educationSection:"Education",
+        alertVacancy:"The job vacancy field or analysis result was not found.",
+        saved:"Resume saved.",
+        cleared:"Resume cleared.",
+        photoRemoved:"Photo removed.",
+        imported:"Resume imported.",
+        invalidFile:"The file could not be imported.",
 
-veryGood:
-"Very good match. You have most of the skills required for this job.",
-
-good:
-"Good match. Consider adding the missing skills to your resume.",
-
-partial:
-"Partial match. We recommend adding relevant experience and skills.",
-
-low:
-"Low match. Consider adapting your resume to this job.",
-
-emptyVacancy:"Please paste a job description.",
-
-saved:"Resume saved.",
-cleared:"Resume data cleared.",
-photoRemoved:"Photo removed.",
-imported:"Resume imported.",
-invalidFile:"Invalid file."
-
-}
+        footer:"your smart assistant for finding a job"
+    }
 
 };
 
 
 /* =========================================================
-   VARIABLES
-   ========================================================= */
+   LANGUAGE FUNCTIONS
+========================================================= */
 
-let currentLanguage=
-localStorage.getItem("jobaiLanguage")||"ua";
+let currentLanguage =
+    localStorage.getItem("jobaiLanguage") || "ua";
 
-let experiences=[];
-let educations=[];
-
-let resumePhoto=
-localStorage.getItem("jobaiPhoto")||"";
-
-let resumeTemplate=
-localStorage.getItem("jobaiResumeTemplate")||"modern";
-
-let resumeColor=
-localStorage.getItem("jobaiResumeColor")||"blue";
-
-
-const colors={
-
-blue:{
-main:"#1976d2",
-dark:"#125a9c",
-light:"#eaf3fb",
-soft:"#dcecf9"
-},
-
-black:{
-main:"#222",
-dark:"#111",
-light:"#eee",
-soft:"#ddd"
-},
-
-green:{
-main:"#198754",
-dark:"#12643e",
-light:"#e9f7f0",
-soft:"#d6eee1"
-},
-
-purple:{
-main:"#7048a8",
-dark:"#51347c",
-light:"#f1ebf8",
-soft:"#e4d9f0"
-},
-
-orange:{
-main:"#d97706",
-dark:"#a85704",
-light:"#fff3df",
-soft:"#f9e2bd"
-},
-
-red:{
-main:"#c0392b",
-dark:"#922b21",
-light:"#fcebea",
-soft:"#f4d1ce"
-},
-
-teal:{
-main:"#168b8b",
-dark:"#0f6565",
-light:"#e6f5f5",
-soft:"#cfeaea"
-},
-
-navy:{
-main:"#243b64",
-dark:"#182a49",
-light:"#eaf0f8",
-soft:"#d9e2f1"
-}
-
-};
-
-
-/* =========================================================
-   TRANSLATION
-   ========================================================= */
 
 function t(key){
 
-if(
-translations[currentLanguage] &&
-translations[currentLanguage][key]!==undefined
-){
-return translations[currentLanguage][key];
+    if(
+        translations[currentLanguage] &&
+        translations[currentLanguage][key] !== undefined
+    ){
+        return translations[currentLanguage][key];
+    }
+
+    if(translations.ua[key] !== undefined){
+        return translations.ua[key];
+    }
+
+    return key;
 }
 
-return translations.ua[key]||key;
+
+function setLanguage(lang){
+
+    if(!translations[lang]){
+        return;
+    }
+
+    currentLanguage = lang;
+
+    localStorage.setItem(
+        "jobaiLanguage",
+        lang
+    );
+
+    applyLanguage();
+
+    updateResumePreview();
+
+    updateLanguageButtons();
+}
+
+
+function updateLanguageButtons(){
+
+    document
+        .querySelectorAll(".language-switcher button")
+        .forEach(function(button){
+
+            button.classList.remove("active");
+
+        });
+
+    const active =
+        document.getElementById(
+            "lang" +
+            currentLanguage.toUpperCase()
+        );
+
+    if(active){
+        active.classList.add("active");
+    }
+}
+
+
+function setText(id,key){
+
+    const element =
+        document.getElementById(id);
+
+    if(element){
+        element.innerText = t(key);
+    }
 }
 
 
 function applyLanguage(){
 
-document.documentElement.lang=currentLanguage;
-
-document
-.querySelectorAll("[data-i18n]")
-.forEach(function(el){
-
-const key=el.dataset.i18n;
-
-if(translations[currentLanguage][key]!==undefined){
-el.textContent=t(key);
-}
-
-});
+    document.documentElement.lang =
+        currentLanguage === "ua"
+            ? "uk"
+            : currentLanguage === "sk"
+                ? "sk"
+                : "en";
 
 
-document
-.querySelectorAll("[data-i18n-placeholder]")
-.forEach(function(el){
+    setText("homeButton","home");
 
-const key=el.dataset.i18nPlaceholder;
+    setText("navHome","home");
+    setText("navResume","tabResume");
+    setText("navPreview","tabPreview");
+    setText("navAnalysis","tabAnalysis");
 
-el.placeholder=t(key);
+    setText("homeSubtitle","homeSubtitle");
 
-});
+    setText("homeFeaturesTitle","homeFeatures");
 
+    setText("homeFeatureResume","homeFeatureResume");
+    setText("homeFeatureResumeText","homeFeatureResumeText");
 
-document
-.querySelectorAll(".language-switcher button")
-.forEach(function(btn){
+    setText("homeFeatureAnalysis","homeFeatureAnalysis");
+    setText("homeFeatureAnalysisText","homeFeatureAnalysisText");
 
-btn.classList.remove("active");
+    setText("homeFeatureJobs","homeFeatureJobs");
+    setText("homeFeatureJobsText","homeFeatureJobsText");
 
-});
+    setText("homePopular","homePopular");
+    setText("homeJobSearch","homeJobSearch");
 
-
-const active=
-document.getElementById(
-"lang"+currentLanguage.toUpperCase()
-);
-
-if(active){
-active.classList.add("active");
-}
+    setText("profesiaText","profesiaText");
+    setText("istpText","istpText");
+    setText("linkedinText","linkedinText");
 
 
-renderExperiences();
-renderEducations();
-renderPhoto();
+    setText("personalData","personalData");
 
-updatePreview();
+    setText("nameLabel","name");
+    setText("positionLabel","position");
+    setText("phoneLabel","phone");
+    setText("emailLabel","email");
+    setText("cityLabel","city");
+    setText("profileLabel","profile");
+    setText("skillsLabel","skills");
+    setText("languagesLabel","languages");
+
+
+    setText("photoTitle","photo");
+    setText("noPhoto","noPhoto");
+    setText("choosePhoto","choosePhoto");
+    setText("removePhoto","removePhoto");
+
+
+    setText("experienceTitle","experience");
+    setText("addExperience","addExperience");
+
+    setText("educationTitle","education");
+    setText("addEducation","addEducation");
+
+
+    setText("resumeDesign","resumeDesign");
+    setText("templateTitle","template");
+    setText("colorTitle","color");
+
+
+    setText("saveButton","save");
+    setText("previewResumeButton","previewResume");
+    setText("exportButton","export");
+    setText("importButton","import");
+    setText("clearButton","clear");
+
+
+    setText("resumePreviewTitle","resumePreview");
+    setText("editResumeButton","editResume");
+    setText("printSaveButton","printSave");
+
+
+    setText("analysisTitle","analysisTitle");
+    setText("analysisDescription","analysisDescription");
+    setText("analyzeButton","analyze");
+    setText("clearVacancyButton","clearVacancy");
+    setText("matchScoreTitle","matchScore");
+    setText("foundSkillsTitle","foundSkills");
+    setText("missingSkillsTitle","missingSkills");
+    setText("recommendationTitle","recommendationTitle");
+
+
+    setText("professionCNCTitle","professionCNC");
+    setText("professionCNCDesc","professionCNCDesc");
+
+    setText("professionMetrologyTitle","professionMetrology");
+    setText("professionMetrologyDesc","professionMetrologyDesc");
+
+    setText("professionProductionTitle","professionProduction");
+    setText("professionProductionDesc","professionProductionDesc");
+
+    setText("professionWelderTitle","professionWelder");
+    setText("professionWelderDesc","professionWelderDesc");
+
+    setText("professionElectricianTitle","professionElectrician");
+    setText("professionElectricianDesc","professionElectricianDesc");
+
+    setText("professionMechanicTitle","professionMechanic");
+    setText("professionMechanicDesc","professionMechanicDesc");
+
+    setText("professionDriverTitle","professionDriver");
+    setText("professionDriverDesc","professionDriverDesc");
+
+    setText("professionLogisticsTitle","professionLogistics");
+    setText("professionLogisticsDesc","professionLogisticsDesc");
+
+    setText("professionITTitle","professionIT");
+    setText("professionITDesc","professionITDesc");
+
+
+    document
+        .querySelectorAll(".useProfessionText")
+        .forEach(function(element){
+
+            element.innerText =
+                t("useProfession");
+
+        });
+
+
+    const placeholders = {
+        name:"namePlaceholder",
+        position:"positionPlaceholder",
+        phone:"phonePlaceholder",
+        email:"emailPlaceholder",
+        city:"cityPlaceholder",
+        profile:"profilePlaceholder",
+        skills:"skillsPlaceholder",
+        languages:"languagesPlaceholder",
+        jobText:"jobPlaceholder"
+    };
+
+
+    Object.keys(placeholders).forEach(function(id){
+
+        const element =
+            document.getElementById(id);
+
+        if(element){
+
+            element.placeholder =
+                t(placeholders[id]);
+
+        }
+
+    });
+
+
+    document
+        .querySelectorAll("#experienceContainer input, #experienceContainer textarea")
+        .forEach(function(){});
+
+
+    document
+        .querySelectorAll("#educationContainer input")
+        .forEach(function(){});
+
+
+    setText("footerText","footer");
+
+    updateLanguageButtons();
+
+    updateTemplateButtons();
+
+    updateColorButtons();
 }
 
 
 /* =========================================================
-   LANGUAGE
-   ========================================================= */
+   TABS
+========================================================= */
 
-function setLanguage(lang){
+function showTab(tabName){
 
-if(!translations[lang])return;
+    document
+        .querySelectorAll(".tab")
+        .forEach(function(tab){
 
-currentLanguage=lang;
+            tab.classList.remove("active");
 
-localStorage.setItem(
-"jobaiLanguage",
-lang
-);
+        });
 
-applyLanguage();
 
+    const target =
+        document.getElementById(tabName);
+
+    if(target){
+        target.classList.add("active");
+    }
+
+
+    document
+        .querySelectorAll(".nav button")
+        .forEach(function(button){
+
+            button.classList.remove("active");
+
+        });
+
+
+    if(tabName === "home"){
+        document.getElementById("navHome").classList.add("active");
+    }
+
+    if(tabName === "resume"){
+        document.getElementById("navResume").classList.add("active");
+    }
+
+    if(tabName === "preview"){
+        document.getElementById("navPreview").classList.add("active");
+
+        updateResumePreview();
+    }
+
+    if(tabName === "analysis"){
+        document.getElementById("navAnalysis").classList.add("active");
+    }
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 
 
 /* =========================================================
-   NAVIGATION
-   ========================================================= */
-
-function showTab(name){
-
-document
-.querySelectorAll(".tab")
-.forEach(function(tab){
-
-tab.classList.remove("active");
-
-});
-
-
-const target=document.getElementById(name);
-
-if(target){
-target.classList.add("active");
-}
-
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-
-if(name==="preview"){
-updatePreview();
-}
-
-}
-
-
-/* =========================================================
-   PROFESSION
-   ========================================================= */
+   PROFESSIONS
+========================================================= */
 
 function useProfession(profession){
 
-const field=document.getElementById("position");
+    const position =
+        document.getElementById("position");
 
-if(field){
+    if(position){
 
-field.value=profession;
+        position.value =
+            profession;
 
-field.dispatchEvent(
-new Event("input",{bubbles:true})
-);
+        position.dispatchEvent(
+            new Event("input",{
+                bubbles:true
+            })
+        );
 
-saveAll(false);
+    }
 
-}
+    showTab("resume");
 
-showTab("resume");
+    setTimeout(function(){
 
-}
+        if(position){
 
+            position.focus();
 
-/* =========================================================
-   ESCAPE HTML
-   ========================================================= */
+        }
 
-function escapeHTML(value){
-
-return String(value||"")
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
-
+    },300);
 }
 
 
 /* =========================================================
-   EXPERIENCE
-   ========================================================= */
+   COLORS
+========================================================= */
 
-function addExperience(data){
+const colors = {
 
-experiences.push({
+    blue:{
+        main:"#1976d2",
+        dark:"#125a9c",
+        light:"#eaf3fb",
+        soft:"#dcecf9"
+    },
 
-company:data?.company||"",
-position:data?.position||"",
-start:data?.start||"",
-end:data?.end||"",
-description:data?.description||""
+    black:{
+        main:"#222",
+        dark:"#111",
+        light:"#eee",
+        soft:"#ddd"
+    },
 
-});
+    green:{
+        main:"#198754",
+        dark:"#12643e",
+        light:"#e9f7f0",
+        soft:"#d6eee1"
+    },
 
-renderExperiences();
-saveAll(false);
+    purple:{
+        main:"#7048a8",
+        dark:"#51347c",
+        light:"#f1ebf8",
+        soft:"#e4d9f0"
+    },
 
+    orange:{
+        main:"#d97706",
+        dark:"#a85704",
+        light:"#fff3df",
+        soft:"#f9e2bd"
+    },
+
+    red:{
+        main:"#c0392b",
+        dark:"#922b21",
+        light:"#fcebea",
+        soft:"#f4d1ce"
+    },
+
+    teal:{
+        main:"#168b8b",
+        dark:"#0f6565",
+        light:"#e6f5f5",
+        soft:"#cfeaea"
+    },
+
+    navy:{
+        main:"#243b64",
+        dark:"#182a49",
+        light:"#eaf0f8",
+        soft:"#d9e2f1"
+    }
+
+};
+
+
+let selectedColor =
+    localStorage.getItem("jobaiResumeColor") || "blue";
+
+
+function selectColor(color){
+
+    if(!colors[color]){
+        return;
+    }
+
+    selectedColor = color;
+
+    localStorage.setItem(
+        "jobaiResumeColor",
+        color
+    );
+
+    updateColorButtons();
+
+    updateResumePreview();
 }
 
 
-function renderExperiences(){
+function updateColorButtons(){
 
-const container=
-document.getElementById("experienceList");
+    document
+        .querySelectorAll(".color-button")
+        .forEach(function(button){
 
-if(!container)return;
+            button.classList.remove("selected");
 
-container.innerHTML="";
+            if(
+                button.dataset.color === selectedColor
+            ){
+                button.classList.add("selected");
+            }
 
-
-experiences.forEach(function(item,index){
-
-container.innerHTML+=`
-
-<div class="experience-item">
-
-<div class="form-grid">
-
-<div class="field">
-
-<label>${t("company")}</label>
-
-<input
-value="${escapeHTML(item.company)}"
-oninput="experiences[${index}].company=this.value;autoSave()"
-placeholder="${escapeHTML(t("companyPlaceholder"))}">
-
-</div>
-
-
-<div class="field">
-
-<label>${t("jobPosition")}</label>
-
-<input
-value="${escapeHTML(item.position)}"
-oninput="experiences[${index}].position=this.value;autoSave()">
-
-</div>
-
-
-<div class="field">
-
-<label>${t("start")}</label>
-
-<input
-value="${escapeHTML(item.start)}"
-oninput="experiences[${index}].start=this.value;autoSave()"
-placeholder="2020">
-
-</div>
-
-
-<div class="field">
-
-<label>${t("end")}</label>
-
-<input
-value="${escapeHTML(item.end)}"
-oninput="experiences[${index}].end=this.value;autoSave()"
-placeholder="2025">
-
-</div>
-
-
-<div class="field full">
-
-<label>${t("description")}</label>
-
-<textarea
-oninput="experiences[${index}].description=this.value;autoSave()"
-placeholder="${escapeHTML(t("descriptionPlaceholder"))}">${escapeHTML(item.description)}</textarea>
-
-</div>
-
-</div>
-
-
-<div class="action-row">
-
-<button
-class="action-button red"
-onclick="removeExperience(${index})">
-
-${t("delete")}
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
-});
-
-}
-
-
-function removeExperience(index){
-
-experiences.splice(index,1);
-
-renderExperiences();
-
-saveAll(false);
-
+        });
 }
 
 
 /* =========================================================
-   EDUCATION
-   ========================================================= */
+   TEMPLATES
+========================================================= */
 
-function addEducation(data){
+let selectedTemplate =
+    localStorage.getItem("jobaiResumeTemplate") || "modern";
 
-educations.push({
 
-school:data?.school||"",
-specialty:data?.specialty||"",
-year:data?.year||""
+function selectTemplate(template){
 
-});
+    selectedTemplate =
+        template;
 
-renderEducations();
-saveAll(false);
+    localStorage.setItem(
+        "jobaiResumeTemplate",
+        template
+    );
 
+    updateTemplateButtons();
+
+    updateResumePreview();
 }
 
 
-function renderEducations(){
+function updateTemplateButtons(){
 
-const container=
-document.getElementById("educationList");
-
-if(!container)return;
-
-container.innerHTML="";
-
-
-educations.forEach(function(item,index){
-
-container.innerHTML+=`
-
-<div class="education-item">
-
-<div class="form-grid">
-
-<div class="field">
-
-<label>${t("school")}</label>
-
-<input
-value="${escapeHTML(item.school)}"
-oninput="educations[${index}].school=this.value;autoSave()"
-placeholder="${escapeHTML(t("schoolPlaceholder"))}">
-
-</div>
+    const map = {
+        modern:"templateModern",
+        professional:"templateProfessional",
+        executive:"templateExecutive",
+        creative:"templateCreative",
+        ats:"templateATS"
+    };
 
 
-<div class="field">
+    Object.keys(map).forEach(function(key){
 
-<label>${t("specialty")}</label>
+        const button =
+            document.getElementById(map[key]);
 
-<input
-value="${escapeHTML(item.specialty)}"
-oninput="educations[${index}].specialty=this.value;autoSave()"
-placeholder="${escapeHTML(t("specialtyPlaceholder"))}">
+        if(button){
 
-</div>
+            button.classList.toggle(
+                "selected",
+                selectedTemplate === key
+            );
 
+        }
 
-<div class="field">
-
-<label>${t("year")}</label>
-
-<input
-value="${escapeHTML(item.year)}"
-oninput="educations[${index}].year=this.value;autoSave()">
-
-</div>
-
-</div>
-
-
-<div class="action-row">
-
-<button
-class="action-button red"
-onclick="removeEducation(${index})">
-
-${t("delete")}
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
-});
-
-}
-
-
-function removeEducation(index){
-
-educations.splice(index,1);
-
-renderEducations();
-
-saveAll(false);
-
+    });
 }
 
 
 /* =========================================================
    PHOTO
-   ========================================================= */
+========================================================= */
 
 function handlePhotoUpload(event){
 
-const file=event.target.files[0];
+    const file =
+        event.target.files &&
+        event.target.files[0];
 
-if(!file)return;
+    if(!file){
+        return;
+    }
 
-const reader=new FileReader();
 
-reader.onload=function(e){
+    const reader =
+        new FileReader();
 
-resumePhoto=e.target.result;
 
-localStorage.setItem(
-"jobaiPhoto",
-resumePhoto
-);
+    reader.onload = function(e){
 
-renderPhoto();
-updatePreview();
+        try{
 
-};
+            localStorage.setItem(
+                "jobaiPhoto",
+                e.target.result
+            );
 
-reader.readAsDataURL(file);
+        }catch(error){
 
+            console.error(error);
+
+        }
+
+
+        updatePhotoPreview();
+
+        updateResumePreview();
+
+    };
+
+
+    reader.readAsDataURL(file);
 }
 
 
-function renderPhoto(){
+function updatePhotoPreview(){
 
-const container=
-document.getElementById("photoPreview");
+    const container =
+        document.getElementById("photoPreview");
 
-if(!container)return;
+    if(!container){
+        return;
+    }
 
-if(!resumePhoto){
 
-container.innerHTML="";
+    const photo =
+        localStorage.getItem("jobaiPhoto");
 
-return;
 
-}
+    if(photo){
 
-container.innerHTML=`
+        container.innerHTML =
+            '<img src="' +
+            photo +
+            '" alt="Photo">';
 
-<img
-src="${resumePhoto}"
-alt="Photo">
+    }else{
 
-`;
+        container.innerHTML =
+            '<span id="noPhoto">' +
+            escapeHTML(t("noPhoto")) +
+            '</span>';
+
+    }
 
 }
 
 
 function removePhoto(){
 
-resumePhoto="";
+    localStorage.removeItem(
+        "jobaiPhoto"
+    );
 
-localStorage.removeItem("jobaiPhoto");
+    const input =
+        document.getElementById("photoInput");
 
-renderPhoto();
+    if(input){
+        input.value = "";
+    }
 
-updatePreview();
+    updatePhotoPreview();
 
-alert(t("photoRemoved"));
+    updateResumePreview();
 
+    alert(t("photoRemoved"));
 }
 
 
 /* =========================================================
-   RESUME DATA
-   ========================================================= */
+   DATA
+========================================================= */
 
-function getResumeData(){
+function getFieldValue(id){
 
-return{
+    const element =
+        document.getElementById(id);
 
-name:document.getElementById("name")?.value||"",
-position:document.getElementById("position")?.value||"",
-phone:document.getElementById("phone")?.value||"",
-email:document.getElementById("email")?.value||"",
-city:document.getElementById("city")?.value||"",
-profile:document.getElementById("profile")?.value||"",
-skills:document.getElementById("skills")?.value||"",
-languages:document.getElementById("languages")?.value||"",
-
-experiences:experiences,
-educations:educations,
-
-photo:resumePhoto,
-
-template:resumeTemplate,
-color:resumeColor
-
-};
+    return element
+        ? element.value
+        : "";
 
 }
 
 
-function saveAll(showMessage=true){
+function collectResumeData(){
 
-const data=getResumeData();
+    return {
 
-localStorage.setItem(
-"jobaiResume",
-JSON.stringify(data)
-);
+        name:getFieldValue("name"),
+        position:getFieldValue("position"),
+        phone:getFieldValue("phone"),
+        email:getFieldValue("email"),
+        city:getFieldValue("city"),
+        profile:getFieldValue("profile"),
+        skills:getFieldValue("skills"),
+        languages:getFieldValue("languages"),
 
-localStorage.setItem(
-"jobaiResumeTemplate",
-resumeTemplate
-);
+        experiences:
+            Array.isArray(window.experiences)
+                ? window.experiences
+                : [],
 
-localStorage.setItem(
-"jobaiResumeColor",
-resumeColor
-);
+        educations:
+            Array.isArray(window.educations)
+                ? window.educations
+                : []
 
-if(showMessage){
-alert(t("saved"));
-}
-
-updatePreview();
-
-}
-
-
-function autoSave(){
-
-clearTimeout(window.jobaiSaveTimer);
-
-window.jobaiSaveTimer=setTimeout(
-function(){
-saveAll(false);
-},
-400
-);
+    };
 
 }
 
 
-/* =========================================================
-   LOAD
-   ========================================================= */
+function saveAll(){
 
-function loadResume(){
+    const data =
+        collectResumeData();
 
-const saved=
-localStorage.getItem("jobaiResume");
 
-if(!saved)return;
+    localStorage.setItem(
+        "jobaiResume",
+        JSON.stringify(data)
+    );
 
-try{
 
-const data=JSON.parse(saved);
+    updateResumePreview();
 
-const fields=[
-"name",
-"position",
-"phone",
-"email",
-"city",
-"profile",
-"skills",
-"languages"
-];
-
-fields.forEach(function(id){
-
-const element=document.getElementById(id);
-
-if(element && data[id]!==undefined){
-element.value=data[id];
+    alert(t("saved"));
 }
 
-});
-
-
-experiences=
-Array.isArray(data.experiences)
-?data.experiences
-:[];
-
-
-educations=
-Array.isArray(data.educations)
-?data.educations
-:[];
-
-
-if(data.photo){
-resumePhoto=data.photo;
-}
-
-
-if(data.template){
-resumeTemplate=data.template;
-}
-
-
-if(data.color){
-resumeColor=data.color;
-}
-
-
-}catch(error){
-
-console.log("Resume load error:",error);
-
-}
-
-
-const templateSelect=
-document.getElementById("templateSelect");
-
-if(templateSelect){
-templateSelect.value=resumeTemplate;
-}
-
-
-const colorSelect=
-document.getElementById("colorSelect");
-
-if(colorSelect){
-colorSelect.value=resumeColor;
-}
-
-}
-
-
-/* =========================================================
-   CLEAR
-   ========================================================= */
 
 function clearAll(){
 
-if(
-!confirm(
-currentLanguage==="sk"
-?"Naozaj chcete vymazať údaje životopisu?"
-:
-currentLanguage==="en"
-?"Are you sure you want to clear your resume?"
-:
-"Ви впевнені, що хочете очистити резюме?"
-)
-)return;
+    if(
+        !confirm(
+            currentLanguage === "ua"
+                ? "Очистити всі дані резюме?"
+                : currentLanguage === "sk"
+                    ? "Vymazať všetky údaje životopisu?"
+                    : "Clear all resume data?"
+        )
+    ){
+        return;
+    }
 
 
-const fields=[
-"name",
-"position",
-"phone",
-"email",
-"city",
-"profile",
-"skills",
-"languages"
-];
+    localStorage.removeItem(
+        "jobaiResume"
+    );
 
-fields.forEach(function(id){
-
-const element=document.getElementById(id);
-
-if(element)element.value="";
-
-});
+    localStorage.removeItem(
+        "jobaiPhoto"
+    );
 
 
-experiences=[];
-educations=[];
-resumePhoto="";
+    [
+        "name",
+        "position",
+        "phone",
+        "email",
+        "city",
+        "profile",
+        "skills",
+        "languages"
+    ].forEach(function(id){
 
-localStorage.removeItem("jobaiResume");
-localStorage.removeItem("jobaiPhoto");
+        const element =
+            document.getElementById(id);
 
-renderExperiences();
-renderEducations();
-renderPhoto();
+        if(element){
+            element.value = "";
+        }
 
-updatePreview();
+    });
 
-alert(t("cleared"));
 
+    window.experiences = [];
+    window.educations = [];
+
+
+    const experienceContainer =
+        document.getElementById(
+            "experienceContainer"
+        );
+
+    if(experienceContainer){
+        experienceContainer.innerHTML = "";
+    }
+
+
+    const educationContainer =
+        document.getElementById(
+            "educationContainer"
+        );
+
+    if(educationContainer){
+        educationContainer.innerHTML = "";
+    }
+
+
+    updatePhotoPreview();
+
+    updateResumePreview();
+
+    alert(t("cleared"));
 }
 
 
 /* =========================================================
-   TEMPLATE / COLOR
-   ========================================================= */
-
-function changeTemplate(value){
-
-resumeTemplate=value;
-
-localStorage.setItem(
-"jobaiResumeTemplate",
-value
-);
-
-updatePreview();
-
-saveAll(false);
-
-}
-
-
-function changeColor(value){
-
-resumeColor=value;
-
-localStorage.setItem(
-"jobaiResumeColor",
-value
-);
-
-updatePreview();
-
-saveAll(false);
-
-}
-
-
-/* =========================================================
-   RESUME PREVIEW HELPERS
-   ========================================================= */
-
-function sectionTitle(title,color){
-
-return`
-
-<div
-class="resume-section-title"
-style="color:${color}">
-${escapeHTML(title)}
-</div>
-
-`;
-
-}
-
-
-function renderExperienceHTML(){
-
-if(!experiences.length){
-return "";
-}
-
-return experiences.map(function(item){
-
-return`
-
-<div class="resume-experience-item">
-
-<div class="resume-date">
-
-${escapeHTML(item.start)}
-${item.start||item.end?" — ":""}
-${escapeHTML(item.end)}
-
-</div>
-
-<div class="resume-company">
-${escapeHTML(item.company)}
-</div>
-
-<div class="resume-job">
-${escapeHTML(item.position)}
-</div>
-
-<div class="resume-description">
-${escapeHTML(item.description)}
-</div>
-
-</div>
-
-`;
-
-}).join("");
-
-}
-
-
-function renderEducationHTML(){
-
-if(!educations.length){
-return "";
-}
-
-return educations.map(function(item){
-
-return`
-
-<div class="resume-experience-item">
-
-<div class="resume-company">
-${escapeHTML(item.school)}
-</div>
-
-<div class="resume-job">
-${escapeHTML(item.specialty)}
-</div>
-
-<div class="resume-date">
-${escapeHTML(item.year)}
-</div>
-
-</div>
-
-`;
-
-}).join("");
-
-}
-
-
-function photoHTML(){
-
-if(!resumePhoto)return "";
-
-return`
-
-<img
-class="resume-photo"
-src="${resumePhoto}"
-alt="Photo">
-
-`;
-
-}
-
-
-/* =========================================================
-   MODERN
-   ========================================================= */
-
-function renderModern(data,color){
-
-return`
-
-<div class="resume-two-column">
-
-<div
-class="resume-sidebar"
-style="
-background:${color.main};
-color:#fff;
-">
-
-${photoHTML()}
-
-<div class="resume-section">
-
-${sectionTitle(
-t("contactSection"),
-"#fff"
-)}
-
-<div class="resume-contact">
-
-${escapeHTML(data.phone)}<br>
-${escapeHTML(data.email)}<br>
-${escapeHTML(data.city)}
-
-</div>
-
-</div>
-
-
-<div class="resume-section">
-
-${sectionTitle(
-t("languagesSection"),
-"#fff"
-)}
-
-<div class="resume-description">
-${escapeHTML(data.languages)}
-</div>
-
-</div>
-
-
-<div class="resume-section">
-
-${sectionTitle(
-t("skillsSection"),
-"#fff"
-)}
-
-<div class="resume-description">
-${escapeHTML(data.skills)}
-</div>
-
-</div>
-
-</div>
-
-
-<div class="resume-main">
-
-<div class="resume-name">
-${escapeHTML(data.name)}
-</div>
-
-<div
-class="resume-position"
-style="color:${color.main}">
-${escapeHTML(data.position)}
-</div>
-
-
-${data.profile?`
-
-<div class="resume-section">
-
-${sectionTitle(
-t("profileSection"),
-color.main
-)}
-
-<div class="resume-description">
-${escapeHTML(data.profile)}
-</div>
-
-</div>
-
-`:""}
-
-
-${data.experiences.length?`
-
-<div class="resume-section">
-
-${sectionTitle(
-t("experienceSection"),
-color.main
-)}
-
-${renderExperienceHTML()}
-
-</div>
-
-`:""}
-
-
-${data.educations.length?`
-
-<div class="resume-section">
-
-${sectionTitle(
-t("educationSection"),
-color.main
-)}
-
-${renderEducationHTML()}
-
-</div>
-
-`:""}
-
-</div>
-
-</div>
-
-`;
-
-}
-
-
-/* =========================================================
-   PROFESSIONAL
-   ========================================================= */
-
-function renderProfessional(data,color){
-
-return`
-
-<div style="padding:45px">
-
-<div class="resume-header"
-style="
-padding:0 0 20px;
-border-bottom:3px solid ${color.main};
-">
-
-<div class="resume-name">
-${escapeHTML(data.name)}
-</div>
-
-<div
-class="resume-position"
-style="color:${color.main}">
-${escapeHTML(data.position)}
-</div>
-
-<div class="resume-contact">
-${escapeHTML(data.phone)}
-&nbsp; | &nbsp;
-${escapeHTML(data.email)}
-&nbsp; | &nbsp;
-${escapeHTML(data.city)}
-</div>
-
-</div>
-
-
-${data.profile?`
-
-<div class="resume-section" style="margin-top:25px">
-
-${sectionTitle(
-t("profileSection"),
-color.main
-)}
-
-<div class="resume-description">
-${escapeHTML(data.profile)}
-</div>
-
-</div>
-
-`:""}
-
-
-${data.experiences.length?`
-
-<div class="resume-section">
-
-${sectionTitle(
-t("experienceSection"),
-color.main
-)}
-
-${renderExperienceHTML()}
-
-</div>
-
-`:""}
-
-
-${data.educations.length?`
-
-<div class="resume-section">
-
-${sectionTitle(
-t("educationSection"),
-color.main
-)}
-
-${renderEducationHTML()}
-
-</div>
-
-`:""}
-
-
-${data.skills?`
-
-<div class="resume-section">
-
-${sectionTitle(
-t("skillsSection"),
-color.main
-)}
-
-<div class="resume-description">
-${escapeHTML(data.skills)}
-</div>
-
-</div>
-
-`:""}
-
-
-${data.languages?`
-
-<div class="resume-section">
-
-${sectionTitle(
-t("languagesSection"),
-color.main
-)}
-
-<div class="resume-description">
-${escapeHTML(data.languages)}
-</div>
-
-</div>
-
-`:""}
-
-</div>
-
-`;
-
-}
-
-
-/* =========================================================
-   EXECUTIVE
-   ========================================================= */
-
-function renderExecutive(data,color){
-
-return`
-
-<div>
-
-<div
-style="
-background:${color.dark};
-color:#fff;
-padding:35px;
-">
-
-<div style="display:flex;gap:25px;align-items:center">
-
-${photoHTML()}
-
-<div>
-
-<div class="resume-name">
-${escapeHTML(data.name)}
-</div>
-
-<div class="resume-position">
-${escapeHTML(data.position)}
-</div>
-
-<div class="resume-contact">
-${escapeHTML(data.phone)}<br>
-${escapeHTML(data.email)}<br>
-${escapeHTML(data.city)}
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="resume-two-column">
-
-<div
-class="resume-sidebar"
-style="
-background:${color.main};
-color:#fff;
-">
-
-${data.skills?`
-
-<div class="resume-section">
-
-${sectionTitle(
-t("skillsSection"),
-"#fff"
-)}
-
-<div class="resume-description">
-${escapeHTML(data.skills)}
-</div>
-
-</div>
-
-`:""}
-
-
-${data.languages?`
-
-<div class="resume-section">
-
-${sectionTitle(
-t("languagesSection"),
-"#fff"
-)}
-
-<div class="resume-description">
-${escapeHTML(data.languages)}
-</div>
-
-</div>
-
-`:""}
-
-</div>
-
-
-<div class="resume-main">
-
-${data.profile?`
-
-<div class="resume-section">
-
-${sectionTitle(
-t("profileSection"),
-color.main
-)}
-
-<div class="resume-description">
-${escapeHTML(data.profile)}
-</div>
-
-</div>
-
-`:""}
-
-
-${data.experiences.length?`
-
-<div class="resume-section">
-
-${sectionTitle(
-t("experienceSection"),
-color.main
-)}
-
-${renderExperienceHTML()}
-
-</div>
-
-`:""}
-
-
-${data.educations.length?`
-
-<div class="resume-section">
-
-${sectionTitle(
-t("educationSection"),
-color.main
-)}
-
-${renderEducationHTML()}
-
-</div>
-
-`:""}
-
-</div>
-
-</div>
-
-</div>
-
-`;
-
-}
-
-
-/* =========================================================
-   CREATIVE
-   ========================================================= */
-
-function renderCreative(data,color){
-
-return`
-
-<div>
-
-<div
-style="
-background:${color.main};
-color:#fff;
-padding:35px;
-display:flex;
-gap:25px;
-align-items:center;
-">
-
-${photoHTML()}
-
-<div>
-
-<div class="resume-name">
-${escapeHTML(data.name)}
-</div>
-
-<div class="resume-position">
-${escapeHTML(data.position)}
-</div>
-
-</div>
-
-</div>
-
-
-<div style="display:grid;grid-template-columns:220px 1fr">
-
-<div
-style="
-background:${color.light};
-padding:25px;
-color:#111;
-">
-
-<div class="resume-section">
-
-${sectionTitle(
-t("contactSection"),
-color.main
-)}
-
-<div class="resume-contact">
-${escapeHTML(data.phone)}<br>
-${escapeHTML(data.email)}<br>
-${escapeHTML(data.city)}
-</div>
-
-</div>
-
-
-${data.skills?`
-
-<div class="resume-section">
-
-${sectionTitle(
-t("skillsSection"),
-color.main
-)}
-
-<div class="resume-description">
-${escapeHTML(data.skills)}
-</div>
-
-</div>
-
-`:""}
-
-
-${data.languages?`
-
-<div class="resume-section">
-
-${sectionTitle(
-t("languagesSection"),
-color.main
-)}
-
-<div class="resume-description">
-${escapeHTML(data.languages)}
-</div>
-
-</div>
-
-`:""}
-
-</div>
-
-
-<div style="padding:30px">
-
-${data.profile?`
-
-<div class="resume-section">
-
-${sectionTitle(
-t("profileSection"),
-color.main
-)}
-
-<div class="resume-description">
-${escapeHTML(data.profile)}
-</div>
-
-</div>
-
-`:""}
-
-
-${data.experiences.length?`
-
-<div class="resume-section">
-
-${sectionTitle(
-t("experienceSection"),
-color.main
-)}
-
-${renderExperienceHTML()}
-
-</div>
-
-`:""}
-
-
-${data.educations.length?`
-
-<div class="resume-section">
-
-${sectionTitle(
-t("educationSection"),
-color.main
-)}
-
-${renderEducationHTML()}
-
-</div>
-
-`:""}
-
-</div>
-
-</div>
-
-</div>
-
-`;
-
-}
-
-
-/* =========================================================
-   ATS
-   ========================================================= */
-
-function renderATS(data,color){
-
-return`
-
-<div style="padding:45px;color:#111">
-
-<div
-style="
-border-bottom:2px solid ${color.main};
-padding-bottom:15px;
-">
-
-<div class="resume-name">
-${escapeHTML(data.name)}
-</div>
-
-<div
-class="resume-position"
-style="color:${color.main}">
-${escapeHTML(data.position)}
-</div>
-
-<div class="resume-contact">
-${escapeHTML(data.phone)} |
-${escapeHTML(data.email)} |
-${escapeHTML(data.city)}
-</div>
-
-</div>
-
-
-${data.profile?`
-
-<div class="resume-section" style="margin-top:25px">
-
-${sectionTitle(
-t("profileSection"),
-color.main
-)}
-
-<div class="resume-description">
-${escapeHTML(data.profile)}
-</div>
-
-</div>
-
-`:""}
-
-
-${data.skills?`
-
-<div class="resume-section">
-
-${sectionTitle(
-t("skillsSection"),
-color.main
-)}
-
-<div class="resume-description">
-${escapeHTML(data.skills)}
-</div>
-
-</div>
-
-`:""}
-
-
-${data.experiences.length?`
-
-<div class="resume-section">
-
-${sectionTitle(
-t("experienceSection"),
-color.main
-)}
-
-${renderExperienceHTML()}
-
-</div>
-
-`:""}
-
-
-${data.educations.length?`
-
-<div class="resume-section">
-
-${sectionTitle(
-t("educationSection"),
-color.main
-)}
-
-${renderEducationHTML()}
-
-</div>
-
-`:""}
-
-
-${data.languages?`
-
-<div class="resume-section">
-
-${sectionTitle(
-t("languagesSection"),
-color.main
-)}
-
-<div class="resume-description">
-${escapeHTML(data.languages)}
-</div>
-
-</div>
-
-`:""}
-
-</div>
-
-`;
-
-}
-
-
-/* =========================================================
-   UPDATE PREVIEW
-   ========================================================= */
-
-function updatePreview(){
-
-const container=
-document.getElementById("resumePreview");
-
-if(!container)return;
-
-const data=getResumeData();
-
-const color=
-colors[resumeColor]||colors.blue;
-
-
-if(
-!data.name &&
-!data.position &&
-!data.phone &&
-!data.email &&
-!data.profile &&
-!data.skills &&
-!data.languages &&
-!data.experiences.length &&
-!data.educations.length &&
-!data.photo
-){
-
-container.innerHTML=`
-
-<div class="preview-empty">
-
-${currentLanguage==="sk"
-?"Najprv vyplňte údaje životopisu."
-:
-currentLanguage==="en"
-?"Fill in your resume information first."
-:
-"Спочатку заповніть дані резюме."
-}
-
-</div>
-
-`;
-
-return;
-
-}
-
-
-let html="";
-
-
-switch(resumeTemplate){
-
-case"professional":
-html=renderProfessional(data,color);
-break;
-
-case"executive":
-html=renderExecutive(data,color);
-break;
-
-case"creative":
-html=renderCreative(data,color);
-break;
-
-case"ats":
-html=renderATS(data,color);
-break;
-
-default:
-html=renderModern(data,color);
-
-}
-
-
-container.innerHTML=`
-
-<div class="resume-page">
-
-${html}
-
-</div>
-
-`;
-
-}
-
-
-/* =========================================================
-   EXPORT
-   ========================================================= */
+   IMPORT / EXPORT
+========================================================= */
 
 function exportResume(){
 
-saveAll(false);
+    const data =
+        collectResumeData();
 
-const data=getResumeData();
 
-const blob=new Blob(
-[
-JSON.stringify(data,null,2)
-],
-{
-type:"application/json"
+    data.photo =
+        localStorage.getItem("jobaiPhoto") || "";
+
+
+    data.template =
+        selectedTemplate;
+
+
+    data.color =
+        selectedColor;
+
+
+    const blob =
+        new Blob(
+            [
+                JSON.stringify(
+                    data,
+                    null,
+                    2
+                )
+            ],
+            {
+                type:"application/json"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(blob);
+
+
+    const a =
+        document.createElement("a");
+
+
+    a.href = url;
+
+    a.download =
+        "jobai-resume.json";
+
+
+    document.body.appendChild(a);
+
+    a.click();
+
+    a.remove();
+
+    URL.revokeObjectURL(url);
 }
-);
 
-const url=
-URL.createObjectURL(blob);
-
-const a=
-document.createElement("a");
-
-a.href=url;
-a.download="jobai-resume.json";
-
-document.body.appendChild(a);
-
-a.click();
-
-a.remove();
-
-URL.revokeObjectURL(url);
-
-}
-
-
-/* =========================================================
-   IMPORT
-   ========================================================= */
 
 function importResume(event){
 
-const file=event.target.files[0];
+    const file =
+        event.target.files &&
+        event.target.files[0];
 
-if(!file)return;
-
-const reader=new FileReader();
-
-reader.onload=function(e){
-
-try{
-
-const data=
-JSON.parse(e.target.result);
+    if(!file){
+        return;
+    }
 
 
-const fields=[
-"name",
-"position",
-"phone",
-"email",
-"city",
-"profile",
-"skills",
-"languages"
-];
+    const reader =
+        new FileReader();
 
-fields.forEach(function(id){
 
-const element=
-document.getElementById(id);
+    reader.onload = function(e){
 
-if(
-element &&
-data[id]!==undefined
+        try{
+
+            const data =
+                JSON.parse(e.target.result);
+
+
+            [
+                "name",
+                "position",
+                "phone",
+                "email",
+                "city",
+                "profile",
+                "skills",
+                "languages"
+            ].forEach(function(id){
+
+                const element =
+                    document.getElementById(id);
+
+                if(
+                    element &&
+                    data[id] !== undefined
+                ){
+                    element.value =
+                        data[id];
+                }
+
+            });
+
+
+            window.experiences =
+                Array.isArray(data.experiences)
+                    ? data.experiences
+                    : [];
+
+
+            window.educations =
+                Array.isArray(data.educations)
+                    ? data.educations
+                    : [];
+
+
+            if(data.photo){
+
+                localStorage.setItem(
+                    "jobaiPhoto",
+                    data.photo
+                );
+
+            }
+
+
+            if(data.template){
+
+                selectedTemplate =
+                    data.template;
+
+                localStorage.setItem(
+                    "jobaiResumeTemplate",
+                    selectedTemplate
+                );
+
+            }
+
+
+            if(data.color){
+
+                selectedColor =
+                    data.color;
+
+                localStorage.setItem(
+                    "jobaiResumeColor",
+                    selectedColor
+                );
+
+            }
+
+
+            localStorage.setItem(
+                "jobaiResume",
+                JSON.stringify(
+                    collectResumeData()
+                )
+            );
+
+
+            renderExperiences();
+            renderEducations();
+
+            updatePhotoPreview();
+            updateTemplateButtons();
+            updateColorButtons();
+            updateResumePreview();
+
+
+            alert(t("imported"));
+
+        }catch(error){
+
+            console.error(error);
+
+            alert(t("invalidFile"));
+
+        }
+
+    };
+
+
+    reader.readAsText(file);
+
+    event.target.value = "";
+}
+
+
+/* =========================================================
+   EXPERIENCE
+========================================================= */
+
+window.experiences =
+    Array.isArray(window.experiences)
+        ? window.experiences
+        : [];
+
+
+window.educations =
+    Array.isArray(window.educations)
+        ? window.educations
+        : [];
+
+
+function addExperience(){
+
+    window.experiences.push({
+
+        company:"",
+        position:"",
+        start:"",
+        end:"",
+        description:""
+
+    });
+
+
+    renderExperiences();
+
+    saveDataSilently();
+
+}
+
+
+function removeExperience(index){
+
+    window.experiences.splice(
+        index,
+        1
+    );
+
+    renderExperiences();
+
+    saveDataSilently();
+
+}
+
+
+function renderExperiences(){
+
+    const container =
+        document.getElementById(
+            "experienceContainer"
+        );
+
+    if(!container){
+        return;
+    }
+
+
+    container.innerHTML = "";
+
+
+    window.experiences.forEach(
+        function(item,index){
+
+            const div =
+                document.createElement("div");
+
+            div.className =
+                "entry";
+
+
+            div.innerHTML = `
+
+                <div class="entry-header">
+
+                    <h3>
+                        ${escapeHTML(
+                            t("experience")
+                        )} #${index + 1}
+                    </h3>
+
+                    <button
+                        class="action-button danger"
+                        onclick="removeExperience(${index})">
+                        ${escapeHTML(
+                            t("delete")
+                        )}
+                    </button>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            ${escapeHTML(
+                                t("company")
+                            )}
+                        </label>
+
+                        <input
+                            type="text"
+                            value="${escapeAttribute(item.company || "")}"
+                            placeholder="${escapeAttribute(t("companyPlaceholder"))}"
+                            oninput="updateExperience(${index},'company',this.value)">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            ${escapeHTML(
+                                t("jobPosition")
+                            )}
+                        </label>
+
+                        <input
+                            type="text"
+                            value="${escapeAttribute(item.position || "")}"
+                            placeholder="${escapeAttribute(t("jobPositionPlaceholder"))}"
+                            oninput="updateExperience(${index},'position',this.value)">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            ${escapeHTML(
+                                t("start")
+                            )}
+                        </label>
+
+                        <input
+                            type="text"
+                            value="${escapeAttribute(item.start || "")}"
+                            placeholder="2022"
+                            oninput="updateExperience(${index},'start',this.value)">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            ${escapeHTML(
+                                t("end")
+                            )}
+                        </label>
+
+                        <input
+                            type="text"
+                            value="${escapeAttribute(item.end || "")}"
+                            placeholder="2025"
+                            oninput="updateExperience(${index},'end',this.value)">
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            ${escapeHTML(
+                                t("description")
+                            )}
+                        </label>
+
+                        <textarea
+                            placeholder="${escapeAttribute(t("descriptionPlaceholder"))}"
+                            oninput="updateExperience(${index},'description',this.value)">${escapeHTML(item.description || "")}</textarea>
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            container.appendChild(div);
+
+        }
+    );
+
+}
+
+
+function updateExperience(
+    index,
+    field,
+    value
 ){
 
-element.value=data[id];
-
-}
-
-});
+    if(!window.experiences[index]){
+        return;
+    }
 
 
-experiences=
-Array.isArray(data.experiences)
-?data.experiences
-:[];
+    window.experiences[index][field] =
+        value;
 
 
-educations=
-Array.isArray(data.educations)
-?data.educations
-:[];
+    saveDataSilently();
 
-
-resumePhoto=
-data.photo||"";
-
-resumeTemplate=
-data.template||"modern";
-
-resumeColor=
-data.color||"blue";
-
-
-localStorage.setItem(
-"jobaiResume",
-JSON.stringify(data)
-);
-
-if(resumePhoto){
-
-localStorage.setItem(
-"jobaiPhoto",
-resumePhoto
-);
-
-}else{
-
-localStorage.removeItem("jobaiPhoto");
+    updateResumePreview();
 
 }
 
 
-localStorage.setItem(
-"jobaiResumeTemplate",
-resumeTemplate
-);
+function saveDataSilently(){
 
-localStorage.setItem(
-"jobaiResumeColor",
-resumeColor
-);
+    try{
 
+        localStorage.setItem(
+            "jobaiResume",
+            JSON.stringify(
+                collectResumeData()
+            )
+        );
 
-document.getElementById(
-"templateSelect"
-).value=resumeTemplate;
+    }catch(error){
 
-document.getElementById(
-"colorSelect"
-).value=resumeColor;
+        console.error(error);
 
-
-renderExperiences();
-renderEducations();
-renderPhoto();
-
-updatePreview();
-
-alert(t("imported"));
-
-}catch(error){
-
-alert(t("invalidFile"));
-
-}
-
-};
-
-reader.readAsText(file);
-
-event.target.value="";
+    }
 
 }
 
 
 /* =========================================================
-   CLEAR JOB
-   ========================================================= */
+   EDUCATION
+========================================================= */
+
+function addEducation(){
+
+    window.educations.push({
+
+        school:"",
+        specialty:"",
+        year:""
+
+    });
+
+
+    renderEducations();
+
+    saveDataSilently();
+
+}
+
+
+function removeEducation(index){
+
+    window.educations.splice(
+        index,
+        1
+    );
+
+    renderEducations();
+
+    saveDataSilently();
+
+}
+
+
+function renderEducations(){
+
+    const container =
+        document.getElementById(
+            "educationContainer"
+        );
+
+    if(!container){
+        return;
+    }
+
+
+    container.innerHTML = "";
+
+
+    window.educations.forEach(
+        function(item,index){
+
+            const div =
+                document.createElement("div");
+
+            div.className =
+                "entry";
+
+
+            div.innerHTML = `
+
+                <div class="entry-header">
+
+                    <h3>
+                        ${escapeHTML(
+                            t("education")
+                        )} #${index + 1}
+                    </h3>
+
+                    <button
+                        class="action-button danger"
+                        onclick="removeEducation(${index})">
+                        ${escapeHTML(
+                            t("delete")
+                        )}
+                    </button>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            ${escapeHTML(
+                                t("school")
+                            )}
+                        </label>
+
+                        <input
+                            type="text"
+                            value="${escapeAttribute(item.school || "")}"
+                            placeholder="${escapeAttribute(t("schoolPlaceholder"))}"
+                            oninput="updateEducation(${index},'school',this.value)">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            ${escapeHTML(
+                                t("specialty")
+                            )}
+                        </label>
+
+                        <input
+                            type="text"
+                            value="${escapeAttribute(item.specialty || item.speciality || "")}"
+                            placeholder="${escapeAttribute(t("specialtyPlaceholder"))}"
+                            oninput="updateEducation(${index},'specialty',this.value)">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            ${escapeHTML(
+                                t("year")
+                            )}
+                        </label>
+
+                        <input
+                            type="text"
+                            value="${escapeAttribute(item.year || "")}"
+                            placeholder="2020"
+                            oninput="updateEducation(${index},'year',this.value)">
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            container.appendChild(div);
+
+        }
+    );
+
+}
+
+
+function updateEducation(
+    index,
+    field,
+    value
+){
+
+    if(!window.educations[index]){
+        return;
+    }
+
+
+    window.educations[index][field] =
+        value;
+
+
+    saveDataSilently();
+
+    updateResumePreview();
+
+}
+
+
+/* =========================================================
+   LOAD SAVED DATA
+========================================================= */
+
+function loadSavedResume(){
+
+    try{
+
+        const raw =
+            localStorage.getItem(
+                "jobaiResume"
+            );
+
+
+        if(!raw){
+            return;
+        }
+
+
+        const data =
+            JSON.parse(raw);
+
+
+        [
+            "name",
+            "position",
+            "phone",
+            "email",
+            "city",
+            "profile",
+            "skills",
+            "languages"
+        ].forEach(function(id){
+
+            const element =
+                document.getElementById(id);
+
+            if(
+                element &&
+                data[id] !== undefined
+            ){
+
+                element.value =
+                    data[id];
+
+            }
+
+        });
+
+
+        window.experiences =
+            Array.isArray(data.experiences)
+                ? data.experiences
+                : [];
+
+
+        window.educations =
+            Array.isArray(data.educations)
+                ? data.educations
+                : [];
+
+
+    }catch(error){
+
+        console.error(error);
+
+    }
+
+}
+
+
+/* =========================================================
+   ESCAPE
+========================================================= */
+
+function escapeHTML(value){
+
+    return String(value || "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeAttribute(value){
+
+    return escapeHTML(value);
+
+}
+
+
+/* =========================================================
+   RESUME PREVIEW
+========================================================= */
+
+function getPhotoHTML(){
+
+    const photo =
+        localStorage.getItem(
+            "jobaiPhoto"
+        );
+
+
+    if(photo){
+
+        return `
+            <img
+                class="resume-photo"
+                src="${escapeAttribute(photo)}"
+                alt="Photo">
+        `;
+
+    }
+
+
+    return `
+        <div class="resume-no-photo">
+            ${escapeHTML(t("noPhoto"))}
+        </div>
+    `;
+
+}
+
+
+function getContactText(data){
+
+    return [
+        data.phone,
+        data.email,
+        data.city
+    ]
+    .filter(Boolean)
+    .map(escapeHTML)
+    .join(" • ");
+
+}
+
+
+function getSkillsHTML(data){
+
+    if(!data.skills){
+        return "<p>—</p>";
+    }
+
+
+    const items =
+        data.skills
+            .split(/[,;\n]+/)
+            .map(function(item){
+                return item.trim();
+            })
+            .filter(Boolean);
+
+
+    if(items.length === 0){
+        return "<p>—</p>";
+    }
+
+
+    return `
+        <ul class="resume-list">
+            ${items.map(function(item){
+                return `<li>${escapeHTML(item)}</li>`;
+            }).join("")}
+        </ul>
+    `;
+
+}
+
+
+function getLanguagesHTML(data){
+
+    if(!data.languages){
+        return "<p>—</p>";
+    }
+
+
+    const items =
+        data.languages
+            .split(/[,;\n]+/)
+            .map(function(item){
+                return item.trim();
+            })
+            .filter(Boolean);
+
+
+    if(items.length === 0){
+        return "<p>—</p>";
+    }
+
+
+    return `
+        <ul class="resume-list">
+            ${items.map(function(item){
+                return `<li>${escapeHTML(item)}</li>`;
+            }).join("")}
+        </ul>
+    `;
+
+}
+
+
+function getExperienceHTML(data){
+
+    if(
+        !data.experiences ||
+        data.experiences.length === 0
+    ){
+        return "<p>—</p>";
+    }
+
+
+    return data.experiences
+        .map(function(item){
+
+            const dates =
+                [
+                    item.start,
+                    item.end
+                ]
+                .filter(Boolean)
+                .map(escapeHTML)
+                .join(" – ");
+
+
+            return `
+                <div class="resume-item">
+
+                    <h3>
+                        ${escapeHTML(item.position || "")}
+                    </h3>
+
+                    <div class="date">
+                        ${escapeHTML(item.company || "")}
+                        ${item.company && dates ? " • " : ""}
+                        ${dates}
+                    </div>
+
+                    <p>
+                        ${escapeHTML(item.description || "")}
+                    </p>
+
+                </div>
+            `;
+
+        })
+        .join("");
+
+}
+
+
+function getEducationHTML(data){
+
+    if(
+        !data.educations ||
+        data.educations.length === 0
+    ){
+        return "<p>—</p>";
+    }
+
+
+    return data.educations
+        .map(function(item){
+
+            return `
+                <div class="resume-item">
+
+                    <h3>
+                        ${escapeHTML(item.specialty || item.speciality || "")}
+                    </h3>
+
+                    <div class="date">
+                        ${escapeHTML(item.school || "")}
+                        ${item.year ? " • " + escapeHTML(item.year) : ""}
+                    </div>
+
+                </div>
+            `;
+
+        })
+        .join("");
+
+}
+
+
+function accentStyle(){
+
+    const c =
+        colors[selectedColor] ||
+        colors.blue;
+
+
+    return `
+        --accent:${c.main};
+        --accent-dark:${c.dark};
+        --accent-light:${c.light};
+        --accent-soft:${c.soft};
+    `;
+
+}
+
+
+function updateResumePreview(){
+
+    const container =
+        document.getElementById(
+            "resumePreviewContent"
+        );
+
+
+    if(!container){
+        return;
+    }
+
+
+    const data =
+        collectResumeData();
+
+
+    const style =
+        accentStyle();
+
+
+    let html = "";
+
+
+    /* MODERN */
+
+    if(selectedTemplate === "modern"){
+
+        html = `
+
+            <div
+                class="resume-page-inner template-modern"
+                style="${style}">
+
+                <aside
+                    class="modern-side"
+                    style="background:var(--accent);">
+
+                    ${getPhotoHTML()}
+
+                    <h1>
+                        ${escapeHTML(data.name || " ")}
+                    </h1>
+
+                    <h2>
+                        ${escapeHTML(data.position || " ")}
+                    </h2>
+
+
+                    <div class="modern-section">
+
+                        <h3>
+                            ${escapeHTML(t("contactSection"))}
+                        </h3>
+
+                        <div>
+                            ${getContactText(data) || "—"}
+                        </div>
+
+                    </div>
+
+
+                    <div class="modern-section">
+
+                        <h3>
+                            ${escapeHTML(t("languagesSection"))}
+                        </h3>
+
+                        ${getLanguagesHTML(data)}
+
+                    </div>
+
+
+                    <div class="modern-section">
+
+                        <h3>
+                            ${escapeHTML(t("skillsSection"))}
+                        </h3>
+
+                        ${getSkillsHTML(data)}
+
+                    </div>
+
+                </aside>
+
+
+                <main class="modern-main">
+
+                    <section>
+
+                        <h2
+                            style="border-color:var(--accent);">
+
+                            ${escapeHTML(t("profileSection"))}
+
+                        </h2>
+
+                        <p style="white-space:pre-line;line-height:1.6;">
+                            ${escapeHTML(data.profile || "—")}
+                        </p>
+
+                    </section>
+
+
+                    <section>
+
+                        <h2
+                            style="border-color:var(--accent);">
+
+                            ${escapeHTML(t("experienceSection"))}
+
+                        </h2>
+
+                        ${getExperienceHTML(data)}
+
+                    </section>
+
+
+                    <section>
+
+                        <h2
+                            style="border-color:var(--accent);">
+
+                            ${escapeHTML(t("educationSection"))}
+
+                        </h2>
+
+                        ${getEducationHTML(data)}
+
+                    </section>
+
+                </main>
+
+            </div>
+
+        `;
+
+    }
+
+
+    /* PROFESSIONAL */
+
+    else if(selectedTemplate === "professional"){
+
+        html = `
+
+            <div
+                class="resume-page-inner template-professional"
+                style="${style}">
+
+                <header
+                    class="prof-header"
+                    style="border-color:var(--accent);">
+
+                    <h1>
+                        ${escapeHTML(data.name || " ")}
+                    </h1>
+
+                    <h2>
+                        ${escapeHTML(data.position || " ")}
+                    </h2>
+
+                    <div class="prof-contact">
+                        ${getContactText(data) || "—"}
+                    </div>
+
+                </header>
+
+
+                <section class="prof-section">
+
+                    <div
+                        class="prof-section-title"
+                        style="color:var(--accent);">
+
+                        ${escapeHTML(t("profileSection"))}
+
+                    </div>
+
+                    <p style="white-space:pre-line;line-height:1.6;">
+                        ${escapeHTML(data.profile || "—")}
+                    </p>
+
+                </section>
+
+
+                <section class="prof-section">
+
+                    <div
+                        class="prof-section-title"
+                        style="color:var(--accent);">
+
+                        ${escapeHTML(t("skillsSection"))}
+
+                    </div>
+
+                    ${getSkillsHTML(data)}
+
+                </section>
+
+
+                <section class="prof-section">
+
+                    <div
+                        class="prof-section-title"
+                        style="color:var(--accent);">
+
+                        ${escapeHTML(t("experienceSection"))}
+
+                    </div>
+
+                    ${
+                        data.experiences.length
+                        ? data.experiences.map(function(item){
+
+                            const dates =
+                                [
+                                    item.start,
+                                    item.end
+                                ]
+                                .filter(Boolean)
+                                .map(escapeHTML)
+                                .join(" – ");
+
+                            return `
+
+                                <div class="prof-experience">
+
+                                    <div class="prof-date">
+                                        ${dates}
+                                    </div>
+
+                                    <div>
+
+                                        <div class="prof-company">
+                                            ${escapeHTML(item.company || "")}
+                                        </div>
+
+                                        <div class="prof-position">
+                                            ${escapeHTML(item.position || "")}
+                                        </div>
+
+                                        <div style="white-space:pre-line;line-height:1.5;">
+                                            ${escapeHTML(item.description || "")}
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            `;
+
+                        }).join("")
+                        : "<p>—</p>"
+                    }
+
+                </section>
+
+
+                <section class="prof-section">
+
+                    <div
+                        class="prof-section-title"
+                        style="color:var(--accent);">
+
+                        ${escapeHTML(t("educationSection"))}
+
+                    </div>
+
+                    ${getEducationHTML(data)}
+
+                </section>
+
+
+                <section class="prof-section">
+
+                    <div
+                        class="prof-section-title"
+                        style="color:var(--accent);">
+
+                        ${escapeHTML(t("languagesSection"))}
+
+                    </div>
+
+                    ${getLanguagesHTML(data)}
+
+                </section>
+
+            </div>
+
+        `;
+
+    }
+
+
+    /* EXECUTIVE */
+
+    else if(selectedTemplate === "executive"){
+
+        html = `
+
+            <div
+                class="resume-page-inner template-executive"
+                style="${style}">
+
+                <header
+                    class="exec-top"
+                    style="background:var(--accent-dark);">
+
+                    <h1>
+                        ${escapeHTML(data.name || " ")}
+                    </h1>
+
+                    <h2>
+                        ${escapeHTML(data.position || " ")}
+                    </h2>
+
+                </header>
+
+
+                <aside
+                    class="exec-side"
+                    style="background:var(--accent);">
+
+                    ${getPhotoHTML()}
+
+
+                    <div style="margin-top:25px;">
+
+                        <h3>
+                            ${escapeHTML(t("contactSection"))}
+                        </h3>
+
+                        <div>
+                            ${getContactText(data) || "—"}
+                        </div>
+
+                    </div>
+
+
+                    <div style="margin-top:25px;">
+
+                        <h3>
+                            ${escapeHTML(t("skillsSection"))}
+                        </h3>
+
+                        ${getSkillsHTML(data)}
+
+                    </div>
+
+
+                    <div style="margin-top:25px;">
+
+                        <h3>
+                            ${escapeHTML(t("languagesSection"))}
+                        </h3>
+
+                        ${getLanguagesHTML(data)}
+
+                    </div>
+
+                </aside>
+
+
+                <main class="exec-main">
+
+                    <section>
+
+                        <h2 style="border-color:var(--accent);">
+                            ${escapeHTML(t("profileSection"))}
+                        </h2>
+
+                        <p style="white-space:pre-line;line-height:1.6;">
+                            ${escapeHTML(data.profile || "—")}
+                        </p>
+
+                    </section>
+
+
+                    <section>
+
+                        <h2 style="border-color:var(--accent);">
+                            ${escapeHTML(t("experienceSection"))}
+                        </h2>
+
+                        ${getExperienceHTML(data)}
+
+                    </section>
+
+
+                    <section>
+
+                        <h2 style="border-color:var(--accent);">
+                            ${escapeHTML(t("educationSection"))}
+                        </h2>
+
+                        ${getEducationHTML(data)}
+
+                    </section>
+
+                </main>
+
+            </div>
+
+        `;
+
+    }
+
+
+    /* CREATIVE */
+
+    else if(selectedTemplate === "creative"){
+
+        html = `
+
+            <div
+                class="resume-page-inner template-creative"
+                style="${style}">
+
+                <header
+                    class="creative-header"
+                    style="background:var(--accent);">
+
+                    ${getPhotoHTML()}
+
+                    <div>
+
+                        <h1>
+                            ${escapeHTML(data.name || " ")}
+                        </h1>
+
+                        <h2>
+                            ${escapeHTML(data.position || " ")}
+                        </h2>
+
+                    </div>
+
+                </header>
+
+
+                <aside
+                    class="creative-side"
+                    style="background:var(--accent-dark);">
+
+                    <h3>
+                        ${escapeHTML(t("contactSection"))}
+                    </h3>
+
+                    <div>
+                        ${getContactText(data) || "—"}
+                    </div>
+
+
+                    <h3 style="margin-top:30px;">
+                        ${escapeHTML(t("skillsSection"))}
+                    </h3>
+
+                    ${getSkillsHTML(data)}
+
+
+                    <h3 style="margin-top:30px;">
+                        ${escapeHTML(t("languagesSection"))}
+                    </h3>
+
+                    ${getLanguagesHTML(data)}
+
+                </aside>
+
+
+                <main class="creative-main">
+
+                    <section>
+
+                        <h2 style="border-color:var(--accent);">
+                            ${escapeHTML(t("profileSection"))}
+                        </h2>
+
+                        <p style="white-space:pre-line;line-height:1.6;">
+                            ${escapeHTML(data.profile || "—")}
+                        </p>
+
+                    </section>
+
+
+                    <section>
+
+                        <h2 style="border-color:var(--accent);">
+                            ${escapeHTML(t("experienceSection"))}
+                        </h2>
+
+                        ${getExperienceHTML(data)}
+
+                    </section>
+
+
+                    <section>
+
+                        <h2 style="border-color:var(--accent);">
+                            ${escapeHTML(t("educationSection"))}
+                        </h2>
+
+                        ${getEducationHTML(data)}
+
+                    </section>
+
+                </main>
+
+            </div>
+
+        `;
+
+    }
+
+
+    /* ATS */
+
+    else{
+
+        html = `
+
+            <div
+                class="resume-page-inner template-ats"
+                style="${style}">
+
+                <header
+                    class="ats-header"
+                    style="border-color:var(--accent);">
+
+                    <h1>
+                        ${escapeHTML(data.name || " ")}
+                    </h1>
+
+                    <h2>
+                        ${escapeHTML(data.position || " ")}
+                    </h2>
+
+                    <div>
+                        ${getContactText(data) || "—"}
+                    </div>
+
+                </header>
+
+
+                <section class="ats-section">
+
+                    <h2 style="color:var(--accent);">
+                        ${escapeHTML(t("profileSection"))}
+                    </h2>
+
+                    <p>
+                        ${escapeHTML(data.profile || "—")}
+                    </p>
+
+                </section>
+
+
+                <section class="ats-section">
+
+                    <h2 style="color:var(--accent);">
+                        ${escapeHTML(t("skillsSection"))}
+                    </h2>
+
+                    ${getSkillsHTML(data)}
+
+                </section>
+
+
+                <section class="ats-section">
+
+                    <h2 style="color:var(--accent);">
+                        ${escapeHTML(t("experienceSection"))}
+                    </h2>
+
+                    ${getExperienceHTML(data)}
+
+                </section>
+
+
+                <section class="ats-section">
+
+                    <h2 style="color:var(--accent);">
+                        ${escapeHTML(t("educationSection"))}
+                    </h2>
+
+                    ${getEducationHTML(data)}
+
+                </section>
+
+
+                <section class="ats-section">
+
+                    <h2 style="color:var(--accent);">
+                        ${escapeHTML(t("languagesSection"))}
+                    </h2>
+
+                    ${getLanguagesHTML(data)}
+
+                </section>
+
+            </div>
+
+        `;
+
+    }
+
+
+    container.innerHTML =
+        html;
+
+}
+
+
+/* =========================================================
+   VACANCY
+========================================================= */
 
 function clearVacancy(){
 
-const field=
-document.getElementById("jobText");
+    const element =
+        document.getElementById(
+            "jobText"
+        );
 
-if(field){
-field.value="";
-}
+    if(element){
+        element.value = "";
+    }
 
-document.getElementById(
-"analysisResult"
-).style.display="none";
+
+    const result =
+        document.getElementById(
+            "analysisResult"
+        );
+
+    if(result){
+        result.style.display =
+            "none";
+    }
 
 }
 
 
 /* =========================================================
-   JOB ANALYSIS
-   ========================================================= */
+   COMPATIBILITY WITH RESUME.JS
+========================================================= */
 
-function normalizeText(text){
+window.saveAll =
+    saveAll;
 
-return String(text||"")
-.toLowerCase()
-.normalize("NFD")
-.replace(/[\u0300-\u036f]/g,"")
-.replace(/\s+/g," ")
-.trim();
+window.clearAll =
+    clearAll;
 
-}
+window.updateResumePreview =
+    updateResumePreview;
+
+window.removePhoto =
+    removePhoto;
+
+window.handlePhotoUpload =
+    handlePhotoUpload;
+
+window.selectTemplate =
+    selectTemplate;
+
+window.selectColor =
+    selectColor;
+
+window.addExperience =
+    addExperience;
+
+window.addEducation =
+    addEducation;
+
+window.removeExperience =
+    removeExperience;
+
+window.removeEducation =
+    removeEducation;
 
 
-function uniqueArray(array){
-
-return[
-...new Set(
-array.filter(Boolean)
-)
-];
-
-}
-
-
-function getResumeTextForAnalysis(){
-
-let parts=[];
+/* =========================================================
+   AUTOSAVE INPUTS
+========================================================= */
 
 [
-"name",
-"position",
-"phone",
-"email",
-"city",
-"profile",
-"skills",
-"languages"
+    "name",
+    "position",
+    "phone",
+    "email",
+    "city",
+    "profile",
+    "skills",
+    "languages"
 ].forEach(function(id){
 
-const el=document.getElementById(id);
+    const element =
+        document.getElementById(id);
 
-if(el && el.value){
-parts.push(el.value);
-}
+    if(element){
 
-});
+        element.addEventListener(
+            "input",
+            function(){
 
+                saveDataSilently();
 
-experiences.forEach(function(item){
+                updateResumePreview();
 
-parts.push(
-item.company||"",
-item.position||"",
-item.description||""
-);
+            }
+        );
 
-});
-
-
-educations.forEach(function(item){
-
-parts.push(
-item.school||"",
-item.specialty||"",
-item.year||""
-);
+    }
 
 });
-
-
-return normalizeText(
-parts.join(" ")
-);
-
-}
-
-
-function skillMatchesResume(
-skill,
-resumeText
-){
-
-const normalizedSkill=
-normalizeText(skill);
-
-if(!normalizedSkill)return false;
-
-return resumeText.includes(
-normalizedSkill
-);
-
-}
-
-
-function escapeAnalysisHTML(value){
-
-return String(value||"")
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
-
-}
-
-
-function createList(items){
-
-if(!items.length){
-return"<p>—</p>";
-}
-
-return`
-
-<ul>
-
-${items.map(function(item){
-
-return`
-<li>
-${escapeAnalysisHTML(item)}
-</li>
-`;
-
-}).join("")}
-
-</ul>
-
-`;
-
-}
-
-
-function analyzeJob(){
-
-const jobElement=
-document.getElementById("jobText");
-
-const resultElement=
-document.getElementById("analysisResult");
-
-if(!jobElement||!resultElement)return;
-
-const jobText=
-jobElement.value.trim();
-
-
-if(!jobText){
-
-resultElement.style.display="block";
-
-document.getElementById(
-"recommendation"
-).innerText=t("emptyVacancy");
-
-return;
-
-}
-
-
-const resumeText=
-getResumeTextForAnalysis();
-
-
-let detectedJobs=[];
-
-if(
-typeof window.findJobs==="function"
-){
-
-detectedJobs=
-window.findJobs(jobText)||[];
-
-}
-
-detectedJobs=
-uniqueArray(detectedJobs);
-
-
-let requirements=[];
-
-if(
-typeof window.findJobSkills==="function"
-){
-
-requirements=
-window.findJobSkills(jobText)||[];
-
-}
-
-requirements=
-uniqueArray(requirements);
-
-
-let matched=[];
-let missing=[];
-
-
-requirements.forEach(function(skill){
-
-if(
-skillMatchesResume(
-skill,
-resumeText
-)
-){
-
-matched.push(skill);
-
-}else{
-
-missing.push(skill);
-
-}
-
-});
-
-
-let score=0;
-
-
-if(requirements.length){
-
-score=Math.round(
-matched.length/
-requirements.length*
-100
-);
-
-}else{
-
-const words=
-normalizeText(jobText)
-.split(/\s+/)
-.filter(function(word){
-
-return word.length>=4;
-
-});
-
-
-const uniqueWords=
-uniqueArray(words);
-
-let matches=0;
-
-uniqueWords.forEach(function(word){
-
-if(
-resumeText.includes(word)
-){
-matches++;
-}
-
-});
-
-
-if(uniqueWords.length){
-
-score=Math.round(
-matches/
-uniqueWords.length*
-100
-);
-
-}else{
-
-score=50;
-
-}
-
-}
-
-
-score=
-Math.max(
-0,
-Math.min(100,score)
-);
-
-
-let recommendation;
-
-
-if(score>=80){
-
-recommendation=t("veryGood");
-
-}else if(score>=60){
-
-recommendation=t("good");
-
-}else if(score>=40){
-
-recommendation=t("partial");
-
-}else{
-
-recommendation=t("low");
-
-}
-
-
-resultElement.style.display="block";
-
-
-document.getElementById(
-"score"
-).innerText=score+"%";
-
-
-document.getElementById(
-"progressBar"
-).style.width=score+"%";
-
-
-const detected=
-document.getElementById(
-"detectedJobs"
-);
-
-
-if(detectedJobs.length){
-
-detected.style.display="block";
-
-detected.innerHTML=`
-
-<strong>
-${t("detectedProfession")}:
-</strong>
-
-<p>
-${detectedJobs
-.map(escapeAnalysisHTML)
-.join(", ")}
-</p>
-
-`;
-
-}else{
-
-detected.style.display="none";
-detected.innerHTML="";
-
-}
-
-
-document.getElementById(
-"found"
-).innerHTML=
-createList(matched);
-
-
-document.getElementById(
-"missing"
-).innerHTML=
-createList(missing);
-
-
-document.getElementById(
-"recommendation"
-).innerText=
-recommendation;
-
-
-setTimeout(function(){
-
-resultElement.scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
-
-},100);
-
-}
 
 
 /* =========================================================
-   INPUT AUTOSAVE
-   ========================================================= */
+   INIT
+========================================================= */
 
 document.addEventListener(
-"input",
-function(event){
+    "DOMContentLoaded",
+    function(){
 
-if(
-event.target.matches(
-"#name,#position,#phone,#email,#city,#profile,#skills,#languages"
-)
-){
+        loadSavedResume();
 
-autoSave();
+        renderExperiences();
 
-}
+        renderEducations();
 
-}
+        updatePhotoPreview();
+
+        updateTemplateButtons();
+
+        updateColorButtons();
+
+        applyLanguage();
+
+        updateResumePreview();
+
+        showTab("home");
+
+    }
 );
-
-
-/* =========================================================
-   START
-   ========================================================= */
-
-document.addEventListener(
-"DOMContentLoaded",
-function(){
-
-loadResume();
-
-renderExperiences();
-renderEducations();
-renderPhoto();
-
-const templateSelect=
-document.getElementById(
-"templateSelect"
-);
-
-if(templateSelect){
-templateSelect.value=resumeTemplate;
-}
-
-
-const colorSelect=
-document.getElementById(
-"colorSelect"
-);
-
-if(colorSelect){
-colorSelect.value=resumeColor;
-}
-
-
-applyLanguage();
-
-/*
-   Always open Home after reload.
-   Resume data remains saved.
-*/
-
-showTab("home");
-
-});
 
 </script>
 
 
-<!-- =====================================================
-     EXISTING JOBAI DATABASE / RESUME / ANALYSIS
-     ===================================================== -->
+<!-- =========================================================
+     EXTERNAL PROJECT SCRIPTS
+========================================================= -->
 
-<script src="jobs.js?v=7"></script>
-<script src="resume.js?v=7"></script>
-<script src="analysis.js?v=7"></script>
+<script src="jobs.js?v=6"></script>
+<script src="resume.js?v=6"></script>
+<script src="analysis.js?v=6"></script>
 
 </body>
 </html>
