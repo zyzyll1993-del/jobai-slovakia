@@ -7,6 +7,7 @@
     <title>JobAI Slovakia 🇸🇰</title>
 
     <style>
+
         * {
             box-sizing: border-box;
         }
@@ -55,7 +56,6 @@
         .language-switcher {
             display: flex;
             gap: 8px;
-            align-items: center;
         }
 
         .language-switcher button {
@@ -66,12 +66,6 @@
             padding: 7px 10px;
             cursor: pointer;
             font-size: 18px;
-            transition: 0.2s;
-        }
-
-        .language-switcher button:hover {
-            border-color: #4da3ff;
-            transform: translateY(-1px);
         }
 
         .language-switcher button.active {
@@ -95,7 +89,6 @@
             padding: 10px 14px;
             cursor: pointer;
             font-size: 14px;
-            transition: 0.2s;
         }
 
         nav button:hover {
@@ -151,12 +144,10 @@
             cursor: pointer;
             font-size: 14px;
             font-weight: bold;
-            transition: 0.2s;
         }
 
         .btn:hover {
             background: #3b9af0;
-            transform: translateY(-1px);
         }
 
         .btn.secondary {
@@ -195,7 +186,6 @@
         .profession-card:hover {
             transform: translateY(-4px);
             border-color: #3c8dcc;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
         }
 
         .profession-card img {
@@ -326,6 +316,66 @@
             margin: 0 0 12px;
         }
 
+        /* =========================================
+           DESIGN SELECTOR
+        ========================================= */
+
+        .design-panel {
+            background: #111821;
+            border: 1px solid #26313d;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .design-panel h3 {
+            margin: 0 0 15px;
+        }
+
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+
+        .template-button {
+            border: 1px solid #354352;
+            background: #0d131a;
+            color: #ffffff;
+            border-radius: 10px;
+            padding: 14px 10px;
+            cursor: pointer;
+            text-align: center;
+            transition: 0.2s;
+        }
+
+        .template-button:hover {
+            border-color: #4da3ff;
+            transform: translateY(-2px);
+        }
+
+        .template-button.active {
+            border-color: #4da3ff;
+            background: #172638;
+            box-shadow: 0 0 0 1px #4da3ff inset;
+        }
+
+        .template-name {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .template-description {
+            display: block;
+            font-size: 11px;
+            color: #8995a1;
+        }
+
+        /* =========================================
+           RESUME PAPER BASE
+        ========================================= */
+
         .preview-wrapper {
             background: #20262d;
             padding: 30px;
@@ -340,6 +390,7 @@
             padding: 45px;
             min-height: 1100px;
             border-radius: 4px;
+            transition: 0.25s;
         }
 
         .resume-header {
@@ -361,6 +412,10 @@
             font-size: 19px;
             font-weight: normal;
             color: #444;
+        }
+
+        .resume-header p {
+            margin-bottom: 0;
         }
 
         .resume-photo {
@@ -411,6 +466,179 @@
             border-radius: 5px;
             font-size: 13px;
         }
+
+        /* =========================================
+           TEMPLATE 1 — MODERN
+        ========================================= */
+
+        .resume-paper.template-modern {
+            font-family: Arial, Helvetica, sans-serif;
+            border-top: 7px solid #2487e8;
+        }
+
+        .resume-paper.template-modern .resume-header {
+            border-bottom: 2px solid #2487e8;
+        }
+
+        .resume-paper.template-modern .resume-section h3 {
+            color: #2487e8;
+            border-bottom-color: #c9dff5;
+        }
+
+        .resume-paper.template-modern .resume-skill {
+            border-color: #2487e8;
+            color: #185d9d;
+        }
+
+        /* =========================================
+           TEMPLATE 2 — PROFESSIONAL
+        ========================================= */
+
+        .resume-paper.template-professional {
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        .resume-paper.template-professional .resume-header {
+            border-bottom: 3px solid #222;
+        }
+
+        .resume-paper.template-professional .resume-header h1 {
+            letter-spacing: 0.5px;
+        }
+
+        .resume-paper.template-professional .resume-section h3 {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 15px;
+            border-bottom: 1px solid #222;
+        }
+
+        .resume-paper.template-professional .resume-skill {
+            border-radius: 0;
+        }
+
+        /* =========================================
+           TEMPLATE 3 — CLASSIC
+        ========================================= */
+
+        .resume-paper.template-classic {
+            font-family: "Times New Roman", Times, serif;
+            border: 1px solid #ddd;
+        }
+
+        .resume-paper.template-classic .resume-header {
+            text-align: center;
+            flex-direction: column;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .resume-paper.template-classic .resume-photo {
+            order: -1;
+        }
+
+        .resume-paper.template-classic .resume-section h3 {
+            text-align: center;
+            font-size: 18px;
+            border-bottom: 1px solid #333;
+        }
+
+        .resume-paper.template-classic .resume-skills {
+            justify-content: center;
+        }
+
+        /* =========================================
+           TEMPLATE 4 — TECH
+        ========================================= */
+
+        .resume-paper.template-tech {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8fafc;
+            border-left: 8px solid #111827;
+        }
+
+        .resume-paper.template-tech .resume-header {
+            background: #111827;
+            color: white;
+            margin: -45px -45px 30px;
+            padding: 35px 45px;
+            border-bottom: none;
+        }
+
+        .resume-paper.template-tech .resume-header h2 {
+            color: #b9c4d0;
+        }
+
+        .resume-paper.template-tech .resume-section h3 {
+            color: #111827;
+            border-bottom: 2px solid #111827;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .resume-paper.template-tech .resume-skill {
+            background: #111827;
+            color: white;
+            border-color: #111827;
+            border-radius: 3px;
+        }
+
+        /* =========================================
+           TEMPLATE 5 — COMPACT
+        ========================================= */
+
+        .resume-paper.template-compact {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 30px;
+            min-height: 950px;
+        }
+
+        .resume-paper.template-compact .resume-header {
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+        }
+
+        .resume-paper.template-compact .resume-header h1 {
+            font-size: 27px;
+        }
+
+        .resume-paper.template-compact .resume-header h2 {
+            font-size: 16px;
+        }
+
+        .resume-paper.template-compact .resume-photo {
+            width: 90px;
+            height: 110px;
+        }
+
+        .resume-paper.template-compact .resume-section {
+            margin-bottom: 15px;
+        }
+
+        .resume-paper.template-compact .resume-section h3 {
+            font-size: 14px;
+            margin-bottom: 7px;
+            padding-bottom: 4px;
+        }
+
+        .resume-paper.template-compact .resume-section p {
+            margin: 6px 0;
+            line-height: 1.35;
+            font-size: 13px;
+        }
+
+        .resume-paper.template-compact .resume-item {
+            margin-bottom: 9px;
+        }
+
+        .resume-paper.template-compact .resume-skill {
+            padding: 3px 7px;
+            font-size: 11px;
+        }
+
+        /* =========================================
+           ANALYSIS
+        ========================================= */
 
         .analysis-box {
             margin-top: 20px;
@@ -468,6 +696,10 @@
             line-height: 1.5;
         }
 
+        /* =========================================
+           JOB SEARCH
+        ========================================= */
+
         .job-search-box {
             display: flex;
             gap: 10px;
@@ -522,27 +754,26 @@
             font-size: 13px;
         }
 
-        .hidden {
-            display: none !important;
-        }
-
         @media (max-width: 950px) {
+
             .profession-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
+
+            .template-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
         }
 
         @media (max-width: 700px) {
+
             .header-inner {
                 align-items: flex-start;
             }
 
             .brand h1 {
                 font-size: 21px;
-            }
-
-            .language-switcher {
-                flex-shrink: 0;
             }
 
             .language-switcher button {
@@ -589,7 +820,16 @@
                 grid-template-columns: 1fr;
             }
 
+            .template-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .resume-paper {
+                padding: 25px;
+            }
+
+            .resume-paper.template-tech .resume-header {
+                margin: -25px -25px 25px;
                 padding: 25px;
             }
 
@@ -600,9 +840,11 @@
             .job-search-box {
                 flex-direction: column;
             }
+
         }
 
         @media (max-width: 450px) {
+
             .profession-grid {
                 grid-template-columns: 1fr;
             }
@@ -611,12 +853,18 @@
                 height: 180px;
             }
 
+            .template-grid {
+                grid-template-columns: 1fr;
+            }
+
             .resume-header {
                 flex-direction: column;
             }
+
         }
 
         @media print {
+
             body {
                 background: white;
             }
@@ -641,6 +889,10 @@
                 display: block !important;
             }
 
+            .design-panel {
+                display: none !important;
+            }
+
             .preview-wrapper {
                 padding: 0;
                 background: white;
@@ -650,526 +902,171 @@
                 box-shadow: none;
                 margin: 0;
                 max-width: none;
-                padding: 25px;
             }
+
         }
+
     </style>
+
 </head>
 
 <body>
 
 <header>
+
     <div class="header-inner">
 
         <div class="brand" onclick="showPage('homePage')">
+
             <h1>JobAI Slovakia</h1>
-            <p>AI помічник для пошуку роботи та створення резюме</p>
+
+            <p>
+                AI помічник для пошуку роботи та створення резюме
+            </p>
+
         </div>
 
+
         <div class="language-switcher">
-            <button id="langUk" onclick="setLanguage('uk')">🇺🇦</button>
-            <button id="langSk" onclick="setLanguage('sk')">🇸🇰</button>
-            <button id="langEn" onclick="setLanguage('en')">🇬🇧</button>
+
+            <button
+                id="langUk"
+                onclick="setLanguage('uk')">
+                🇺🇦
+            </button>
+
+            <button
+                id="langSk"
+                onclick="setLanguage('sk')">
+                🇸🇰
+            </button>
+
+            <button
+                id="langEn"
+                onclick="setLanguage('en')">
+                🇬🇧
+            </button>
+
         </div>
 
     </div>
 
+
     <nav>
-        <button onclick="showPage('homePage')" data-i18n="navHome">Головна</button>
-        <button onclick="showPage('resumePage')" data-i18n="navResume">Резюме</button>
-        <button onclick="showPage('previewPage')" data-i18n="navPreview">Перегляд резюме</button>
-        <button onclick="showPage('analysisPage')" data-i18n="navAnalysis">Аналіз вакансії</button>
-        <button onclick="showPage('jobsPage')" data-i18n="navJobs">Пошук роботи</button>
+
+        <button
+            onclick="showPage('homePage')"
+            data-i18n="navHome">
+            Головна
+        </button>
+
+        <button
+            onclick="showPage('resumePage')"
+            data-i18n="navResume">
+            Резюме
+        </button>
+
+        <button
+            onclick="showPage('previewPage')"
+            data-i18n="navPreview">
+            Перегляд резюме
+        </button>
+
+        <button
+            onclick="showPage('analysisPage')"
+            data-i18n="navAnalysis">
+            Аналіз вакансії
+        </button>
+
+        <button
+            onclick="showPage('jobsPage')"
+            data-i18n="navJobs">
+            Пошук роботи
+        </button>
+
     </nav>
+
 </header>
+
 
 <main>
 
-    <!-- HOME -->
-    <section id="homePage" class="page active">
 
-        <div class="hero">
-            <h2 data-i18n="heroTitle">Знайди роботу у Словаччині</h2>
+<!-- =====================================================
+     HOME
+===================================================== -->
 
-            <p data-i18n="heroText">
-                Створи професійне резюме, проаналізуй вакансію та знайди роботу,
-                яка відповідає твоїм навичкам.
-            </p>
+<section
+    id="homePage"
+    class="page active">
 
-            <div class="hero-buttons">
-                <button class="btn" onclick="showPage('resumePage')" data-i18n="createResume">
-                    Створити резюме
-                </button>
+    <div class="hero">
 
-                <button class="btn secondary" onclick="showPage('analysisPage')" data-i18n="analyzeJobBtn">
-                    Аналіз вакансії
-                </button>
-
-                <button class="btn secondary" onclick="showPage('jobsPage')" data-i18n="searchJobsBtn">
-                    Пошук роботи
-                </button>
-            </div>
-        </div>
-
-        <h2 class="section-title" data-i18n="popularProfessions">
-            Популярні професії
+        <h2 data-i18n="heroTitle">
+            Знайди роботу у Словаччині
         </h2>
 
-        <div class="profession-grid">
+        <p data-i18n="heroText">
+            Створи професійне резюме, проаналізуй вакансію
+            та знайди роботу, яка відповідає твоїм навичкам.
+        </p>
 
-            <div class="profession-card" onclick="selectProfession('cnc')">
-                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=85"
-                     alt="CNC Operator">
-                <div class="profession-card-content">
-                    <h3 data-profession="cnc">CNC оператор</h3>
-                    <p data-i18n="professionDescription">Робота у виробництві</p>
-                </div>
-            </div>
 
-            <div class="profession-card" onclick="selectProfession('welder')">
-                <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=85"
-                     alt="Welder">
-                <div class="profession-card-content">
-                    <h3 data-profession="welder">Зварювальник</h3>
-                    <p data-i18n="professionDescription">Робота у виробництві</p>
-                </div>
-            </div>
-
-            <div class="profession-card" onclick="selectProfession('production')">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=85"
-                     alt="Production Operator">
-                <div class="profession-card-content">
-                    <h3 data-profession="production">Оператор виробництва</h3>
-                    <p data-i18n="professionDescription">Виробництво</p>
-                </div>
-            </div>
-
-            <div class="profession-card" onclick="selectProfession('mechanic')">
-                <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=900&q=85"
-                     alt="Mechanic">
-                <div class="profession-card-content">
-                    <h3 data-profession="mechanic">Механік</h3>
-                    <p data-i18n="professionDescription">Автомобілі та техніка</p>
-                </div>
-            </div>
-
-            <div class="profession-card" onclick="selectProfession('electrician')">
-                <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=85"
-                     alt="Electrician">
-                <div class="profession-card-content">
-                    <h3 data-profession="electrician">Електрик</h3>
-                    <p data-i18n="professionDescription">Електрика та монтаж</p>
-                </div>
-            </div>
-
-            <div class="profession-card" onclick="selectProfession('driver')">
-                <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=900&q=85"
-                     alt="Driver">
-                <div class="profession-card-content">
-                    <h3 data-profession="driver">Водій</h3>
-                    <p data-i18n="professionDescription">Транспорт</p>
-                </div>
-            </div>
-
-            <div class="profession-card" onclick="selectProfession('warehouse')">
-                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=85"
-                     alt="Warehouse">
-                <div class="profession-card-content">
-                    <h3 data-profession="warehouse">Працівник складу</h3>
-                    <p data-i18n="professionDescription">Логістика</p>
-                </div>
-            </div>
-
-            <div class="profession-card" onclick="selectProfession('programmer')">
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=85"
-                     alt="Programmer">
-                <div class="profession-card-content">
-                    <h3 data-profession="programmer">Програміст</h3>
-                    <p data-i18n="professionDescription">IT</p>
-                </div>
-            </div>
-
-            <div class="profession-card" onclick="selectProfession('builder')">
-                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=85"
-                     alt="Builder">
-                <div class="profession-card-content">
-                    <h3 data-profession="builder">Будівельник</h3>
-                    <p data-i18n="professionDescription">Будівництво</p>
-                </div>
-            </div>
-
-            <div class="profession-card" onclick="selectProfession('cook')">
-                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=900&q=85"
-                     alt="Cook">
-                <div class="profession-card-content">
-                    <h3 data-profession="cook">Кухар</h3>
-                    <p data-i18n="professionDescription">Готельно-ресторанна сфера</p>
-                </div>
-            </div>
-
-            <div class="profession-card" onclick="selectProfession('medical')">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=85"
-                     alt="Medical">
-                <div class="profession-card-content">
-                    <h3 data-profession="medical">Медичний працівник</h3>
-                    <p data-i18n="professionDescription">Медицина</p>
-                </div>
-            </div>
-
-            <div class="profession-card" onclick="selectProfession('quality')">
-                <!-- ВИПРАВЛЕНО ФОТО КОНТРОЛЮ ЯКОСТІ -->
-                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=85"
-                     alt="Quality Control">
-                <div class="profession-card-content">
-                    <h3 data-profession="quality">Контроль якості</h3>
-                    <p data-i18n="professionDescription">Якість та контроль</p>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- RESUME -->
-    <section id="resumePage" class="page">
-
-        <h2 class="section-title" data-i18n="resumeTitle">
-            Створення резюме
-        </h2>
-
-        <div class="panel">
-
-            <div class="form-grid">
-
-                <div class="form-group">
-                    <label data-i18n="nameLabel">Ім'я та прізвище</label>
-                    <input id="name" type="text">
-                </div>
-
-                <div class="form-group">
-                    <label data-i18n="positionLabel">Бажана посада</label>
-                    <input id="position" type="text">
-                </div>
-
-                <div class="form-group">
-                    <label data-i18n="phoneLabel">Телефон</label>
-                    <input id="phone" type="text">
-                </div>
-
-                <div class="form-group">
-                    <label data-i18n="emailLabel">Email</label>
-                    <input id="email" type="email">
-                </div>
-
-                <div class="form-group">
-                    <label data-i18n="cityLabel">Місто</label>
-                    <input id="city" type="text">
-                </div>
-
-                <div class="form-group">
-                    <label data-i18n="languagesLabel">Мови</label>
-                    <input id="languages" type="text">
-                </div>
-
-                <div class="form-group full">
-                    <label data-i18n="profileLabel">Профіль</label>
-                    <textarea id="profile"></textarea>
-                </div>
-
-                <div class="form-group full">
-                    <label data-i18n="skillsLabel">Навички</label>
-                    <textarea id="skills"></textarea>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- PHOTO -->
-
-        <div class="panel">
-
-            <h3 data-i18n="photoTitle">Фотографія</h3>
-
-            <div class="photo-box">
-
-                <div id="photoPreview" class="photo-preview">
-                    <span id="photoPlaceholder" data-i18n="photoPlaceholder">
-                        Фото не завантажено
-                    </span>
-                </div>
-
-                <div>
-                    <input
-                        id="photoInput"
-                        type="file"
-                        accept="image/*"
-                        onchange="handlePhotoUpload(event)"
-                    >
-
-                    <div class="actions">
-
-                        <button
-                            class="btn danger"
-                            type="button"
-                            onclick="removeResumePhoto()"
-                            data-i18n="removePhoto">
-                            Видалити фото
-                        </button>
-
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- EXPERIENCE -->
-
-        <div class="panel">
-
-            <h3 data-i18n="experienceTitle">
-                Досвід роботи
-            </h3>
-
-            <div id="experienceList"></div>
-
-            <button
-                class="btn secondary"
-                type="button"
-                onclick="addExperience()"
-                data-i18n="addExperience">
-                Додати досвід
-            </button>
-
-        </div>
-
-
-        <!-- EDUCATION -->
-
-        <div class="panel">
-
-            <h3 data-i18n="educationTitle">
-                Освіта
-            </h3>
-
-            <div id="educationList"></div>
-
-            <button
-                class="btn secondary"
-                type="button"
-                onclick="addEducation()"
-                data-i18n="addEducation">
-                Додати освіту
-            </button>
-
-        </div>
-
-
-        <div class="panel">
-
-            <div class="actions">
-
-                <button
-                    class="btn"
-                    onclick="saveResumeData()"
-                    data-i18n="saveResume">
-                    Зберегти резюме
-                </button>
-
-                <button
-                    class="btn secondary"
-                    onclick="showPage('previewPage'); updateResumePreview()"
-                    data-i18n="previewResume">
-                    Переглянути
-                </button>
-
-                <button
-                    class="btn secondary"
-                    onclick="exportResumeJSON()"
-                    data-i18n="exportResume">
-                    Експорт JSON
-                </button>
-
-                <label class="btn secondary" style="display:inline-block;">
-                    <span data-i18n="importResume">Імпорт JSON</span>
-                    <input
-                        type="file"
-                        accept=".json"
-                        onchange="importResumeJSON(event)"
-                        style="display:none;">
-                </label>
-
-                <button
-                    class="btn danger"
-                    onclick="clearResumeData()"
-                    data-i18n="clearResume">
-                    Очистити
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- PREVIEW -->
-
-    <section id="previewPage" class="page">
-
-        <div class="actions no-print">
+        <div class="hero-buttons">
 
             <button
                 class="btn"
-                onclick="updateResumePreview()"
-                data-i18n="refreshPreview">
-                Оновити
-            </button>
-
-            <button
-                class="btn success"
-                onclick="window.print()"
-                data-i18n="printPdf">
-                Друк / PDF
+                onclick="showPage('resumePage')"
+                data-i18n="createResume">
+                Створити резюме
             </button>
 
             <button
                 class="btn secondary"
-                onclick="showPage('resumePage')"
-                data-i18n="editResume">
-                Редагувати
+                onclick="showPage('analysisPage')"
+                data-i18n="analyzeJobBtn">
+                Аналіз вакансії
+            </button>
+
+            <button
+                class="btn secondary"
+                onclick="showPage('jobsPage')"
+                data-i18n="searchJobsBtn">
+                Пошук роботи
             </button>
 
         </div>
 
-        <div class="preview-wrapper">
-
-            <div id="resumePreview" class="resume-paper">
-
-                <div class="resume-header">
-
-                    <div>
-                        <h1 id="previewName">Ваше ім'я</h1>
-                        <h2 id="previewPosition">Бажана посада</h2>
-
-                        <p id="previewContact">
-                            Телефон · Email · Місто
-                        </p>
-                    </div>
-
-                    <div id="previewPhotoContainer"></div>
-
-                </div>
+    </div>
 
 
-                <div class="resume-section">
-
-                    <h3 data-i18n="profileLabel">
-                        Профіль
-                    </h3>
-
-                    <p id="previewProfile">—</p>
-
-                </div>
+    <h2
+        class="section-title"
+        data-i18n="popularProfessions">
+        Популярні професії
+    </h2>
 
 
-                <div class="resume-section">
-
-                    <h3 data-i18n="experienceTitle">
-                        Досвід роботи
-                    </h3>
-
-                    <div id="previewExperience">
-                        —
-                    </div>
-
-                </div>
+    <div class="profession-grid">
 
 
-                <div class="resume-section">
+        <div
+            class="profession-card"
+            onclick="selectProfession('cnc')">
 
-                    <h3 data-i18n="educationTitle">
-                        Освіта
-                    </h3>
+            <img
+                src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=85"
+                alt="CNC Operator">
 
-                    <div id="previewEducation">
-                        —
-                    </div>
+            <div class="profession-card-content">
 
-                </div>
+                <h3 data-profession="cnc">
+                    CNC оператор
+                </h3>
 
-
-                <div class="resume-section">
-
-                    <h3 data-i18n="skillsLabel">
-                        Навички
-                    </h3>
-
-                    <div
-                        id="previewSkills"
-                        class="resume-skills">
-                        —
-                    </div>
-
-                </div>
-
-
-                <div class="resume-section">
-
-                    <h3 data-i18n="languagesLabel">
-                        Мови
-                    </h3>
-
-                    <p id="previewLanguages">—</p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ANALYSIS -->
-
-    <section id="analysisPage" class="page">
-
-        <h2 class="section-title" data-i18n="analysisTitle">
-            Аналіз вакансії
-        </h2>
-
-        <div class="panel">
-
-            <label data-i18n="jobTextLabel">
-                Вставте текст вакансії
-            </label>
-
-            <textarea
-                id="jobText"
-                placeholder="Вставте сюди текст вакансії..."
-                data-i18n-placeholder="jobPlaceholder">
-            </textarea>
-
-            <div class="actions">
-
-                <button
-                    class="btn"
-                    onclick="analyzeJob()"
-                    data-i18n="analyzeBtn">
-                    Аналізувати
-                </button>
-
-                <button
-                    class="btn secondary"
-                    onclick="document.getElementById('jobText').value=''"
-                    data-i18n="clearJob">
-                    Очистити
-                </button>
+                <p data-i18n="professionDescription">
+                    Робота у виробництві
+                </p>
 
             </div>
 
@@ -1177,125 +1074,967 @@
 
 
         <div
-            id="analysisResult"
-            class="panel analysis-box"
-            style="display:none;">
+            class="profession-card"
+            onclick="selectProfession('welder')">
 
-            <h3 data-i18n="matchTitle">
-                Відповідність резюме
-            </h3>
+            <img
+                src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=85"
+                alt="Welder">
 
-            <div id="score" class="score-number">
-                0%
-            </div>
+            <div class="profession-card-content">
 
-            <div class="progress-container">
+                <h3 data-profession="welder">
+                    Зварювальник
+                </h3>
 
-                <div
-                    id="progressBar"
-                    class="progress-bar">
-                </div>
+                <p data-i18n="professionDescription">
+                    Робота у виробництві
+                </p>
 
             </div>
 
+        </div>
+
+
+        <div
+            class="profession-card"
+            onclick="selectProfession('production')">
+
+            <img
+                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=85"
+                alt="Production Operator">
+
+            <div class="profession-card-content">
+
+                <h3 data-profession="production">
+                    Оператор виробництва
+                </h3>
+
+                <p data-i18n="professionDescription">
+                    Виробництво
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="profession-card"
+            onclick="selectProfession('mechanic')">
+
+            <img
+                src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=900&q=85"
+                alt="Mechanic">
+
+            <div class="profession-card-content">
+
+                <h3 data-profession="mechanic">
+                    Механік
+                </h3>
+
+                <p data-i18n="professionDescription">
+                    Автомобілі та техніка
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="profession-card"
+            onclick="selectProfession('electrician')">
+
+            <img
+                src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=85"
+                alt="Electrician">
+
+            <div class="profession-card-content">
+
+                <h3 data-profession="electrician">
+                    Електрик
+                </h3>
+
+                <p data-i18n="professionDescription">
+                    Електрика та монтаж
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="profession-card"
+            onclick="selectProfession('driver')">
+
+            <img
+                src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=900&q=85"
+                alt="Driver">
+
+            <div class="profession-card-content">
+
+                <h3 data-profession="driver">
+                    Водій
+                </h3>
+
+                <p data-i18n="professionDescription">
+                    Транспорт
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="profession-card"
+            onclick="selectProfession('warehouse')">
+
+            <img
+                src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=85"
+                alt="Warehouse">
+
+            <div class="profession-card-content">
+
+                <h3 data-profession="warehouse">
+                    Працівник складу
+                </h3>
+
+                <p data-i18n="professionDescription">
+                    Логістика
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="profession-card"
+            onclick="selectProfession('programmer')">
+
+            <img
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=85"
+                alt="Programmer">
+
+            <div class="profession-card-content">
+
+                <h3 data-profession="programmer">
+                    Програміст
+                </h3>
+
+                <p data-i18n="professionDescription">
+                    IT
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="profession-card"
+            onclick="selectProfession('builder')">
+
+            <img
+                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=85"
+                alt="Builder">
+
+            <div class="profession-card-content">
+
+                <h3 data-profession="builder">
+                    Будівельник
+                </h3>
+
+                <p data-i18n="professionDescription">
+                    Будівництво
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="profession-card"
+            onclick="selectProfession('cook')">
+
+            <img
+                src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=900&q=85"
+                alt="Cook">
+
+            <div class="profession-card-content">
+
+                <h3 data-profession="cook">
+                    Кухар
+                </h3>
+
+                <p data-i18n="professionDescription">
+                    Готельно-ресторанна сфера
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="profession-card"
+            onclick="selectProfession('medical')">
+
+            <img
+                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=85"
+                alt="Medical">
+
+            <div class="profession-card-content">
+
+                <h3 data-profession="medical">
+                    Медичний працівник
+                </h3>
+
+                <p data-i18n="professionDescription">
+                    Медицина
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="profession-card"
+            onclick="selectProfession('quality')">
+
+            <img
+                src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=85"
+                alt="Quality Control">
+
+            <div class="profession-card-content">
+
+                <h3 data-profession="quality">
+                    Контроль якості
+                </h3>
+
+                <p data-i18n="professionDescription">
+                    Якість та контроль
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     RESUME
+===================================================== -->
+
+<section
+    id="resumePage"
+    class="page">
+
+    <h2
+        class="section-title"
+        data-i18n="resumeTitle">
+        Створення резюме
+    </h2>
+
+
+    <div class="panel">
+
+        <div class="form-grid">
+
+
+            <div class="form-group">
+
+                <label data-i18n="nameLabel">
+                    Ім'я та прізвище
+                </label>
+
+                <input id="name" type="text">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label data-i18n="positionLabel">
+                    Бажана посада
+                </label>
+
+                <input id="position" type="text">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label data-i18n="phoneLabel">
+                    Телефон
+                </label>
+
+                <input id="phone" type="text">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label data-i18n="emailLabel">
+                    Email
+                </label>
+
+                <input id="email" type="email">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label data-i18n="cityLabel">
+                    Місто
+                </label>
+
+                <input id="city" type="text">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label data-i18n="languagesLabel">
+                    Мови
+                </label>
+
+                <input id="languages" type="text">
+
+            </div>
+
+
+            <div class="form-group full">
+
+                <label data-i18n="profileLabel">
+                    Профіль
+                </label>
+
+                <textarea id="profile"></textarea>
+
+            </div>
+
+
+            <div class="form-group full">
+
+                <label data-i18n="skillsLabel">
+                    Навички
+                </label>
+
+                <textarea id="skills"></textarea>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="panel">
+
+        <h3 data-i18n="photoTitle">
+            Фотографія
+        </h3>
+
+
+        <div class="photo-box">
 
             <div
-                id="detectedJobs"
-                class="panel"
-                style="display:none;">
-            </div>
+                id="photoPreview"
+                class="photo-preview">
 
-
-            <div class="analysis-columns">
-
-                <div class="analysis-column">
-
-                    <h4 data-i18n="foundSkills">
-                        Знайдені навички
-                    </h4>
-
-                    <div id="found">
-                        —
-                    </div>
-
-                </div>
-
-
-                <div class="analysis-column">
-
-                    <h4 data-i18n="missingSkills">
-                        Відсутні навички
-                    </h4>
-
-                    <div id="missing">
-                        —
-                    </div>
-
-                </div>
+                <span
+                    id="photoPlaceholder"
+                    data-i18n="photoPlaceholder">
+                    Фото не завантажено
+                </span>
 
             </div>
 
 
-            <div style="margin-top:20px;">
+            <div>
 
-                <h4 data-i18n="recommendationTitle">
-                    Рекомендація
-                </h4>
+                <input
+                    id="photoInput"
+                    type="file"
+                    accept="image/*"
+                    onchange="handlePhotoUpload(event)">
 
-                <div
-                    id="recommendation"
-                    class="recommendation">
+
+                <div class="actions">
+
+                    <button
+                        class="btn danger"
+                        type="button"
+                        onclick="removeResumePhoto()"
+                        data-i18n="removePhoto">
+                        Видалити фото
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="panel">
+
+        <h3 data-i18n="experienceTitle">
+            Досвід роботи
+        </h3>
+
+        <div id="experienceList"></div>
+
+        <button
+            class="btn secondary"
+            type="button"
+            onclick="addExperience()"
+            data-i18n="addExperience">
+            Додати досвід
+        </button>
+
+    </div>
+
+
+    <div class="panel">
+
+        <h3 data-i18n="educationTitle">
+            Освіта
+        </h3>
+
+        <div id="educationList"></div>
+
+        <button
+            class="btn secondary"
+            type="button"
+            onclick="addEducation()"
+            data-i18n="addEducation">
+            Додати освіту
+        </button>
+
+    </div>
+
+
+    <div class="panel">
+
+        <div class="actions">
+
+            <button
+                class="btn"
+                onclick="saveResumeData()"
+                data-i18n="saveResume">
+                Зберегти резюме
+            </button>
+
+            <button
+                class="btn secondary"
+                onclick="showPage('previewPage'); updateResumePreview()"
+                data-i18n="previewResume">
+                Переглянути
+            </button>
+
+            <button
+                class="btn secondary"
+                onclick="exportResumeJSON()"
+                data-i18n="exportResume">
+                Експорт JSON
+            </button>
+
+
+            <label
+                class="btn secondary"
+                style="display:inline-block;">
+
+                <span data-i18n="importResume">
+                    Імпорт JSON
+                </span>
+
+                <input
+                    type="file"
+                    accept=".json"
+                    onchange="importResumeJSON(event)"
+                    style="display:none;">
+
+            </label>
+
+
+            <button
+                class="btn danger"
+                onclick="clearResumeData()"
+                data-i18n="clearResume">
+                Очистити
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PREVIEW
+===================================================== -->
+
+<section
+    id="previewPage"
+    class="page">
+
+
+    <div class="design-panel no-print">
+
+        <h3 data-i18n="designTitle">
+            Дизайн резюме
+        </h3>
+
+
+        <div class="template-grid">
+
+
+            <button
+                class="template-button"
+                data-template="modern"
+                onclick="selectTemplate('modern')">
+
+                <span
+                    class="template-name"
+                    data-i18n="templateModern">
+                    Modern
+                </span>
+
+                <span
+                    class="template-description"
+                    data-i18n="templateModernDesc">
+                    Сучасний
+                </span>
+
+            </button>
+
+
+            <button
+                class="template-button"
+                data-template="professional"
+                onclick="selectTemplate('professional')">
+
+                <span
+                    class="template-name"
+                    data-i18n="templateProfessional">
+                    Professional
+                </span>
+
+                <span
+                    class="template-description"
+                    data-i18n="templateProfessionalDesc">
+                    Строгий
+                </span>
+
+            </button>
+
+
+            <button
+                class="template-button"
+                data-template="classic"
+                onclick="selectTemplate('classic')">
+
+                <span
+                    class="template-name"
+                    data-i18n="templateClassic">
+                    Classic
+                </span>
+
+                <span
+                    class="template-description"
+                    data-i18n="templateClassicDesc">
+                    Класичний
+                </span>
+
+            </button>
+
+
+            <button
+                class="template-button"
+                data-template="tech"
+                onclick="selectTemplate('tech')">
+
+                <span
+                    class="template-name"
+                    data-i18n="templateTech">
+                    Tech
+                </span>
+
+                <span
+                    class="template-description"
+                    data-i18n="templateTechDesc">
+                    Технологічний
+                </span>
+
+            </button>
+
+
+            <button
+                class="template-button"
+                data-template="compact"
+                onclick="selectTemplate('compact')">
+
+                <span
+                    class="template-name"
+                    data-i18n="templateCompact">
+                    Compact
+                </span>
+
+                <span
+                    class="template-description"
+                    data-i18n="templateCompactDesc">
+                    Компактний
+                </span>
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="actions no-print">
+
+        <button
+            class="btn"
+            onclick="updateResumePreview()"
+            data-i18n="refreshPreview">
+            Оновити
+        </button>
+
+
+        <button
+            class="btn success"
+            onclick="window.print()"
+            data-i18n="printPdf">
+            Друк / PDF
+        </button>
+
+
+        <button
+            class="btn secondary"
+            onclick="showPage('resumePage')"
+            data-i18n="editResume">
+            Редагувати
+        </button>
+
+    </div>
+
+
+    <div class="preview-wrapper">
+
+        <div
+            id="resumePreview"
+            class="resume-paper template-modern">
+
+
+            <div class="resume-header">
+
+
+                <div>
+
+                    <h1 id="previewName">
+                        Ваше ім'я
+                    </h1>
+
+                    <h2 id="previewPosition">
+                        Бажана посада
+                    </h2>
+
+                    <p id="previewContact">
+                        Телефон · Email · Місто
+                    </p>
+
+                </div>
+
+
+                <div id="previewPhotoContainer"></div>
+
+
+            </div>
+
+
+            <div class="resume-section">
+
+                <h3 data-i18n="profileLabel">
+                    Профіль
+                </h3>
+
+                <p id="previewProfile">
+                    —
+                </p>
+
+            </div>
+
+
+            <div class="resume-section">
+
+                <h3 data-i18n="experienceTitle">
+                    Досвід роботи
+                </h3>
+
+                <div id="previewExperience">
                     —
                 </div>
 
             </div>
 
+
+            <div class="resume-section">
+
+                <h3 data-i18n="educationTitle">
+                    Освіта
+                </h3>
+
+                <div id="previewEducation">
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="resume-section">
+
+                <h3 data-i18n="skillsLabel">
+                    Навички
+                </h3>
+
+                <div
+                    id="previewSkills"
+                    class="resume-skills">
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="resume-section">
+
+                <h3 data-i18n="languagesLabel">
+                    Мови
+                </h3>
+
+                <p id="previewLanguages">
+                    —
+                </p>
+
+            </div>
+
+
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- JOB SEARCH -->
+<!-- =====================================================
+     ANALYSIS
+===================================================== -->
 
-    <section id="jobsPage" class="page">
+<section
+    id="analysisPage"
+    class="page">
 
-        <h2 class="section-title" data-i18n="jobsTitle">
-            Пошук роботи
-        </h2>
+    <h2
+        class="section-title"
+        data-i18n="analysisTitle">
+        Аналіз вакансії
+    </h2>
 
-        <div class="panel">
 
-            <div class="job-search-box">
+    <div class="panel">
 
-                <input
-                    id="jobQuery"
-                    type="text"
-                    placeholder="Наприклад: CNC operator"
-                    data-i18n-placeholder="jobSearchPlaceholder">
+        <label data-i18n="jobTextLabel">
+            Вставте текст вакансії
+        </label>
 
-                <button
-                    class="btn"
-                    onclick="searchJobs()"
-                    data-i18n="searchBtn">
-                    Пошук
-                </button>
 
+        <textarea
+            id="jobText"
+            placeholder="Вставте сюди текст вакансії..."
+            data-i18n-placeholder="jobPlaceholder">
+        </textarea>
+
+
+        <div class="actions">
+
+            <button
+                class="btn"
+                onclick="analyzeJob()"
+                data-i18n="analyzeBtn">
+                Аналізувати
+            </button>
+
+
+            <button
+                class="btn secondary"
+                onclick="document.getElementById('jobText').value=''"
+                data-i18n="clearJob">
+                Очистити
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="analysisResult"
+        class="panel analysis-box"
+        style="display:none;">
+
+
+        <h3 data-i18n="matchTitle">
+            Відповідність резюме
+        </h3>
+
+
+        <div
+            id="score"
+            class="score-number">
+            0%
+        </div>
+
+
+        <div class="progress-container">
+
+            <div
+                id="progressBar"
+                class="progress-bar">
             </div>
 
         </div>
 
 
-        <div id="jobResults"></div>
-
-
         <div
-            id="jobLinks"
+            id="detectedJobs"
             class="panel"
             style="display:none;">
+        </div>
+
+
+        <div class="analysis-columns">
+
+
+            <div class="analysis-column">
+
+                <h4 data-i18n="foundSkills">
+                    Знайдені навички
+                </h4>
+
+                <div id="found">
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="analysis-column">
+
+                <h4 data-i18n="missingSkills">
+                    Відсутні навички
+                </h4>
+
+                <div id="missing">
+                    —
+                </div>
+
+            </div>
+
 
         </div>
 
-    </section>
+
+        <div style="margin-top:20px;">
+
+            <h4 data-i18n="recommendationTitle">
+                Рекомендація
+            </h4>
+
+            <div
+                id="recommendation"
+                class="recommendation">
+                —
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     JOB SEARCH
+===================================================== -->
+
+<section
+    id="jobsPage"
+    class="page">
+
+    <h2
+        class="section-title"
+        data-i18n="jobsTitle">
+        Пошук роботи
+    </h2>
+
+
+    <div class="panel">
+
+        <div class="job-search-box">
+
+            <input
+                id="jobQuery"
+                type="text"
+                placeholder="Наприклад: CNC operator"
+                data-i18n-placeholder="jobSearchPlaceholder">
+
+
+            <button
+                class="btn"
+                onclick="searchJobs()"
+                data-i18n="searchBtn">
+                Пошук
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div id="jobResults"></div>
+
+
+    <div
+        id="jobLinks"
+        class="panel"
+        style="display:none;">
+    </div>
+
+</section>
+
 
 </main>
 
@@ -1311,6 +2050,11 @@
 
 
 <script>
+
+
+/* =========================================================
+   TRANSLATIONS
+========================================================= */
 
 const translations = {
 
@@ -1336,51 +2080,146 @@ const translations = {
         professionDescription:
             "Робота у Словаччині",
 
-        resumeTitle: "Створення резюме",
+        resumeTitle:
+            "Створення резюме",
 
-        nameLabel: "Ім'я та прізвище",
-        positionLabel: "Бажана посада",
-        phoneLabel: "Телефон",
-        emailLabel: "Email",
-        cityLabel: "Місто",
-        languagesLabel: "Мови",
-        profileLabel: "Профіль",
-        skillsLabel: "Навички",
+        nameLabel:
+            "Ім'я та прізвище",
 
-        photoTitle: "Фотографія",
-        photoPlaceholder: "Фото не завантажено",
-        removePhoto: "Видалити фото",
+        positionLabel:
+            "Бажана посада",
 
-        experienceTitle: "Досвід роботи",
-        addExperience: "Додати досвід",
+        phoneLabel:
+            "Телефон",
 
-        educationTitle: "Освіта",
-        addEducation: "Додати освіту",
+        emailLabel:
+            "Email",
 
-        saveResume: "Зберегти резюме",
-        previewResume: "Переглянути",
-        exportResume: "Експорт JSON",
-        importResume: "Імпорт JSON",
-        clearResume: "Очистити",
+        cityLabel:
+            "Місто",
 
-        refreshPreview: "Оновити",
-        printPdf: "Друк / PDF",
-        editResume: "Редагувати",
+        languagesLabel:
+            "Мови",
 
-        analysisTitle: "Аналіз вакансії",
-        jobTextLabel: "Вставте текст вакансії",
-        jobPlaceholder: "Вставте сюди текст вакансії...",
-        analyzeBtn: "Аналізувати",
-        clearJob: "Очистити",
+        profileLabel:
+            "Профіль",
 
-        matchTitle: "Відповідність резюме",
-        foundSkills: "Знайдені навички",
-        missingSkills: "Відсутні навички",
-        recommendationTitle: "Рекомендація",
+        skillsLabel:
+            "Навички",
 
-        jobsTitle: "Пошук роботи",
-        jobSearchPlaceholder: "Наприклад: CNC operator",
-        searchBtn: "Пошук"
+        photoTitle:
+            "Фотографія",
+
+        photoPlaceholder:
+            "Фото не завантажено",
+
+        removePhoto:
+            "Видалити фото",
+
+        experienceTitle:
+            "Досвід роботи",
+
+        addExperience:
+            "Додати досвід",
+
+        educationTitle:
+            "Освіта",
+
+        addEducation:
+            "Додати освіту",
+
+        saveResume:
+            "Зберегти резюме",
+
+        previewResume:
+            "Переглянути",
+
+        exportResume:
+            "Експорт JSON",
+
+        importResume:
+            "Імпорт JSON",
+
+        clearResume:
+            "Очистити",
+
+        designTitle:
+            "Дизайн резюме",
+
+        templateModern:
+            "Modern",
+
+        templateModernDesc:
+            "Сучасний",
+
+        templateProfessional:
+            "Professional",
+
+        templateProfessionalDesc:
+            "Строгий",
+
+        templateClassic:
+            "Classic",
+
+        templateClassicDesc:
+            "Класичний",
+
+        templateTech:
+            "Tech",
+
+        templateTechDesc:
+            "Технологічний",
+
+        templateCompact:
+            "Compact",
+
+        templateCompactDesc:
+            "Компактний",
+
+        refreshPreview:
+            "Оновити",
+
+        printPdf:
+            "Друк / PDF",
+
+        editResume:
+            "Редагувати",
+
+        analysisTitle:
+            "Аналіз вакансії",
+
+        jobTextLabel:
+            "Вставте текст вакансії",
+
+        jobPlaceholder:
+            "Вставте сюди текст вакансії...",
+
+        analyzeBtn:
+            "Аналізувати",
+
+        clearJob:
+            "Очистити",
+
+        matchTitle:
+            "Відповідність резюме",
+
+        foundSkills:
+            "Знайдені навички",
+
+        missingSkills:
+            "Відсутні навички",
+
+        recommendationTitle:
+            "Рекомендація",
+
+        jobsTitle:
+            "Пошук роботи",
+
+        jobSearchPlaceholder:
+            "Наприклад: CNC operator",
+
+        searchBtn:
+            "Пошук"
 
     },
 
@@ -1393,65 +2232,167 @@ const translations = {
         navAnalysis: "Analýza pracovnej ponuky",
         navJobs: "Hľadanie práce",
 
-        heroTitle: "Nájdite si prácu na Slovensku",
+        heroTitle:
+            "Nájdite si prácu na Slovensku",
 
         heroText:
             "Vytvorte profesionálny životopis, analyzujte pracovnú ponuku a nájdite prácu podľa svojich zručností.",
 
-        createResume: "Vytvoriť životopis",
-        analyzeJobBtn: "Analýza ponuky",
-        searchJobsBtn: "Hľadať prácu",
+        createResume:
+            "Vytvoriť životopis",
 
-        popularProfessions: "Populárne profesie",
+        analyzeJobBtn:
+            "Analýza ponuky",
+
+        searchJobsBtn:
+            "Hľadať prácu",
+
+        popularProfessions:
+            "Populárne profesie",
 
         professionDescription:
             "Práca na Slovensku",
 
-        resumeTitle: "Vytvorenie životopisu",
+        resumeTitle:
+            "Vytvorenie životopisu",
 
-        nameLabel: "Meno a priezvisko",
-        positionLabel: "Požadovaná pozícia",
-        phoneLabel: "Telefón",
-        emailLabel: "Email",
-        cityLabel: "Mesto",
-        languagesLabel: "Jazyky",
-        profileLabel: "Profil",
-        skillsLabel: "Zručnosti",
+        nameLabel:
+            "Meno a priezvisko",
 
-        photoTitle: "Fotografia",
-        photoPlaceholder: "Fotografia nebola nahraná",
-        removePhoto: "Odstrániť fotografiu",
+        positionLabel:
+            "Požadovaná pozícia",
 
-        experienceTitle: "Pracovné skúsenosti",
-        addExperience: "Pridať skúsenosť",
+        phoneLabel:
+            "Telefón",
 
-        educationTitle: "Vzdelanie",
-        addEducation: "Pridať vzdelanie",
+        emailLabel:
+            "Email",
 
-        saveResume: "Uložiť životopis",
-        previewResume: "Náhľad",
-        exportResume: "Export JSON",
-        importResume: "Import JSON",
-        clearResume: "Vymazať",
+        cityLabel:
+            "Mesto",
 
-        refreshPreview: "Aktualizovať",
-        printPdf: "Tlač / PDF",
-        editResume: "Upraviť",
+        languagesLabel:
+            "Jazyky",
 
-        analysisTitle: "Analýza pracovnej ponuky",
-        jobTextLabel: "Vložte text pracovnej ponuky",
-        jobPlaceholder: "Vložte sem text pracovnej ponuky...",
-        analyzeBtn: "Analyzovať",
-        clearJob: "Vymazať",
+        profileLabel:
+            "Profil",
 
-        matchTitle: "Zhoda so životopisom",
-        foundSkills: "Nájdené zručnosti",
-        missingSkills: "Chýbajúce zručnosti",
-        recommendationTitle: "Odporúčanie",
+        skillsLabel:
+            "Zručnosti",
 
-        jobsTitle: "Hľadanie práce",
-        jobSearchPlaceholder: "Napríklad: CNC operator",
-        searchBtn: "Hľadať"
+        photoTitle:
+            "Fotografia",
+
+        photoPlaceholder:
+            "Fotografia nebola nahraná",
+
+        removePhoto:
+            "Odstrániť fotografiu",
+
+        experienceTitle:
+            "Pracovné skúsenosti",
+
+        addExperience:
+            "Pridať skúsenosť",
+
+        educationTitle:
+            "Vzdelanie",
+
+        addEducation:
+            "Pridať vzdelanie",
+
+        saveResume:
+            "Uložiť životopis",
+
+        previewResume:
+            "Náhľad",
+
+        exportResume:
+            "Export JSON",
+
+        importResume:
+            "Import JSON",
+
+        clearResume:
+            "Vymazať",
+
+        designTitle:
+            "Dizajn životopisu",
+
+        templateModern:
+            "Modern",
+
+        templateModernDesc:
+            "Moderný",
+
+        templateProfessional:
+            "Professional",
+
+        templateProfessionalDesc:
+            "Profesionálny",
+
+        templateClassic:
+            "Classic",
+
+        templateClassicDesc:
+            "Klasický",
+
+        templateTech:
+            "Tech",
+
+        templateTechDesc:
+            "Technologický",
+
+        templateCompact:
+            "Compact",
+
+        templateCompactDesc:
+            "Kompaktný",
+
+        refreshPreview:
+            "Aktualizovať",
+
+        printPdf:
+            "Tlač / PDF",
+
+        editResume:
+            "Upraviť",
+
+        analysisTitle:
+            "Analýza pracovnej ponuky",
+
+        jobTextLabel:
+            "Vložte text pracovnej ponuky",
+
+        jobPlaceholder:
+            "Vložte sem text pracovnej ponuky...",
+
+        analyzeBtn:
+            "Analyzovať",
+
+        clearJob:
+            "Vymazať",
+
+        matchTitle:
+            "Zhoda so životopisom",
+
+        foundSkills:
+            "Nájdené zručnosti",
+
+        missingSkills:
+            "Chýbajúce zručnosti",
+
+        recommendationTitle:
+            "Odporúčanie",
+
+        jobsTitle:
+            "Hľadanie práce",
+
+        jobSearchPlaceholder:
+            "Napríklad: CNC operator",
+
+        searchBtn:
+            "Hľadať"
 
     },
 
@@ -1464,70 +2405,176 @@ const translations = {
         navAnalysis: "Job Analysis",
         navJobs: "Job Search",
 
-        heroTitle: "Find a job in Slovakia",
+        heroTitle:
+            "Find a job in Slovakia",
 
         heroText:
             "Create a professional resume, analyze job offers and find a job matching your skills.",
 
-        createResume: "Create Resume",
-        analyzeJobBtn: "Job Analysis",
-        searchJobsBtn: "Search Jobs",
+        createResume:
+            "Create Resume",
 
-        popularProfessions: "Popular professions",
+        analyzeJobBtn:
+            "Job Analysis",
+
+        searchJobsBtn:
+            "Search Jobs",
+
+        popularProfessions:
+            "Popular professions",
 
         professionDescription:
             "Jobs in Slovakia",
 
-        resumeTitle: "Create Resume",
+        resumeTitle:
+            "Create Resume",
 
-        nameLabel: "Full name",
-        positionLabel: "Desired position",
-        phoneLabel: "Phone",
-        emailLabel: "Email",
-        cityLabel: "City",
-        languagesLabel: "Languages",
-        profileLabel: "Profile",
-        skillsLabel: "Skills",
+        nameLabel:
+            "Full name",
 
-        photoTitle: "Photo",
-        photoPlaceholder: "No photo uploaded",
-        removePhoto: "Remove photo",
+        positionLabel:
+            "Desired position",
 
-        experienceTitle: "Work experience",
-        addExperience: "Add experience",
+        phoneLabel:
+            "Phone",
 
-        educationTitle: "Education",
-        addEducation: "Add education",
+        emailLabel:
+            "Email",
 
-        saveResume: "Save Resume",
-        previewResume: "Preview",
-        exportResume: "Export JSON",
-        importResume: "Import JSON",
-        clearResume: "Clear",
+        cityLabel:
+            "City",
 
-        refreshPreview: "Refresh",
-        printPdf: "Print / PDF",
-        editResume: "Edit",
+        languagesLabel:
+            "Languages",
 
-        analysisTitle: "Job Analysis",
-        jobTextLabel: "Paste job description",
-        jobPlaceholder: "Paste the job description here...",
-        analyzeBtn: "Analyze",
-        clearJob: "Clear",
+        profileLabel:
+            "Profile",
 
-        matchTitle: "Resume match",
-        foundSkills: "Matching skills",
-        missingSkills: "Missing skills",
-        recommendationTitle: "Recommendation",
+        skillsLabel:
+            "Skills",
 
-        jobsTitle: "Job Search",
-        jobSearchPlaceholder: "For example: CNC operator",
-        searchBtn: "Search"
+        photoTitle:
+            "Photo",
+
+        photoPlaceholder:
+            "No photo uploaded",
+
+        removePhoto:
+            "Remove photo",
+
+        experienceTitle:
+            "Work experience",
+
+        addExperience:
+            "Add experience",
+
+        educationTitle:
+            "Education",
+
+        addEducation:
+            "Add education",
+
+        saveResume:
+            "Save Resume",
+
+        previewResume:
+            "Preview",
+
+        exportResume:
+            "Export JSON",
+
+        importResume:
+            "Import JSON",
+
+        clearResume:
+            "Clear",
+
+        designTitle:
+            "Resume Design",
+
+        templateModern:
+            "Modern",
+
+        templateModernDesc:
+            "Modern",
+
+        templateProfessional:
+            "Professional",
+
+        templateProfessionalDesc:
+            "Professional",
+
+        templateClassic:
+            "Classic",
+
+        templateClassicDesc:
+            "Classic",
+
+        templateTech:
+            "Tech",
+
+        templateTechDesc:
+            "Technology",
+
+        templateCompact:
+            "Compact",
+
+        templateCompactDesc:
+            "Compact",
+
+        refreshPreview:
+            "Refresh",
+
+        printPdf:
+            "Print / PDF",
+
+        editResume:
+            "Edit",
+
+        analysisTitle:
+            "Job Analysis",
+
+        jobTextLabel:
+            "Paste job description",
+
+        jobPlaceholder:
+            "Paste the job description here...",
+
+        analyzeBtn:
+            "Analyze",
+
+        clearJob:
+            "Clear",
+
+        matchTitle:
+            "Resume match",
+
+        foundSkills:
+            "Matching skills",
+
+        missingSkills:
+            "Missing skills",
+
+        recommendationTitle:
+            "Recommendation",
+
+        jobsTitle:
+            "Job Search",
+
+        jobSearchPlaceholder:
+            "For example: CNC operator",
+
+        searchBtn:
+            "Search"
 
     }
 
 };
 
+
+/* =========================================================
+   PROFESSIONS
+========================================================= */
 
 const professionTranslations = {
 
@@ -1579,68 +2626,85 @@ const professionTranslations = {
 };
 
 
-const professionKeys = [
-    "cnc",
-    "welder",
-    "production",
-    "mechanic",
-    "electrician",
-    "driver",
-    "warehouse",
-    "programmer",
-    "builder",
-    "cook",
-    "medical",
-    "quality"
-];
-
+/* =========================================================
+   LANGUAGE
+========================================================= */
 
 function setLanguage(language) {
 
-    localStorage.setItem("jobaiLanguage", language);
+    localStorage.setItem(
+        "jobaiLanguage",
+        language
+    );
 
-    document.documentElement.lang = language;
+
+    document.documentElement.lang =
+        language;
+
 
     const dictionary =
-        translations[language] || translations.uk;
+        translations[language] ||
+        translations.uk;
 
-    document.querySelectorAll("[data-i18n]")
+
+    document
+        .querySelectorAll("[data-i18n]")
         .forEach(function(element) {
 
-            const key = element.getAttribute("data-i18n");
+            const key =
+                element.getAttribute(
+                    "data-i18n"
+                );
+
 
             if (dictionary[key]) {
-                element.textContent = dictionary[key];
+
+                element.textContent =
+                    dictionary[key];
+
             }
 
         });
 
 
-    document.querySelectorAll("[data-i18n-placeholder]")
+    document
+        .querySelectorAll("[data-i18n-placeholder]")
         .forEach(function(element) {
 
             const key =
-                element.getAttribute("data-i18n-placeholder");
+                element.getAttribute(
+                    "data-i18n-placeholder"
+                );
+
 
             if (dictionary[key]) {
-                element.placeholder = dictionary[key];
+
+                element.placeholder =
+                    dictionary[key];
+
             }
 
         });
 
 
-    document.querySelectorAll("[data-profession]")
+    document
+        .querySelectorAll("[data-profession]")
         .forEach(function(element) {
 
             const key =
-                element.getAttribute("data-profession");
+                element.getAttribute(
+                    "data-profession"
+                );
+
 
             if (
                 professionTranslations[language] &&
                 professionTranslations[language][key]
             ) {
+
                 element.textContent =
                     professionTranslations[language][key];
+
             }
 
         });
@@ -1648,86 +2712,160 @@ function setLanguage(language) {
 
     document
         .getElementById("langUk")
-        .classList.toggle("active", language === "uk");
+        .classList
+        .toggle(
+            "active",
+            language === "uk"
+        );
+
 
     document
         .getElementById("langSk")
-        .classList.toggle("active", language === "sk");
+        .classList
+        .toggle(
+            "active",
+            language === "sk"
+        );
+
 
     document
         .getElementById("langEn")
-        .classList.toggle("active", language === "en");
+        .classList
+        .toggle(
+            "active",
+            language === "en"
+        );
+
 }
 
+
+/* =========================================================
+   PAGE
+========================================================= */
 
 function showPage(pageId) {
 
     document
         .querySelectorAll(".page")
         .forEach(function(page) {
-            page.classList.remove("active");
+
+            page.classList.remove(
+                "active"
+            );
+
         });
 
+
     const page =
-        document.getElementById(pageId);
+        document.getElementById(
+            pageId
+        );
+
 
     if (page) {
-        page.classList.add("active");
+
+        page.classList.add(
+            "active"
+        );
+
     }
+
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
 
+
     if (pageId === "previewPage") {
+
         setTimeout(function() {
+
             updateResumePreview();
+
+            loadSelectedTemplate();
+
         }, 50);
+
     }
+
 }
 
+
+/* =========================================================
+   PROFESSION SELECT
+========================================================= */
 
 function selectProfession(profession) {
 
     const language =
-        localStorage.getItem("jobaiLanguage") || "uk";
+        localStorage.getItem(
+            "jobaiLanguage"
+        ) || "uk";
+
 
     const name =
         professionTranslations[language][profession] ||
         profession;
 
+
     const position =
-        document.getElementById("position");
+        document.getElementById(
+            "position"
+        );
+
 
     if (position) {
-        position.value = name;
+
+        position.value =
+            name;
+
     }
 
-    showPage("resumePage");
+
+    showPage(
+        "resumePage"
+    );
+
 
     const skills =
-        document.getElementById("skills");
+        document.getElementById(
+            "skills"
+        );
+
 
     if (
         skills &&
         typeof window.findJobSkills === "function"
     ) {
+
         const detectedSkills =
-            window.findJobSkills(name);
+            window.findJobSkills(
+                name
+            );
+
 
         if (
             detectedSkills &&
             detectedSkills.length
         ) {
+
             skills.value =
                 detectedSkills.join(", ");
+
         }
+
     }
 
+
     updateResumePreview();
+
 }
 
+
+/* =========================================================
+   ESCAPE
+========================================================= */
 
 function escapeText(value) {
 
@@ -1737,46 +2875,162 @@ function escapeText(value) {
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
+
 }
 
 
-function updatePreviewFallback() {
+/* =========================================================
+   TEMPLATE SYSTEM
+========================================================= */
+
+const TEMPLATE_STORAGE_KEY =
+    "jobaiResumeTemplate";
+
+
+const availableTemplates = [
+    "modern",
+    "professional",
+    "classic",
+    "tech",
+    "compact"
+];
+
+
+function selectTemplate(template) {
 
     if (
-        typeof window.updateResumePreview === "function"
+        !availableTemplates.includes(
+            template
+        )
     ) {
-        window.updateResumePreview();
+
+        template = "modern";
+
     }
+
+
+    localStorage.setItem(
+        TEMPLATE_STORAGE_KEY,
+        template
+    );
+
+
+    applyTemplate(
+        template
+    );
 
 }
 
+
+function applyTemplate(template) {
+
+    const preview =
+        document.getElementById(
+            "resumePreview"
+        );
+
+
+    if (!preview) {
+        return;
+    }
+
+
+    availableTemplates.forEach(
+        function(templateName) {
+
+            preview.classList.remove(
+                "template-" +
+                templateName
+            );
+
+        }
+    );
+
+
+    preview.classList.add(
+        "template-" +
+        template
+    );
+
+
+    document
+        .querySelectorAll(
+            ".template-button"
+        )
+        .forEach(function(button) {
+
+            button.classList.toggle(
+                "active",
+                button.dataset.template ===
+                template
+            );
+
+        });
+
+}
+
+
+function loadSelectedTemplate() {
+
+    const savedTemplate =
+        localStorage.getItem(
+            TEMPLATE_STORAGE_KEY
+        ) || "modern";
+
+
+    applyTemplate(
+        savedTemplate
+    );
+
+}
+
+
+/* =========================================================
+   JOB SEARCH
+========================================================= */
 
 function searchJobs() {
 
     const input =
-        document.getElementById("jobQuery");
+        document.getElementById(
+            "jobQuery"
+        );
+
 
     const results =
-        document.getElementById("jobResults");
+        document.getElementById(
+            "jobResults"
+        );
+
 
     const links =
-        document.getElementById("jobLinks");
+        document.getElementById(
+            "jobLinks"
+        );
+
 
     if (!input || !results) {
         return;
     }
 
+
     const searchText =
         input.value.trim();
+
 
     if (!searchText) {
 
         results.innerHTML =
             "<div class='panel'>Введіть професію або ключове слово.</div>";
 
+
         if (links) {
-            links.style.display = "none";
+
+            links.style.display =
+                "none";
+
         }
+
 
         return;
     }
@@ -1784,24 +3038,65 @@ function searchJobs() {
 
     let detectedJobs = [];
 
+
     if (
-        typeof window.findJobs === "function"
+        typeof window.findJobs ===
+        "function"
     ) {
+
         detectedJobs =
-            window.findJobs(searchText);
+            window.findJobs(
+                searchText
+            );
+
     }
 
 
     let displayProfession =
         searchText;
 
+
     if (
         detectedJobs &&
         detectedJobs.length
     ) {
+
         displayProfession =
             detectedJobs.join(", ");
+
     }
+
+
+    const googleProfesia =
+        "https://www.google.com/search?q=" +
+        encodeURIComponent(
+            searchText +
+            " site:profesia.sk/praca/"
+        );
+
+
+    const googleJobs =
+        "https://www.google.com/search?q=" +
+        encodeURIComponent(
+            searchText +
+            " Slovakia jobs"
+        );
+
+
+    const googleKariera =
+        "https://www.google.com/search?q=" +
+        encodeURIComponent(
+            searchText +
+            " site:kariera.zoznam.sk"
+        );
+
+
+    const googleISTP =
+        "https://www.google.com/search?q=" +
+        encodeURIComponent(
+            searchText +
+            " site:istp.sk"
+        );
 
 
     results.innerHTML = `
@@ -1819,36 +3114,28 @@ function searchJobs() {
             <div class="job-links">
 
                 <a
-                    href="https://www.google.com/search?q=${encodeURIComponent(
-                        searchText + " site:profesia.sk/praca/"
-                    )}"
+                    href="${googleProfesia}"
                     target="_blank"
                     rel="noopener">
                     Profesia.sk
                 </a>
 
                 <a
-                    href="https://www.google.com/search?q=${encodeURIComponent(
-                        searchText + " Slovakia jobs"
-                    )}"
+                    href="${googleJobs}"
                     target="_blank"
                     rel="noopener">
                     Google Jobs
                 </a>
 
                 <a
-                    href="https://www.google.com/search?q=${encodeURIComponent(
-                        searchText + " site:kariera.zoznam.sk"
-                    )}"
+                    href="${googleKariera}"
                     target="_blank"
                     rel="noopener">
                     Kariera.sk
                 </a>
 
                 <a
-                    href="https://www.google.com/search?q=${encodeURIComponent(
-                        searchText + " site:istp.sk"
-                    )}"
+                    href="${googleISTP}"
                     target="_blank"
                     rel="noopener">
                     ISTP
@@ -1863,7 +3150,9 @@ function searchJobs() {
 
     if (links) {
 
-        links.style.display = "block";
+        links.style.display =
+            "block";
+
 
         links.innerHTML = `
 
@@ -1897,47 +3186,73 @@ function searchJobs() {
             </div>
 
         `;
+
     }
 
 }
 
 
+/* =========================================================
+   START
+========================================================= */
+
 document.addEventListener(
     "DOMContentLoaded",
     function() {
 
+
         const savedLanguage =
-            localStorage.getItem("jobaiLanguage") || "uk";
+            localStorage.getItem(
+                "jobaiLanguage"
+            ) || "uk";
 
-        setLanguage(savedLanguage);
+
+        setLanguage(
+            savedLanguage
+        );
 
 
         if (
-            typeof window.initResumeModule === "function"
+            typeof window.initResumeModule ===
+            "function"
         ) {
+
             window.initResumeModule();
+
         }
 
 
         if (
-            typeof window.loadResumeData === "function"
+            typeof window.loadResumeData ===
+            "function"
         ) {
+
             window.loadResumeData();
+
         }
 
 
         if (
-            typeof window.enableResumeAutosave === "function"
+            typeof window.enableResumeAutosave ===
+            "function"
         ) {
+
             window.enableResumeAutosave();
+
         }
 
 
         if (
-            typeof window.updateResumePreview === "function"
+            typeof window.updateResumePreview ===
+            "function"
         ) {
+
             window.updateResumePreview();
+
         }
+
+
+        loadSelectedTemplate();
 
 
         const fields = [
@@ -1952,33 +3267,44 @@ document.addEventListener(
         ];
 
 
-        fields.forEach(function(id) {
+        fields.forEach(
+            function(id) {
 
-            const element =
-                document.getElementById(id);
+                const element =
+                    document.getElementById(
+                        id
+                    );
 
-            if (element) {
 
-                element.addEventListener(
-                    "input",
-                    function() {
+                if (element) {
 
-                        if (
-                            typeof window.updateResumePreview === "function"
-                        ) {
-                            window.updateResumePreview();
+                    element.addEventListener(
+                        "input",
+                        function() {
+
+                            if (
+                                typeof window.updateResumePreview ===
+                                "function"
+                            ) {
+
+                                window.updateResumePreview();
+
+                            }
+
                         }
+                    );
 
-                    }
-                );
+                }
 
             }
-
-        });
+        );
 
 
         const jobQuery =
-            document.getElementById("jobQuery");
+            document.getElementById(
+                "jobQuery"
+            );
+
 
         if (jobQuery) {
 
@@ -1986,8 +3312,13 @@ document.addEventListener(
                 "keydown",
                 function(event) {
 
-                    if (event.key === "Enter") {
+                    if (
+                        event.key ===
+                        "Enter"
+                    ) {
+
                         searchJobs();
+
                     }
 
                 }
@@ -1996,7 +3327,6 @@ document.addEventListener(
         }
 
     }
-
 );
 
 </script>
