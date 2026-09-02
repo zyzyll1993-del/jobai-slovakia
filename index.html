@@ -3,854 +3,816 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>JobAI Slovakia 🇸🇰</title>
 
 <style>
-:root {
-    --main: #1976d2;
-    --dark: #125a9c;
-    --light: #eaf3fb;
-    --soft: #dcecf9;
+:root{
+    --accent:#1976d2;
+    --accent-dark:#125a9c;
+    --accent-light:#eaf3fb;
+    --accent-soft:#dcecf9;
+    --bg:#0f1115;
+    --panel:#171a21;
+    --panel2:#1d2129;
+    --border:#303640;
+    --text:#f2f4f7;
+    --muted:#aab1bd;
+    --danger:#d9534f;
 }
 
-* {
-    box-sizing: border-box;
+*{
+    box-sizing:border-box;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #07111f;
-    color: #fff;
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--bg);
+    color:var(--text);
 }
 
 button,
 input,
 textarea,
-select {
-    font: inherit;
+select{
+    font:inherit;
 }
 
-button {
-    cursor: pointer;
+button{
+    cursor:pointer;
+}
+
+.container{
+    width:min(1200px,94%);
+    margin:auto;
 }
 
 /* HEADER */
 
-header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: #081525;
-    border-bottom: 1px solid #263a55;
+header{
+    background:#12151b;
+    border-bottom:1px solid var(--border);
+    padding:20px 0;
 }
 
-.header-inner {
-    max-width: 1200px;
-    margin: auto;
-    padding: 15px 20px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
+.logo{
+    font-size:27px;
+    font-weight:800;
+    color:#fff;
 }
 
-.logo small {
-    display: block;
-    font-size: 12px;
-    color: #9fb0c4;
-    margin-top: 3px;
+.logo span{
+    color:var(--accent);
 }
 
-.language {
-    background: #142238;
-    color: white;
-    border: 1px solid #405675;
-    border-radius: 8px;
-    padding: 9px 12px;
+.subtitle{
+    margin-top:5px;
+    color:var(--muted);
+    font-size:14px;
 }
 
-/* CONTAINER */
+.language{
+    display:flex;
+    gap:6px;
+}
 
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 25px 18px 60px;
+.language button{
+    border:1px solid var(--border);
+    background:#1b1f27;
+    color:#fff;
+    padding:8px 12px;
+    border-radius:7px;
+}
+
+.language button.active{
+    background:var(--accent);
+    border-color:var(--accent);
 }
 
 /* TABS */
 
-.tabs {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 22px;
+.tabs{
+    display:flex;
+    gap:8px;
+    margin:22px 0;
 }
 
-.tab {
-    background: #101e31;
-    border: 1px solid #263a55;
-    color: white;
-    padding: 11px 16px;
-    border-radius: 9px;
-    font-weight: bold;
+.tab{
+    flex:1;
+    border:1px solid var(--border);
+    background:var(--panel);
+    color:#fff;
+    padding:14px;
+    border-radius:9px;
+    font-weight:700;
 }
 
-.tab.active,
-.tab:hover {
-    background: var(--main);
-    border-color: var(--main);
+.tab.active{
+    background:var(--accent);
+    border-color:var(--accent);
 }
 
-/* PAGES */
+/* PANELS */
 
-.page {
-    display: none;
+.panel{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:20px;
 }
 
-.page.active {
-    display: block;
+.panel h2{
+    margin-top:0;
 }
 
-/* CARDS */
+/* FORM */
 
-.card {
-    background: #0e1a2b;
-    border: 1px solid #263a55;
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 18px;
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
 }
 
-.card h2,
-.card h3 {
-    margin-top: 0;
+.field{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
 }
 
-/* FORMS */
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+.field.full{
+    grid-column:1/-1;
 }
 
-.full {
-    grid-column: 1 / -1;
-}
-
-.field {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-label {
-    color: #b9c8d9;
-    font-size: 13px;
-    font-weight: bold;
+label{
+    font-size:14px;
+    font-weight:700;
+    color:#d9dee6;
 }
 
 input,
 textarea,
-select {
-    width: 100%;
-    background: #091525;
-    color: white;
-    border: 1px solid #30445f;
-    border-radius: 9px;
-    padding: 11px;
-}
-
-textarea {
-    min-height: 110px;
-    resize: vertical;
+select{
+    width:100%;
+    border:1px solid var(--border);
+    background:#101319;
+    color:#fff;
+    border-radius:8px;
+    padding:11px 12px;
+    outline:none;
 }
 
 input:focus,
 textarea:focus,
-select:focus {
-    outline: none;
-    border-color: var(--main);
+select:focus{
+    border-color:var(--accent);
+}
+
+textarea{
+    min-height:110px;
+    resize:vertical;
 }
 
 /* BUTTONS */
 
-.actions {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 15px;
+.buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:15px;
 }
 
-.btn {
-    background: var(--main);
-    color: white;
-    border: none;
-    border-radius: 9px;
-    padding: 11px 16px;
-    font-weight: bold;
+.btn{
+    border:0;
+    border-radius:8px;
+    padding:11px 16px;
+    font-weight:700;
+    color:#fff;
+    background:var(--accent);
 }
 
-.btn:hover {
-    filter: brightness(1.1);
+.btn:hover{
+    background:var(--accent-dark);
 }
 
-.btn.secondary {
-    background: #263a55;
+.btn.secondary{
+    background:#303640;
 }
 
-.btn.success {
-    background: #198754;
+.btn.danger{
+    background:#9f302c;
 }
 
-.btn.danger {
-    background: #d64545;
-}
-
-.btn.light {
-    background: white;
-    color: #17263a;
+.btn.green{
+    background:#198754;
 }
 
 /* PHOTO */
 
-.photo-row {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
+.photo-box{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
 }
 
-.photo-preview {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    display: block;
-    border-radius: 14px;
-    border: 3px solid var(--main);
+.photo-preview{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    overflow:hidden;
+    background:#252a33;
+    border:3px solid var(--accent);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#aaa;
 }
 
-.photo-placeholder {
-    width: 120px;
-    height: 120px;
-    border: 2px dashed #526b89;
-    border-radius: 14px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    color: #8da1b8;
-    text-align: center;
+.photo-preview img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
 }
 
 /* EXPERIENCE / EDUCATION */
 
-.repeat-item {
-    background: #091727;
-    border: 1px solid #293e59;
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 12px;
+.entry{
+    border:1px solid var(--border);
+    background:#12151b;
+    padding:15px;
+    border-radius:9px;
+    margin-bottom:12px;
 }
 
-.repeat-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
+.entry-header{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    align-items:center;
+    margin-bottom:12px;
 }
 
-/* DESIGN */
-
-.design-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
+.entry-header strong{
+    color:#fff;
 }
 
-.template-options {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
+/* TEMPLATE / COLOR */
+
+.controls-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    align-items:center;
 }
 
-.template-option {
-    background: #15263c;
-    color: white;
-    border: 2px solid transparent;
-    border-radius: 8px;
-    padding: 9px 12px;
+.control-group{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;
 }
 
-.template-option.active {
-    background: var(--light);
-    color: #16263a;
-    border-color: var(--main);
+.color-button{
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    border:3px solid transparent;
+    cursor:pointer;
 }
 
-/* COLORS */
-
-.color-panel {
-    background: #101f33;
-    border: 1px solid #30445f;
-    border-radius: 12px;
-    padding: 15px;
+.color-button.selected{
+    border-color:#fff;
+    box-shadow:0 0 0 2px var(--accent);
 }
 
-.color-panel h3 {
-    margin-bottom: 12px;
-}
-
-.color-options {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.color-option {
-    width: 42px;
-    height: 42px;
-
-    border-radius: 50%;
-    border: 3px solid transparent;
-
-    padding: 0;
-}
-
-.color-option.active {
-    border-color: white;
-    box-shadow: 0 0 0 3px var(--main);
-}
-
-.color-blue {
-    background: #1976d2;
-}
-
-.color-black {
-    background: #222;
-}
-
-.color-green {
-    background: #198754;
-}
-
-.color-purple {
-    background: #7048a8;
-}
-
-.color-orange {
-    background: #d97706;
-}
-
-.color-red {
-    background: #c0392b;
-}
-
-.color-teal {
-    background: #168b8b;
-}
-
-.color-navy {
-    background: #243b64;
+.template-select{
+    min-width:220px;
 }
 
 /* PREVIEW */
 
-.preview-wrapper {
-    background: #34465c;
-    padding: 20px;
-    border-radius: 15px;
-
-    overflow: hidden;
+.preview-wrapper{
+    width:100%;
+    overflow:hidden;
+    background:#272b33;
+    border-radius:10px;
+    padding:20px;
+    min-height:700px;
 }
 
-.preview-scale {
-    display: flex;
-    justify-content: center;
+.preview-scale{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    transform-origin:top left;
 }
 
-.cv-paper {
-    width: 794px;
-    min-height: 1123px;
-
-    background: white;
-    color: #222;
-
-    flex-shrink: 0;
-
-    box-shadow: 0 10px 40px rgba(0,0,0,.4);
-
-    font-family: Arial, Helvetica, sans-serif;
+.cv-paper{
+    width:794px;
+    min-height:1123px;
+    background:#fff;
+    color:#222 !important;
+    box-shadow:0 8px 30px rgba(0,0,0,.35);
+    position:relative;
+    overflow:hidden;
 }
 
-/* COMMON CV */
-
-.cv-photo {
-    display: block !important;
-    object-fit: cover;
-    max-width: 100%;
-    background: #eee;
+.cv-paper *{
+    color:#222;
 }
 
-.cv-name {
-    font-size: 30px;
-    font-weight: bold;
-    margin: 0 0 5px;
+/*
+ IMPORTANT:
+ Основний текст CV завжди чорний.
+ Кольорові елементи отримують колір через окремі класи.
+*/
+
+.cv-paper h1,
+.cv-paper h2,
+.cv-paper h3,
+.cv-paper h4,
+.cv-paper p,
+.cv-paper li,
+.cv-paper span,
+.cv-paper div{
+    color:#222;
 }
 
-.cv-position {
-    color: var(--main);
-    font-weight: bold;
-    font-size: 17px;
+.cv-paper .accent-text{
+    color:var(--accent) !important;
 }
 
-.cv-section {
-    margin-top: 25px;
+.cv-paper .white-text{
+    color:#fff !important;
 }
 
-.cv-title {
-    color: var(--main);
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
-
-    border-bottom: 2px solid var(--soft);
-
-    padding-bottom: 6px;
-    margin-bottom: 10px;
-}
-
-.cv-text {
-    font-size: 13px;
-    line-height: 1.55;
-}
-
-.cv-contact {
-    font-size: 12px;
-    line-height: 1.7;
-}
-
-.cv-item {
-    margin-bottom: 15px;
-}
-
-.cv-item-header {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-
-    font-weight: bold;
-}
-
-.cv-date {
-    color: #6b7684;
-    font-size: 11px;
-    white-space: nowrap;
-}
-
-.cv-list {
-    margin-top: 6px;
+.cv-photo{
+    display:block !important;
+    object-fit:cover;
+    max-width:100%;
 }
 
 /* MODERN */
 
-.modern {
-    display: grid;
-    grid-template-columns: 255px 1fr;
-
-    min-height: 1123px;
+.cv-modern{
+    display:grid;
+    grid-template-columns:250px 1fr;
+    min-height:1123px;
 }
 
-.modern-sidebar {
-    background: var(--main);
-    color: white;
-    padding: 40px 25px;
+.cv-modern-sidebar{
+    background:var(--accent-light);
+    padding:28px 22px;
+    border-right:6px solid var(--accent);
 }
 
-.modern-sidebar .cv-title {
-    color: white;
-    border-color: rgba(255,255,255,.4);
+.cv-modern-main{
+    padding:32px;
 }
 
-.modern-sidebar .cv-position {
-    color: white;
+.cv-modern .photo-wrap{
+    text-align:center;
+    margin-bottom:20px;
 }
 
-.modern-sidebar .cv-contact {
-    color: white;
+.cv-modern .cv-photo{
+    width:145px;
+    height:145px;
+    border-radius:50%;
+    margin:auto;
+    border:5px solid var(--accent);
 }
 
-.modern-photo {
-    width: 145px;
-    height: 145px;
-
-    border-radius: 50%;
-
-    margin: 0 auto 25px;
+.cv-modern h1{
+    font-size:31px;
+    margin:0 0 7px;
 }
 
-.modern-main {
-    padding: 42px;
+.cv-modern .position{
+    color:var(--accent) !important;
+    font-weight:700;
+}
+
+.cv-section{
+    margin-top:25px;
+}
+
+.cv-section-title{
+    color:var(--accent) !important;
+    font-size:17px;
+    font-weight:800;
+    text-transform:uppercase;
+    border-bottom:2px solid var(--accent);
+    padding-bottom:6px;
+    margin-bottom:12px;
+}
+
+.cv-item{
+    margin-bottom:17px;
+}
+
+.cv-item-title{
+    font-weight:800;
+}
+
+.cv-item-date{
+    color:var(--accent) !important;
+    font-size:13px;
+    font-weight:700;
 }
 
 /* PROFESSIONAL */
 
-.professional {
-    padding: 40px;
+.cv-professional{
+    padding:38px;
 }
 
-.professional-header {
-    display: flex;
-    gap: 25px;
-
-    border-bottom: 4px solid var(--main);
-
-    padding-bottom: 22px;
+.cv-professional-header{
+    border-bottom:4px solid var(--accent);
+    padding-bottom:20px;
+    margin-bottom:24px;
 }
 
-.professional-photo {
-    width: 115px;
-    height: 140px;
-
-    border-radius: 5px;
+.cv-professional-header h1{
+    font-size:34px;
+    margin:0 0 5px;
 }
 
-.professional-info {
-    flex: 1;
+.cv-professional-header .position{
+    color:var(--accent) !important;
+    font-weight:700;
+    font-size:18px;
+}
+
+.prof-contact{
+    margin-top:12px;
+    font-size:13px;
+}
+
+.prof-row{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:20px;
+    margin-bottom:20px;
+}
+
+.prof-label{
+    color:var(--accent) !important;
+    font-weight:800;
+    text-transform:uppercase;
 }
 
 /* EXECUTIVE */
 
-.executive-header {
-    background: var(--dark);
-    color: white;
-
-    padding: 38px 42px;
-
-    display: flex;
-    align-items: center;
-
-    gap: 25px;
+.cv-executive{
+    min-height:1123px;
 }
 
-.executive-photo {
-    width: 125px;
-    height: 150px;
-
-    border-radius: 6px;
+.exec-top{
+    background:var(--accent-dark);
+    padding:32px;
+    display:flex;
+    gap:25px;
+    align-items:center;
 }
 
-.executive-header .cv-position {
-    color: #dcecff;
+.exec-top *{
+    color:#fff !important;
 }
 
-.executive-body {
-    display: grid;
-    grid-template-columns: 245px 1fr;
-
-    min-height: 900px;
+.exec-top .cv-photo{
+    width:125px;
+    height:125px;
+    border-radius:50%;
+    border:4px solid #fff;
 }
 
-.executive-sidebar {
-    background: #eef2f7;
-    padding: 30px 24px;
-
-    color: #222;
+.exec-name{
+    font-size:32px;
+    font-weight:800;
 }
 
-.executive-main {
-    padding: 32px 36px;
+.exec-position{
+    margin-top:7px;
+    font-size:17px;
+}
+
+.exec-body{
+    display:grid;
+    grid-template-columns:220px 1fr;
+}
+
+.exec-sidebar{
+    background:var(--accent-light);
+    padding:25px 20px;
+}
+
+.exec-main{
+    padding:30px;
 }
 
 /* CREATIVE */
 
-.creative-header {
-    padding: 35px 42px;
-
-    display: flex;
-    align-items: center;
-
-    gap: 25px;
+.cv-creative{
+    min-height:1123px;
 }
 
-.creative-photo {
-    width: 125px;
-    height: 125px;
-
-    border-radius: 14px;
+.creative-header{
+    padding:28px;
+    display:flex;
+    align-items:center;
+    gap:25px;
+    border-bottom:8px solid var(--accent);
 }
 
-.creative-body {
-    display: grid;
-    grid-template-columns: 235px 1fr;
-
-    min-height: 930px;
+.creative-header .cv-photo{
+    width:125px;
+    height:125px;
+    border-radius:18px;
+    border:5px solid var(--accent);
 }
 
-.creative-sidebar {
-    background: var(--light);
-    padding: 30px 24px;
-
-    color: #222;
+.creative-name{
+    font-size:31px;
+    font-weight:800;
 }
 
-.creative-main {
-    padding: 30px 38px;
+.creative-position{
+    color:var(--accent) !important;
+    font-weight:700;
+}
+
+.creative-body{
+    display:grid;
+    grid-template-columns:230px 1fr;
+}
+
+.creative-sidebar{
+    background:var(--accent);
+    padding:25px 20px;
+}
+
+.creative-sidebar *{
+    color:#fff !important;
+}
+
+.creative-main{
+    padding:30px;
 }
 
 /* ATS */
 
-.ats {
-    padding: 45px 52px;
+.cv-ats{
+    padding:42px;
 }
 
-.ats-header {
-    display: flex;
-    gap: 25px;
-
-    border-bottom: 2px solid #222;
-
-    padding-bottom: 18px;
+.ats-header{
+    border-bottom:2px solid #222;
+    padding-bottom:16px;
+    margin-bottom:25px;
 }
 
-.ats-photo {
-    width: 105px;
-    height: 125px;
+.ats-header h1{
+    margin:0;
+    font-size:32px;
+}
 
-    border-radius: 4px;
+.ats-position{
+    color:var(--accent) !important;
+    font-weight:700;
+    margin-top:6px;
+}
+
+.ats-photo{
+    width:110px;
+    height:110px;
+    float:right;
+    border-radius:4px;
+    border:2px solid var(--accent);
+}
+
+.ats-section{
+    margin-top:22px;
+}
+
+.ats-title{
+    color:var(--accent) !important;
+    font-weight:800;
+    border-bottom:1px solid #aaa;
+    padding-bottom:5px;
+    margin-bottom:10px;
 }
 
 /* ANALYSIS */
 
-.score-box {
-    text-align: center;
-    padding: 20px;
+.analysis-result{
+    display:none;
+    margin-top:20px;
 }
 
-.score {
-    font-size: 50px;
-    font-weight: bold;
-    color: var(--main);
+.score-box{
+    text-align:center;
+    padding:20px;
+    background:#11151b;
+    border-radius:10px;
+    border:1px solid var(--border);
 }
 
-.progress {
-    height: 14px;
-    background: #203149;
-    border-radius: 20px;
-    overflow: hidden;
+.score{
+    font-size:42px;
+    font-weight:800;
+    color:var(--accent);
 }
 
-.progress-bar {
-    height: 100%;
-    width: 0;
-    background: var(--main);
+.progress{
+    height:12px;
+    background:#303640;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:12px;
 }
 
-.analysis-columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+.progress-bar{
+    height:100%;
+    width:0;
+    background:var(--accent);
+    transition:width .5s;
 }
 
-.analysis-box {
-    background: #091727;
-    border: 1px solid #293e59;
-    border-radius: 12px;
-    padding: 15px;
+.analysis-columns{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-top:15px;
 }
 
-/* JOB CARDS */
-
-.profession-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 15px;
+.analysis-box{
+    border:1px solid var(--border);
+    border-radius:9px;
+    padding:15px;
+    background:#12151b;
 }
 
-.profession-card {
-    background: #101f33;
-    border: 1px solid #2b405c;
-    border-radius: 12px;
-    overflow: hidden;
+.analysis-box h3{
+    margin-top:0;
 }
 
-.profession-card img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-    display: block;
+.analysis-box ul{
+    padding-left:20px;
 }
 
-.profession-card-content {
-    padding: 15px;
+/* PROFESSIONS */
+
+.professions{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
 }
 
-/* MOBILE */
+.prof-card{
+    background:#12151b;
+    border:1px solid var(--border);
+    border-radius:10px;
+    overflow:hidden;
+}
 
-@media(max-width:760px) {
+.prof-card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    display:block;
+}
 
-    .header-inner {
-        padding: 12px;
-    }
+.prof-card-content{
+    padding:14px;
+}
 
-    .logo {
-        font-size: 20px;
-    }
+.prof-card h3{
+    margin:0 0 8px;
+}
 
-    .container {
-        padding: 15px 10px 40px;
-    }
+.prof-card p{
+    color:var(--muted);
+    font-size:13px;
+}
 
-    .grid {
-        grid-template-columns: 1fr;
-    }
+/* JOB LINKS */
 
-    .full {
-        grid-column: auto;
-    }
+.job-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
 
-    .analysis-columns {
-        grid-template-columns: 1fr;
-    }
-
-    .profession-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .design-row {
-        flex-direction: column;
-    }
-
-    /*
-       MOBILE CV SCALE
-       CV залишається A4,
-       але візуально масштабується
-       під екран телефону.
-    */
-
-    .preview-wrapper {
-        padding: 8px;
-
-        height: calc((100vw - 36px) * 1.414 + 20px);
-
-        overflow: hidden;
-    }
-
-    .preview-scale {
-        justify-content: flex-start;
-        transform-origin: top left;
-    }
-
-    .cv-paper {
-        width: 794px;
-        min-height: 1123px;
-
-        transform-origin: top left;
-    }
-
-    .modern {
-        grid-template-columns: 190px 1fr;
-    }
-
-    .modern-sidebar {
-        padding: 25px 15px;
-    }
-
-    .modern-main {
-        padding: 25px 20px;
-    }
-
-    .modern-photo {
-        width: 120px;
-        height: 120px;
-    }
-
-    .professional {
-        padding: 25px;
-    }
-
-    .executive-header {
-        padding: 25px;
-    }
-
-    .executive-body {
-        grid-template-columns: 190px 1fr;
-    }
-
-    .executive-sidebar {
-        padding: 22px 15px;
-    }
-
-    .executive-main {
-        padding: 25px 20px;
-    }
-
-    .creative-header {
-        padding: 25px;
-    }
-
-    .creative-body {
-        grid-template-columns: 180px 1fr;
-    }
-
-    .creative-sidebar {
-        padding: 22px 14px;
-    }
-
-    .creative-main {
-        padding: 24px 20px;
-    }
-
-    .ats {
-        padding: 28px 25px;
-    }
+.job-link{
+    display:inline-block;
+    padding:12px 17px;
+    border-radius:8px;
+    text-decoration:none;
+    color:#fff;
+    background:var(--accent);
+    font-weight:700;
 }
 
 /* PRINT */
 
-@media print {
+@media print{
 
-    body {
-        background: white;
+    body{
+        background:#fff;
     }
 
     header,
     .tabs,
-    .no-print {
-        display: none !important;
+    #editorPage,
+    #analysisPage,
+    .no-print{
+        display:none !important;
     }
 
-    .container {
-        padding: 0;
+    #previewPage{
+        display:block !important;
     }
 
-    .preview-wrapper {
-        padding: 0;
-        background: white;
-        overflow: visible;
+    .preview-wrapper{
+        padding:0;
+        background:#fff;
+        overflow:visible;
     }
 
-    .preview-scale {
-        display: block;
+    .preview-scale{
+        transform:none !important;
     }
 
-    .cv-paper {
-        transform: none !important;
-        box-shadow: none;
+    .cv-paper{
+        box-shadow:none;
+        margin:0;
     }
 
-    @page {
-        size: A4;
-        margin: 0;
+    @page{
+        size:A4;
+        margin:0;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:760px){
+
+    .header-inner{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .tabs{
+        flex-direction:column;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .field.full{
+        grid-column:auto;
+    }
+
+    .analysis-columns{
+        grid-template-columns:1fr;
+    }
+
+    .professions{
+        grid-template-columns:1fr;
+    }
+
+    .preview-wrapper{
+        padding:8px;
+        height:calc((100vw - 36px) * 1.414 + 20px);
+        overflow:hidden;
+    }
+
+    .preview-scale{
+        justify-content:flex-start;
+        transform-origin:top left;
+    }
+
+    .cv-paper{
+        width:794px;
+        min-height:1123px;
+        transform-origin:top left;
+    }
+
+    .controls-row{
+        align-items:flex-start;
+        flex-direction:column;
     }
 }
 </style>
@@ -858,302 +820,202 @@ select:focus {
 
 <body>
 
-<header class="no-print">
-    <div class="header-inner">
+<header>
+<div class="container header-inner">
 
-        <div class="logo">
-            JobAI Slovakia 🇸🇰
-            <small>AI-помічник для пошуку роботи</small>
-        </div>
-
-        <select id="languageSelect" class="language">
-            <option value="uk">UA</option>
-            <option value="sk">SK</option>
-            <option value="en">EN</option>
-        </select>
-
+<div>
+    <div class="logo">JobAI <span>Slovakia 🇸🇰</span></div>
+    <div class="subtitle" id="subtitle">
+        AI-помічник для пошуку роботи
     </div>
+</div>
+
+<div class="language">
+    <button class="active" onclick="setLanguage('ua')">UA</button>
+    <button onclick="setLanguage('sk')">SK</button>
+    <button onclick="setLanguage('en')">EN</button>
+</div>
+
+</div>
 </header>
 
-<div class="container">
+<main class="container">
 
-<!-- TABS -->
-
-<div class="tabs no-print">
-
-    <button class="tab active"
-            onclick="showPage('resumePage',this)"
-            data-i18n="resumeTab">
+<div class="tabs">
+    <button class="tab active" id="tabEditor" onclick="showPage('editor')">
         Резюме
     </button>
 
-    <button class="tab"
-            onclick="showPage('previewPage',this)"
-            data-i18n="previewTab">
-        Перегляд CV
+    <button class="tab" id="tabPreview" onclick="showPage('preview')">
+        Перегляд
     </button>
 
-    <button class="tab"
-            onclick="showPage('analysisPage',this)"
-            data-i18n="analysisTab">
+    <button class="tab" id="tabAnalysis" onclick="showPage('analysis')">
         Аналіз вакансії
     </button>
-
-    <button class="tab"
-            onclick="showPage('jobsPage',this)"
-            data-i18n="jobsTab">
-        Професії та вакансії
-    </button>
-
 </div>
 
+<!-- EDITOR -->
 
-<!-- RESUME -->
+<section id="editorPage">
 
-<section id="resumePage" class="page active">
+<div class="panel">
 
-<div class="card">
-
-<h2 data-i18n="createResume">
-Створення резюме
-</h2>
+<h2>Особисті дані</h2>
 
 <div class="grid">
 
 <div class="field">
-<label data-i18n="name">Ім'я та прізвище</label>
-<input id="name">
+<label>Ім'я та прізвище</label>
+<input id="name" placeholder="Oleksandr Herasym">
 </div>
 
 <div class="field">
-<label data-i18n="position">Бажана посада</label>
-<input id="position">
+<label>Бажана посада</label>
+<input id="position" placeholder="CNC Operator">
 </div>
 
 <div class="field">
-<label data-i18n="phone">Телефон</label>
-<input id="phone">
+<label>Телефон</label>
+<input id="phone" placeholder="+421 ...">
 </div>
 
 <div class="field">
-<label data-i18n="email">Email</label>
-<input id="email">
+<label>Email</label>
+<input id="email" placeholder="email@example.com">
 </div>
 
 <div class="field">
-<label data-i18n="city">Місто</label>
-<input id="city">
-</div>
-
-<div class="field">
-<label data-i18n="languages">Мови</label>
-<input id="languages">
+<label>Місто</label>
+<input id="city" placeholder="Bratislava">
 </div>
 
 <div class="field full">
-<label data-i18n="profile">Профіль</label>
-<textarea id="profile"></textarea>
+<label>Професійний профіль</label>
+<textarea id="profile" placeholder="Коротко розкажіть про себе, досвід та професійні цілі"></textarea>
 </div>
 
 <div class="field full">
-<label data-i18n="skills">Навички</label>
-<textarea id="skills"></textarea>
+<label>Навички</label>
+<textarea id="skills" placeholder="CNC, Calypso, CMM, AutoCAD, Excel..."></textarea>
+</div>
+
+<div class="field full">
+<label>Мови</label>
+<input id="languages" placeholder="Українська — рідна; Словацька — B1; Англійська — A2">
 </div>
 
 </div>
-</div>
 
+</div>
 
 <!-- PHOTO -->
 
-<div class="card">
+<div class="panel">
 
-<h3 data-i18n="photo">
-Фото
-</h3>
+<h2>Фотографія</h2>
 
-<div class="photo-row">
+<div class="photo-box">
 
-<div id="photoPreviewBox"
-     class="photo-placeholder">
-Фото<br>CV
+<div class="photo-preview" id="photoPreview">
+    Фото
 </div>
 
 <div>
+<input type="file" id="photoInput" accept="image/*">
 
-<input
-    id="photoInput"
-    type="file"
-    accept="image/*">
-
-<div class="actions">
-
-<button
-    class="btn danger"
-    onclick="removePhoto()"
-    data-i18n="removePhoto">
-Видалити фото
+<div class="buttons">
+<button class="btn danger" onclick="removePhoto()">
+    Видалити фото
 </button>
-
+</div>
 </div>
 
 </div>
 
 </div>
-
-</div>
-
 
 <!-- EXPERIENCE -->
 
-<div class="card">
+<div class="panel">
 
-<div style="
-display:flex;
-justify-content:space-between;
-align-items:center;
-">
+<div class="entry-header">
+<h2>Досвід роботи</h2>
 
-<h3 data-i18n="experience">
-Досвід роботи
-</h3>
-
-<button
-class="btn"
-onclick="addExperience()">
-+ Додати
+<button class="btn" onclick="addExperience()">
+    + Додати досвід
 </button>
-
 </div>
 
 <div id="experienceList"></div>
 
 </div>
 
-
 <!-- EDUCATION -->
 
-<div class="card">
+<div class="panel">
 
-<div style="
-display:flex;
-justify-content:space-between;
-align-items:center;
-">
+<div class="entry-header">
+<h2>Освіта</h2>
 
-<h3 data-i18n="education">
-Освіта
-</h3>
-
-<button
-class="btn"
-onclick="addEducation()">
-+ Додати
+<button class="btn" onclick="addEducation()">
+    + Додати освіту
 </button>
-
 </div>
 
 <div id="educationList"></div>
 
 </div>
 
-
 <!-- DESIGN -->
 
-<div class="card">
+<div class="panel">
 
-<h3 data-i18n="design">
-Дизайн резюме
-</h3>
+<h2>Дизайн резюме</h2>
 
-<div class="design-row">
+<div class="controls-row">
 
-<div>
+<div class="control-group">
 
-<label>Шаблон</label>
+<strong>Шаблон:</strong>
 
-<div class="template-options">
-
-<button class="template-option"
-data-template="modern"
-onclick="selectTemplate('modern')">
-Modern
-</button>
-
-<button class="template-option"
-data-template="professional"
-onclick="selectTemplate('professional')">
-Professional
-</button>
-
-<button class="template-option"
-data-template="executive"
-onclick="selectTemplate('executive')">
-Executive
-</button>
-
-<button class="template-option"
-data-template="creative"
-onclick="selectTemplate('creative')">
-Creative
-</button>
-
-<button class="template-option"
-data-template="ats"
-onclick="selectTemplate('ats')">
-ATS Simple
-</button>
+<select id="templateSelect" class="template-select" onchange="changeTemplate(this.value)">
+<option value="modern">Modern</option>
+<option value="professional">Professional</option>
+<option value="executive">Executive</option>
+<option value="creative">Creative</option>
+<option value="ats">ATS Simple</option>
+</select>
 
 </div>
 
-</div>
+<div class="control-group">
 
+<strong>Колір:</strong>
 
-<div class="color-panel">
+<button class="color-button" style="background:#1976d2"
+onclick="changeColor('blue')" data-color="blue"></button>
 
-<h3>Колір резюме</h3>
+<button class="color-button" style="background:#222"
+onclick="changeColor('black')" data-color="black"></button>
 
-<div class="color-options">
+<button class="color-button" style="background:#198754"
+onclick="changeColor('green')" data-color="green"></button>
 
-<button class="color-option color-blue"
-data-color="blue"
-onclick="selectColor('blue')">
-</button>
+<button class="color-button" style="background:#7048a8"
+onclick="changeColor('purple')" data-color="purple"></button>
 
-<button class="color-option color-black"
-data-color="black"
-onclick="selectColor('black')">
-</button>
+<button class="color-button" style="background:#d97706"
+onclick="changeColor('orange')" data-color="orange"></button>
 
-<button class="color-option color-green"
-data-color="green"
-onclick="selectColor('green')">
-</button>
+<button class="color-button" style="background:#c0392b"
+onclick="changeColor('red')" data-color="red"></button>
 
-<button class="color-option color-purple"
-data-color="purple"
-onclick="selectColor('purple')">
-</button>
+<button class="color-button" style="background:#168b8b"
+onclick="changeColor('teal')" data-color="teal"></button>
 
-<button class="color-option color-orange"
-data-color="orange"
-onclick="selectColor('orange')">
-</button>
-
-<button class="color-option color-red"
-data-color="red"
-onclick="selectColor('red')">
-</button>
-
-<button class="color-option color-teal"
-data-color="teal"
-onclick="selectColor('teal')">
-</button>
-
-<button class="color-option color-navy"
-data-color="navy"
-onclick="selectColor('navy')">
-</button>
+<button class="color-button" style="background:#243b64"
+onclick="changeColor('navy')" data-color="navy"></button>
 
 </div>
 
@@ -1161,183 +1023,196 @@ onclick="selectColor('navy')">
 
 </div>
 
+<div class="panel">
+
+<div class="buttons">
+
+<button class="btn green" onclick="saveResume()">
+    Зберегти
+</button>
+
+<button class="btn secondary" onclick="exportResume()">
+    Експорт JSON
+</button>
+
+<button class="btn secondary" onclick="document.getElementById('importFile').click()">
+    Імпорт JSON
+</button>
+
+<input type="file" id="importFile" accept=".json" style="display:none">
+
+<button class="btn danger" onclick="clearResume()">
+    Очистити
+</button>
+
+<button class="btn" onclick="showPage('preview')">
+    Переглянути CV
+</button>
+
 </div>
 
+</div>
 
-<div class="actions">
+<!-- PROFESSIONS -->
 
-<button
-class="btn success"
-onclick="saveResume()">
-Зберегти
-</button>
+<div class="panel">
 
-<button
-class="btn light"
-onclick="exportResume()">
-Експорт JSON
-</button>
+<h2>Популярні професії</h2>
 
-<label class="btn secondary">
+<div class="professions">
 
-Імпорт JSON
+<div class="prof-card">
+<img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=85">
+<div class="prof-card-content">
+<h3>CNC Operator</h3>
+<p>Верстати, виробництво, програмування та контроль деталей.</p>
+</div>
+</div>
 
-<input
-id="importFile"
-type="file"
-accept=".json"
-style="display:none">
+<div class="prof-card">
+<img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=85">
+<div class="prof-card-content">
+<h3>Metrology / CMM</h3>
+<p>Вимірювання, Calypso, CMM та контроль якості.</p>
+</div>
+</div>
 
-</label>
+<div class="prof-card">
+<img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=900&q=85">
+<div class="prof-card-content">
+<h3>Driver</h3>
+<p>Водії вантажівок, автобусів та професійний транспорт.</p>
+</div>
+</div>
 
-<button
-class="btn danger"
-onclick="clearResume()">
-Очистити
-</button>
+<div class="prof-card">
+<img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=85">
+<div class="prof-card-content">
+<h3>Electrician</h3>
+<p>Електромонтаж, автоматика та обслуговування обладнання.</p>
+</div>
+</div>
 
-<button
-class="btn"
-onclick="showPage('previewPage')">
-Переглянути CV
-</button>
+<div class="prof-card">
+<img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=85">
+<div class="prof-card-content">
+<h3>Welder</h3>
+<p>MIG/MAG, TIG, MMA та промислове зварювання.</p>
+</div>
+</div>
+
+<div class="prof-card">
+<img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=85">
+<div class="prof-card-content">
+<h3>Warehouse</h3>
+<p>Склад, логістика, VZV та робота з товарами.</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- JOB LINKS -->
+
+<div class="panel">
+
+<h2>Пошук роботи</h2>
+
+<div class="job-links">
+
+<a class="job-link" href="https://www.profesia.sk/" target="_blank">
+Profesia
+</a>
+
+<a class="job-link" href="https://www.istp.sk/" target="_blank">
+ISTP
+</a>
+
+<a class="job-link" href="https://www.linkedin.com/jobs/" target="_blank">
+LinkedIn Jobs
+</a>
+
+</div>
 
 </div>
 
 </section>
-
 
 <!-- PREVIEW -->
 
-<section id="previewPage" class="page">
+<section id="previewPage" style="display:none">
 
-<div class="card no-print">
+<div class="panel no-print">
 
-<h2>
-Перегляд резюме
-</h2>
+<div class="controls-row">
 
-<div class="design-row">
+<div class="control-group">
 
-<div>
+<strong>Шаблон:</strong>
 
-<label>Шаблон</label>
+<select id="previewTemplateSelect" class="template-select" onchange="changeTemplate(this.value)">
+<option value="modern">Modern</option>
+<option value="professional">Professional</option>
+<option value="executive">Executive</option>
+<option value="creative">Creative</option>
+<option value="ats">ATS Simple</option>
+</select>
 
-<div class="template-options">
+</div>
 
-<button class="template-option"
-data-template="modern"
-onclick="selectTemplate('modern')">
-Modern
-</button>
+<div class="control-group">
 
-<button class="template-option"
-data-template="professional"
-onclick="selectTemplate('professional')">
-Professional
-</button>
+<strong>Колір:</strong>
 
-<button class="template-option"
-data-template="executive"
-onclick="selectTemplate('executive')">
-Executive
-</button>
+<button class="color-button" style="background:#1976d2"
+onclick="changeColor('blue')" data-color="blue"></button>
 
-<button class="template-option"
-data-template="creative"
-onclick="selectTemplate('creative')">
-Creative
-</button>
+<button class="color-button" style="background:#222"
+onclick="changeColor('black')" data-color="black"></button>
 
-<button class="template-option"
-data-template="ats"
-onclick="selectTemplate('ats')">
-ATS Simple
-</button>
+<button class="color-button" style="background:#198754"
+onclick="changeColor('green')" data-color="green"></button>
+
+<button class="color-button" style="background:#7048a8"
+onclick="changeColor('purple')" data-color="purple"></button>
+
+<button class="color-button" style="background:#d97706"
+onclick="changeColor('orange')" data-color="orange"></button>
+
+<button class="color-button" style="background:#c0392b"
+onclick="changeColor('red')" data-color="red"></button>
+
+<button class="color-button" style="background:#168b8b"
+onclick="changeColor('teal')" data-color="teal"></button>
+
+<button class="color-button" style="background:#243b64"
+onclick="changeColor('navy')" data-color="navy"></button>
 
 </div>
 
 </div>
 
+<div class="buttons">
 
-<div class="color-panel">
-
-<h3>Колір резюме</h3>
-
-<div class="color-options">
-
-<button class="color-option color-blue"
-data-color="blue"
-onclick="selectColor('blue')">
+<button class="btn" onclick="window.print()">
+    Друк / PDF
 </button>
 
-<button class="color-option color-black"
-data-color="black"
-onclick="selectColor('black')">
-</button>
-
-<button class="color-option color-green"
-data-color="green"
-onclick="selectColor('green')">
-</button>
-
-<button class="color-option color-purple"
-data-color="purple"
-onclick="selectColor('purple')">
-</button>
-
-<button class="color-option color-orange"
-data-color="orange"
-onclick="selectColor('orange')">
-</button>
-
-<button class="color-option color-red"
-data-color="red"
-onclick="selectColor('red')">
-</button>
-
-<button class="color-option color-teal"
-data-color="teal"
-onclick="selectColor('teal')">
-</button>
-
-<button class="color-option color-navy"
-data-color="navy"
-onclick="selectColor('navy')">
+<button class="btn secondary" onclick="showPage('editor')">
+    Редагувати
 </button>
 
 </div>
 
 </div>
-
-</div>
-
-<div class="actions">
-
-<button
-class="btn"
-onclick="window.print()">
-Друк / Зберегти PDF
-</button>
-
-<button
-class="btn secondary"
-onclick="showPage('resumePage')">
-Редагувати
-</button>
-
-</div>
-
-</div>
-
 
 <div class="preview-wrapper">
 
-<div id="previewScale"
-     class="preview-scale">
+<div class="preview-scale" id="previewScale">
 
-<div id="cvPaper"
-     class="cv-paper">
+<div id="cvPaper" class="cv-paper cv-modern">
+
 </div>
 
 </div>
@@ -1346,99 +1221,75 @@ onclick="showPage('resumePage')">
 
 </section>
 
-
 <!-- ANALYSIS -->
 
-<section id="analysisPage" class="page">
+<section id="analysisPage" style="display:none">
 
-<div class="card">
+<div class="panel">
 
-<h2>
-Аналіз вакансії
-</h2>
+<h2>Аналіз вакансії</h2>
 
-<textarea
-id="jobText"
-placeholder="Вставте текст вакансії...">
-</textarea>
+<p style="color:#aab1bd">
+Вставте текст вакансії зі словацького сайту роботи.
+</p>
 
-<div class="actions">
+<textarea id="jobText" placeholder="Вставте сюди текст вакансії..."></textarea>
 
-<button
-class="btn"
-onclick="analyzeJob()">
-Проаналізувати
+<div class="buttons">
+
+<button class="btn" onclick="analyzeJob()">
+    Аналізувати вакансію
 </button>
 
 </div>
 
 </div>
 
-
-<div
-id="analysisResult"
-class="card"
-style="display:none">
-
-<div
-id="detectedJobs">
-</div>
+<div class="panel analysis-result" id="analysisResult">
 
 <div class="score-box">
 
-<div>Match</div>
+<div>Відповідність резюме</div>
 
-<div
-id="score"
-class="score">
+<div class="score" id="score">
 0%
 </div>
 
 <div class="progress">
-
-<div
-id="progressBar"
-class="progress-bar">
+<div class="progress-bar" id="progressBar"></div>
 </div>
 
 </div>
 
-</div>
-
+<div id="detectedJobs" style="margin-top:15px"></div>
 
 <div class="analysis-columns">
 
 <div class="analysis-box">
 
-<h3>
-Знайдені навички
-</h3>
+<h3>Знайдені навички</h3>
 
 <div id="found">
+—
 </div>
 
 </div>
-
 
 <div class="analysis-box">
 
-<h3>
-Відсутні навички
-</h3>
+<h3>Відсутні навички</h3>
 
 <div id="missing">
+—
 </div>
 
 </div>
 
 </div>
 
+<div class="analysis-box" style="margin-top:15px">
 
-<div class="card">
-
-<h3>
-Рекомендація
-</h3>
+<h3>Рекомендація</h3>
 
 <p id="recommendation">
 —
@@ -1450,343 +1301,331 @@ class="progress-bar">
 
 </section>
 
+</main>
 
-<!-- JOBS -->
-
-<section id="jobsPage" class="page">
-
-<div class="card">
-
-<h2>
-Популярні професії
-</h2>
-
-<div
-id="professionCards"
-class="profession-grid">
-</div>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-Пошук роботи у Словаччині
-</h3>
-
-<div class="actions">
-
-<a
-class="btn"
-href="https://www.profesia.sk/"
-target="_blank">
-Profesia
-</a>
-
-<a
-class="btn"
-href="https://www.istp.sk/"
-target="_blank">
-ISTP
-</a>
-
-<a
-class="btn"
-href="https://www.linkedin.com/jobs/"
-target="_blank">
-LinkedIn Jobs
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-</div>
-
-
-<script src="jobs.js?v=4"></script>
-<script src="resume.js?v=4"></script>
-<script src="analysis.js?v=4"></script>
-
+<script src="jobs.js?v=5"></script>
+<script src="resume.js?v=5"></script>
+<script src="analysis.js?v=5"></script>
 
 <script>
 
-const colors = {
+/* =========================================================
+   JOBAI SLOVAKIA
+   MAIN INDEX SCRIPT
+========================================================= */
 
-blue: {
-main:"#1976d2",
-dark:"#125a9c",
-light:"#eaf3fb",
-soft:"#dcecf9"
-},
+const COLORS = {
 
-black:{
-main:"#222",
-dark:"#111",
-light:"#eee",
-soft:"#ddd"
-},
+    blue:{
+        main:"#1976d2",
+        dark:"#125a9c",
+        light:"#eaf3fb",
+        soft:"#dcecf9"
+    },
 
-green:{
-main:"#198754",
-dark:"#12643e",
-light:"#e9f7f0",
-soft:"#d6eee1"
-},
+    black:{
+        main:"#222",
+        dark:"#111",
+        light:"#eee",
+        soft:"#ddd"
+    },
 
-purple:{
-main:"#7048a8",
-dark:"#51347c",
-light:"#f1ebf8",
-soft:"#e4d9f0"
-},
+    green:{
+        main:"#198754",
+        dark:"#12643e",
+        light:"#e9f7f0",
+        soft:"#d6eee1"
+    },
 
-orange:{
-main:"#d97706",
-dark:"#a85704",
-light:"#fff3df",
-soft:"#f9e2bd"
-},
+    purple:{
+        main:"#7048a8",
+        dark:"#51347c",
+        light:"#f1ebf8",
+        soft:"#e4d9f0"
+    },
 
-red:{
-main:"#c0392b",
-dark:"#922b21",
-light:"#fcebea",
-soft:"#f4d1ce"
-},
+    orange:{
+        main:"#d97706",
+        dark:"#a85704",
+        light:"#fff3df",
+        soft:"#f9e2bd"
+    },
 
-teal:{
-main:"#168b8b",
-dark:"#0f6565",
-light:"#e6f5f5",
-soft:"#cfeaea"
-},
+    red:{
+        main:"#c0392b",
+        dark:"#922b21",
+        light:"#fcebea",
+        soft:"#f4d1ce"
+    },
 
-navy:{
-main:"#243b64",
-dark:"#182a49",
-light:"#eaf0f8",
-soft:"#d9e2f1"
-}
+    teal:{
+        main:"#168b8b",
+        dark:"#0f6565",
+        light:"#e6f5f5",
+        soft:"#cfeaea"
+    },
+
+    navy:{
+        main:"#243b64",
+        dark:"#182a49",
+        light:"#eaf0f8",
+        soft:"#d9e2f1"
+    }
 
 };
 
+let currentColor =
+    localStorage.getItem("jobaiResumeColor") || "blue";
 
-let selectedTemplate =
-localStorage.getItem("jobaiResumeTemplate")
-|| "modern";
+let currentTemplate =
+    localStorage.getItem("jobaiResumeTemplate") || "modern";
 
-let selectedColor =
-localStorage.getItem("jobaiResumeColor")
-|| "blue";
+if(!Array.isArray(window.experiences)){
+    window.experiences = [];
+}
 
+if(!Array.isArray(window.educations)){
+    window.educations = [];
+}
 
-/* COLOR */
+/* =========================================================
+   LANGUAGE
+========================================================= */
 
-function selectColor(color) {
+const translations = {
 
-    selectedColor = color;
+    ua:{
+        resume:"Резюме",
+        preview:"Перегляд",
+        analysis:"Аналіз вакансії"
+    },
+
+    sk:{
+        resume:"Životopis",
+        preview:"Náhľad",
+        analysis:"Analýza pracovnej ponuky"
+    },
+
+    en:{
+        resume:"Resume",
+        preview:"Preview",
+        analysis:"Job analysis"
+    }
+
+};
+
+function setLanguage(lang){
+
+    localStorage.setItem("jobaiLanguage",lang);
+
+    document.getElementById("tabEditor").innerText =
+        translations[lang].resume;
+
+    document.getElementById("tabPreview").innerText =
+        translations[lang].preview;
+
+    document.getElementById("tabAnalysis").innerText =
+        translations[lang].analysis;
+
+    document.querySelectorAll(".language button")
+        .forEach(function(button){
+            button.classList.remove("active");
+        });
+
+    const active =
+        document.querySelector(
+            '.language button[onclick="setLanguage(\''+lang+'\')"]'
+        );
+
+    if(active){
+        active.classList.add("active");
+    }
+}
+
+/* =========================================================
+   PAGES
+========================================================= */
+
+function showPage(page){
+
+    document.getElementById("editorPage").style.display =
+        page === "editor" ? "block" : "none";
+
+    document.getElementById("previewPage").style.display =
+        page === "preview" ? "block" : "none";
+
+    document.getElementById("analysisPage").style.display =
+        page === "analysis" ? "block" : "none";
+
+    document.querySelectorAll(".tab")
+        .forEach(function(tab){
+            tab.classList.remove("active");
+        });
+
+    if(page === "editor"){
+        document.getElementById("tabEditor")
+            .classList.add("active");
+    }
+
+    if(page === "preview"){
+        document.getElementById("tabPreview")
+            .classList.add("active");
+
+        updateResumePreview();
+
+        setTimeout(scalePreview,50);
+    }
+
+    if(page === "analysis"){
+        document.getElementById("tabAnalysis")
+            .classList.add("active");
+    }
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+/* =========================================================
+   COLOR
+========================================================= */
+
+function changeColor(color){
+
+    if(!COLORS[color]){
+        return;
+    }
+
+    currentColor = color;
 
     localStorage.setItem(
         "jobaiResumeColor",
         color
     );
 
-    applyColor();
+    const c = COLORS[color];
+
+    document.documentElement.style.setProperty(
+        "--accent",
+        c.main
+    );
+
+    document.documentElement.style.setProperty(
+        "--accent-dark",
+        c.dark
+    );
+
+    document.documentElement.style.setProperty(
+        "--accent-light",
+        c.light
+    );
+
+    document.documentElement.style.setProperty(
+        "--accent-soft",
+        c.soft
+    );
+
+    document.querySelectorAll(".color-button")
+        .forEach(function(button){
+
+            button.classList.remove("selected");
+
+            if(button.dataset.color === color){
+                button.classList.add("selected");
+            }
+
+        });
 
     updateResumePreview();
 }
 
+/* =========================================================
+   TEMPLATE
+========================================================= */
 
-function applyColor() {
+function changeTemplate(template){
 
-    const c =
-        colors[selectedColor]
-        || colors.blue;
-
-    document.documentElement
-        .style.setProperty(
-            "--main",
-            c.main
-        );
-
-    document.documentElement
-        .style.setProperty(
-            "--dark",
-            c.dark
-        );
-
-    document.documentElement
-        .style.setProperty(
-            "--light",
-            c.light
-        );
-
-    document.documentElement
-        .style.setProperty(
-            "--soft",
-            c.soft
-        );
-
-
-    document
-        .querySelectorAll("[data-color]")
-        .forEach(button => {
-
-            button.classList.toggle(
-                "active",
-                button.dataset.color
-                === selectedColor
-            );
-
-        });
-
-}
-
-
-/* TEMPLATE */
-
-function selectTemplate(template) {
-
-    selectedTemplate = template;
+    currentTemplate = template;
 
     localStorage.setItem(
         "jobaiResumeTemplate",
         template
     );
 
-    document
-        .querySelectorAll("[data-template]")
-        .forEach(button => {
+    const a =
+        document.getElementById("templateSelect");
 
-            button.classList.toggle(
-                "active",
-                button.dataset.template
-                === selectedTemplate
-            );
+    const b =
+        document.getElementById("previewTemplateSelect");
 
-        });
+    if(a){
+        a.value = template;
+    }
+
+    if(b){
+        b.value = template;
+    }
 
     updateResumePreview();
-
 }
 
+/* =========================================================
+   PHOTO
+========================================================= */
 
-/* PAGE */
+function getPhoto(){
 
-function showPage(id, button) {
-
-    document
-        .querySelectorAll(".page")
-        .forEach(page => {
-            page.classList.remove("active");
-        });
-
-    const page =
-        document.getElementById(id);
-
-    if(page) {
-        page.classList.add("active");
-    }
-
-
-    document
-        .querySelectorAll(".tab")
-        .forEach(tab => {
-            tab.classList.remove("active");
-        });
-
-
-    if(button) {
-        button.classList.add("active");
-    }
-
-
-    updateResumePreview();
-
-
-    if(id === "previewPage") {
-
-        setTimeout(
-            scalePreview,
-            50
-        );
-
-    }
-
+    return localStorage.getItem("jobaiPhoto") || "";
 }
 
-
-/* PHOTO */
-
-function getPhoto() {
-
-    return localStorage.getItem(
-        "jobaiPhoto"
-    ) || "";
-
-}
-
-
-function photoHTML(className) {
-
-    const photo =
-        getPhoto();
-
-    if(!photo) {
-        return "";
-    }
-
-    return `
-        <img
-            src="${photo}"
-            class="cv-photo ${className}"
-            alt="CV photo"
-            onerror="this.style.display='none'">
-    `;
-
-}
-
-
-function updatePhotoPreview() {
+function renderPhotoPreview(){
 
     const box =
-        document.getElementById(
-            "photoPreviewBox"
-        );
+        document.getElementById("photoPreview");
 
-    const photo =
-        getPhoto();
-
-
-    if(photo) {
-
-        box.outerHTML = `
-            <img
-                id="photoPreviewBox"
-                class="photo-preview"
-                src="${photo}"
-                alt="Фото">
-        `;
-
+    if(!box){
+        return;
     }
 
+    const photo = getPhoto();
+
+    if(photo){
+
+        box.innerHTML =
+            '<img src="' +
+            photo +
+            '" alt="CV photo">';
+
+    }else{
+
+        box.innerText = "Фото";
+
+    }
 }
 
+function removePhoto(){
 
-document
-    .getElementById("photoInput")
-    .addEventListener(
+    localStorage.removeItem("jobaiPhoto");
+
+    renderPhotoPreview();
+
+    updateResumePreview();
+}
+
+const photoInput =
+    document.getElementById("photoInput");
+
+if(photoInput){
+
+    photoInput.addEventListener(
         "change",
-        function() {
+        function(event){
 
             const file =
-                this.files[0];
+                event.target.files[0];
 
-            if(!file) {
+            if(!file){
                 return;
             }
 
@@ -1794,76 +1633,29 @@ document
                 new FileReader();
 
             reader.onload =
-                function(e) {
+                function(e){
 
                     localStorage.setItem(
                         "jobaiPhoto",
                         e.target.result
                     );
 
-                    updatePhotoPreview();
+                    renderPhotoPreview();
 
                     updateResumePreview();
 
                 };
 
             reader.readAsDataURL(file);
-
         }
     );
-
-
-function removePhoto() {
-
-    localStorage.removeItem(
-        "jobaiPhoto"
-    );
-
-    document
-        .getElementById("photoInput")
-        .value = "";
-
-    location.reload();
-
 }
 
+/* =========================================================
+   EXPERIENCE
+========================================================= */
 
-/* RESUME DATA */
-
-function getValue(id) {
-
-    const el =
-        document.getElementById(id);
-
-    return el
-        ? el.value
-        : "";
-
-}
-
-
-function esc(value) {
-
-    return String(value || "")
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
-
-}
-
-
-/* EXPERIENCE */
-
-if(!Array.isArray(window.experiences)) {
-
-    window.experiences = [];
-
-}
-
-
-function addExperience() {
+function addExperience(){
 
     window.experiences.push({
 
@@ -1879,17 +1671,11 @@ function addExperience() {
 
     saveResumeData();
 
-    updateResumePreview();
-
 }
 
+function removeExperience(index){
 
-function removeExperience(index) {
-
-    window.experiences.splice(
-        index,
-        1
-    );
+    window.experiences.splice(index,1);
 
     renderExperiences();
 
@@ -1899,31 +1685,31 @@ function removeExperience(index) {
 
 }
 
-
-function renderExperiences() {
+function renderExperiences(){
 
     const container =
-        document.getElementById(
-            "experienceList"
-        );
+        document.getElementById("experienceList");
 
-    if(!window.experiences.length) {
-
-        container.innerHTML =
-            '<p style="color:#9fb0c4">Досвід ще не додано.</p>';
-
+    if(!container){
         return;
-
     }
 
+    if(window.experiences.length === 0){
+
+        container.innerHTML =
+            "<p style='color:#888'>Досвід роботи ще не додано.</p>";
+
+        return;
+    }
 
     container.innerHTML =
-        window.experiences
-        .map((e,index) => `
+        window.experiences.map(function(exp,index){
 
-            <div class="repeat-item">
+            return `
 
-                <div class="repeat-head">
+            <div class="entry">
+
+                <div class="entry-header">
 
                     <strong>
                         Досвід ${index + 1}
@@ -1932,7 +1718,7 @@ function renderExperiences() {
                     <button
                         class="btn danger"
                         onclick="removeExperience(${index})">
-                        ×
+                        Видалити
                     </button>
 
                 </div>
@@ -1941,80 +1727,53 @@ function renderExperiences() {
 
                     <div class="field">
 
-                        <label>
-                            Компанія
-                        </label>
+                        <label>Компанія</label>
 
                         <input
-                            value="${esc(e.company)}"
-                            onchange="
-                                experiences[${index}].company=this.value;
-                                saveResumeData();
-                                updateResumePreview();
-                            ">
+                            value="${escapeHTML(exp.company)}"
+                            oninput="updateExperience(${index},'company',this.value)">
 
                     </div>
 
                     <div class="field">
 
-                        <label>
-                            Посада
-                        </label>
+                        <label>Посада</label>
 
                         <input
-                            value="${esc(e.position)}"
-                            onchange="
-                                experiences[${index}].position=this.value;
-                                saveResumeData();
-                                updateResumePreview();
-                            ">
+                            value="${escapeHTML(exp.position)}"
+                            oninput="updateExperience(${index},'position',this.value)">
 
                     </div>
 
                     <div class="field">
 
-                        <label>
-                            Початок
-                        </label>
+                        <label>Початок</label>
 
                         <input
-                            value="${esc(e.start)}"
-                            onchange="
-                                experiences[${index}].start=this.value;
-                                saveResumeData();
-                                updateResumePreview();
-                            ">
+                            value="${escapeHTML(exp.start)}"
+                            placeholder="2022"
+                            oninput="updateExperience(${index},'start',this.value)">
 
                     </div>
 
                     <div class="field">
 
-                        <label>
-                            Кінець
-                        </label>
+                        <label>Кінець</label>
 
                         <input
-                            value="${esc(e.end)}"
-                            onchange="
-                                experiences[${index}].end=this.value;
-                                saveResumeData();
-                                updateResumePreview();
-                            ">
+                            value="${escapeHTML(exp.end)}"
+                            placeholder="2025"
+                            oninput="updateExperience(${index},'end',this.value)">
 
                     </div>
 
                     <div class="field full">
 
-                        <label>
-                            Опис
-                        </label>
+                        <label>Опис роботи</label>
 
                         <textarea
-                            onchange="
-                                experiences[${index}].description=this.value;
-                                saveResumeData();
-                                updateResumePreview();
-                            ">${esc(e.description)}</textarea>
+                            oninput="updateExperience(${index},'description',this.value)"
+                        >${escapeHTML(exp.description)}</textarea>
 
                     </div>
 
@@ -2022,22 +1781,31 @@ function renderExperiences() {
 
             </div>
 
-        `)
-        .join("");
+            `;
+
+        }).join("");
 
 }
 
+function updateExperience(index,field,value){
 
-/* EDUCATION */
+    if(!window.experiences[index]){
+        return;
+    }
 
-if(!Array.isArray(window.educations)) {
+    window.experiences[index][field] = value;
 
-    window.educations = [];
+    saveResumeData();
+
+    updateResumePreview();
 
 }
 
+/* =========================================================
+   EDUCATION
+========================================================= */
 
-function addEducation() {
+function addEducation(){
 
     window.educations.push({
 
@@ -2051,17 +1819,11 @@ function addEducation() {
 
     saveResumeData();
 
-    updateResumePreview();
-
 }
 
+function removeEducation(index){
 
-function removeEducation(index) {
-
-    window.educations.splice(
-        index,
-        1
-    );
+    window.educations.splice(index,1);
 
     renderEducations();
 
@@ -2071,31 +1833,31 @@ function removeEducation(index) {
 
 }
 
-
-function renderEducations() {
+function renderEducations(){
 
     const container =
-        document.getElementById(
-            "educationList"
-        );
+        document.getElementById("educationList");
 
-    if(!window.educations.length) {
-
-        container.innerHTML =
-            '<p style="color:#9fb0c4">Освіта ще не додана.</p>';
-
+    if(!container){
         return;
-
     }
 
+    if(window.educations.length === 0){
+
+        container.innerHTML =
+            "<p style='color:#888'>Освіту ще не додано.</p>";
+
+        return;
+    }
 
     container.innerHTML =
-        window.educations
-        .map((e,index) => `
+        window.educations.map(function(edu,index){
 
-            <div class="repeat-item">
+            return `
 
-                <div class="repeat-head">
+            <div class="entry">
+
+                <div class="entry-header">
 
                     <strong>
                         Освіта ${index + 1}
@@ -2104,7 +1866,7 @@ function renderEducations() {
                     <button
                         class="btn danger"
                         onclick="removeEducation(${index})">
-                        ×
+                        Видалити
                     </button>
 
                 </div>
@@ -2113,49 +1875,35 @@ function renderEducations() {
 
                     <div class="field">
 
-                        <label>
-                            Навчальний заклад
-                        </label>
+                        <label>Навчальний заклад</label>
 
                         <input
-                            value="${esc(e.school)}"
-                            onchange="
-                                educations[${index}].school=this.value;
-                                saveResumeData();
-                                updateResumePreview();
-                            ">
+                            value="${escapeHTML(edu.school)}"
+                            oninput="updateEducation(${index},'school',this.value)">
 
                     </div>
 
                     <div class="field">
 
-                        <label>
-                            Спеціальність
-                        </label>
+                        <label>Спеціальність</label>
 
                         <input
-                            value="${esc(e.speciality || e.specialty)}"
-                            onchange="
-                                educations[${index}].speciality=this.value;
-                                saveResumeData();
-                                updateResumePreview();
-                            ">
+                            value="${escapeHTML(
+                                edu.speciality ||
+                                edu.specialty ||
+                                ""
+                            )}"
+                            oninput="updateEducation(${index},'speciality',this.value)">
 
                     </div>
 
                     <div class="field">
 
-                        <label>
-                            Рік
-                        </label>
+                        <label>Рік</label>
 
                         <input
-                            value="${esc(e.year)}"
-                            onchange="
-                                educations[${index}].year=this.value;
-                                saveResumeData();
-                                updateResumePreview();
-                            ">
+                            value="${escapeHTML(edu.year)}"
+                            oninput="updateEducation(${index},'year',this.value)">
 
                     </div>
 
@@ -2163,222 +1911,236 @@ function renderEducations() {
 
             </div>
 
-        `)
-        .join("");
+            `;
+
+        }).join("");
 
 }
 
+function updateEducation(index,field,value){
 
-/* SAVE */
+    if(!window.educations[index]){
+        return;
+    }
 
-function saveResumeData() {
+    window.educations[index][field] = value;
 
-    const data = {
+    saveResumeData();
 
-        name:getValue("name"),
-        position:getValue("position"),
-        phone:getValue("phone"),
-        email:getValue("email"),
-        city:getValue("city"),
-        profile:getValue("profile"),
-        skills:getValue("skills"),
-        languages:getValue("languages"),
+    updateResumePreview();
+
+}
+
+/* =========================================================
+   ESCAPE
+========================================================= */
+
+function escapeHTML(value){
+
+    return String(value || "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+/* =========================================================
+   DATA
+========================================================= */
+
+function collectResumeData(){
+
+    return {
+
+        name:
+            document.getElementById("name")?.value || "",
+
+        position:
+            document.getElementById("position")?.value || "",
+
+        phone:
+            document.getElementById("phone")?.value || "",
+
+        email:
+            document.getElementById("email")?.value || "",
+
+        city:
+            document.getElementById("city")?.value || "",
+
+        profile:
+            document.getElementById("profile")?.value || "",
+
+        skills:
+            document.getElementById("skills")?.value || "",
+
+        languages:
+            document.getElementById("languages")?.value || "",
 
         experiences:
-            window.experiences,
+            window.experiences || [],
 
         educations:
-            window.educations,
-
-        template:
-            selectedTemplate,
-
-        color:
-            selectedColor,
-
-        photo:
-            getPhoto()
+            window.educations || []
 
     };
 
+}
+
+function saveResumeData(){
 
     localStorage.setItem(
         "jobaiResume",
-        JSON.stringify(data)
+        JSON.stringify(
+            collectResumeData()
+        )
     );
 
 }
 
-
-function saveResume() {
+function saveResume(){
 
     saveResumeData();
 
-    alert(
-        "Резюме збережено."
-    );
+    alert("Резюме збережено.");
 
 }
 
+function loadResume(){
 
-function loadResume() {
+    let raw =
+        localStorage.getItem("jobaiResume");
 
-    let data = {};
-
-    try {
-
-        data =
-            JSON.parse(
-                localStorage.getItem(
-                    "jobaiResume"
-                ) || "{}"
-            );
-
-    }
-    catch(error) {
-
-        data = {};
-
+    if(!raw){
+        return;
     }
 
+    try{
 
-    [
-        "name",
-        "position",
-        "phone",
-        "email",
-        "city",
-        "profile",
-        "skills",
-        "languages"
-    ]
-    .forEach(id => {
+        const data =
+            JSON.parse(raw);
 
-        const el =
-            document.getElementById(id);
+        const fields = [
+            "name",
+            "position",
+            "phone",
+            "email",
+            "city",
+            "profile",
+            "skills",
+            "languages"
+        ];
 
-        if(el) {
+        fields.forEach(function(id){
 
-            el.value =
-                data[id] || "";
+            const element =
+                document.getElementById(id);
 
+            if(element){
+                element.value =
+                    data[id] || "";
+            }
+
+        });
+
+        if(Array.isArray(data.experiences)){
+            window.experiences =
+                data.experiences;
         }
 
-    });
+        if(Array.isArray(data.educations)){
+            window.educations =
+                data.educations;
+        }
 
+    }catch(error){
 
-    if(Array.isArray(data.experiences)) {
-
-        window.experiences =
-            data.experiences;
-
-    }
-
-
-    if(Array.isArray(data.educations)) {
-
-        window.educations =
-            data.educations;
-
-    }
-
-
-    if(data.template) {
-
-        selectedTemplate =
-            data.template;
-
-    }
-
-
-    if(data.color) {
-
-        selectedColor =
-            data.color;
-
-    }
-
-
-    if(data.photo) {
-
-        localStorage.setItem(
-            "jobaiPhoto",
-            data.photo
+        console.error(
+            "Помилка завантаження CV:",
+            error
         );
 
     }
 
 }
 
+/* =========================================================
+   EXPORT / IMPORT
+========================================================= */
 
-/* EXPORT */
+function exportResume(){
 
-function exportResume() {
+    const data = {
 
-    saveResumeData();
+        resume:collectResumeData(),
 
-    const data =
-        localStorage.getItem(
-            "jobaiResume"
-        ) || "{}";
+        photo:getPhoto(),
 
+        template:currentTemplate,
+
+        color:currentColor
+
+    };
 
     const blob =
         new Blob(
-            [data],
+            [
+                JSON.stringify(
+                    data,
+                    null,
+                    2
+                )
+            ],
             {
-                type:
-                    "application/json"
+                type:"application/json"
             }
         );
 
-
-    const link =
-        document.createElement("a");
-
-    link.href =
+    const url =
         URL.createObjectURL(blob);
 
-    link.download =
+    const a =
+        document.createElement("a");
+
+    a.href = url;
+
+    a.download =
         "jobai-resume.json";
 
-    link.click();
+    a.click();
+
+    URL.revokeObjectURL(url);
 
 }
 
-
-/* IMPORT */
-
-document
-    .getElementById("importFile")
-    .addEventListener(
+document.getElementById("importFile")
+    ?.addEventListener(
         "change",
-        function(event) {
+        function(event){
 
             const file =
                 event.target.files[0];
 
-            if(!file) {
+            if(!file){
                 return;
             }
-
 
             const reader =
                 new FileReader();
 
-
             reader.onload =
-                function(e) {
+                function(e){
 
-                    try {
+                    try{
 
                         const data =
-                            JSON.parse(
-                                e.target.result
-                            );
+                            JSON.parse(e.target.result);
 
+                        const resume =
+                            data.resume || data;
 
-                        [
+                        const fields = [
                             "name",
                             "position",
                             "phone",
@@ -2387,115 +2149,103 @@ document
                             "profile",
                             "skills",
                             "languages"
-                        ]
-                        .forEach(id => {
+                        ];
 
-                            if(
-                                data[id] !== undefined
-                            ) {
+                        fields.forEach(function(id){
 
-                                document
-                                    .getElementById(id)
-                                    .value =
-                                    data[id];
+                            const element =
+                                document.getElementById(id);
 
+                            if(element){
+                                element.value =
+                                    resume[id] || "";
                             }
 
                         });
 
+                        if(Array.isArray(resume.experiences)){
+                            window.experiences =
+                                resume.experiences;
+                        }
 
-                        window.experiences =
-                            Array.isArray(
-                                data.experiences
-                            )
-                            ? data.experiences
-                            : [];
+                        if(Array.isArray(resume.educations)){
+                            window.educations =
+                                resume.educations;
+                        }
 
-
-                        window.educations =
-                            Array.isArray(
-                                data.educations
-                            )
-                            ? data.educations
-                            : [];
-
-
-                        if(data.photo) {
-
+                        if(data.photo){
                             localStorage.setItem(
                                 "jobaiPhoto",
                                 data.photo
                             );
-
                         }
 
-
-                        if(data.template) {
-
-                            selectedTemplate =
+                        if(data.template){
+                            currentTemplate =
                                 data.template;
 
+                            localStorage.setItem(
+                                "jobaiResumeTemplate",
+                                currentTemplate
+                            );
                         }
 
-
-                        if(data.color) {
-
-                            selectedColor =
+                        if(data.color){
+                            currentColor =
                                 data.color;
 
+                            localStorage.setItem(
+                                "jobaiResumeColor",
+                                currentColor
+                            );
                         }
-
-
-                        saveResumeData();
 
                         renderExperiences();
 
                         renderEducations();
 
-                        updatePhotoPreview();
+                        renderPhotoPreview();
 
-                        applyColor();
+                        changeColor(currentColor);
+
+                        changeTemplate(currentTemplate);
+
+                        saveResumeData();
 
                         updateResumePreview();
 
                         alert(
-                            "Резюме імпортовано."
+                            "Резюме успішно імпортовано."
                         );
 
-                    }
-                    catch(error) {
+                    }catch(error){
 
                         alert(
-                            "Помилка імпорту JSON."
+                            "Не вдалося імпортувати файл."
                         );
 
                     }
 
                 };
 
-
             reader.readAsText(file);
 
         }
     );
 
+/* =========================================================
+   CLEAR
+========================================================= */
 
-/* CLEAR */
+function clearResume(){
 
-function clearResume() {
-
-    if(
-        !confirm(
-            "Очистити все резюме?"
-        )
-    ) {
-
+    if(!confirm(
+        "Ви впевнені, що хочете очистити резюме?"
+    )){
         return;
-
     }
 
-
-    [
+    const fields = [
         "name",
         "position",
         "phone",
@@ -2504,20 +2254,22 @@ function clearResume() {
         "profile",
         "skills",
         "languages"
-    ]
-    .forEach(id => {
+    ];
 
-        document
-            .getElementById(id)
-            .value = "";
+    fields.forEach(function(id){
+
+        const element =
+            document.getElementById(id);
+
+        if(element){
+            element.value = "";
+        }
 
     });
-
 
     window.experiences = [];
 
     window.educations = [];
-
 
     localStorage.removeItem(
         "jobaiResume"
@@ -2527,790 +2279,907 @@ function clearResume() {
         "jobaiPhoto"
     );
 
+    renderExperiences();
 
-    location.reload();
+    renderEducations();
+
+    renderPhotoPreview();
+
+    updateResumePreview();
 
 }
 
+/* =========================================================
+   PREVIEW HELPERS
+========================================================= */
 
-/* CV PREVIEW */
+function getValue(id){
 
-function updateResumePreview() {
+    const element =
+        document.getElementById(id);
 
-    const paper =
-        document.getElementById(
-            "cvPaper"
-        );
+    return element ?
+        element.value.trim() :
+        "";
 
-    if(!paper) {
-        return;
+}
+
+function splitSkills(){
+
+    return getValue("skills")
+        .split(/[,;\n]+/)
+        .map(function(x){
+            return x.trim();
+        })
+        .filter(Boolean);
+
+}
+
+function splitLanguages(){
+
+    return getValue("languages")
+        .split(/[;\n]+/)
+        .map(function(x){
+            return x.trim();
+        })
+        .filter(Boolean);
+
+}
+
+function photoHTML(className){
+
+    const photo =
+        getPhoto();
+
+    if(!photo){
+        return "";
     }
 
+    return `
+        <img
+            class="${className} cv-photo"
+            src="${photo}"
+            alt="Photo"
+        >
+    `;
 
-    const name =
-        esc(
-            getValue("name")
-            || "Ваше ім'я"
+}
+
+function contactHTML(){
+
+    const values = [];
+
+    if(getValue("phone")){
+        values.push(
+            escapeHTML(getValue("phone"))
         );
+    }
 
-    const position =
-        esc(
-            getValue("position")
-            || "Бажана посада"
+    if(getValue("email")){
+        values.push(
+            escapeHTML(getValue("email"))
         );
+    }
 
-    const contact =
-        [
-            getValue("phone"),
-            getValue("email"),
-            getValue("city")
-        ]
-        .filter(Boolean)
-        .map(esc)
-        .join(" • ");
+    if(getValue("city")){
+        values.push(
+            escapeHTML(getValue("city"))
+        );
+    }
 
+    return values.join("<br>");
 
-    const profile =
-        getValue("profile")
-        ? esc(getValue("profile"))
-            .replace(/\n/g,"<br>")
-        : "—";
+}
 
+function skillsHTML(){
+
+    const skills =
+        splitSkills();
+
+    if(!skills.length){
+        return "<p>—</p>";
+    }
+
+    return `
+        <ul>
+            ${skills.map(function(skill){
+                return `
+                    <li>${escapeHTML(skill)}</li>
+                `;
+            }).join("")}
+        </ul>
+    `;
+
+}
+
+function languagesHTML(){
 
     const languages =
-        esc(
-            getValue("languages")
-            || "—"
-        );
+        splitLanguages();
 
-
-    const skillsText =
-        getValue("skills");
-
-
-    let skillsHTML = "—";
-
-
-    if(skillsText) {
-
-        skillsHTML =
-            `<ul class="cv-list">
-                ${
-                    skillsText
-                    .split(/[,;\n]+/)
-                    .filter(Boolean)
-                    .map(skill =>
-                        `<li>${esc(skill.trim())}</li>`
-                    )
-                    .join("")
-                }
-            </ul>`;
-
+    if(!languages.length){
+        return "<p>—</p>";
     }
 
+    return `
+        <ul>
+            ${languages.map(function(lang){
+                return `
+                    <li>${escapeHTML(lang)}</li>
+                `;
+            }).join("")}
+        </ul>
+    `;
 
-    let experienceHTML =
-        "—";
+}
 
+function experienceHTML(){
 
-    if(window.experiences.length) {
+    if(!window.experiences.length){
+        return "<p>—</p>";
+    }
 
-        experienceHTML =
-            window.experiences
-            .map(e => `
+    return window.experiences.map(function(exp){
 
-                <div class="cv-item">
+        const date =
+            [exp.start,exp.end]
+            .filter(Boolean)
+            .join(" — ");
 
-                    <div class="cv-item-header">
+        return `
 
-                        <span>
-                            ${esc(e.position || "")}
+            <div class="cv-item">
 
-                            ${
-                                e.company
-                                ? " — " +
-                                  esc(e.company)
-                                : ""
-                            }
-                        </span>
+                <div class="cv-item-title">
+                    ${escapeHTML(exp.position)}
+                </div>
 
-                        <span class="cv-date">
+                <div class="cv-item-date">
+                    ${escapeHTML(exp.company)}
+                    ${date ? " · " + escapeHTML(date) : ""}
+                </div>
 
-                            ${esc(e.start || "")}
+                ${
+                    exp.description
+                    ?
+                    `<p>${escapeHTML(exp.description)}</p>`
+                    :
+                    ""
+                }
 
-                            ${
-                                e.end
-                                ? " — " +
-                                  esc(e.end)
-                                : ""
-                            }
+            </div>
 
-                        </span>
+        `;
 
-                    </div>
+    }).join("");
 
+}
+
+function educationHTML(){
+
+    if(!window.educations.length){
+        return "<p>—</p>";
+    }
+
+    return window.educations.map(function(edu){
+
+        const speciality =
+            edu.speciality ||
+            edu.specialty ||
+            "";
+
+        return `
+
+            <div class="cv-item">
+
+                <div class="cv-item-title">
+                    ${escapeHTML(speciality)}
+                </div>
+
+                <div class="cv-item-date">
+                    ${escapeHTML(edu.school)}
+                    ${edu.year ? " · " + escapeHTML(edu.year) : ""}
+                </div>
+
+            </div>
+
+        `;
+
+    }).join("");
+
+}
+
+/* =========================================================
+   MODERN TEMPLATE
+========================================================= */
+
+function modernTemplate(){
+
+    return `
+
+    <div class="cv-modern">
+
+        <aside class="cv-modern-sidebar">
+
+            <div class="photo-wrap">
+
+                ${
+                    photoHTML("")
+                    ||
+                    `<div style="
+                        width:145px;
+                        height:145px;
+                        border-radius:50%;
+                        border:4px solid var(--accent);
+                        margin:auto;
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        color:#222 !important;
+                    ">
+                    Фото
+                    </div>`
+                }
+
+            </div>
+
+            <div class="cv-section">
+
+                <div class="cv-section-title">
+                    Контакти
+                </div>
+
+                <div>
+                    ${contactHTML() || "—"}
+                </div>
+
+            </div>
+
+            <div class="cv-section">
+
+                <div class="cv-section-title">
+                    Мови
+                </div>
+
+                ${languagesHTML()}
+
+            </div>
+
+            <div class="cv-section">
+
+                <div class="cv-section-title">
+                    Навички
+                </div>
+
+                ${skillsHTML()}
+
+            </div>
+
+        </aside>
+
+        <main class="cv-modern-main">
+
+            <h1>
+                ${escapeHTML(getValue("name") || "Ваше ім'я")}
+            </h1>
+
+            <div class="position">
+                ${escapeHTML(getValue("position") || "Бажана посада")}
+            </div>
+
+            <div class="cv-section">
+
+                <div class="cv-section-title">
+                    Профіль
+                </div>
+
+                <p>
                     ${
-                        e.description
-                        ? `<div class="cv-text">
-                            ${esc(e.description)
-                                .replace(/\n/g,"<br>")}
-                           </div>`
-                        : ""
+                        escapeHTML(
+                            getValue("profile")
+                        ) || "—"
                     }
-
-                </div>
-
-            `)
-            .join("");
-
-    }
-
-
-    let educationHTML =
-        "—";
-
-
-    if(window.educations.length) {
-
-        educationHTML =
-            window.educations
-            .map(e => `
-
-                <div class="cv-item">
-
-                    <div class="cv-item-header">
-
-                        <span>
-                            ${esc(
-                                e.speciality
-                                || e.specialty
-                                || ""
-                            )}
-                        </span>
-
-                        <span class="cv-date">
-                            ${esc(e.year || "")}
-                        </span>
-
-                    </div>
-
-                    <div class="cv-text">
-
-                        ${esc(e.school || "")}
-
-                    </div>
-
-                </div>
-
-            `)
-            .join("");
-
-    }
-
-
-    if(selectedTemplate === "modern") {
-
-        paper.innerHTML = `
-
-        <div class="modern">
-
-            <aside class="modern-sidebar">
-
-                ${
-                    photoHTML(
-                        "modern-photo"
-                    )
-                }
-
-                <h1 class="cv-name">
-                    ${name}
-                </h1>
-
-                <div class="cv-position">
-                    ${position}
-                </div>
-
-                <div class="cv-section">
-
-                    <div class="cv-title">
-                        Kontakt
-                    </div>
-
-                    <div class="cv-contact">
-                        ${contact || "—"}
-                    </div>
-
-                </div>
-
-                <div class="cv-section">
-
-                    <div class="cv-title">
-                        Jazyky
-                    </div>
-
-                    <div>
-                        ${languages}
-                    </div>
-
-                </div>
-
-                <div class="cv-section">
-
-                    <div class="cv-title">
-                        Zručnosti
-                    </div>
-
-                    ${skillsHTML}
-
-                </div>
-
-            </aside>
-
-
-            <main class="modern-main">
-
-                <div class="cv-section">
-
-                    <div class="cv-title">
-                        Profil
-                    </div>
-
-                    <div class="cv-text">
-                        ${profile}
-                    </div>
-
-                </div>
-
-                <div class="cv-section">
-
-                    <div class="cv-title">
-                        Pracovné skúsenosti
-                    </div>
-
-                    ${experienceHTML}
-
-                </div>
-
-                <div class="cv-section">
-
-                    <div class="cv-title">
-                        Vzdelanie
-                    </div>
-
-                    ${educationHTML}
-
-                </div>
-
-            </main>
-
-        </div>
-
-        `;
-
-    }
-
-
-    else if(
-        selectedTemplate ===
-        "professional"
-    ) {
-
-        paper.innerHTML = `
-
-        <div class="professional">
-
-            <div class="professional-header">
-
-                ${
-                    photoHTML(
-                        "professional-photo"
-                    )
-                }
-
-                <div class="professional-info">
-
-                    <h1 class="cv-name">
-                        ${name}
-                    </h1>
-
-                    <div class="cv-position">
-                        ${position}
-                    </div>
-
-                    <div class="cv-contact">
-
-                        ${contact || "—"}
-
-                    </div>
-
-                </div>
+                </p>
 
             </div>
 
-
             <div class="cv-section">
 
-                <div class="cv-title">
-                    Profil
+                <div class="cv-section-title">
+                    Досвід роботи
                 </div>
 
-                <div class="cv-text">
-                    ${profile}
-                </div>
+                ${experienceHTML()}
 
             </div>
 
-
             <div class="cv-section">
 
-                <div class="cv-title">
-                    Pracovné skúsenosti
+                <div class="cv-section-title">
+                    Освіта
                 </div>
 
-                ${experienceHTML}
+                ${educationHTML()}
 
             </div>
 
+        </main>
 
-            <div class="cv-section">
+    </div>
 
-                <div class="cv-title">
-                    Vzdelanie
-                </div>
+    `;
 
-                ${educationHTML}
+}
 
+/* =========================================================
+   PROFESSIONAL TEMPLATE
+========================================================= */
+
+function professionalTemplate(){
+
+    return `
+
+    <div class="cv-professional">
+
+        <div class="cv-professional-header">
+
+            <h1>
+                ${escapeHTML(getValue("name") || "Ваше ім'я")}
+            </h1>
+
+            <div class="position">
+                ${escapeHTML(getValue("position") || "Бажана посада")}
             </div>
 
-
-            <div class="cv-section">
-
-                <div class="cv-title">
-                    Zručnosti
-                </div>
-
-                ${skillsHTML}
-
-            </div>
-
-
-            <div class="cv-section">
-
-                <div class="cv-title">
-                    Jazyky
-                </div>
-
-                ${languages}
-
+            <div class="prof-contact">
+                ${contactHTML()}
             </div>
 
         </div>
 
-        `;
+        <div class="prof-row">
 
-    }
+            <div class="prof-label">
+                ПРОФІЛЬ
+            </div>
 
+            <div>
+                ${
+                    escapeHTML(
+                        getValue("profile")
+                    ) || "—"
+                }
+            </div>
 
-    else if(
-        selectedTemplate ===
-        "executive"
-    ) {
+        </div>
 
-        paper.innerHTML = `
+        <div class="prof-row">
 
-        <div class="executive-header">
+            <div class="prof-label">
+                ДОСВІД
+            </div>
+
+            <div>
+                ${experienceHTML()}
+            </div>
+
+        </div>
+
+        <div class="prof-row">
+
+            <div class="prof-label">
+                ОСВІТА
+            </div>
+
+            <div>
+                ${educationHTML()}
+            </div>
+
+        </div>
+
+        <div class="prof-row">
+
+            <div class="prof-label">
+                НАВИЧКИ
+            </div>
+
+            <div>
+                ${skillsHTML()}
+            </div>
+
+        </div>
+
+        <div class="prof-row">
+
+            <div class="prof-label">
+                МОВИ
+            </div>
+
+            <div>
+                ${languagesHTML()}
+            </div>
+
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+/* =========================================================
+   EXECUTIVE TEMPLATE
+========================================================= */
+
+function executiveTemplate(){
+
+    return `
+
+    <div class="cv-executive">
+
+        <div class="exec-top">
 
             ${
-                photoHTML(
-                    "executive-photo"
-                )
+                photoHTML("")
+                ||
+                `<div style="
+                    width:125px;
+                    height:125px;
+                    border-radius:50%;
+                    border:4px solid #fff;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    color:#fff !important;
+                ">
+                Фото
+                </div>`
             }
 
             <div>
 
-                <h1 class="cv-name">
-                    ${name}
-                </h1>
-
-                <div class="cv-position">
-                    ${position}
+                <div class="exec-name">
+                    ${escapeHTML(getValue("name") || "Ваше ім'я")}
                 </div>
 
-                <div class="cv-contact">
-                    ${contact || "—"}
+                <div class="exec-position">
+                    ${escapeHTML(getValue("position") || "Бажана посада")}
                 </div>
 
             </div>
 
         </div>
 
+        <div class="exec-body">
 
-        <div class="executive-body">
+            <aside class="exec-sidebar">
 
-            <aside class="executive-sidebar">
-
-                <div class="cv-section">
-
-                    <div class="cv-title">
-                        Zručnosti
-                    </div>
-
-                    ${skillsHTML}
-
+                <div class="cv-section-title">
+                    Контакти
                 </div>
 
-
-                <div class="cv-section">
-
-                    <div class="cv-title">
-                        Jazyky
-                    </div>
-
-                    ${languages}
-
+                <div>
+                    ${contactHTML()}
                 </div>
+
+                <div class="cv-section-title">
+                    Навички
+                </div>
+
+                ${skillsHTML()}
+
+                <div class="cv-section-title">
+                    Мови
+                </div>
+
+                ${languagesHTML()}
 
             </aside>
 
+            <main class="exec-main">
 
-            <main class="executive-main">
-
-                <div class="cv-section">
-
-                    <div class="cv-title">
-                        Profil
-                    </div>
-
-                    <div class="cv-text">
-                        ${profile}
-                    </div>
-
+                <div class="cv-section-title">
+                    Профіль
                 </div>
 
+                <p>
+                    ${escapeHTML(getValue("profile")) || "—"}
+                </p>
 
-                <div class="cv-section">
-
-                    <div class="cv-title">
-                        Pracovné skúsenosti
-                    </div>
-
-                    ${experienceHTML}
-
+                <div class="cv-section-title">
+                    Досвід роботи
                 </div>
 
+                ${experienceHTML()}
 
-                <div class="cv-section">
-
-                    <div class="cv-title">
-                        Vzdelanie
-                    </div>
-
-                    ${educationHTML}
-
+                <div class="cv-section-title">
+                    Освіта
                 </div>
+
+                ${educationHTML()}
 
             </main>
 
         </div>
 
-        `;
+    </div>
 
-    }
+    `;
 
+}
 
-    else if(
-        selectedTemplate ===
-        "creative"
-    ) {
+/* =========================================================
+   CREATIVE TEMPLATE
+========================================================= */
 
-        paper.innerHTML = `
+function creativeTemplate(){
+
+    return `
+
+    <div class="cv-creative">
 
         <div class="creative-header">
 
             ${
-                photoHTML(
-                    "creative-photo"
-                )
+                photoHTML("")
+                ||
+                `<div style="
+                    width:125px;
+                    height:125px;
+                    border-radius:18px;
+                    border:4px solid var(--accent);
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    color:#222 !important;
+                ">
+                Фото
+                </div>`
             }
 
             <div>
 
-                <h1 class="cv-name">
-                    ${name}
-                </h1>
-
-                <div class="cv-position">
-                    ${position}
+                <div class="creative-name">
+                    ${escapeHTML(getValue("name") || "Ваше ім'я")}
                 </div>
 
-                <div class="cv-contact">
-                    ${contact || "—"}
+                <div class="creative-position">
+                    ${escapeHTML(getValue("position") || "Бажана посада")}
                 </div>
 
             </div>
 
         </div>
-
 
         <div class="creative-body">
 
             <aside class="creative-sidebar">
 
-                <div class="cv-section">
-
-                    <div class="cv-title">
-                        Zručnosti
-                    </div>
-
-                    ${skillsHTML}
-
+                <div class="cv-section-title white-text">
+                    Контакти
                 </div>
 
-
-                <div class="cv-section">
-
-                    <div class="cv-title">
-                        Jazyky
-                    </div>
-
-                    ${languages}
-
+                <div>
+                    ${contactHTML() || "—"}
                 </div>
+
+                <div class="cv-section-title white-text">
+                    Навички
+                </div>
+
+                ${skillsHTML()}
+
+                <div class="cv-section-title white-text">
+                    Мови
+                </div>
+
+                ${languagesHTML()}
 
             </aside>
 
-
             <main class="creative-main">
 
-                <div class="cv-section">
-
-                    <div class="cv-title">
-                        Profil
-                    </div>
-
-                    <div class="cv-text">
-                        ${profile}
-                    </div>
-
+                <div class="cv-section-title">
+                    Профіль
                 </div>
 
+                <p>
+                    ${escapeHTML(getValue("profile")) || "—"}
+                </p>
 
-                <div class="cv-section">
-
-                    <div class="cv-title">
-                        Skúsenosti
-                    </div>
-
-                    ${experienceHTML}
-
+                <div class="cv-section-title">
+                    Досвід роботи
                 </div>
 
+                ${experienceHTML()}
 
-                <div class="cv-section">
-
-                    <div class="cv-title">
-                        Vzdelanie
-                    </div>
-
-                    ${educationHTML}
-
+                <div class="cv-section-title">
+                    Освіта
                 </div>
+
+                ${educationHTML()}
 
             </main>
 
         </div>
 
-        `;
+    </div>
 
-    }
-
-
-    else {
-
-        paper.innerHTML = `
-
-        <div class="ats">
-
-            <div class="ats-header">
-
-                ${
-                    photoHTML(
-                        "ats-photo"
-                    )
-                }
-
-                <div>
-
-                    <h1 class="cv-name">
-                        ${name}
-                    </h1>
-
-                    <div class="cv-position">
-                        ${position}
-                    </div>
-
-                    <div class="cv-contact">
-                        ${contact || "—"}
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="cv-section">
-
-                <div class="cv-title">
-                    Profile
-                </div>
-
-                <div class="cv-text">
-                    ${profile}
-                </div>
-
-            </div>
-
-
-            <div class="cv-section">
-
-                <div class="cv-title">
-                    Work Experience
-                </div>
-
-                ${experienceHTML}
-
-            </div>
-
-
-            <div class="cv-section">
-
-                <div class="cv-title">
-                    Education
-                </div>
-
-                ${educationHTML}
-
-            </div>
-
-
-            <div class="cv-section">
-
-                <div class="cv-title">
-                    Skills
-                </div>
-
-                ${skillsHTML}
-
-            </div>
-
-
-            <div class="cv-section">
-
-                <div class="cv-title">
-                    Languages
-                </div>
-
-                ${languages}
-
-            </div>
-
-        </div>
-
-        `;
-
-    }
-
-
-    scalePreview();
+    `;
 
 }
 
+/* =========================================================
+   ATS TEMPLATE
+========================================================= */
 
-/* MOBILE SCALE */
+function atsTemplate(){
 
-function scalePreview() {
+    return `
+
+    <div class="cv-ats">
+
+        ${
+            photoHTML("ats-photo")
+        }
+
+        <div class="ats-header">
+
+            <h1>
+                ${escapeHTML(getValue("name") || "Ваше ім'я")}
+            </h1>
+
+            <div class="ats-position">
+                ${escapeHTML(getValue("position") || "Бажана посада")}
+            </div>
+
+            <p>
+                ${contactHTML()}
+            </p>
+
+        </div>
+
+        <div class="ats-section">
+
+            <div class="ats-title">
+                PROFESSIONAL SUMMARY
+            </div>
+
+            <p>
+                ${escapeHTML(getValue("profile")) || "—"}
+            </p>
+
+        </div>
+
+        <div class="ats-section">
+
+            <div class="ats-title">
+                WORK EXPERIENCE
+            </div>
+
+            ${experienceHTML()}
+
+        </div>
+
+        <div class="ats-section">
+
+            <div class="ats-title">
+                EDUCATION
+            </div>
+
+            ${educationHTML()}
+
+        </div>
+
+        <div class="ats-section">
+
+            <div class="ats-title">
+                SKILLS
+            </div>
+
+            ${skillsHTML()}
+
+        </div>
+
+        <div class="ats-section">
+
+            <div class="ats-title">
+                LANGUAGES
+            </div>
+
+            ${languagesHTML()}
+
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+/* =========================================================
+   UPDATE PREVIEW
+========================================================= */
+
+function updateResumePreview(){
 
     const paper =
-        document.getElementById(
-            "cvPaper"
-        );
+        document.getElementById("cvPaper");
+
+    if(!paper){
+        return;
+    }
+
+    if(currentTemplate === "modern"){
+
+        paper.innerHTML =
+            modernTemplate();
+
+        paper.className =
+            "cv-paper cv-modern";
+
+    }
+
+    else if(currentTemplate === "professional"){
+
+        paper.innerHTML =
+            professionalTemplate();
+
+        paper.className =
+            "cv-paper cv-professional";
+
+    }
+
+    else if(currentTemplate === "executive"){
+
+        paper.innerHTML =
+            executiveTemplate();
+
+        paper.className =
+            "cv-paper cv-executive";
+
+    }
+
+    else if(currentTemplate === "creative"){
+
+        paper.innerHTML =
+            creativeTemplate();
+
+        paper.className =
+            "cv-paper cv-creative";
+
+    }
+
+    else{
+
+        paper.innerHTML =
+            atsTemplate();
+
+        paper.className =
+            "cv-paper cv-ats";
+
+    }
+
+    /*
+     * КЛЮЧОВЕ ВИПРАВЛЕННЯ:
+     * текст резюме завжди чорний.
+     */
+
+    paper.style.color = "#222";
+
+    paper.querySelectorAll(
+        "h1,h2,h3,h4,p,li,span,div"
+    ).forEach(function(element){
+
+        if(
+            !element.classList.contains("accent-text") &&
+            !element.classList.contains("white-text") &&
+            !element.closest(".creative-sidebar") &&
+            !element.closest(".exec-top")
+        ){
+
+            element.style.color = "#222";
+
+        }
+
+    });
+
+    /*
+     * Повертаємо кольори акцентним елементам.
+     */
+
+    paper.querySelectorAll(
+        ".cv-section-title,.prof-label,.cv-item-date,.position,.creative-position,.ats-position"
+    ).forEach(function(element){
+
+        element.style.color =
+            "var(--accent)";
+
+    });
+
+    if(currentTemplate === "creative"){
+
+        paper.querySelectorAll(
+            ".creative-sidebar *"
+        ).forEach(function(element){
+
+            element.style.color =
+                "#fff";
+
+        });
+
+    }
+
+    if(currentTemplate === "executive"){
+
+        paper.querySelectorAll(
+            ".exec-top *"
+        ).forEach(function(element){
+
+            element.style.color =
+                "#fff";
+
+        });
+
+    }
+
+    setTimeout(scalePreview,20);
+
+}
+
+/* =========================================================
+   MOBILE SCALE
+========================================================= */
+
+function scalePreview(){
 
     const wrapper =
-        document.getElementById(
-            "previewScale"
-        );
+        document.querySelector(".preview-wrapper");
 
-    const shell =
-        document.querySelector(
-            ".preview-wrapper"
-        );
+    const scaleBox =
+        document.getElementById("previewScale");
 
+    const paper =
+        document.getElementById("cvPaper");
 
-    if(
-        !paper ||
-        !wrapper ||
-        !shell
-    ) {
-
+    if(!wrapper || !scaleBox || !paper){
         return;
-
     }
 
+    if(window.innerWidth <= 760){
 
-    if(
-        window.innerWidth <= 760
-    ) {
-
-        const availableWidth =
-            shell.clientWidth - 16;
-
+        const available =
+            wrapper.clientWidth - 16;
 
         const scale =
-            Math.min(
-                1,
-                availableWidth / 794
-            );
-
+            available / 794;
 
         paper.style.transform =
-            `scale(${scale})`;
+            "scale(" + scale + ")";
 
-        paper.style.transformOrigin =
-            "top left";
-
-
-        wrapper.style.width =
-            (794 * scale) + "px";
-
-
-        wrapper.style.height =
+        scaleBox.style.height =
             (1123 * scale) + "px";
 
-    }
-
-    else {
+    }else{
 
         paper.style.transform =
             "none";
 
-        wrapper.style.width =
-            "794px";
-
-        wrapper.style.height =
+        scaleBox.style.height =
             "auto";
 
     }
 
 }
 
-
 window.addEventListener(
     "resize",
     scalePreview
 );
 
-
-/* INPUT AUTOSAVE */
+/* =========================================================
+   INPUT LISTENERS
+========================================================= */
 
 [
     "name",
@@ -3321,14 +3190,16 @@ window.addEventListener(
     "profile",
     "skills",
     "languages"
-]
-.forEach(id => {
+].forEach(function(id){
 
-    document
-        .getElementById(id)
-        .addEventListener(
+    const element =
+        document.getElementById(id);
+
+    if(element){
+
+        element.addEventListener(
             "input",
-            function() {
+            function(){
 
                 saveResumeData();
 
@@ -3337,206 +3208,13 @@ window.addEventListener(
             }
         );
 
+    }
+
 });
 
-
-/* LANGUAGE */
-
-const translations = {
-
-uk:{
-    resumeTab:"Резюме",
-    previewTab:"Перегляд CV",
-    analysisTab:"Аналіз вакансії",
-    jobsTab:"Професії та вакансії",
-    createResume:"Створення резюме",
-    name:"Ім'я та прізвище",
-    position:"Бажана посада",
-    phone:"Телефон",
-    email:"Email",
-    city:"Місто",
-    languages:"Мови",
-    profile:"Профіль",
-    skills:"Навички",
-    photo:"Фото",
-    removePhoto:"Видалити фото",
-    experience:"Досвід роботи",
-    education:"Освіта",
-    design:"Дизайн резюме"
-},
-
-sk:{
-    resumeTab:"Životopis",
-    previewTab:"Náhľad CV",
-    analysisTab:"Analýza ponuky",
-    jobsTab:"Profesia a pracovné ponuky",
-    createResume:"Vytvorenie životopisu",
-    name:"Meno a priezvisko",
-    position:"Požadovaná pozícia",
-    phone:"Telefón",
-    email:"Email",
-    city:"Mesto",
-    languages:"Jazyky",
-    profile:"Profil",
-    skills:"Zručnosti",
-    photo:"Fotografia",
-    removePhoto:"Odstrániť fotografiu",
-    experience:"Pracovné skúsenosti",
-    education:"Vzdelanie",
-    design:"Dizajn životopisu"
-},
-
-en:{
-    resumeTab:"Resume",
-    previewTab:"CV Preview",
-    analysisTab:"Job Analysis",
-    jobsTab:"Professions & Jobs",
-    createResume:"Resume Builder",
-    name:"Full name",
-    position:"Desired position",
-    phone:"Phone",
-    email:"Email",
-    city:"City",
-    languages:"Languages",
-    profile:"Profile",
-    skills:"Skills",
-    photo:"Photo",
-    removePhoto:"Remove photo",
-    experience:"Work experience",
-    education:"Education",
-    design:"Resume design"
-}
-
-};
-
-
-function setLanguage(language) {
-
-    localStorage.setItem(
-        "jobaiLanguage",
-        language
-    );
-
-
-    const t =
-        translations[language]
-        || translations.uk;
-
-
-    document
-        .querySelectorAll("[data-i18n]")
-        .forEach(el => {
-
-            const key =
-                el.dataset.i18n;
-
-            if(t[key]) {
-
-                el.textContent =
-                    t[key];
-
-            }
-
-        });
-
-}
-
-
-/* PROFESSION CARDS */
-
-const professions = [
-
-[
-"CNC оператор",
-"https://images.unsplash.com/photo-1565439391545-3e3d5a0d3d0a?auto=format&fit=crop&w=900&q=85"
-],
-
-[
-"Метролóг / CMM",
-"https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=85"
-],
-
-[
-"Водій",
-"https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=900&q=85"
-],
-
-[
-"Електрик",
-"https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=85"
-],
-
-[
-"Зварювальник",
-"https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=85"
-],
-
-[
-"Склад / логістика",
-"https://images.unsplash.com/photo-1586528116493-da8c6c3a0c0a?auto=format&fit=crop&w=900&q=85"
-]
-
-];
-
-
-function renderProfessionCards() {
-
-    const container =
-        document.getElementById(
-            "professionCards"
-        );
-
-
-    container.innerHTML =
-        professions
-        .map(p => `
-
-            <div class="profession-card">
-
-                <img
-                    src="${p[1]}"
-                    alt="${p[0]}"
-                    loading="lazy">
-
-                <div class="profession-card-content">
-
-                    <h3>
-                        ${p[0]}
-                    </h3>
-
-                </div>
-
-            </div>
-
-        `)
-        .join("");
-
-}
-
-
-/* START */
-
-document
-    .getElementById("languageSelect")
-    .value =
-    localStorage.getItem(
-        "jobaiLanguage"
-    ) || "uk";
-
-
-document
-    .getElementById("languageSelect")
-    .addEventListener(
-        "change",
-        function() {
-
-            setLanguage(
-                this.value
-            );
-
-        }
-    );
-
+/* =========================================================
+   INIT
+========================================================= */
 
 loadResume();
 
@@ -3544,24 +3222,15 @@ renderExperiences();
 
 renderEducations();
 
-renderProfessionCards();
+renderPhotoPreview();
 
-applyColor();
+changeColor(currentColor);
 
-document
-    .querySelectorAll("[data-template]")
-    .forEach(button => {
+changeTemplate(currentTemplate);
 
-        button.classList.toggle(
-            "active",
-            button.dataset.template
-            === selectedTemplate
-        );
-
-    });
-
-
-updatePhotoPreview();
+setLanguage(
+    localStorage.getItem("jobaiLanguage") || "ua"
+);
 
 updateResumePreview();
 
