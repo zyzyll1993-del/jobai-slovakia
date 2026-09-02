@@ -306,4 +306,1171 @@ box-shadow:none;
 
 <p id="subtitle">
 Ваш помічник для пошуку роботи
-</
+</p>
+
+<div class="language">
+
+<button id="ukBtn"
+onclick="setLanguage('uk')">
+🇺🇦 Українська
+</button>
+
+<button id="skBtn"
+onclick="setLanguage('sk')">
+🇸🇰 Slovenčina
+</button>
+
+<button id="enBtn"
+onclick="setLanguage('en')">
+🇬🇧 English
+</button>
+
+</div>
+
+</header>
+
+
+<nav>
+
+<button id="btnCV"
+class="active"
+onclick="showPage('cv')">
+
+📝 <span data-i18n="createResume">
+Створити резюме
+</span>
+
+</button>
+
+
+<button id="btnPreview"
+onclick="showPage('preview')">
+
+👁️ <span data-i18n="previewResume">
+Перегляд резюме
+</span>
+
+</button>
+
+
+<button id="btnJobs"
+onclick="showPage('jobs')">
+
+🔍 <span data-i18n="jobAnalysis">
+Аналіз вакансії
+</span>
+
+</button>
+
+</nav>
+
+
+<div class="container">
+
+
+<!-- РЕЗЮМЕ -->
+
+<div id="cv"
+class="page active">
+
+<div class="card">
+
+<h2 data-i18n="personalData">
+👤 Особисті дані
+</h2>
+
+<div class="row">
+
+<div>
+
+<label data-i18n="name">
+Ім'я та прізвище
+</label>
+
+<input id="name"
+oninput="updateCV()">
+
+</div>
+
+
+<div>
+
+<label data-i18n="position">
+Бажана посада
+</label>
+
+<input id="position"
+oninput="updateCV()">
+
+</div>
+
+</div>
+
+
+<div class="row">
+
+<div>
+
+<label data-i18n="phone">
+📞 Телефон
+</label>
+
+<input id="phone"
+oninput="updateCV()">
+
+</div>
+
+
+<div>
+
+<label data-i18n="email">
+📧 Email
+</label>
+
+<input id="email"
+oninput="updateCV()">
+
+</div>
+
+</div>
+
+
+<label data-i18n="city">
+📍 Місто
+</label>
+
+<input id="city"
+oninput="updateCV()">
+
+
+<label data-i18n="profile">
+📝 Професійний профіль
+</label>
+
+<textarea id="profile"
+oninput="updateCV()">
+</textarea>
+
+</div>
+
+
+<div class="card">
+
+<h2 data-i18n="experience">
+💼 Досвід роботи
+</h2>
+
+<div id="experienceList"></div>
+
+<button onclick="addExperience()">
+
+➕ <span data-i18n="addExperience">
+Додати місце роботи
+</span>
+
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h2 data-i18n="education">
+🎓 Освіта
+</h2>
+
+<div id="educationList"></div>
+
+<button onclick="addEducation()">
+
+➕ <span data-i18n="addEducation">
+Додати освіту
+</span>
+
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h2 data-i18n="skillsTitle">
+🛠️ Навички
+</h2>
+
+<textarea id="skills"
+oninput="updateCV()">
+</textarea>
+
+</div>
+
+
+<div class="card">
+
+<h2 data-i18n="languagesTitle">
+🌍 Мови
+</h2>
+
+<textarea id="languages"
+oninput="updateCV">
+</textarea>
+
+</div>
+
+
+<div class="card">
+
+<button onclick="saveResume()">
+
+💾 <span data-i18n="saveResume">
+Зберегти резюме
+</span>
+
+</button>
+
+<button class="secondary"
+onclick="showPage('preview')">
+
+👁️ <span data-i18n="viewResume">
+Переглянути резюме
+</span>
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ПЕРЕГЛЯД -->
+
+<div id="preview"
+class="page">
+
+<div class="card">
+
+<button onclick="window.print()">
+
+📄 <span data-i18n="pdf">
+Зберегти резюме як PDF
+</span>
+
+</button>
+
+</div>
+
+
+<div class="cv-preview">
+
+<div class="cv-name"
+id="pName">
+Ваше ім'я
+</div>
+
+<div class="cv-position"
+id="pPosition">
+Бажана посада
+</div>
+
+<div class="cv-contact"
+id="pContact">
+</div>
+
+
+<div class="cv-section">
+
+<h3 data-i18n="profileTitle">
+ПРОФЕСІЙНИЙ ПРОФІЛЬ
+</h3>
+
+<p id="pProfile"></p>
+
+</div>
+
+
+<div class="cv-section">
+
+<h3 data-i18n="experienceTitle">
+ДОСВІД РОБОТИ
+</h3>
+
+<div id="pExperience"></div>
+
+</div>
+
+
+<div class="cv-section">
+
+<h3 data-i18n="educationTitle">
+ОСВІТА
+</h3>
+
+<div id="pEducation"></div>
+
+</div>
+
+
+<div class="cv-section">
+
+<h3 data-i18n="skillsTitle">
+НАВИЧКИ
+</h3>
+
+<p id="pSkills"></p>
+
+</div>
+
+
+<div class="cv-section">
+
+<h3 data-i18n="languagesTitle">
+МОВИ
+</h3>
+
+<p id="pLanguages"></p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- АНАЛІЗ -->
+
+<div id="jobs"
+class="page">
+
+<div class="card">
+
+<h2 data-i18n="jobAnalysis">
+🔍 Аналіз вакансії
+</h2>
+
+<div class="info">
+
+<strong>
+JobAI
+</strong>
+
+<p data-i18n="analysisInfo">
+
+JobAI порівняє інформацію з вашого резюме
+з вимогами вакансії.
+
+</p>
+
+</div>
+
+
+<label data-i18n="jobText">
+💼 Текст вакансії
+</label>
+
+<textarea id="job"
+placeholder="CNC Operator, Bratislava...">
+</textarea>
+
+
+<button onclick="analyzeJob()">
+
+🎯 <span data-i18n="analyze">
+Аналізувати
+</span>
+
+</button>
+
+</div>
+
+
+<div class="card"
+id="analysisResult">
+
+<h2 data-i18n="result">
+🎯 Результат
+</h2>
+
+
+<div class="score"
+id="score">
+0%
+</div>
+
+
+<div class="progress">
+
+<div id="progressBar"
+class="progress-bar">
+</div>
+
+</div>
+
+
+<div class="success">
+
+<h3 data-i18n="matched">
+✅ Є у вашому резюме
+</h3>
+
+<div id="found"></div>
+
+</div>
+
+
+<div class="warning">
+
+<h3 data-i18n="notMatched">
+⚠️ Відсутнє або не знайдено
+</h3>
+
+<div id="missing"></div>
+
+</div>
+
+
+<div class="info">
+
+<h3 data-i18n="recommendation">
+💡 Рекомендація
+</h3>
+
+<p id="recommendation"></p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+
+/* МОВИ */
+
+const translations={
+
+uk:{
+subtitle:"Ваш помічник для пошуку роботи",
+createResume:"Створити резюме",
+previewResume:"Перегляд резюме",
+jobAnalysis:"Аналіз вакансії",
+personalData:"👤 Особисті дані",
+name:"Ім'я та прізвище",
+position:"Бажана посада",
+phone:"📞 Телефон",
+email:"📧 Email",
+city:"📍 Місто",
+profile:"📝 Професійний профіль",
+experience:"💼 Досвід роботи",
+addExperience:"Додати місце роботи",
+education:"🎓 Освіта",
+addEducation:"Додати освіту",
+skillsTitle:"🛠️ Навички",
+languagesTitle:"🌍 Мови",
+saveResume:"Зберегти резюме",
+viewResume:"Переглянути резюме",
+pdf:"Зберегти резюме як PDF",
+profileTitle:"ПРОФЕСІЙНИЙ ПРОФІЛЬ",
+experienceTitle:"ДОСВІД РОБОТИ",
+educationTitle:"ОСВІТА",
+analysisInfo:"JobAI порівняє інформацію з вашого резюме з вимогами вакансії.",
+jobText:"💼 Текст вакансії",
+analyze:"Аналізувати",
+result:"🎯 Результат",
+matched:"✅ Є у вашому резюме",
+notMatched:"⚠️ Відсутнє або не знайдено",
+recommendation:"💡 Рекомендація"
+},
+
+sk:{
+subtitle:"Váš pomocník pri hľadaní práce",
+createResume:"Vytvoriť životopis",
+previewResume:"Náhľad životopisu",
+jobAnalysis:"Analýza pracovnej ponuky",
+personalData:"👤 Osobné údaje",
+name:"Meno a priezvisko",
+position:"Požadovaná pozícia",
+phone:"📞 Telefón",
+email:"📧 Email",
+city:"📍 Mesto",
+profile:"📝 Profesijný profil",
+experience:"💼 Pracovné skúsenosti",
+addExperience:"Pridať pracovnú skúsenosť",
+education:"🎓 Vzdelanie",
+addEducation:"Pridať vzdelanie",
+skillsTitle:"🛠️ Zručnosti",
+languagesTitle:"🌍 Jazyky",
+saveResume:"Uložiť životopis",
+viewResume:"Zobraziť životopis",
+pdf:"Uložiť životopis ako PDF",
+profileTitle:"PROFESIJNÝ PROFIL",
+experienceTitle:"PRACOVNÉ SKÚSENOSTI",
+educationTitle:"VZDELANIE",
+analysisInfo:"JobAI porovná informácie z vášho životopisu s požiadavkami pracovnej ponuky.",
+jobText:"💼 Text pracovnej ponuky",
+analyze:"Analyzovať",
+result:"🎯 Výsledok",
+matched:"✅ Nachádza sa v životopise",
+notMatched:"⚠️ Chýba alebo nebolo nájdené",
+recommendation:"💡 Odporúčanie"
+},
+
+en:{
+subtitle:"Your assistant for finding a job",
+createResume:"Create resume",
+previewResume:"Resume preview",
+jobAnalysis:"Job analysis",
+personalData:"👤 Personal information",
+name:"Full name",
+position:"Desired position",
+phone:"📞 Phone",
+email:"📧 Email",
+city:"📍 City",
+profile:"📝 Professional profile",
+experience:"💼 Work experience",
+addExperience:"Add work experience",
+education:"🎓 Education",
+addEducation:"Add education",
+skillsTitle:"🛠️ Skills",
+languagesTitle:"🌍 Languages",
+saveResume:"Save resume",
+viewResume:"View resume",
+pdf:"Save resume as PDF",
+profileTitle:"PROFESSIONAL PROFILE",
+experienceTitle:"WORK EXPERIENCE",
+educationTitle:"EDUCATION",
+analysisInfo:"JobAI will compare the information in your resume with the job requirements.",
+jobText:"💼 Job description",
+analyze:"Analyze",
+result:"🎯 Result",
+matched:"✅ Found in your resume",
+notMatched:"⚠️ Missing or not found",
+recommendation:"💡 Recommendation"
+}
+
+};
+
+
+let currentLanguage=
+localStorage.getItem("jobaiLanguage")||"uk";
+
+
+function setLanguage(lang){
+
+currentLanguage=lang;
+
+localStorage.setItem(
+"jobaiLanguage",
+lang
+);
+
+document.documentElement.lang=lang;
+
+const t=translations[lang];
+
+document.querySelectorAll("[data-i18n]")
+.forEach(el=>{
+
+const key=el.getAttribute("data-i18n");
+
+if(t[key]){
+el.innerText=t[key];
+}
+
+});
+
+document.getElementById("subtitle")
+.innerText=t.subtitle;
+
+["uk","sk","en"].forEach(x=>{
+
+document.getElementById(x+"Btn")
+.classList.toggle(
+"active",
+x===lang
+);
+
+});
+
+}
+
+
+function showPage(page){
+
+document.querySelectorAll(".page")
+.forEach(p=>
+p.classList.remove("active")
+);
+
+document.getElementById(page)
+.classList.add("active");
+
+document.querySelectorAll("nav button")
+.forEach(b=>
+b.classList.remove("active")
+);
+
+if(page==="cv")
+btnCV.classList.add("active");
+
+if(page==="preview")
+btnPreview.classList.add("active");
+
+if(page==="jobs")
+btnJobs.classList.add("active");
+
+updateCV();
+
+window.scrollTo(0,0);
+
+}
+
+
+/* ДОСВІД */
+
+let experiences=[];
+
+function addExperience(){
+
+experiences.push({
+company:"",
+position:"",
+start:"",
+end:"",
+description:""
+});
+
+renderExperiences();
+
+}
+
+function renderExperiences(){
+
+const box=
+document.getElementById("experienceList");
+
+box.innerHTML="";
+
+experiences.forEach((e,i)=>{
+
+box.innerHTML+=`
+
+<div class="experience">
+
+<label>🏢 ${currentLanguage==="sk"?"Spoločnosť":currentLanguage==="en"?"Company":"Компанія"}</label>
+
+<input value="${e.company}"
+oninput="experiences[${i}].company=this.value;updateCV()">
+
+<label>💼 ${currentLanguage==="sk"?"Pozícia":currentLanguage==="en"?"Position":"Посада"}</label>
+
+<input value="${e.position}"
+oninput="experiences[${i}].position=this.value;updateCV()">
+
+<div class="row">
+
+<input placeholder="2022"
+value="${e.start}"
+oninput="experiences[${i}].start=this.value;updateCV()">
+
+<input placeholder="2025"
+value="${e.end}"
+oninput="experiences[${i}].end=this.value;updateCV()">
+
+</div>
+
+<textarea
+placeholder="${currentLanguage==="sk"?"Popis práce...":currentLanguage==="en"?"Job description...":"Опис роботи..."}"
+oninput="experiences[${i}].description=this.value;updateCV()">${e.description}</textarea>
+
+<button class="danger"
+onclick="experiences.splice(${i},1);renderExperiences();updateCV()">
+
+🗑️
+
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+/* ОСВІТА */
+
+let educations=[];
+
+function addEducation(){
+
+educations.push({
+school:"",
+speciality:"",
+year:""
+});
+
+renderEducation();
+
+}
+
+function renderEducation(){
+
+const box=
+document.getElementById("educationList");
+
+box.innerHTML="";
+
+educations.forEach((e,i)=>{
+
+box.innerHTML+=`
+
+<div class="experience">
+
+<input
+placeholder="${currentLanguage==="sk"?"Škola":currentLanguage==="en"?"School":"Навчальний заклад"}"
+value="${e.school}"
+oninput="educations[${i}].school=this.value;updateCV()">
+
+<input
+placeholder="${currentLanguage==="sk"?"Odbor":currentLanguage==="en"?"Field of study":"Спеціальність"}"
+value="${e.speciality}"
+oninput="educations[${i}].speciality=this.value;updateCV()">
+
+<input
+placeholder="${currentLanguage==="sk"?"Rok":currentLanguage==="en"?"Year":"Рік"}"
+value="${e.year}"
+oninput="educations[${i}].year=this.value;updateCV()">
+
+<button class="danger"
+onclick="educations.splice(${i},1);renderEducation();updateCV()">
+
+🗑️
+
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+/* ОНОВЛЕННЯ */
+
+function updateCV(){
+
+pName.innerText=
+name.value||"Ваше ім'я";
+
+pPosition.innerText=
+position.value||"Бажана посада";
+
+pContact.innerText=
+[phone.value,email.value,city.value]
+.filter(Boolean)
+.join(" · ");
+
+pProfile.innerText=
+profile.value;
+
+pSkills.innerText=
+skills.value;
+
+pLanguages.innerText=
+languages.value;
+
+
+pExperience.innerHTML=
+experiences.map(e=>`
+
+<div class="cv-experience">
+
+<strong>${e.position}</strong>
+
+<br>
+
+<b>${e.company}</b>
+
+<div>
+${e.start}
+${e.end?" — "+e.end:""}
+</div>
+
+<p>${e.description}</p>
+
+</div>
+
+`).join("");
+
+
+pEducation.innerHTML=
+educations.map(e=>`
+
+<div class="cv-experience">
+
+<strong>${e.speciality}</strong>
+
+<br>
+
+${e.school}
+
+<div>${e.year}</div>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* ЗБЕРЕЖЕННЯ */
+
+function saveResume(){
+
+const data={
+
+name:name.value,
+position:position.value,
+phone:phone.value,
+email:email.value,
+city:city.value,
+profile:profile.value,
+skills:skills.value,
+languages:languages.value,
+experiences:experiences,
+educations:educations
+
+};
+
+localStorage.setItem(
+"jobaiResume",
+JSON.stringify(data)
+);
+
+alert(
+currentLanguage==="sk"
+?"✅ Životopis bol uložený."
+:currentLanguage==="en"
+?"✅ Resume saved."
+:"✅ Резюме збережено."
+);
+
+}
+
+
+/* ЗАВАНТАЖЕННЯ */
+
+function loadResume(){
+
+const saved=
+localStorage.getItem("jobaiResume");
+
+if(!saved)return;
+
+const d=JSON.parse(saved);
+
+name.value=d.name||"";
+position.value=d.position||"";
+phone.value=d.phone||"";
+email.value=d.email||"";
+city.value=d.city||"";
+profile.value=d.profile||"";
+skills.value=d.skills||"";
+languages.value=d.languages||"";
+
+experiences=d.experiences||[];
+educations=d.educations||[];
+
+renderExperiences();
+renderEducation();
+updateCV();
+
+}
+
+
+/* ===============================
+АНАЛІЗ РЕЗЮМЕ + ВАКАНСІЇ
+================================ */
+
+const jobSkills=[
+
+"cnc",
+"cnc operator",
+"operator",
+"mechanic",
+"maintenance",
+"údržba",
+"výroba",
+"production",
+"warehouse",
+"sklad",
+"forklift",
+"vysokozdvižný vozík",
+"welding",
+"zváranie",
+"electrician",
+"elektrikár",
+"autocad",
+"solidworks",
+"technical drawing",
+"technický výkres",
+"english",
+"angličtina",
+"slovak",
+"slovenčina",
+"german",
+"nemčina",
+"excel",
+"ms office",
+"driving licence",
+"vodičský preukaz",
+"shift",
+"smennosť",
+"experience",
+"skúsenosti"
+
+];
+
+
+function analyzeJob(){
+
+const jobText=
+document.getElementById("job")
+.value
+.toLowerCase()
+.trim();
+
+
+if(!jobText){
+
+alert(
+currentLanguage==="sk"
+?"Vložte text pracovnej ponuky."
+:currentLanguage==="en"
+?"Please enter the job description."
+:"Будь ласка, вставте текст вакансії."
+);
+
+return;
+
+}
+
+
+/* Збираємо ВСІ дані резюме */
+
+let resumeText=
+
+(name.value+" "+
+
+position.value+" "+
+
+profile.value+" "+
+
+skills.value+" "+
+
+languages.value+" "+
+
+experiences.map(e=>
+e.company+" "+
+e.position+" "+
+e.description
+).join(" ")+" "+
+
+educations.map(e=>
+e.school+" "+
+e.speciality
+).join(" "))
+
+.toLowerCase();
+
+
+/* Знаходимо навички вакансії */
+
+let requirements=[];
+
+jobSkills.forEach(skill=>{
+
+if(jobText.includes(skill)){
+
+requirements.push(skill);
+
+}
+
+});
+
+requirements=[
+...new Set(requirements)
+];
+
+
+/* Порівнюємо */
+
+let matched=[];
+
+let missing=[];
+
+
+requirements.forEach(skill=>{
+
+if(resumeText.includes(skill)){
+
+matched.push(skill);
+
+}else{
+
+missing.push(skill);
+
+}
+
+});
+
+
+/* Відсоток */
+
+let score=0;
+
+if(requirements.length){
+
+score=Math.round(
+matched.length/
+requirements.length*
+100
+);
+
+}else{
+
+score=50;
+
+}
+
+
+/* Результат */
+
+document.getElementById("score")
+.innerText=score+"%";
+
+document.getElementById("progressBar")
+.style.width=score+"%";
+
+
+/* Знайдено */
+
+document.getElementById("found")
+.innerHTML=
+
+matched.length
+
+?matched.map(skill=>
+`<span class="skill">✓ ${skill}</span>`
+).join("")
+
+:currentLanguage==="sk"
+?"V životopise sa nenašli zodpovedajúce zručnosti."
+
+:currentLanguage==="en"
+?"No matching skills were found in your resume."
+
+:"У резюме не знайдено відповідних навичок.";
+
+
+/* Відсутні */
+
+document.getElementById("missing")
+.innerHTML=
+
+missing.length
+
+?missing.map(skill=>
+`<span class="skill">⚠ ${skill}</span>`
+).join("")
+
+:currentLanguage==="sk"
+?"Všetky rozpoznané požiadavky boli nájdené."
+
+:currentLanguage==="en"
+?"All detected requirements were found."
+
+:"Усі знайдені вимоги є в резюме.";
+
+
+/* Рекомендація */
+
+let recommendation;
+
+if(score>=80){
+
+recommendation=
+
+currentLanguage==="sk"
+?"Vaše životopis dobre zodpovedá pracovnej ponuke."
+
+:currentLanguage==="en"
+?"Your resume matches the job well."
+
+:"Ваше резюме добре відповідає вакансії.";
+
+}
+
+else if(score>=50){
+
+recommendation=
+
+currentLanguage==="sk"
+?"Odporúčame upraviť životopis a doplniť relevantné zručnosti, ak ich skutočne máte."
+
+:currentLanguage==="en"
+?"Consider tailoring your resume and adding relevant skills if you actually have them."
+
+:"Рекомендуємо адаптувати резюме та додати відповідні навички, якщо ви ними справді володієте.";
+
+}
+
+else{
+
+recommendation=
+
+currentLanguage==="sk"
+?"Zhoda je nízka. Skontrolujte požiadavky pracovnej ponuky."
+
+:currentLanguage==="en"
+?"The match is low. Review the job requirements."
+
+:"Відповідність низька. Перевірте вимоги вакансії.";
+
+}
+
+
+document.getElementById("recommendation")
+.innerText=recommendation;
+
+
+document.getElementById("analysisResult")
+.style.display="block";
+
+
+document.getElementById("analysisResult")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* СТАРТ */
+
+setLanguage(currentLanguage);
+
+loadResume();
+
+</script>
+
+</body>
+
+</html>
