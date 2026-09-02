@@ -25,12 +25,10 @@ jobs:
           s = s.replace('<script src="resume.js?v=6"></script>', '<script src="resume.js?v=7"></script>')
           s = s.replace('<script src="analysis.js?v=6"></script>', '<script src="analysis.js?v=7"></script>')
           s = s.replace('<script src="preview-controls.js?v=1"></script>', '<script src="preview-controls.js?v=2"></script>')
-          if 'preview-controls.js?v=' not in s:
-              marker = '<script src="analysis.js?v=7"></script>'
-              s = s.replace(marker, marker + '\n<script src="preview-controls.js?v=2"></script>')
-          if 'resume-editor-style.js?v=1' not in s:
+          s = s.replace('resume-editor-style.js?v=1', 'resume-editor-style.js?v=2')
+          if 'resume-editor-style.js?v=' not in s:
               marker = '<script src="preview-controls.js?v=2"></script>'
-              s = s.replace(marker, marker + '\n<script src="resume-editor-style.js?v=1"></script>')
+              s = s.replace(marker, marker + '\n<script src="resume-editor-style.js?v=2"></script>')
           p.write_text(s, encoding='utf-8')
           PY
 
@@ -44,5 +42,5 @@ jobs:
             echo "No changes needed"
             exit 0
           fi
-          git commit -m "Activate Resume editor builder"
+          git commit -m "Refresh Resume editor language script"
           git push
