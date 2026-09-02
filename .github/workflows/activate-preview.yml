@@ -33,9 +33,10 @@ jobs:
           if 'resume-editor-style.js?v=' not in s:
               marker = '<script src="preview-controls.js?v=3"></script>'
               s = s.replace(marker, marker + '\n<script src="resume-editor-style.js?v=2"></script>')
-          s = s.replace('preview-pro.css?v=1', 'preview-site-style.css?v=1')
+          s = s.replace('preview-pro.css?v=1', 'preview-site-style.css?v=2')
+          s = s.replace('preview-site-style.css?v=1', 'preview-site-style.css?v=2')
           if 'preview-site-style.css?v=' not in s:
-              s = s.replace('</head>', '<link rel="stylesheet" href="preview-site-style.css?v=1">\n</head>')
+              s = s.replace('</head>', '<link rel="stylesheet" href="preview-site-style.css?v=2">\n</head>')
           p.write_text(s, encoding='utf-8')
           PY
 
@@ -49,5 +50,5 @@ jobs:
             echo "No changes needed"
             exit 0
           fi
-          git commit -m "Match Preview styling to JobAI site"
+          git commit -m "Bust Preview stylesheet cache"
           git push
