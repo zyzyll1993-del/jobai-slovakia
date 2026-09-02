@@ -39,6 +39,9 @@ jobs:
           s = s.replace('preview-site-style.css?v=2', 'preview-site-style.css?v=3')
           if 'preview-site-style.css?v=' not in s:
               s = s.replace('</head>', '<link rel="stylesheet" href="preview-site-style.css?v=3">\n</head>')
+          marker = '<script src="resume-editor-style.js?v=2"></script>'
+          if 'home-translation.js?v=1' not in s:
+              s = s.replace(marker, marker + '\n<script src="home-translation.js?v=1"></script>')
           p.write_text(s, encoding='utf-8')
           PY
 
@@ -52,5 +55,5 @@ jobs:
             echo "No changes needed"
             exit 0
           fi
-          git commit -m "Bust Preview controls and stylesheet cache"
+          git commit -m "Translate Home resume and analysis buttons"
           git push
