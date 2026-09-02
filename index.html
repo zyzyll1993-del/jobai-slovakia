@@ -81,7 +81,7 @@ color:white;
 }
 
 .container{
-max-width:900px;
+max-width:1000px;
 margin:20px auto;
 padding:15px;
 }
@@ -109,12 +109,14 @@ margin:15px 0 7px;
 }
 
 input,
-textarea{
+textarea,
+select{
 width:100%;
 padding:13px;
 border:1px solid #d5dce8;
 border-radius:10px;
 font-size:16px;
+font-family:Arial,sans-serif;
 }
 
 textarea{
@@ -143,6 +145,11 @@ button.danger{
 background:#dc2626;
 }
 
+button.light{
+background:#e8eefc;
+color:#172033;
+}
+
 .row{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -154,13 +161,138 @@ border:1px solid #e2e8f0;
 padding:15px;
 border-radius:12px;
 margin-top:15px;
+background:#fafcff;
 }
+
+
+/* =====================================================
+PHOTO
+===================================================== */
+
+.photo-upload-box{
+margin-bottom:20px;
+padding:20px;
+border:2px dashed #cbd5e1;
+border-radius:16px;
+text-align:center;
+background:#f8fafc;
+}
+
+.photo-preview{
+width:150px;
+height:180px;
+margin:15px auto;
+border-radius:12px;
+overflow:hidden;
+background:#e2e8f0;
+display:none;
+}
+
+.photo-preview img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.photo-buttons{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.photo-upload-button{
+display:inline-block;
+padding:14px 18px;
+border-radius:11px;
+background:#2563eb;
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+margin-top:12px;
+}
+
+.photo-hint{
+font-size:13px;
+color:#64748b;
+}
+
+
+/* =====================================================
+TEMPLATES
+===================================================== */
+
+.template-grid{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:10px;
+margin-top:15px;
+}
+
+.template-option{
+border:2px solid #e2e8f0;
+border-radius:12px;
+padding:10px;
+cursor:pointer;
+background:white;
+text-align:center;
+}
+
+.template-option.active{
+border-color:#2563eb;
+background:#eff6ff;
+}
+
+.template-option strong{
+display:block;
+font-size:14px;
+margin-bottom:5px;
+}
+
+.template-option span{
+font-size:12px;
+color:#64748b;
+}
+
+
+/* =====================================================
+CV PREVIEW BASE
+===================================================== */
 
 .cv-preview{
 background:white;
 padding:35px;
 min-height:700px;
 box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+.cv-header{
+display:flex;
+gap:25px;
+align-items:center;
+border-bottom:2px solid #172033;
+padding-bottom:25px;
+}
+
+.cv-photo{
+width:130px;
+height:160px;
+border-radius:10px;
+overflow:hidden;
+background:#e5e7eb;
+flex-shrink:0;
+display:none;
+}
+
+.cv-photo img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.cv-header-info{
+flex:1;
 }
 
 .cv-name{
@@ -192,6 +324,140 @@ padding-bottom:7px;
 margin-bottom:18px;
 }
 
+.cv-experience p{
+white-space:pre-line;
+}
+
+.cv-skills{
+margin-top:10px;
+}
+
+.skill{
+display:inline-block;
+background:#e8eefc;
+padding:8px 11px;
+margin:4px;
+border-radius:8px;
+}
+
+
+/* =====================================================
+TEMPLATE 2 — MODERN
+===================================================== */
+
+.cv-preview.template-modern{
+border-top:8px solid #2563eb;
+}
+
+.cv-preview.template-modern .cv-header{
+border-bottom:0;
+}
+
+.cv-preview.template-modern .cv-section h3{
+color:#2563eb;
+border-bottom:1px solid #bfdbfe;
+}
+
+
+/* =====================================================
+TEMPLATE 3 — SIDEBAR
+===================================================== */
+
+.cv-preview.template-sidebar{
+padding:0;
+display:grid;
+grid-template-columns:250px 1fr;
+min-height:850px;
+}
+
+.template-sidebar .cv-header{
+grid-column:1 / -1;
+padding:30px;
+background:#172033;
+color:white;
+border:0;
+}
+
+.template-sidebar .cv-position{
+color:#93c5fd;
+}
+
+.template-sidebar .cv-contact{
+color:#cbd5e1;
+}
+
+.template-sidebar .cv-photo{
+border-radius:50%;
+}
+
+.template-sidebar .cv-main{
+padding:30px;
+grid-column:2;
+}
+
+.template-sidebar .cv-side{
+grid-column:1;
+grid-row:2;
+padding:30px;
+background:#f1f5f9;
+}
+
+.template-sidebar .cv-section h3{
+border-bottom:2px solid #2563eb;
+}
+
+
+/* =====================================================
+TEMPLATE 4 — MINIMAL
+===================================================== */
+
+.cv-preview.template-minimal{
+box-shadow:none;
+border:1px solid #e2e8f0;
+}
+
+.cv-preview.template-minimal .cv-header{
+border:0;
+padding-bottom:10px;
+}
+
+.cv-preview.template-minimal .cv-section{
+margin-top:22px;
+}
+
+.cv-preview.template-minimal .cv-section h3{
+font-size:14px;
+letter-spacing:1px;
+border:0;
+color:#64748b;
+}
+
+
+/* =====================================================
+TEMPLATE 5 — TECHNICAL
+===================================================== */
+
+.cv-preview.template-technical{
+border-left:8px solid #172033;
+}
+
+.cv-preview.template-technical .cv-position{
+color:#172033;
+font-weight:bold;
+}
+
+.cv-preview.template-technical .cv-section h3{
+background:#172033;
+color:white;
+padding:8px 10px;
+border:0;
+}
+
+
+/* =====================================================
+ANALYSIS
+===================================================== */
+
 .score{
 text-align:center;
 font-size:55px;
@@ -214,14 +480,6 @@ background:#2563eb;
 transition:width 1s;
 }
 
-.skill{
-display:inline-block;
-background:#e8eefc;
-padding:8px 11px;
-margin:4px;
-border-radius:8px;
-}
-
 .success{
 background:#ecfdf5;
 padding:15px;
@@ -241,6 +499,10 @@ background:#eff6ff;
 padding:15px;
 border-radius:12px;
 margin-top:15px;
+}
+
+#analysisResult{
+display:none;
 }
 
 .resume-tools{
@@ -267,14 +529,19 @@ text-align:center;
 cursor:pointer;
 }
 
-#analysisResult{
-display:none;
-}
 
-@media(max-width:600px){
+/* =====================================================
+MOBILE
+===================================================== */
+
+@media(max-width:700px){
 
 .row{
 grid-template-columns:1fr;
+}
+
+.template-grid{
+grid-template-columns:1fr 1fr;
 }
 
 .cv-preview{
@@ -283,6 +550,16 @@ padding:22px;
 
 .cv-name{
 font-size:25px;
+}
+
+.cv-header{
+flex-direction:column;
+text-align:center;
+}
+
+.cv-photo{
+width:120px;
+height:150px;
 }
 
 nav{
@@ -294,7 +571,33 @@ justify-content:flex-start;
 grid-template-columns:1fr;
 }
 
+.cv-preview.template-sidebar{
+display:block;
 }
+
+.template-sidebar .cv-header{
+padding:25px;
+}
+
+.template-sidebar .cv-side,
+.template-sidebar .cv-main{
+padding:22px;
+}
+
+}
+
+@media(max-width:400px){
+
+.template-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+
+/* =====================================================
+PRINT
+===================================================== */
 
 @media print{
 
@@ -316,6 +619,7 @@ display:block !important;
 
 .cv-preview{
 box-shadow:none;
+margin:0;
 }
 
 }
@@ -396,16 +700,83 @@ onclick="showPage('jobs')">
 <div class="container">
 
 
-<!-- РЕЗЮМЕ -->
+<!-- =====================================================
+CV EDITOR
+===================================================== -->
 
 <div id="cv"
 class="page active">
+
 
 <div class="card">
 
 <h2 data-i18n="personalData">
 👤 Особисті дані
 </h2>
+
+
+<!-- PHOTO -->
+
+<div class="photo-upload-box">
+
+<h3>
+📷 <span data-i18n="photoTitle">
+Фото для резюме
+</span>
+</h3>
+
+
+<div id="photoPreview"
+class="photo-preview">
+
+<img
+id="resumePhoto"
+src=""
+alt="Фото резюме">
+
+</div>
+
+
+<div class="photo-buttons">
+
+<label class="photo-upload-button">
+
+📷 <span data-i18n="addPhoto">
+Додати фото
+</span>
+
+<input
+type="file"
+accept="image/*"
+onchange="handlePhotoUpload(event)"
+hidden>
+
+</label>
+
+
+<button
+type="button"
+class="secondary"
+onclick="removeResumePhoto()">
+
+🗑️ <span data-i18n="removePhoto">
+Видалити фото
+</span>
+
+</button>
+
+</div>
+
+
+<p class="photo-hint"
+data-i18n="photoHint">
+
+JPG або PNG, максимум 5 MB
+
+</p>
+
+</div>
+
 
 <div class="row">
 
@@ -415,7 +786,8 @@ class="page active">
 Ім'я та прізвище
 </label>
 
-<input id="name"
+<input
+id="name"
 oninput="updateCV()">
 
 </div>
@@ -427,7 +799,8 @@ oninput="updateCV()">
 Бажана посада
 </label>
 
-<input id="position"
+<input
+id="position"
 oninput="updateCV()">
 
 </div>
@@ -443,7 +816,8 @@ oninput="updateCV()">
 📞 Телефон
 </label>
 
-<input id="phone"
+<input
+id="phone"
 oninput="updateCV()">
 
 </div>
@@ -455,7 +829,8 @@ oninput="updateCV()">
 📧 Email
 </label>
 
-<input id="email"
+<input
+id="email"
 oninput="updateCV()">
 
 </div>
@@ -467,7 +842,8 @@ oninput="updateCV()">
 📍 Місто
 </label>
 
-<input id="city"
+<input
+id="city"
 oninput="updateCV()">
 
 
@@ -475,11 +851,14 @@ oninput="updateCV()">
 📝 Професійний профіль
 </label>
 
-<textarea id="profile"
+<textarea
+id="profile"
 oninput="updateCV()"></textarea>
 
 </div>
 
+
+<!-- EXPERIENCE -->
 
 <div class="card">
 
@@ -500,6 +879,8 @@ oninput="updateCV()"></textarea>
 </div>
 
 
+<!-- EDUCATION -->
+
 <div class="card">
 
 <h2 data-i18n="education">
@@ -519,17 +900,22 @@ oninput="updateCV()"></textarea>
 </div>
 
 
+<!-- SKILLS -->
+
 <div class="card">
 
 <h2 data-i18n="skillsTitle">
 🛠️ Навички
 </h2>
 
-<textarea id="skills"
+<textarea
+id="skills"
 oninput="updateCV()"></textarea>
 
 </div>
 
+
+<!-- LANGUAGES -->
 
 <div class="card">
 
@@ -537,11 +923,88 @@ oninput="updateCV()"></textarea>
 🌍 Мови
 </h2>
 
-<textarea id="languages"
+<textarea
+id="languages"
 oninput="updateCV()"></textarea>
 
 </div>
 
+
+<!-- TEMPLATES -->
+
+<div class="card">
+
+<h2 data-i18n="templateTitle">
+🎨 Шаблон резюме
+</h2>
+
+<p data-i18n="templateInfo">
+Виберіть вигляд вашого резюме:
+</p>
+
+
+<div class="template-grid">
+
+<div
+class="template-option active"
+data-template="classic"
+onclick="selectTemplate('classic')">
+
+<strong>Classic</strong>
+<span>Класичний</span>
+
+</div>
+
+
+<div
+class="template-option"
+data-template="modern"
+onclick="selectTemplate('modern')">
+
+<strong>Modern</strong>
+<span>Сучасний</span>
+
+</div>
+
+
+<div
+class="template-option"
+data-template="sidebar"
+onclick="selectTemplate('sidebar')">
+
+<strong>Professional</strong>
+<span>Бокова панель</span>
+
+</div>
+
+
+<div
+class="template-option"
+data-template="minimal"
+onclick="selectTemplate('minimal')">
+
+<strong>Minimal</strong>
+<span>Мінімалізм</span>
+
+</div>
+
+
+<div
+class="template-option"
+data-template="technical"
+onclick="selectTemplate('technical')">
+
+<strong>Technical</strong>
+<span>Для технічних професій</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SAVE -->
 
 <div class="card">
 
@@ -556,7 +1019,8 @@ oninput="updateCV()"></textarea>
 
 <div class="resume-tools">
 
-<button type="button"
+<button
+type="button"
 onclick="exportResumeJSON()">
 
 📤 Експорт резюме
@@ -579,7 +1043,8 @@ hidden>
 </div>
 
 
-<button class="danger"
+<button
+class="danger"
 type="button"
 onclick="clearResumeData()">
 
@@ -588,7 +1053,8 @@ onclick="clearResumeData()">
 </button>
 
 
-<button class="secondary"
+<button
+class="secondary"
 onclick="showPage('preview')">
 
 👁️ <span data-i18n="viewResume">
@@ -602,10 +1068,13 @@ onclick="showPage('preview')">
 </div>
 
 
-<!-- ПЕРЕГЛЯД -->
+<!-- =====================================================
+PREVIEW
+===================================================== -->
 
 <div id="preview"
 class="page">
+
 
 <div class="card">
 
@@ -620,20 +1089,54 @@ class="page">
 </div>
 
 
-<div class="cv-preview">
+<div
+id="cvPreview"
+class="cv-preview template-classic">
 
-<div class="cv-name"
+
+<div class="cv-header">
+
+
+<div
+id="cvPhoto"
+class="cv-photo">
+
+<img
+id="pPhoto"
+src=""
+alt="Фото">
+
+</div>
+
+
+<div class="cv-header-info">
+
+
+<div
+class="cv-name"
 id="pName">
+
 Ваше ім'я
+
 </div>
 
-<div class="cv-position"
+
+<div
+class="cv-position"
 id="pPosition">
+
 Бажана посада
+
 </div>
 
-<div class="cv-contact"
+
+<div
+class="cv-contact"
 id="pContact">
+</div>
+
+</div>
+
 </div>
 
 
@@ -676,7 +1179,10 @@ id="pContact">
 НАВИЧКИ
 </h3>
 
-<p id="pSkills"></p>
+<div
+id="pSkills"
+class="cv-skills">
+</div>
 
 </div>
 
@@ -687,25 +1193,32 @@ id="pContact">
 МОВИ
 </h3>
 
-<p id="pLanguages"></p>
+<p
+id="pLanguages">
+</p>
+
+</div>
+
 
 </div>
 
 </div>
 
-</div>
 
-
-<!-- АНАЛІЗ -->
+<!-- =====================================================
+JOBS
+===================================================== -->
 
 <div id="jobs"
 class="page">
+
 
 <div class="card">
 
 <h2 data-i18n="jobAnalysis">
 🔍 Аналіз вакансії
 </h2>
+
 
 <div class="info">
 
@@ -727,7 +1240,9 @@ JobAI порівняє інформацію з вашого резюме
 💼 Текст вакансії
 </label>
 
-<textarea id="job"
+
+<textarea
+id="job"
 placeholder="CNC Operator, Bratislava...">
 </textarea>
 
@@ -743,7 +1258,8 @@ placeholder="CNC Operator, Bratislava...">
 </div>
 
 
-<div class="card"
+<div
+class="card"
 id="analysisResult">
 
 <h2 data-i18n="result">
@@ -751,7 +1267,15 @@ id="analysisResult">
 </h2>
 
 
-<div class="score"
+<div
+id="detectedJobs"
+class="info"
+style="display:none;">
+</div>
+
+
+<div
+class="score"
 id="score">
 0%
 </div>
@@ -759,7 +1283,8 @@ id="score">
 
 <div class="progress">
 
-<div id="progressBar"
+<div
+id="progressBar"
 class="progress-bar">
 </div>
 
@@ -805,124 +1330,270 @@ class="progress-bar">
 </div>
 
 
-<!-- ПІДКЛЮЧЕННЯ МОДУЛІВ -->
+<!-- =====================================================
+MODULES
+===================================================== -->
 
 <script src="jobs.js"></script>
+
 <script src="resume.js"></script>
+
+<script src="analysis.js"></script>
 
 
 <script>
 
 
-/* МОВИ */
+/* =====================================================
+TRANSLATIONS
+===================================================== */
 
 const translations={
 
 uk:{
+
 subtitle:"Ваш помічник для пошуку роботи",
+
 createResume:"Створити резюме",
+
 previewResume:"Перегляд резюме",
+
 jobAnalysis:"Аналіз вакансії",
+
 personalData:"👤 Особисті дані",
+
 name:"Ім'я та прізвище",
+
 position:"Бажана посада",
+
 phone:"📞 Телефон",
+
 email:"📧 Email",
+
 city:"📍 Місто",
+
 profile:"📝 Професійний профіль",
+
 experience:"💼 Досвід роботи",
+
 addExperience:"Додати місце роботи",
+
 education:"🎓 Освіта",
+
 addEducation:"Додати освіту",
+
 skillsTitle:"🛠️ Навички",
+
 languagesTitle:"🌍 Мови",
+
 saveResume:"Зберегти резюме",
+
 viewResume:"Переглянути резюме",
+
 pdf:"Зберегти резюме як PDF",
+
 profileTitle:"ПРОФЕСІЙНИЙ ПРОФІЛЬ",
+
 experienceTitle:"ДОСВІД РОБОТИ",
+
 educationTitle:"ОСВІТА",
+
 analysisInfo:"JobAI порівняє інформацію з вашого резюме з вимогами вакансії.",
+
 jobText:"💼 Текст вакансії",
+
 analyze:"Аналізувати",
+
 result:"🎯 Результат",
+
 matched:"✅ Є у вашому резюме",
+
 notMatched:"⚠️ Відсутнє або не знайдено",
-recommendation:"💡 Рекомендація"
+
+recommendation:"💡 Рекомендація",
+
+photoTitle:"Фото для резюме",
+
+addPhoto:"Додати фото",
+
+removePhoto:"Видалити фото",
+
+photoHint:"JPG або PNG, максимум 5 MB",
+
+templateTitle:"🎨 Шаблон резюме",
+
+templateInfo:"Виберіть вигляд вашого резюме:"
+
 },
+
 
 sk:{
+
 subtitle:"Váš pomocník pri hľadaní práce",
+
 createResume:"Vytvoriť životopis",
+
 previewResume:"Náhľad životopisu",
+
 jobAnalysis:"Analýza pracovnej ponuky",
+
 personalData:"👤 Osobné údaje",
+
 name:"Meno a priezvisko",
+
 position:"Požadovaná pozícia",
+
 phone:"📞 Telefón",
+
 email:"📧 Email",
+
 city:"📍 Mesto",
+
 profile:"📝 Profesijný profil",
+
 experience:"💼 Pracovné skúsenosti",
+
 addExperience:"Pridať pracovnú skúsenosť",
+
 education:"🎓 Vzdelanie",
+
 addEducation:"Pridať vzdelanie",
+
 skillsTitle:"🛠️ Zručnosti",
+
 languagesTitle:"🌍 Jazyky",
+
 saveResume:"Uložiť životopis",
+
 viewResume:"Zobraziť životopis",
+
 pdf:"Uložiť životopis ako PDF",
+
 profileTitle:"PROFESIJNÝ PROFIL",
+
 experienceTitle:"PRACOVNÉ SKÚSENOSTI",
+
 educationTitle:"VZDELANIE",
+
 analysisInfo:"JobAI porovná informácie z vášho životopisu s požiadavkami pracovnej ponuky.",
+
 jobText:"💼 Text pracovnej ponuky",
+
 analyze:"Analyzovať",
+
 result:"🎯 Výsledok",
+
 matched:"✅ Nachádza sa v životopise",
+
 notMatched:"⚠️ Chýba alebo nebolo nájdené",
-recommendation:"💡 Odporúčanie"
+
+recommendation:"💡 Odporúčanie",
+
+photoTitle:"Fotografia do životopisu",
+
+addPhoto:"Pridať fotografiu",
+
+removePhoto:"Odstrániť fotografiu",
+
+photoHint:"JPG alebo PNG, maximálne 5 MB",
+
+templateTitle:"🎨 Šablóna životopisu",
+
+templateInfo:"Vyberte vzhľad svojho životopisu:"
+
 },
 
+
 en:{
+
 subtitle:"Your assistant for finding a job",
+
 createResume:"Create resume",
+
 previewResume:"Resume preview",
+
 jobAnalysis:"Job analysis",
+
 personalData:"👤 Personal information",
+
 name:"Full name",
+
 position:"Desired position",
+
 phone:"📞 Phone",
+
 email:"📧 Email",
+
 city:"📍 City",
+
 profile:"📝 Professional profile",
+
 experience:"💼 Work experience",
+
 addExperience:"Add work experience",
+
 education:"🎓 Education",
+
 addEducation:"Add education",
+
 skillsTitle:"🛠️ Skills",
+
 languagesTitle:"🌍 Languages",
+
 saveResume:"Save resume",
+
 viewResume:"View resume",
+
 pdf:"Save resume as PDF",
+
 profileTitle:"PROFESSIONAL PROFILE",
+
 experienceTitle:"WORK EXPERIENCE",
+
 educationTitle:"EDUCATION",
+
 analysisInfo:"JobAI will compare the information in your resume with the job requirements.",
+
 jobText:"💼 Job description",
+
 analyze:"Analyze",
+
 result:"🎯 Result",
+
 matched:"✅ Found in your resume",
+
 notMatched:"⚠️ Missing or not found",
-recommendation:"💡 Recommendation"
+
+recommendation:"💡 Recommendation",
+
+photoTitle:"Resume photo",
+
+addPhoto:"Add photo",
+
+removePhoto:"Remove photo",
+
+photoHint:"JPG or PNG, maximum 5 MB",
+
+templateTitle:"🎨 Resume template",
+
+templateInfo:"Choose your resume design:"
+
 }
 
 };
 
 
-let currentLanguage=
-localStorage.getItem("jobaiLanguage")||"uk";
+let currentLanguage =
+localStorage.getItem("jobaiLanguage") || "uk";
 
+
+let currentTemplate =
+localStorage.getItem("jobaiTemplate") || "classic";
+
+
+/* =====================================================
+LANGUAGE
+===================================================== */
 
 function setLanguage(lang){
 
@@ -937,10 +1608,12 @@ document.documentElement.lang=lang;
 
 const t=translations[lang];
 
+
 document.querySelectorAll("[data-i18n]")
 .forEach(el=>{
 
-const key=el.getAttribute("data-i18n");
+const key=
+el.getAttribute("data-i18n");
 
 if(t[key]){
 el.innerText=t[key];
@@ -948,8 +1621,10 @@ el.innerText=t[key];
 
 });
 
+
 document.getElementById("subtitle")
 .innerText=t.subtitle;
+
 
 ["uk","sk","en"].forEach(x=>{
 
@@ -961,12 +1636,19 @@ x===lang
 
 });
 
+
 renderExperiences();
+
 renderEducation();
+
 updateCV();
 
 }
 
+
+/* =====================================================
+PAGE
+===================================================== */
 
 function showPage(page){
 
@@ -975,22 +1657,31 @@ document.querySelectorAll(".page")
 p.classList.remove("active")
 );
 
+
 document.getElementById(page)
 .classList.add("active");
+
 
 document.querySelectorAll("nav button")
 .forEach(b=>
 b.classList.remove("active")
 );
 
-if(page==="cv")
+
+if(page==="cv"){
 btnCV.classList.add("active");
+}
 
-if(page==="preview")
+
+if(page==="preview"){
 btnPreview.classList.add("active");
+}
 
-if(page==="jobs")
+
+if(page==="jobs"){
 btnJobs.classList.add("active");
+}
+
 
 updateCV();
 
@@ -999,33 +1690,52 @@ window.scrollTo(0,0);
 }
 
 
-/* ДОСВІД */
+/* =====================================================
+EXPERIENCE
+===================================================== */
 
 let experiences=[];
+
 
 function addExperience(){
 
 experiences.push({
+
 company:"",
+
 position:"",
+
 start:"",
+
 end:"",
+
 description:""
+
 });
 
+
 renderExperiences();
+
 updateCV();
 
+saveResumeData(false);
+
 }
+
 
 function renderExperiences(){
 
 const box=
-document.getElementById("experienceList");
+document.getElementById(
+"experienceList"
+);
+
 
 if(!box)return;
 
+
 box.innerHTML="";
+
 
 experiences.forEach((e,i)=>{
 
@@ -1033,34 +1743,92 @@ box.innerHTML+=`
 
 <div class="experience">
 
-<label>🏢 ${currentLanguage==="sk"?"Spoločnosť":currentLanguage==="en"?"Company":"Компанія"}</label>
+<label>
+🏢 ${
+currentLanguage==="sk"
+?"Spoločnosť"
+:
+currentLanguage==="en"
+?"Company"
+:
+"Компанія"
+}
+</label>
 
-<input value="${e.company}"
-oninput="experiences[${i}].company=this.value;updateCV()">
+<input
+value="${e.company || ""}"
+oninput="
+experiences[${i}].company=this.value;
+updateCV()
+">
 
-<label>💼 ${currentLanguage==="sk"?"Pozícia":currentLanguage==="en"?"Position":"Посада"}</label>
 
-<input value="${e.position}"
-oninput="experiences[${i}].position=this.value;updateCV()">
+<label>
+💼 ${
+currentLanguage==="sk"
+?"Pozícia"
+:
+currentLanguage==="en"
+?"Position"
+:
+"Посада"
+}
+</label>
+
+<input
+value="${e.position || ""}"
+oninput="
+experiences[${i}].position=this.value;
+updateCV()
+">
+
 
 <div class="row">
 
-<input placeholder="2022"
-value="${e.start}"
-oninput="experiences[${i}].start=this.value;updateCV()">
+<input
+placeholder="2022"
+value="${e.start || ""}"
+oninput="
+experiences[${i}].start=this.value;
+updateCV()
+">
 
-<input placeholder="2025"
-value="${e.end}"
-oninput="experiences[${i}].end=this.value;updateCV()">
+
+<input
+placeholder="2025"
+value="${e.end || ""}"
+oninput="
+experiences[${i}].end=this.value;
+updateCV()
+">
 
 </div>
 
-<textarea
-placeholder="${currentLanguage==="sk"?"Popis práce...":currentLanguage==="en"?"Job description...":"Опис роботи..."}"
-oninput="experiences[${i}].description=this.value;updateCV()">${e.description}</textarea>
 
-<button class="danger"
-onclick="experiences.splice(${i},1);renderExperiences();updateCV()">
+<textarea
+placeholder="${
+currentLanguage==="sk"
+?"Popis práce..."
+:
+currentLanguage==="en"
+?"Job description..."
+:
+"Опис роботи..."
+}"
+oninput="
+experiences[${i}].description=this.value;
+updateCV()
+">${e.description || ""}</textarea>
+
+
+<button
+class="danger"
+onclick="
+experiences.splice(${i},1);
+renderExperiences();
+updateCV();
+saveResumeData(false);
+">
 
 🗑️
 
@@ -1075,31 +1843,48 @@ onclick="experiences.splice(${i},1);renderExperiences();updateCV()">
 }
 
 
-/* ОСВІТА */
+/* =====================================================
+EDUCATION
+===================================================== */
 
 let educations=[];
+
 
 function addEducation(){
 
 educations.push({
+
 school:"",
+
 speciality:"",
+
 year:""
+
 });
 
+
 renderEducation();
+
 updateCV();
 
+saveResumeData(false);
+
 }
+
 
 function renderEducation(){
 
 const box=
-document.getElementById("educationList");
+document.getElementById(
+"educationList"
+);
+
 
 if(!box)return;
 
+
 box.innerHTML="";
+
 
 educations.forEach((e,i)=>{
 
@@ -1107,23 +1892,66 @@ box.innerHTML+=`
 
 <div class="experience">
 
-<input
-placeholder="${currentLanguage==="sk"?"Škola":currentLanguage==="en"?"School":"Навчальний заклад"}"
-value="${e.school}"
-oninput="educations[${i}].school=this.value;updateCV()">
 
 <input
-placeholder="${currentLanguage==="sk"?"Odbor":currentLanguage==="en"?"Field of study":"Спеціальність"}"
-value="${e.speciality}"
-oninput="educations[${i}].speciality=this.value;updateCV()">
+placeholder="${
+currentLanguage==="sk"
+?"Škola"
+:
+currentLanguage==="en"
+?"School"
+:
+"Навчальний заклад"
+}"
+value="${e.school || ""}"
+oninput="
+educations[${i}].school=this.value;
+updateCV()
+">
+
 
 <input
-placeholder="${currentLanguage==="sk"?"Rok":currentLanguage==="en"?"Year":"Рік"}"
-value="${e.year}"
-oninput="educations[${i}].year=this.value;updateCV()">
+placeholder="${
+currentLanguage==="sk"
+?"Odbor"
+:
+currentLanguage==="en"
+?"Field of study"
+:
+"Спеціальність"
+}"
+value="${e.speciality || ""}"
+oninput="
+educations[${i}].speciality=this.value;
+updateCV()
+">
 
-<button class="danger"
-onclick="educations.splice(${i},1);renderEducation();updateCV()">
+
+<input
+placeholder="${
+currentLanguage==="sk"
+?"Rok"
+:
+currentLanguage==="en"
+?"Year"
+:
+"Рік"
+}"
+value="${e.year || ""}"
+oninput="
+educations[${i}].year=this.value;
+updateCV()
+">
+
+
+<button
+class="danger"
+onclick="
+educations.splice(${i},1);
+renderEducation();
+updateCV();
+saveResumeData(false);
+">
 
 🗑️
 
@@ -1138,339 +1966,288 @@ onclick="educations.splice(${i},1);renderEducation();updateCV()">
 }
 
 
-/* ОНОВЛЕННЯ */
+/* =====================================================
+TEMPLATE
+===================================================== */
+
+function selectTemplate(template){
+
+currentTemplate=template;
+
+
+localStorage.setItem(
+"jobaiTemplate",
+template
+);
+
+
+document.querySelectorAll(
+".template-option"
+)
+.forEach(option=>{
+
+option.classList.toggle(
+"active",
+option.dataset.template===template
+);
+
+});
+
+
+updateCV();
+
+}
+
+
+/* =====================================================
+UPDATE CV
+===================================================== */
 
 function updateCV(){
 
-document.getElementById("pName").innerText=
-document.getElementById("name").value||"Ваше ім'я";
+const name=
+document.getElementById("name");
 
-document.getElementById("pPosition").innerText=
-document.getElementById("position").value||"Бажана посада";
+const position=
+document.getElementById("position");
 
-document.getElementById("pContact").innerText=
+const phone=
+document.getElementById("phone");
+
+const email=
+document.getElementById("email");
+
+const city=
+document.getElementById("city");
+
+const profile=
+document.getElementById("profile");
+
+const skills=
+document.getElementById("skills");
+
+const languages=
+document.getElementById("languages");
+
+
+if(!name)return;
+
+
+/* NAME */
+
+document.getElementById("pName")
+.innerText=
+name.value ||
+"Ваше ім'я";
+
+
+/* POSITION */
+
+document.getElementById("pPosition")
+.innerText=
+position.value ||
+"Бажана посада";
+
+
+/* CONTACT */
+
+document.getElementById("pContact")
+.innerText=
+
 [
-document.getElementById("phone").value,
-document.getElementById("email").value,
-document.getElementById("city").value
+phone.value,
+email.value,
+city.value
 ]
 .filter(Boolean)
 .join(" · ");
 
-document.getElementById("pProfile").innerText=
-document.getElementById("profile").value;
 
-document.getElementById("pSkills").innerText=
-document.getElementById("skills").value;
+/* PROFILE */
 
-document.getElementById("pLanguages").innerText=
-document.getElementById("languages").value;
+document.getElementById("pProfile")
+.innerText=
+profile.value;
 
 
-document.getElementById("pExperience").innerHTML=
+/* EXPERIENCE */
+
+document.getElementById(
+"pExperience"
+).innerHTML=
+
 experiences.map(e=>`
 
 <div class="cv-experience">
 
-<strong>${e.position}</strong>
+<strong>
+${e.position || ""}
+</strong>
 
 <br>
 
-<b>${e.company}</b>
+<b>
+${e.company || ""}
+</b>
 
 <div>
-${e.start}
-${e.end?" — "+e.end:""}
+
+${e.start || ""}
+${e.end ? " — "+e.end : ""}
+
 </div>
 
-<p>${e.description}</p>
+<p>
+${e.description || ""}
+</p>
 
 </div>
 
 `).join("");
 
 
-document.getElementById("pEducation").innerHTML=
+/* EDUCATION */
+
+document.getElementById(
+"pEducation"
+).innerHTML=
+
 educations.map(e=>`
 
 <div class="cv-experience">
 
-<strong>${e.speciality}</strong>
+<strong>
+${e.speciality || ""}
+</strong>
 
 <br>
 
-${e.school}
+${e.school || ""}
 
-<div>${e.year}</div>
+<div>
+${e.year || ""}
+</div>
 
 </div>
 
 `).join("");
 
-}
+
+/* SKILLS */
+
+const skillList=
+skills.value
+.split(/[,;\n]+/)
+.map(x=>x.trim())
+.filter(Boolean);
 
 
-/* СТАРИЙ АНАЛІЗАТОР */
+document.getElementById(
+"pSkills"
+).innerHTML=
 
-function analyzeJob(){
-
-const jobText=
-document.getElementById("job")
-.value
-.toLowerCase()
-.trim();
+skillList.map(skill=>
+`<span class="skill">${skill}</span>`
+).join("");
 
 
-if(!jobText){
+/* LANGUAGES */
 
-alert(
-currentLanguage==="sk"
-?"Vložte text pracovnej ponuky."
-:currentLanguage==="en"
-?"Please enter the job description."
-:"Будь ласка, вставте текст вакансії."
+document.getElementById(
+"pLanguages"
+).innerText=
+languages.value;
+
+
+/* PHOTO */
+
+const photo=
+localStorage.getItem(
+"jobaiPhoto"
 );
 
-return;
+
+const photoBox=
+document.getElementById(
+"cvPhoto"
+);
+
+
+const photoImage=
+document.getElementById(
+"pPhoto"
+);
+
+
+if(photo){
+
+photoBox.style.display="block";
+
+photoImage.src=photo;
+
+}else{
+
+photoBox.style.display="none";
+
+photoImage.src="";
 
 }
 
 
-let resumeText=
+/* TEMPLATE */
 
-(
-document.getElementById("name").value+" "+
-document.getElementById("position").value+" "+
-document.getElementById("profile").value+" "+
-document.getElementById("skills").value+" "+
-document.getElementById("languages").value+" "+
-experiences.map(e=>
-e.company+" "+
-e.position+" "+
-e.description
-).join(" ")+" "+
-educations.map(e=>
-e.school+" "+
-e.speciality
-).join(" ")
+const preview=
+document.getElementById(
+"cvPreview"
+);
+
+
+preview.className=
+"cv-preview template-" +
+currentTemplate;
+
+
+/* TEMPLATE BUTTONS */
+
+document.querySelectorAll(
+".template-option"
 )
+.forEach(option=>{
 
-.toLowerCase();
-
-
-let requirements=[];
-
-
-/*
-Використовуємо нову базу JOB_DATABASE,
-якщо jobs.js успішно підключений.
-*/
-
-if(typeof findJobSkills==="function"){
-
-requirements=findJobSkills(jobText);
-
-}else{
-
-const jobSkills=[
-
-"cnc",
-"cnc operator",
-"operator",
-"mechanic",
-"maintenance",
-"údržba",
-"výroba",
-"production",
-"warehouse",
-"sklad",
-"forklift",
-"vysokozdvižný vozík",
-"welding",
-"zváranie",
-"electrician",
-"elektrikár",
-"autocad",
-"solidworks",
-"technical drawing",
-"technický výkres",
-"english",
-"angličtina",
-"slovak",
-"slovenčina",
-"german",
-"nemčina",
-"excel",
-"ms office",
-"driving licence",
-"vodičský preukaz",
-"shift",
-"smennosť",
-"experience",
-"skúsenosti"
-
-];
-
-jobSkills.forEach(skill=>{
-
-if(jobText.includes(skill)){
-requirements.push(skill);
-}
-
-});
-
-requirements=[
-...new Set(requirements)
-];
-
-}
-
-
-let matched=[];
-let missing=[];
-
-
-requirements.forEach(skill=>{
-
-if(resumeText.includes(skill)){
-
-matched.push(skill);
-
-}else{
-
-missing.push(skill);
-
-}
-
-});
-
-
-let score=0;
-
-if(requirements.length){
-
-score=Math.round(
-matched.length/
-requirements.length*
-100
+option.classList.toggle(
+"active",
+option.dataset.template===
+currentTemplate
 );
 
-}else{
-
-score=50;
-
-}
-
-
-document.getElementById("score")
-.innerText=score+"%";
-
-document.getElementById("progressBar")
-.style.width=score+"%";
-
-
-document.getElementById("found")
-.innerHTML=
-
-matched.length
-
-?matched.map(skill=>
-`<span class="skill">✓ ${skill}</span>`
-).join("")
-
-:currentLanguage==="sk"
-?"V životopise sa nenašli zodpovedajúce zručnosti."
-
-:currentLanguage==="en"
-?"No matching skills were found in your resume."
-
-:"У резюме не знайдено відповідних навичок.";
-
-
-document.getElementById("missing")
-.innerHTML=
-
-missing.length
-
-?missing.map(skill=>
-`<span class="skill">⚠ ${skill}</span>`
-).join("")
-
-:currentLanguage==="sk"
-?"Všetky rozpoznané požiadavky boli nájdené."
-
-:currentLanguage==="en"
-?"All detected requirements were found."
-
-:"Усі знайдені вимоги є в резюме.";
-
-
-let recommendation;
-
-if(score>=80){
-
-recommendation=
-
-currentLanguage==="sk"
-?"Váš životopis dobre zodpovedá pracovnej ponuke."
-
-:currentLanguage==="en"
-?"Your resume matches the job well."
-
-:"Ваше резюме добре відповідає вакансії.";
-
-}
-
-else if(score>=50){
-
-recommendation=
-
-currentLanguage==="sk"
-?"Odporúčame upraviť životopis a doplniť relevantné zručnosti, ak ich skutočne máte."
-
-:currentLanguage==="en"
-?"Consider tailoring your resume and adding relevant skills if you actually have them."
-
-:"Рекомендуємо адаптувати резюме та додати відповідні навички, якщо ви ними справді володієте.";
-
-}
-
-else{
-
-recommendation=
-
-currentLanguage==="sk"
-?"Zhoda je nízka. Skontrolujte požiadavky pracovnej ponuky."
-
-:currentLanguage==="en"
-?"The match is low. Review the job requirements."
-
-:"Відповідність низька. Перевірте вимоги вакансії.";
-
-}
-
-
-document.getElementById("recommendation")
-.innerText=recommendation;
-
-
-document.getElementById("analysisResult")
-.style.display="block";
-
-
-document.getElementById("analysisResult")
-.scrollIntoView({
-behavior:"smooth"
 });
 
 }
 
 
-/* СТАРТ */
+/* =====================================================
+OLD SAVE COMPATIBILITY
+===================================================== */
+
+function saveResume(){
+
+saveResumeData(true);
+
+}
+
+
+/* =====================================================
+START
+===================================================== */
 
 setLanguage(currentLanguage);
 
+selectTemplate(currentTemplate);
+
 loadResume();
+
+updateCV();
+
 
 </script>
 
