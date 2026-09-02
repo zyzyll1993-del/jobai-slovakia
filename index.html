@@ -4845,6 +4845,9 @@ window.clearAll =
 window.updateResumePreview =
     updateResumePreview;
 
+window.jobAIUpdateResumePreview = updateResumePreview;
+
+
 window.removePhoto =
     removePhoto;
 
@@ -5131,7 +5134,7 @@ This explicitly restores the JobAI renderer.
     */
 
     const jobAIPreviewRenderer =
-        updateResumePreview;
+        window.jobAIUpdateResumePreview;
 
 
     /*
