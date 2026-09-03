@@ -9,6 +9,8 @@ permissions:
 
 jobs:
   activate:
+    # One-time installer retained for history; current scripts are already active.
+    if: ${{ false }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -40,7 +42,7 @@ jobs:
           if 'preview-site-style.css?v=' not in s:
               s = s.replace('</head>', '<link rel="stylesheet" href="preview-site-style.css?v=3">\n</head>')
           marker = '<script src="resume-editor-style.js?v=2"></script>'
-          if 'home-translation.js?v=1' not in s:
+          if 'home-translation.js?v=' not in s:
               s = s.replace(marker, marker + '\n<script src="home-translation.js?v=1"></script>')
           p.write_text(s, encoding='utf-8')
           PY
