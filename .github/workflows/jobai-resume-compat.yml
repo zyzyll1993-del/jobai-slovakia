@@ -47,9 +47,11 @@ jobs:
           h=p.read_text(encoding='utf-8')
           for v in range(1,9):
               h=h.replace(f'resume-sections-toggle.js?v={v}','resume-sections-toggle.js?v=8')
-          for v in range(1,6):
-              h=h.replace(f'resume-compat-fix.js?v={v}','resume-compat-fix.js?v=5')
-          h=h.replace('analysis-enhancer-v2.js?v=1','analysis-enhancer-v2.js?v=2')
+          h=h.replace('resume-compat-fix.js?v=3','resume-compat-fix.js?v=6')
+          h=h.replace('resume-compat-fix.js?v=4','resume-compat-fix.js?v=6')
+          h=h.replace('resume-compat-fix.js?v=5','resume-compat-fix.js?v=6')
+          h=h.replace('analysis-enhancer-v2.js?v=1','analysis-enhancer-v2.js?v=3')
+          h=h.replace('analysis-enhancer-v2.js?v=2','analysis-enhancer-v2.js?v=3')
           p.write_text(h,encoding='utf-8')
           PY
       - name: Commit
