@@ -8,10 +8,9 @@ from bs4 import BeautifulSoup
 
 BASE='https://www.sluzbyzamestnanosti.gov.sk'
 SEARCH=BASE+'/pracovne-ponuky'
-HEADERS={'User-Agent':'JobAI-Slovakia/1.4 (+https://zyzyll1993-del.github.io/jobai-slovakia/)'}
+HEADERS={'User-Agent':'JobAI-Slovakia/1.5 (+https://zyzyll1993-del.github.io/jobai-slovakia/)'}
 
 # Broad market crawl. We no longer depend on a fixed list of professions.
-# The updater walks the general job feed and classifies vacancies afterwards.
 MAX_PAGES=30
 PAGE_SIZE=30
 MAX_JOBS=900
@@ -35,15 +34,14 @@ CATEGORY_RULES=[
  ('Remeslá a servis',['automechanik','autoservis','servisný','servisny','chladiar','stolár','stolar'])
 ]
 
-# Headings used on detail pages. These are treated as hard boundaries so one
-# requirement group cannot leak into the next one.
 SECTION_HEADINGS=[
  'Požadovaný stupeň vzdelania','Požadovaná prax','Požadované cudzie jazyky',
  'Znalosť slovenského jazyka je nevyhnutná','Počítačové zručnosti',
  'Vodičské oprávnenie','Vodičské oprávnenia','Práca na zmeny',
  'Všeobecné spôsobilosti','Osobnostné predpoklady','Ďalšie požiadavky',
  'Certifikáty','Osvedčenia','Dátum nástupu','Pracovný pomer',
- 'Základná zložka mzdy','Náplň práce','Informácie o výberovom procese'
+ 'Základná zložka mzdy','Náplň práce','Informácie o výberovom procese',
+ 'Miesto výkonu práce','Okres','Kraj'
 ]
 
 DRIVING_GROUPS={'AM','A1','A2','A','B1','B','BE','C1','C1E','C','CE','D1','D1E','D','DE','T'}
@@ -109,11 +107,9 @@ def values_between(lines,label,stop_labels=(),max_items=12):
 
 
 def clean_driving_licenses(values):
-    """Return only explicit Slovak driving licence groups, never nearby skills."""
     found=[]
     for value in values:
         text=clean(value).upper().replace('/', ' ').replace(',', ' ')
-        # Portal commonly renders two rows: "Skupina" then "B". Ignore labels.
         if norm(value) in {'skupina','skupiny','vodičské oprávnenie','vodičské oprávnenia'}:
             continue
         for token in re.findall(r'(?<![A-Z0-9])(?:AM|A1|A2|BE|B1|B|C1E|C1|CE|C|D1E|D1|DE|D|T)(?![A-Z0-9])',text):
@@ -123,7 +119,6 @@ def clean_driving_licenses(values):
 
 
 def clean_requirement_values(values):
-    """Remove UI labels/booleans that are not actual requirement values."""
     noise={
       'áno','nie','skupina','skupiny','úroveň','uroven','stupeň','stupen',
       'znalosť slovenského jazyka je nevyhnutná','znalost slovenskeho jazyka je nevyhnutna'
@@ -136,6 +131,75 @@ def clean_requirement_values(values):
         if v not in out:
             out.append(v)
     return out
+
+
+def find_json_value(obj, key):
+    """Recursively find the first non-empty key in JSON-LD data."""
+    if isinstance(obj, dict):
+        if key in obj and clean(obj.get(key)):
+            return clean(obj.get(key))
+        for v in obj.values():
+            found=find_json_value(v,key)
+            if found:
+                return found
+    elif isinstance(obj, list):
+        for v in obj:
+            found=find_json_value(v,key)
+            if found:
+                return found
+    return ''
+
+
+def structured_address(soup):
+    """Read schema.org address data when the portal exposes it."""
+    data=[]
+    for node in soup.find_all('script',attrs={'type':'application/ld+json'}):
+        raw=node.string or node.get_text() or ''
+        try:
+            data.append(json.loads(raw))
+        except Exception:
+            continue
+    city=''; district=''; region=''; street=''; postal=''
+    for obj in data:
+        city=city or find_json_value(obj,'addressLocality')
+        region=region or find_json_value(obj,'addressRegion')
+        district=district or find_json_value(obj,'district')
+        street=street or find_json_value(obj,'streetAddress')
+        postal=postal or find_json_value(obj,'postalCode')
+    return {'city':city,'district':district,'region':region,'street':street,'postalCode':postal}
+
+
+def location_fields(soup, lines):
+    """Return searchable location fields without guessing a city from a street name."""
+    structured=structured_address(soup)
+    raw=value_after(lines,'Miesto výkonu práce')
+    city=structured['city']
+    district=structured['district'] or value_after(lines,'Okres',4)
+    region=structured['region'] or value_after(lines,'Kraj',4)
+
+    # Fallback: many portal values contain postal code + city in the same string.
+    # Example: "Jarná 3, 94901 Nitra - Nitra".
+    if not city:
+        m=re.search(r'\b\d{3}\s?\d{2}\s+([^,;]+)',raw)
+        if m:
+            candidate=clean(m.group(1))
+            candidate=re.split(r'\s+-\s+',candidate)[0]
+            if candidate:
+                city=candidate
+
+    # If city is still missing, inspect only the short location section, never
+    # unrelated requirement blocks.
+    if not city:
+        loc_values=values_between(lines,'Miesto výkonu práce',['Dátum nástupu','Pracovný pomer','Základná zložka mzdy'],5)
+        for candidate in loc_values:
+            m=re.search(r'\b\d{3}\s?\d{2}\s+([^,;]+)',candidate)
+            if m:
+                city=clean(re.split(r'\s+-\s+',m.group(1))[0]); break
+
+    display=raw
+    if structured['street'] and city:
+        display=', '.join(x for x in [structured['street'], structured['postalCode'], city] if x)
+    return {'location':display,'city':city,'district':district,'region':region,'postalCode':structured['postalCode']}
 
 
 def inactive(lines):
@@ -169,10 +233,12 @@ def detail(url, session):
     licenses=clean_driving_licenses(raw_licenses)
     description=value_after(lines,'Náplň práce',18)
     category=classify(title,description)
+    loc=location_fields(soup,lines)
 
     return {
       'title':title,'employer':employer,
-      'location':value_after(lines,'Miesto výkonu práce'),
+      'location':loc['location'],'city':loc['city'],'district':loc['district'],
+      'region':loc['region'],'postalCode':loc['postalCode'],
       'salary':value_after(lines,'Základná zložka mzdy'),
       'category':category,'searchTerm':'all-market',
       'updated':value_after(lines,'Naposledy aktualizované'),
@@ -235,17 +301,17 @@ def main():
     if not jobs:
         raise SystemExit('No active vacancies fetched; keeping previous jobs-data.json')
 
-    jobs.sort(key=lambda j:(j.get('updated',''),j.get('title',''),j.get('location','')),reverse=True)
+    jobs.sort(key=lambda j:(j.get('updated',''),j.get('title',''),j.get('city',''),j.get('location','')),reverse=True)
     categories=sorted(set(j.get('category','Iné profesie') for j in jobs))
     data={
       'updatedAt':datetime.now(timezone.utc).isoformat(),
-      'source':'Služby zamestnanosti','activeOnly':True,'schemaVersion':3,
+      'source':'Služby zamestnanosti','activeOnly':True,'schemaVersion':4,
       'collectionMode':'broad-market-feed',
       'pagesScanned':min(MAX_PAGES,page),
       'marketCategories':categories,
       'jobCount':len(jobs),'failures':failures,'jobs':jobs
     }
     Path('jobs-data.json').write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
-    print('saved',len(jobs),'active market-wide vacancies')
+    print('saved',len(jobs),'active market-wide vacancies with searchable location fields')
 
 if __name__=='__main__': main()
