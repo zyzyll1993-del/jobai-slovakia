@@ -1,0 +1,34 @@
+name: JobAI My Resumes v4
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  install:
+    if: ${{ !contains(github.event.head_commit.message, '[jobai-my-resumes-v4]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install manager v4
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          marker='my-resumes-manager-v4.js'
+          if marker not in s:
+              tag='\n<script src="my-resumes-manager-v4.js?v=1"></script>\n'
+              pos=s.lower().rfind('</body>')
+              if pos<0: raise SystemExit('No closing body tag found')
+              s=s[:pos]+tag+s[pos:]
+              p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Install My Resumes manager v4 [jobai-my-resumes-v4]"
+          git push
