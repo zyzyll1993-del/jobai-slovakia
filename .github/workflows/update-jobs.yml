@@ -4,6 +4,11 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '17 */6 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/update_jobs.py'
+      - '.github/workflows/update-jobs.yml'
 
 permissions:
   contents: write
