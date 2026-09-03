@@ -4,7 +4,7 @@
   function save(){try{if(typeof window.saveResumeData==='function')window.saveResumeData(false);else if(typeof window.saveAll==='function')window.saveAll();}catch(e){console.warn(e);}}
   function update(){try{if(typeof window.jobAIUpdateResumePreview==='function')window.jobAIUpdateResumePreview();else if(typeof window.updateResumePreview==='function')window.updateResumePreview();}catch(e){}}
   function renameProfessionalButton(){document.querySelectorAll('.template-button').forEach(function(btn){if(btn.textContent.trim()==='Professional')btn.textContent='Profi';});}
-  function keepPreviewTemplateNamesEnglish(){var names={modern:'Modern',professional:'Profi',executive:'Classic',creative:'Tech',ats:'Compact'};document.querySelectorAll('#jobaiPreviewControls [data-preview-template]').forEach(function(btn){var key=btn.getAttribute('data-preview-template');if(names[key])btn.textContent=names[key];});}
+  function keepPreviewTemplateNamesEnglish(){var names={modern:'Modern',professional:'Profi',executive:'Classic',creative:'Tech',ats:'Compact'};document.querySelectorAll('[data-preview-template]').forEach(function(btn){var key=btn.getAttribute('data-preview-template');if(names[key])btn.textContent=names[key];});}
   function renameTemplateButtons(){renameProfessionalButton();keepPreviewTemplateNamesEnglish();}
   function watchProfessionalButton(){renameTemplateButtons();if(window.MutationObserver){var root=document.body||document.documentElement;if(root){new MutationObserver(function(){renameTemplateButtons();}).observe(root,{childList:true,subtree:true});}}}
   function setup(type){
