@@ -1,52 +1,636 @@
-/* JobAI Slovakia — professional compact CV preview */
-html body #preview .jobai-preview-controls{width:560px!important;max-width:560px!important;margin:0 0 18px 0!important;box-sizing:border-box}
-html body #preview .jobai-preview-head{margin-bottom:10px!important}
-html body #preview .jobai-preview-subtitle{font-size:18px!important}
-html body #preview .jobai-preview-row{grid-template-columns:150px 1fr!important;gap:16px!important;margin-top:10px!important;padding-top:10px!important}
-html body #preview .template-grid{grid-template-columns:repeat(5,1fr)!important;gap:6px!important}
-html body #preview .template-button{min-height:34px!important;padding:5px 6px!important;font-size:11px!important}
-html body #preview .jobai-preview-settings{display:grid!important;grid-template-columns:1fr 1fr 1fr 1.15fr!important;gap:12px!important;margin-top:12px!important;padding-top:12px!important}
-html body #preview .jobai-preview-settings label,html body #preview .jobai-preview-settings>div{min-width:0!important}
-html body #preview .jobai-number-wrap{display:flex!important;align-items:center!important;gap:4px!important}
-html body #preview .jobai-font-number{width:58px!important}
-html body #preview .jobai-font-option{min-height:32px!important;padding:5px 7px!important;font-size:11px!important}
-#preview .preview-wrapper{width:100%;max-width:none;overflow-x:auto;overflow-y:visible;display:block;padding:24px 20px 40px;box-sizing:border-box}
-#preview .a4-page{width:794px!important;min-width:794px!important;max-width:794px!important;height:auto;min-height:1123px!important;margin:0 auto!important;box-sizing:border-box;flex:0 0 794px;border-radius:2px;box-shadow:0 16px 45px rgba(15,23,42,.22);overflow:hidden}
-#preview #resumePreview{width:794px!important;min-width:794px!important;max-width:794px!important;margin:0 auto;box-sizing:border-box}
-#preview .resume-page-inner{width:100%;min-width:0;box-sizing:border-box;font-size:14px;line-height:1.45}
-#preview .resume-page-inner h1{letter-spacing:-.02em}
-#preview .resume-page-inner h2{letter-spacing:.025em}
-#preview .resume-page-inner h3{line-height:1.25}
-#preview .resume-page-inner p{margin-top:4px;margin-bottom:0}
-#preview .resume-item{margin-bottom:12px}
-#preview .resume-item h3{margin-bottom:3px}
-#preview .resume-item .date{margin-bottom:4px}
-#preview .resume-list{line-height:1.4;margin-top:5px}
-#preview .modern-side{padding:28px 22px}
-#preview .modern-main{padding:32px 34px}
-#preview .modern-section{margin-top:18px}
-#preview .modern-section h3{margin:0 0 8px;padding-bottom:5px}
-#preview .modern-main h2{margin:0 0 12px;padding-bottom:5px}
-#preview .template-professional{padding:34px 40px}
-#preview .prof-header{padding-bottom:14px;margin-bottom:18px}
-#preview .prof-section{margin-bottom:18px}
-#preview .prof-section-title{margin-bottom:9px;padding-bottom:4px}
-#preview .prof-experience{gap:12px;margin-bottom:12px}
-#preview .exec-top{padding:25px 32px}
-#preview .exec-side{padding:24px 20px;min-height:900px}
-#preview .exec-main{padding:28px 30px}
-#preview .template-creative{padding:30px}
-#preview .template-ats{padding:34px 40px}
-#preview .resume-photo{width:100px;height:100px}
-@media(max-width:834px){
-  #preview .preview-wrapper{padding-left:10px;padding-right:10px}
-  html body #preview .jobai-preview-controls{width:100%!important;max-width:560px!important}
-  #preview #resumePreview,#preview .a4-page{margin-left:0!important;margin-right:0!important}
-  #preview .jobai-preview-settings{grid-template-columns:1fr 1fr!important}
+/* JobAI Slovakia — original premium resume templates */
+
+#preview .a4-page {
+    width: 794px !important;
+    min-width: 794px !important;
+    max-width: 794px !important;
+    height: auto;
+    min-height: 1123px !important;
+    margin: 0 auto !important;
+    overflow: hidden;
+    border-radius: 3px;
+    box-shadow: 0 18px 50px rgba(2, 8, 23, .28);
 }
-@media print{
-  #preview .preview-wrapper{overflow:visible;padding:0}
-  #preview #resumePreview,#preview .a4-page{width:794px!important;min-width:794px!important;max-width:794px!important;min-height:1123px!important;margin:0 auto!important}
-  #preview .a4-page{box-shadow:none;border-radius:0}
+
+#preview #resumePreviewContent,
+#preview .resume-page-inner {
+    width: 100%;
+    min-height: 1123px;
+    box-sizing: border-box;
 }
-@media(max-width:760px){#preview .a4-page{box-shadow:0 8px 25px rgba(15,23,42,.18)}}
+
+#preview .resume-page-inner {
+    background: #fff;
+    color: #1e293b;
+    font-size: 14px;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+}
+
+#preview .resume-page-inner h1,
+#preview .resume-page-inner h2,
+#preview .resume-page-inner h3,
+#preview .resume-page-inner p {
+    overflow-wrap: anywhere;
+}
+
+#preview .resume-page-inner h1 {
+    letter-spacing: -.035em;
+    line-height: 1.08;
+}
+
+#preview .resume-page-inner section,
+#preview .resume-item,
+#preview .prof-experience {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+#preview .resume-page-inner section:empty,
+#preview .resume-page-inner aside:empty,
+#preview .resume-page-inner main:empty,
+#preview .resume-page-inner h1:empty,
+#preview .resume-page-inner h2:empty,
+#preview .resume-page-inner h3:empty,
+#preview .resume-page-inner p:empty,
+#preview .resume-page-inner div:empty:not(.prof-header):not(.exec-top):not(.creative-header) {
+    display: none;
+}
+
+#preview .resume-list {
+    margin: 7px 0 0;
+    padding-left: 18px;
+    line-height: 1.48;
+}
+
+#preview .resume-list li + li {
+    margin-top: 4px;
+}
+
+#preview .resume-item {
+    margin: 0 0 17px;
+}
+
+#preview .resume-item:last-child {
+    margin-bottom: 0;
+}
+
+#preview .resume-item h3 {
+    margin: 0 0 3px;
+    color: #172033;
+    font-size: 15px;
+    font-weight: 750;
+}
+
+#preview .resume-item .date {
+    margin: 0 0 6px;
+    color: #64748b;
+    font-size: 11.5px;
+    font-weight: 650;
+    letter-spacing: .015em;
+}
+
+#preview .resume-item p {
+    margin: 0;
+    color: #334155;
+    line-height: 1.55;
+    white-space: pre-line;
+}
+
+/* Modern — confident two-column layout */
+
+#preview .template-modern {
+    display: grid;
+    grid-template-columns: 238px minmax(0, 1fr);
+    background: #fff;
+}
+
+#preview .template-modern.modern-no-side {
+    display: block;
+}
+
+#preview .modern-side {
+    position: relative;
+    padding: 42px 28px;
+    color: #fff;
+}
+
+#preview .modern-side::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    pointer-events: none;
+    background: linear-gradient(160deg, rgba(255,255,255,.09), transparent 42%, rgba(0,0,0,.08));
+}
+
+#preview .modern-side > * {
+    position: relative;
+    z-index: 1;
+}
+
+#preview .modern-side .resume-photo {
+    width: 104px;
+    height: 104px;
+    border: 4px solid rgba(255,255,255,.88);
+    box-shadow: 0 8px 24px rgba(0,0,0,.15);
+}
+
+#preview .modern-side h1 {
+    margin: 24px 0 7px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+#preview .modern-side h2 {
+    margin: 0;
+    color: rgba(255,255,255,.88);
+    font-size: 14px;
+    font-weight: 550;
+    letter-spacing: .04em;
+}
+
+#preview .modern-section {
+    margin-top: 29px;
+}
+
+#preview .modern-section h3 {
+    margin: 0 0 10px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid rgba(255,255,255,.35);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+#preview .modern-section > div,
+#preview .modern-section li {
+    color: rgba(255,255,255,.9);
+    font-size: 12.5px;
+}
+
+#preview .modern-contact-section > div {
+    line-height: 1.7;
+}
+
+#preview .modern-side .resume-list {
+    margin-top: 0;
+    padding-left: 15px;
+}
+
+#preview .modern-main {
+    padding: 48px 48px 42px;
+}
+
+#preview .modern-main .resume-content-section + .resume-content-section {
+    margin-top: 30px;
+}
+
+#preview .modern-main h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 16px;
+    padding: 0;
+    border: 0 !important;
+    color: #172033;
+    font-size: 13px;
+    font-weight: 850;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+}
+
+#preview .modern-main h2::after {
+    height: 2px;
+    flex: 1;
+    content: "";
+    background: var(--accent);
+    opacity: .75;
+}
+
+#preview .modern-main section > p {
+    margin: 0;
+    color: #334155;
+}
+
+/* Profi — refined editorial layout, original to JobAI */
+
+#preview .template-professional {
+    position: relative;
+    padding: 48px 50px 44px;
+    background: linear-gradient(90deg, var(--accent) 0 7px, transparent 7px), #fff;
+}
+
+#preview .prof-header {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 28px;
+    margin: 0 0 30px;
+    padding: 0 0 22px;
+    border-bottom: 1px solid #d8e0e9 !important;
+}
+
+#preview .prof-header::after {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 72px;
+    height: 4px;
+    border-radius: 4px;
+    content: "";
+    background: var(--accent);
+}
+
+#preview .prof-header h1 {
+    margin: 0;
+    color: #111827;
+    font-size: 37px;
+    font-weight: 820;
+}
+
+#preview .prof-header h2 {
+    margin: 8px 0 0;
+    color: var(--accent-dark);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .055em;
+    text-transform: uppercase;
+}
+
+#preview .prof-contact {
+    max-width: 245px;
+    color: #526071;
+    font-size: 11.5px;
+    line-height: 1.65;
+    text-align: right;
+}
+
+#preview .prof-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 188px;
+    gap: 34px;
+}
+
+#preview .prof-body.prof-single {
+    display: block;
+}
+
+#preview .prof-main,
+#preview .prof-aside {
+    min-width: 0;
+}
+
+#preview .prof-aside {
+    padding-left: 24px;
+    border-left: 1px solid #dfe5ec;
+}
+
+#preview .prof-section {
+    margin: 0 0 27px;
+}
+
+#preview .prof-section:last-child {
+    margin-bottom: 0;
+}
+
+#preview .prof-section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 14px;
+    padding: 0;
+    border: 0;
+    font-size: 11px;
+    font-weight: 850;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+#preview .prof-main .prof-section-title::after {
+    height: 1px;
+    flex: 1;
+    content: "";
+    background: #d8e0e9;
+}
+
+#preview .prof-section > p {
+    margin: 0;
+    color: #3c4858;
+}
+
+#preview .prof-experience {
+    display: grid;
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 16px;
+    margin: 0 0 20px;
+}
+
+#preview .prof-experience:last-child {
+    margin-bottom: 0;
+}
+
+#preview .prof-date {
+    padding-top: 2px;
+    color: #6b7788;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .03em;
+}
+
+#preview .prof-role {
+    padding-left: 14px;
+    border-left: 2px solid var(--accent-soft);
+}
+
+#preview .prof-position {
+    margin: 0;
+    color: #172033;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+#preview .prof-company {
+    margin: 2px 0 7px;
+    color: var(--accent-dark);
+    font-size: 12px;
+    font-weight: 720;
+}
+
+#preview .prof-description {
+    color: #3f4c5e;
+    line-height: 1.55;
+    white-space: pre-line;
+}
+
+#preview .prof-aside .resume-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#preview .prof-aside .resume-list li {
+    margin: 0 0 7px;
+    padding: 6px 8px;
+    border-radius: 5px;
+    background: var(--accent-soft);
+    color: #263446;
+    font-size: 11.5px;
+}
+
+/* Classic — formal leadership layout */
+
+#preview .template-executive {
+    display: grid;
+    grid-template-columns: 226px minmax(0, 1fr);
+    align-content: start;
+    background: #fff;
+}
+
+#preview .template-executive.exec-no-side {
+    display: block;
+}
+
+#preview .exec-top {
+    grid-column: 1 / -1;
+    padding: 40px 44px 34px;
+    background-image: linear-gradient(120deg, rgba(255,255,255,.06), transparent) !important;
+    color: #fff;
+}
+
+#preview .exec-top h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 35px;
+    font-weight: 800;
+}
+
+#preview .exec-top h2 {
+    margin: 8px 0 0;
+    color: rgba(255,255,255,.82);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+#preview .exec-side {
+    min-height: 980px;
+    padding: 34px 25px;
+    color: #fff;
+}
+
+#preview .exec-side .resume-photo {
+    width: 96px;
+    height: 96px;
+    border: 3px solid rgba(255,255,255,.8);
+}
+
+#preview .exec-side h3 {
+    margin: 0 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255,255,255,.34);
+    color: #fff;
+    font-size: 10.5px;
+    font-weight: 820;
+    letter-spacing: .14em;
+}
+
+#preview .exec-side div,
+#preview .exec-side li {
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+#preview .exec-main {
+    padding: 39px 42px;
+}
+
+#preview .exec-main section + section {
+    margin-top: 28px;
+}
+
+#preview .exec-main h2 {
+    margin: 0 0 15px;
+    padding-bottom: 7px;
+    border-bottom: 2px solid;
+    color: #172033;
+    font-size: 12px;
+    font-weight: 850;
+    letter-spacing: .15em;
+}
+
+/* Tech — energetic but readable */
+
+#preview .template-creative {
+    display: grid;
+    grid-template-columns: 210px minmax(0, 1fr);
+    align-content: start;
+    background: #fff;
+}
+
+#preview .template-creative.creative-no-side {
+    display: block;
+}
+
+#preview .creative-header {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 35px 40px;
+    color: #fff;
+    background-image: linear-gradient(120deg, transparent, rgba(0,0,0,.11)) !important;
+}
+
+#preview .creative-header .resume-photo {
+    width: 92px;
+    height: 92px;
+    border: 4px solid rgba(255,255,255,.88);
+}
+
+#preview .creative-header h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 34px;
+    font-weight: 820;
+}
+
+#preview .creative-header h2 {
+    margin: 7px 0 0;
+    color: rgba(255,255,255,.88);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#preview .creative-side {
+    min-height: 980px;
+    padding: 31px 23px;
+    color: #fff;
+}
+
+#preview .creative-side h3 {
+    margin: 0 0 10px;
+    padding: 0 0 6px;
+    border-bottom: 1px solid rgba(255,255,255,.3);
+    color: #fff;
+    font-size: 10.5px;
+    font-weight: 850;
+    letter-spacing: .14em;
+}
+
+#preview .creative-side div,
+#preview .creative-side li {
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+#preview .creative-main {
+    padding: 36px 40px;
+}
+
+#preview .creative-main section + section {
+    margin-top: 27px;
+}
+
+#preview .creative-main h2 {
+    margin: 0 0 15px;
+    padding: 0 0 7px;
+    border-bottom: 2px solid;
+    color: #172033;
+    font-size: 12px;
+    font-weight: 850;
+    letter-spacing: .14em;
+}
+
+/* Compact — restrained, ATS-oriented */
+
+#preview .template-ats {
+    padding: 46px 54px;
+    background: #fff;
+    color: #18202c;
+}
+
+#preview .ats-header {
+    margin: 0 0 26px;
+    padding: 0 0 18px;
+    border-bottom: 2px solid !important;
+}
+
+#preview .ats-header h1 {
+    margin: 0;
+    color: #111827;
+    font-size: 34px;
+    font-weight: 800;
+}
+
+#preview .ats-header h2 {
+    margin: 6px 0 8px;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+#preview .ats-header > div {
+    color: #586577;
+    font-size: 11.5px;
+}
+
+#preview .ats-section {
+    margin: 0 0 23px;
+}
+
+#preview .ats-section h2 {
+    margin: 0 0 12px;
+    padding: 0 0 5px;
+    border-bottom: 1px solid #cfd6df;
+    font-size: 12px;
+    font-weight: 850;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+#preview .ats-section p {
+    margin: 0;
+    color: #303b49;
+    line-height: 1.55;
+}
+
+@media(max-width: 834px) {
+    #preview .preview-wrapper {
+        padding-right: 10px !important;
+        padding-left: 10px !important;
+    }
+
+    #preview #resumePreview,
+    #preview .a4-page {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+}
+
+@media print {
+    #preview .preview-wrapper {
+        padding: 0 !important;
+        overflow: visible !important;
+    }
+
+    #preview #resumePreview,
+    #preview .a4-page {
+        width: 210mm !important;
+        min-width: 210mm !important;
+        max-width: 210mm !important;
+        min-height: 297mm !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+
+    #preview #resumePreviewContent,
+    #preview .resume-page-inner {
+        min-height: 297mm !important;
+    }
+}
