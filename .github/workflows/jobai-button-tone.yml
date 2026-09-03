@@ -1,10 +1,6 @@
 name: JobAI button tone
 
 on:
-  push:
-    branches: [main]
-    paths-ignore:
-      - 'index.html'
   workflow_dispatch:
 
 permissions:
@@ -15,23 +11,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Change only profession buttons tone
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          p = Path('index.html')
-          s = p.read_text(encoding='utf-8')
-          old = '''.profession-content button{\n    width:100%;\n    border:1px solid #475569;\n    background:#1e293b;\n    color:#fff;\n    padding:10px;\n    border-radius:8px;\n    font-weight:700;\n}\n\n.profession-content button:hover{\n    background:#1976d2;\n    border-color:#1976d2;\n}'''
-          new = '''.profession-content button{\n    width:100%;\n    border:1px solid #3b82f6;\n    background:#1e3a5f;\n    color:#fff;\n    padding:10px;\n    border-radius:8px;\n    font-weight:700;\n}\n\n.profession-content button:hover{\n    background:#2563a8;\n    border-color:#60a5fa;\n}'''
-          if old not in s:
-              raise SystemExit('Target button CSS not found; no changes made.')
-          s = s.replace(old, new, 1)
-          p.write_text(s, encoding='utf-8')
-          PY
-      - name: Commit change
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add index.html
-          git commit -m 'Change profession button tone only'
-          git push
+      - name: Legacy manual-only workflow
+        run: echo "Profession button styling is already integrated. No automatic changes are needed."
