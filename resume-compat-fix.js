@@ -6,22 +6,120 @@
       .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
       .replace(/"/g,'&quot;').replace(/'/g,'&#039;');
   }
-  function save(){try{if(typeof window.saveResumeData==='function')window.saveResumeData(false);}catch(e){console.error(e);}}
-  function refresh(){try{if(typeof window.jobAIUpdateResumePreview==='function')window.jobAIUpdateResumePreview();else if(typeof window.updateResumePreview==='function')window.updateResumePreview();}catch(e){console.error(e);}}
-  function setSectionVisibility(){var ec=document.getElementById('experienceContainer'),ed=document.getElementById('educationContainer');if(ec)ec.style.display=ec.dataset.jobaiOpen==='1'||(Array.isArray(window.experiences)&&window.experiences.length)?'block':'none';if(ed)ed.style.display=ed.dataset.jobaiOpen==='1'||(Array.isArray(window.educations)&&window.educations.length)?'block':'none';}
-  function hideOldControls(){document.querySelectorAll('button').forEach(function(b){var t=(b.textContent||'').trim().replace(/\s+/g,' ');if(t==='Додати досвід'||t==='Додати досвід*'||t==='Додати освіту'||t==='Додати освіту*')b.style.display='none';});document.querySelectorAll('*').forEach(function(el){if(el.children.length)return;var t=(el.textContent||'').trim().replace(/\s+/g,' ');if(t==='Заголовок Досвід роботи*'||t==='Заголовок Освіта*'||t==='Досвід роботи*'||t==='Освіта*')el.style.display='none';});}
-  window.toggleExperienceSection=function(){var c=document.getElementById('experienceContainer');if(!c)return;c.dataset.jobaiOpen=c.dataset.jobaiOpen==='1'?'0':'1';if(c.dataset.jobaiOpen==='1'&&(!Array.isArray(window.experiences)||!window.experiences.length))window.addExperience({});renderExperiences();};
-  window.toggleEducationSection=function(){var c=document.getElementById('educationContainer');if(!c)return;c.dataset.jobaiOpen=c.dataset.jobaiOpen==='1'?'0':'1';if(c.dataset.jobaiOpen==='1'&&(!Array.isArray(window.educations)||!window.educations.length))window.addEducation({});renderEducations();};
-  window.addExperience=function(data){if(!Array.isArray(window.experiences))window.experiences=[];data=data||{};window.experiences.push({company:data.company||'',position:data.position||'',start:data.start||'',end:data.end||'',description:data.description||''});var c=document.getElementById('experienceContainer');if(c)c.dataset.jobaiOpen='1';renderExperiences();save();refresh();};
-  window.removeExperience=function(index){if(!Array.isArray(window.experiences))return;index=Number(index);if(index<0||index>=window.experiences.length)return;window.experiences.splice(index,1);renderExperiences();save();refresh();};
-  window.updateExperience=function(index,field,value){if(!window.experiences[index])return;window.experiences[index][field]=value;save();refresh();};
-  function renderExperiences(){var c=document.getElementById('experienceContainer');if(!c)return;var arr=Array.isArray(window.experiences)?window.experiences:[];if(!arr.length){c.innerHTML='';c.style.display='none';return;}c.innerHTML=arr.map(function(x,i){return '<div class="experience-item"><h4>Досвід роботи #'+(i+1)+'</h4><div class="form-grid"><div class="form-group"><label>Компанія</label><input type="text" value="'+esc(x.company)+'" oninput="updateExperience('+i+',\'company\',this.value)"></div><div class="form-group"><label>Посада</label><input type="text" value="'+esc(x.position)+'" oninput="updateExperience('+i+',\'position\',this.value)"></div><div class="form-group"><label>Початок</label><input type="text" placeholder="01/2023" value="'+esc(x.start)+'" oninput="updateExperience('+i+',\'start\',this.value)"></div><div class="form-group"><label>Кінець</label><input type="text" placeholder="12/2025" value="'+esc(x.end)+'" oninput="updateExperience('+i+',\'end\',this.value)"></div><div class="form-group full"><label>Опис</label><textarea oninput="updateExperience('+i+',\'description\',this.value)">'+esc(x.description)+'</textarea></div></div><div class="actions"><button class="btn danger" type="button" onclick="removeExperience('+i+')">Видалити</button></div></div>';}).join('');c.style.display='block';}
-  window.addEducation=function(data){if(!Array.isArray(window.educations))window.educations=[];data=data||{};window.educations.push({school:data.school||'',speciality:data.speciality||data.specialty||'',year:data.year||''});var c=document.getElementById('educationContainer');if(c)c.dataset.jobaiOpen='1';renderEducations();save();refresh();};
-  window.removeEducation=function(index){if(!Array.isArray(window.educations))return;index=Number(index);if(index<0||index>=window.educations.length)return;window.educations.splice(index,1);renderEducations();save();refresh();};
-  window.updateEducation=function(index,field,value){if(!window.educations[index])return;window.educations[index][field]=value;save();refresh();};
-  function renderEducations(){var c=document.getElementById('educationContainer');if(!c)return;var arr=Array.isArray(window.educations)?window.educations:[];if(!arr.length){c.innerHTML='';c.style.display='none';return;}c.innerHTML=arr.map(function(x,i){return '<div class="education-item"><h4>Освіта #'+(i+1)+'</h4><div class="form-grid"><div class="form-group"><label>Навчальний заклад</label><input type="text" value="'+esc(x.school)+'" oninput="updateEducation('+i+',\'school\',this.value)"></div><div class="form-group"><label>Спеціальність</label><input type="text" value="'+esc(x.speciality)+'" oninput="updateEducation('+i+',\'speciality\',this.value)"></div><div class="form-group"><label>Рік</label><input type="text" placeholder="2024" value="'+esc(x.year)+'" oninput="updateEducation('+i+',\'year\',this.value)"></div></div><div class="actions"><button class="btn danger" type="button" onclick="removeEducation('+i+')">Видалити</button></div></div>';}).join('');c.style.display='block';}
-  window.removePhoto=function(){if(typeof window.removeResumePhoto==='function')window.removeResumePhoto();else{localStorage.removeItem('jobaiPhoto');var i=document.getElementById('photoInput');if(i)i.value='';refresh();}};
-  function loadExtra(id,src){if(document.getElementById(id))return;var s=document.createElement('script');s.id=id;s.src=src;document.head.appendChild(s);}
-  function init(){if(!Array.isArray(window.experiences))window.experiences=[];if(!Array.isArray(window.educations))window.educations=[];hideOldControls();var ec=document.getElementById('experienceContainer'),ed=document.getElementById('educationContainer');if(ec)ec.dataset.jobaiOpen=Array.isArray(window.experiences)&&window.experiences.length?'1':'0';if(ed)ed.dataset.jobaiOpen=Array.isArray(window.educations)&&window.educations.length?'1':'0';renderExperiences();renderEducations();setSectionVisibility();loadExtra('jobaiResumeHintsScript','resume-hints.js?v=2');loadExtra('jobaiResumeTextImproverScript','resume-text-improver.js?v=2');loadExtra('jobaiResumeTailorScript','resume-tailor.js?v=2');}
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+  function save(){
+    try { if(typeof window.saveResumeData==='function') window.saveResumeData(false); } catch(e) { console.error(e); }
+  }
+  function refresh(){
+    try { if(typeof window.jobAIUpdateResumePreview==='function') window.jobAIUpdateResumePreview();
+          else if(typeof window.updateResumePreview==='function') window.updateResumePreview(); } catch(e) { console.error(e); }
+  }
+
+  function sectionButton(label, open){
+    return '<button type="button" class="jobai-collapse-btn" onclick="'+open+'()">'+(open==='toggleExperienceSection'?'➕ Досвід роботи':'➕ Освіта')+'</button>';
+  }
+  function setSectionVisibility(){
+    var ec=document.getElementById('experienceContainer'), ed=document.getElementById('educationContainer');
+    if(ec){ ec.style.display = ec.dataset.jobaiOpen==='1' || (Array.isArray(window.experiences)&&window.experiences.length) ? 'block':'none'; }
+    if(ed){ ed.style.display = ed.dataset.jobaiOpen==='1' || (Array.isArray(window.educations)&&window.educations.length) ? 'block':'none'; }
+  }
+  function hideOldControls(){
+    document.querySelectorAll('button').forEach(function(b){
+      var t=(b.textContent||'').trim().replace(/\s+/g,' ');
+      if(t==='Додати досвід' || t==='Додати досвід*' || t==='Додати освіту' || t==='Додати освіту*') b.style.display='none';
+    });
+    document.querySelectorAll('*').forEach(function(el){
+      if(el.children.length) return;
+      var t=(el.textContent||'').trim().replace(/\s+/g,' ');
+      if(t==='Заголовок Досвід роботи*' || t==='Заголовок Освіта*' || t==='Досвід роботи*' || t==='Освіта*'){
+        el.style.display='none';
+      }
+    });
+  }
+  window.toggleExperienceSection=function(){
+    var c=document.getElementById('experienceContainer'); if(!c) return;
+    c.dataset.jobaiOpen=c.dataset.jobaiOpen==='1'?'0':'1';
+    if(c.dataset.jobaiOpen==='1' && (!Array.isArray(window.experiences)||!window.experiences.length)) window.addExperience({});
+    renderExperiences();
+  };
+  window.toggleEducationSection=function(){
+    var c=document.getElementById('educationContainer'); if(!c) return;
+    c.dataset.jobaiOpen=c.dataset.jobaiOpen==='1'?'0':'1';
+    if(c.dataset.jobaiOpen==='1' && (!Array.isArray(window.educations)||!window.educations.length)) window.addEducation({});
+    renderEducations();
+  };
+
+  window.addExperience = function(data){
+    if(!Array.isArray(window.experiences)) window.experiences=[];
+    data=data||{};
+    window.experiences.push({company:data.company||'',position:data.position||'',start:data.start||'',end:data.end||'',description:data.description||''});
+    var c=document.getElementById('experienceContainer'); if(c)c.dataset.jobaiOpen='1';
+    renderExperiences(); save(); refresh();
+  };
+  window.removeExperience = function(index){
+    if(!Array.isArray(window.experiences)) return;
+    index=Number(index); if(index<0 || index>=window.experiences.length) return;
+    window.experiences.splice(index,1); renderExperiences(); save(); refresh();
+  };
+  window.updateExperience = function(index,field,value){
+    if(!window.experiences[index]) return;
+    window.experiences[index][field]=value; save(); refresh();
+  };
+  function renderExperiences(){
+    var c=document.getElementById('experienceContainer'); if(!c) return;
+    var arr=Array.isArray(window.experiences)?window.experiences:[];
+    if(!arr.length){ c.innerHTML=''; c.style.display='none'; return; }
+    c.innerHTML=arr.map(function(x,i){return '<div class="experience-item"><h4>Досвід роботи #'+(i+1)+'</h4><div class="form-grid">'+
+      '<div class="form-group"><label>Компанія</label><input type="text" value="'+esc(x.company)+'" oninput="updateExperience('+i+',\'company\',this.value)"></div>'+ 
+      '<div class="form-group"><label>Посада</label><input type="text" value="'+esc(x.position)+'" oninput="updateExperience('+i+',\'position\',this.value)"></div>'+ 
+      '<div class="form-group"><label>Початок</label><input type="text" placeholder="01/2023" value="'+esc(x.start)+'" oninput="updateExperience('+i+',\'start\',this.value)"></div>'+ 
+      '<div class="form-group"><label>Кінець</label><input type="text" placeholder="12/2025" value="'+esc(x.end)+'" oninput="updateExperience('+i+',\'end\',this.value)"></div>'+ 
+      '<div class="form-group full"><label>Опис</label><textarea oninput="updateExperience('+i+',\'description\',this.value)">'+esc(x.description)+'</textarea></div></div>'+ 
+      '<div class="actions"><button class="btn danger" type="button" onclick="removeExperience('+i+')">Видалити</button></div></div>';}).join('');
+    c.style.display='block';
+  }
+
+  window.addEducation = function(data){
+    if(!Array.isArray(window.educations)) window.educations=[];
+    data=data||{};
+    window.educations.push({school:data.school||'',speciality:data.speciality||data.specialty||'',year:data.year||''});
+    var c=document.getElementById('educationContainer'); if(c)c.dataset.jobaiOpen='1';
+    renderEducations(); save(); refresh();
+  };
+  window.removeEducation = function(index){
+    if(!Array.isArray(window.educations)) return;
+    index=Number(index); if(index<0 || index>=window.educations.length) return;
+    window.educations.splice(index,1); renderEducations(); save(); refresh();
+  };
+  window.updateEducation = function(index,field,value){
+    if(!window.educations[index]) return;
+    window.educations[index][field]=value; save(); refresh();
+  };
+  function renderEducations(){
+    var c=document.getElementById('educationContainer'); if(!c) return;
+    var arr=Array.isArray(window.educations)?window.educations:[];
+    if(!arr.length){ c.innerHTML=''; c.style.display='none'; return; }
+    c.innerHTML=arr.map(function(x,i){return '<div class="education-item"><h4>Освіта #'+(i+1)+'</h4><div class="form-grid">'+
+      '<div class="form-group"><label>Навчальний заклад</label><input type="text" value="'+esc(x.school)+'" oninput="updateEducation('+i+',\'school\',this.value)"></div>'+ 
+      '<div class="form-group"><label>Спеціальність</label><input type="text" value="'+esc(x.speciality)+'" oninput="updateEducation('+i+',\'speciality\',this.value)"></div>'+ 
+      '<div class="form-group"><label>Рік</label><input type="text" placeholder="2024" value="'+esc(x.year)+'" oninput="updateEducation('+i+',\'year\',this.value)"></div></div>'+ 
+      '<div class="actions"><button class="btn danger" type="button" onclick="removeEducation('+i+')">Видалити</button></div></div>';}).join('');
+    c.style.display='block';
+  }
+
+  window.removePhoto = function(){
+    if(typeof window.removeResumePhoto==='function') window.removeResumePhoto();
+    else { localStorage.removeItem('jobaiPhoto'); var i=document.getElementById('photoInput'); if(i)i.value=''; refresh(); }
+  };
+
+  function init(){
+    if(!Array.isArray(window.experiences)) window.experiences=[];
+    if(!Array.isArray(window.educations)) window.educations=[];
+    hideOldControls();
+    var ec=document.getElementById('experienceContainer'), ed=document.getElementById('educationContainer');
+    if(ec){ ec.dataset.jobaiOpen=Array.isArray(window.experiences)&&window.experiences.length?'1':'0'; }
+    if(ed){ ed.dataset.jobaiOpen=Array.isArray(window.educations)&&window.educations.length?'1':'0'; }
+    renderExperiences(); renderEducations();
+    setSectionVisibility();
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
 })();
