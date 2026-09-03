@@ -39,6 +39,17 @@ CATEGORY_RULES=[
  ('Remeslá a servis',['automechanik','autoservis','servisný','servisny','chladiar','stolár','stolar'])
 ]
 
+REGION_CITY_KEYS={
+ 'Bratislavský kraj':['bratislava','malacky','pezinok','senec'],
+ 'Trnavský kraj':['trnava','dunajská streda','dunajska streda','galanta','hlohovec','piešťany','piestany','senica','skalica'],
+ 'Trenčiansky kraj':['trenčín','trencin','bánovce nad bebravou','banovce nad bebravou','ilava','myjava','nové mesto nad váhom','nove mesto nad vahom','partizánske','partizanske','považská bystrica','povazska bystrica','prievidza','púchov','puchov'],
+ 'Nitriansky kraj':['nitra','komárno','komarno','levice','nové zámky','nove zamky','šaľa','sala','topoľčany','topolcany','zlaté moravce','zlate moravce'],
+ 'Žilinský kraj':['žilina','zilina','bytča','bytca','čadca','cadca','dolný kubín','dolny kubin','kysucké nové mesto','kysucke nove mesto','liptovský mikuláš','liptovsky mikulas','martin','námestovo','namestovo','ružomberok','ruzomberok','turčianske teplice','turcianske teplice','tvrdošín','tvrdosin'],
+ 'Banskobystrický kraj':['banská bystrica','banska bystrica','banská štiavnica','banska stiavnica','brezno','detva','krupina','lučenec','lucenec','poltár','poltar','revúca','revuca','rimavská sobota','rimavska sobota','veľký krtíš','velky krtis','zvolen','žiar nad hronom','ziar nad hronom','žarnovica','zarnovica'],
+ 'Prešovský kraj':['prešov','presov','bardejov','humenné','humenne','kežmarok','kezmarok','levoča','levoca','medzilaborce','poprad','sabinov','snina','stará ľubovňa','stara lubovna','stropkov','svidník','svidnik','vranov nad topľou','vranov nad toplou'],
+ 'Košický kraj':['košice','kosice','michalovce','rožňava','roznava','sobrance','spišská nová ves','spisska nova ves','trebišov','trebisov','gelnica']
+}
+
 SECTION_HEADINGS=[
  'Požadovaný stupeň vzdelania','Požadovaná prax','Prax','Požadované cudzie jazyky',
  'Znalosť slovenského jazyka je nevyhnutná','Počítačové zručnosti',
@@ -135,17 +146,51 @@ def structured_address(soup):
         postal=postal or find_json_value(obj,'postalCode')
     return {'city':city,'region':region,'street':street,'postalCode':postal}
 
+def infer_region(city,district=''):
+    text=norm(city+' '+district)
+    for region,keys in REGION_CITY_KEYS.items():
+        if any(norm(k) in text for k in keys): return region
+    return ''
+
+def location_parts_from_lines(lines):
+    label='miesto výkonu práce'
+    for i,x in enumerate(lines):
+        if label in norm(x):
+            parts=[]
+            for y in lines[i+1:i+7]:
+                y=clean(y)
+                if not y: continue
+                yn=norm(y)
+                if yn.startswith('dátum nástupu') or yn.startswith('údaje o pracovnej pozícii') or yn.startswith('ďalšie miesta výkonu práce'):
+                    break
+                if yn in {'slovensko','slovenská republika'}: continue
+                if 'miesto výkonu práce' in yn: continue
+                parts.append(y)
+            if parts: return parts
+    return []
+
 def location_fields(soup,lines):
     structured=structured_address(soup)
-    raw=value_after(lines,'Miesto výkonu práce')
-    city=structured['city']
+    parts=location_parts_from_lines(lines)
+    raw=clean(' '.join(parts)) or value_after(lines,'Miesto výkonu práce')
+    city=structured['city']; district=''; postal=structured['postalCode']; region=structured['region']
+    # Portal often splits the address into separate DOM text nodes, e.g.
+    # "Jesenského 10" + "92901 Dunajská Streda - Dunajská Streda".
+    m=re.search(r'\b(\d{3}\s?\d{2})\s+(.+?)(?:\s+-\s+([^,;]+))?(?:$|\s+Slovensko$)',raw,re.I)
+    if m:
+        postal=postal or clean(m.group(1)).replace(' ','')
+        parsed_city=clean(m.group(2))
+        parsed_district=clean(m.group(3) or '')
+        city=city or parsed_city
+        district=parsed_district
     if not city:
-        m=re.search(r'\b\d{3}\s?\d{2}\s+([^,;]+)',raw)
-        if m: city=clean(re.split(r'\s+-\s+',m.group(1))[0])
+        m2=re.search(r'\b\d{3}\s?\d{2}\s+([^,;]+)',raw)
+        if m2: city=clean(re.split(r'\s+-\s+',m2.group(1))[0])
+    region=region or infer_region(city,district)
     display=raw
     if structured['street'] and city:
-        display=', '.join(x for x in [structured['street'],structured['postalCode'],city] if x)
-    return {'location':display,'city':city,'district':'','region':structured['region'],'postalCode':structured['postalCode']}
+        display=', '.join(x for x in [structured['street'],postal,city] if x)
+    return {'location':display,'city':city,'district':district,'region':region,'postalCode':postal}
 
 def inactive(lines):
     text=' '.join(lines).lower()
@@ -173,9 +218,6 @@ def detail(url,session):
     return {'title':title,'employer':employer,'location':loc['location'],'city':loc['city'],'district':loc['district'],'region':loc['region'],'postalCode':loc['postalCode'],'salary':value_after(lines,'Základná zložka mzdy'),'category':category,'searchTerm':'all-market','updated':value_after(lines,'Naposledy aktualizované'),'startDate':value_after(lines,'Dátum nástupu'),'employmentType':value_after(lines,'Pracovný pomer'),'experience':value_after(lines,'Požadovaná prax'),'education':education,'languages':languages,'computerSkills':computer,'drivingLicenses':licenses,'shiftWork':value_after(lines,'Práca na zmeny'),'slovakRequired':value_after(lines,'Znalosť slovenského jazyka je nevyhnutná'),'description':description,'url':url,'source':'ÚPSVaR / VPM'}
 
 def page_urls(page,session):
-    # VPM limits the official aggregate page to vacancies with internal detail pages.
-    # This avoids losing most results just because Profesia and other partner cards
-    # use external links instead of /pracovne-ponuky/<uuid> URLs.
     params={'pageNr':page,'pageSize':PAGE_SIZE,'zdrojPonuky':'VPM','lang':'sk'}
     r=session.get(SEARCH,params=params,headers=HEADERS,timeout=25)
     r.raise_for_status(); soup=BeautifulSoup(r.text,'html.parser'); found=[]
@@ -216,11 +258,14 @@ def main():
     if len(jobs)<MIN_JOBS_TO_PUBLISH:
         raise SystemExit(f'Only {len(jobs)} vacancies fetched; refusing to replace production database (minimum {MIN_JOBS_TO_PUBLISH})')
     jobs.sort(key=lambda j:(j.get('updated',''),j.get('title',''),j.get('city',''),j.get('location','')),reverse=True)
+    city_count=sum(1 for j in jobs if j.get('city'))
+    region_count=sum(1 for j in jobs if j.get('region'))
+    print('location fields',city_count,'cities',region_count,'regions')
     data={
       'updatedAt':datetime.now(timezone.utc).isoformat(),
       'source':'Služby zamestnanosti — VPM',
       'activeOnly':True,
-      'schemaVersion':5,
+      'schemaVersion':6,
       'collectionMode':'official-vpm-broad-feed',
       'pagesScanned':pages_scanned,
       'pageSizeRequested':PAGE_SIZE,
