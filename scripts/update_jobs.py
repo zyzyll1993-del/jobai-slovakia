@@ -16,6 +16,7 @@ HEADERS={
  'Pragma':'no-cache'
 }
 MAX_PAGES=30
+PAGE_SIZE=30
 MAX_JOBS=900
 MIN_JOBS_TO_PUBLISH=100
 
@@ -169,10 +170,14 @@ def detail(url,session):
     raw_licenses=values_between(lines,'Vodičské oprávnenia',max_items=8) or values_between(lines,'Vodičské oprávnenie',max_items=8)
     licenses=clean_driving_licenses(raw_licenses)
     description=value_after(lines,'Náplň práce',18); category=classify(title,description); loc=location_fields(soup,lines)
-    return {'title':title,'employer':employer,'location':loc['location'],'city':loc['city'],'district':loc['district'],'region':loc['region'],'postalCode':loc['postalCode'],'salary':value_after(lines,'Základná zložka mzdy'),'category':category,'searchTerm':'all-market','updated':value_after(lines,'Naposledy aktualizované'),'startDate':value_after(lines,'Dátum nástupu'),'employmentType':value_after(lines,'Pracovný pomer'),'experience':value_after(lines,'Požadovaná prax'),'education':education,'languages':languages,'computerSkills':computer,'drivingLicenses':licenses,'shiftWork':value_after(lines,'Práca na zmeny'),'slovakRequired':value_after(lines,'Znalosť slovenského jazyka je nevyhnutná'),'description':description,'url':url}
+    return {'title':title,'employer':employer,'location':loc['location'],'city':loc['city'],'district':loc['district'],'region':loc['region'],'postalCode':loc['postalCode'],'salary':value_after(lines,'Základná zložka mzdy'),'category':category,'searchTerm':'all-market','updated':value_after(lines,'Naposledy aktualizované'),'startDate':value_after(lines,'Dátum nástupu'),'employmentType':value_after(lines,'Pracovný pomer'),'experience':value_after(lines,'Požadovaná prax'),'education':education,'languages':languages,'computerSkills':computer,'drivingLicenses':licenses,'shiftWork':value_after(lines,'Práca na zmeny'),'slovakRequired':value_after(lines,'Znalosť slovenského jazyka je nevyhnutná'),'description':description,'url':url,'source':'ÚPSVaR / VPM'}
 
 def page_urls(page,session):
-    r=session.get(SEARCH,params={'pageNr':page,'lang':'sk'},headers=HEADERS,timeout=25)
+    # VPM limits the official aggregate page to vacancies with internal detail pages.
+    # This avoids losing most results just because Profesia and other partner cards
+    # use external links instead of /pracovne-ponuky/<uuid> URLs.
+    params={'pageNr':page,'pageSize':PAGE_SIZE,'zdrojPonuky':'VPM','lang':'sk'}
+    r=session.get(SEARCH,params=params,headers=HEADERS,timeout=25)
     r.raise_for_status(); soup=BeautifulSoup(r.text,'html.parser'); found=[]
     for a in soup.find_all('a',href=True):
         href=a['href']
@@ -183,11 +188,11 @@ def page_urls(page,session):
 
 def main():
     s=requests.Session(); s.headers.update(HEADERS)
-    # Establish portal cookies before paginating.
-    try: s.get(SEARCH,params={'lang':'sk'},timeout=25)
+    try: s.get(SEARCH,params={'lang':'sk','zdrojPonuky':'VPM'},timeout=25)
     except Exception: pass
-    jobs=[]; seen=set(); failures=0; empty_pages=0
+    jobs=[]; seen=set(); failures=0; empty_pages=0; pages_scanned=0
     for page in range(1,MAX_PAGES+1):
+        pages_scanned=page
         try: urls=page_urls(page,s)
         except Exception as e:
             failures+=1; print('page failed',page,e); continue
@@ -211,8 +216,20 @@ def main():
     if len(jobs)<MIN_JOBS_TO_PUBLISH:
         raise SystemExit(f'Only {len(jobs)} vacancies fetched; refusing to replace production database (minimum {MIN_JOBS_TO_PUBLISH})')
     jobs.sort(key=lambda j:(j.get('updated',''),j.get('title',''),j.get('city',''),j.get('location','')),reverse=True)
-    data={'updatedAt':datetime.now(timezone.utc).isoformat(),'source':'Služby zamestnanosti','activeOnly':True,'schemaVersion':4,'collectionMode':'broad-market-feed','pagesScanned':min(MAX_PAGES,page),'marketCategories':sorted(set(j.get('category','Iné profesie') for j in jobs)),'jobCount':len(jobs),'failures':failures,'jobs':jobs}
+    data={
+      'updatedAt':datetime.now(timezone.utc).isoformat(),
+      'source':'Služby zamestnanosti — VPM',
+      'activeOnly':True,
+      'schemaVersion':5,
+      'collectionMode':'official-vpm-broad-feed',
+      'pagesScanned':pages_scanned,
+      'pageSizeRequested':PAGE_SIZE,
+      'marketCategories':sorted(set(j.get('category','Iné profesie') for j in jobs)),
+      'jobCount':len(jobs),
+      'failures':failures,
+      'jobs':jobs
+    }
     Path('jobs-data.json').write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
-    print('saved',len(jobs),'active market-wide vacancies with searchable city fields')
+    print('saved',len(jobs),'active official vacancies across professions')
 
 if __name__=='__main__': main()
