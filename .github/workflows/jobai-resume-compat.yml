@@ -1,64 +1,10 @@
-name: JobAI Resume compatibility fix
+name: JobAI Resume compatibility fix (disabled)
 
 on:
-  push:
-    branches:
-      - main
-
-permissions:
-  contents: write
+  workflow_dispatch:
 
 jobs:
-  install:
-    if: ${{ !contains(github.event.head_commit.message, '[jobai-resume-compat]') }}
+  disabled:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Fix resume section translation and frontend cache
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-
-          js=Path('resume-sections-toggle.js')
-          s=js.read_text(encoding='utf-8')
-          marker="  function setup(type){"
-          helper="""  function sectionLang(){var l=(localStorage.getItem('jobaiLanguage')||document.documentElement.lang||'uk').toLowerCase();if(l.indexOf('sk')===0)return 'sk';if(l.indexOf('en')===0)return 'en';return 'uk';}\n  function sectionText(){var l=sectionLang();if(l==='sk')return {experience:'Pracovné skúsenosti',education:'Vzdelanie',remove:'Odstrániť',company:'Spoločnosť',position:'Pozícia',start:'Začiatok',end:'Koniec',description:'Popis práce',school:'Vzdelávacia inštitúcia',speciality:'Špecializácia',year:'Rok'};if(l==='en')return {experience:'Work experience',education:'Education',remove:'Remove',company:'Company',position:'Position',start:'Start',end:'End',description:'Job description',school:'Educational institution',speciality:'Specialization',year:'Year'};return {experience:'Досвід роботи',education:'Освіта',remove:'Видалити',company:'Компанія',position:'Посада',start:'Початок',end:'Кінець',description:'Опис роботи',school:'Навчальний заклад',speciality:'Спеціальність',year:'Рік'};}\n"""
-          if 'function sectionText()' not in s:
-              s=s.replace(marker,helper+marker)
-          s=s.replace("  function setup(type){\n    var isExp=type==='experience'", "  function setup(type){\n    var t=sectionText();\n    var isExp=type==='experience'")
-          s=s.replace("(isExp?'Досвід роботи':'Освіта')", "(isExp?t.experience:t.education)")
-          replacements={
-            "<h3>Досвід роботи #":"<h3>'+t.experience+' #",
-            "<h3>Освіта #":"<h3>'+t.education+' #",
-            ">Видалити</button>":">'+t.remove+'</button>",
-            "<label>Компанія</label>":"<label>'+t.company+'</label>",
-            "<label>Посада</label>":"<label>'+t.position+'</label>",
-            "<label>Початок</label>":"<label>'+t.start+'</label>",
-            "<label>Кінець</label>":"<label>'+t.end+'</label>",
-            "<label>Опис роботи</label>":"<label>'+t.description+'</label>",
-            "<label>Навчальний заклад</label>":"<label>'+t.school+'</label>",
-            "<label>Спеціальність</label>":"<label>'+t.speciality+'</label>",
-            "<label>Рік</label>":"<label>'+t.year+'</label>"
-          }
-          for old,new in replacements.items(): s=s.replace(old,new)
-          js.write_text(s,encoding='utf-8')
-
-          p=Path('index.html')
-          h=p.read_text(encoding='utf-8')
-          for v in range(1,9):
-              h=h.replace(f'resume-sections-toggle.js?v={v}','resume-sections-toggle.js?v=8')
-          h=h.replace('resume-compat-fix.js?v=3','resume-compat-fix.js?v=6')
-          h=h.replace('resume-compat-fix.js?v=4','resume-compat-fix.js?v=6')
-          h=h.replace('resume-compat-fix.js?v=5','resume-compat-fix.js?v=6')
-          h=h.replace('analysis-enhancer-v2.js?v=1','analysis-enhancer-v2.js?v=3')
-          h=h.replace('analysis-enhancer-v2.js?v=2','analysis-enhancer-v2.js?v=3')
-          p.write_text(h,encoding='utf-8')
-          PY
-      - name: Commit
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add resume-sections-toggle.js index.html
-          git diff --cached --quiet && exit 0
-          git commit -m "Refresh frontend module cache [jobai-resume-compat]"
-          git push
+      - run: echo "Legacy self-modifying frontend workflow is disabled"
