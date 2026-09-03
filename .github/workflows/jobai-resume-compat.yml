@@ -14,18 +14,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install compatibility script
+      - name: Install compatibility scripts
         run: |
           python3 - <<'PY'
           from pathlib import Path
           p=Path('index.html')
           s=p.read_text(encoding='utf-8')
-          tag='<script src="resume-compat-fix.js?v=1"></script>'
-          if tag not in s:
-              pos=s.lower().rfind('</body>')
-              if pos < 0:
-                  raise SystemExit('No closing body tag found')
-              s=s[:pos]+'\n'+tag+'\n'+s[pos:]
+          tags=[
+            '<script src="resume-compat-fix.js?v=1"></script>',
+            '<script src="resume-sections-toggle.js?v=1"></script>'
+          ]
+          pos=s.lower().rfind('</body>')
+          if pos < 0:
+              raise SystemExit('No closing body tag found')
+          changed=False
+          for tag in tags:
+              if tag not in s:
+                  s=s[:pos]+'\n'+tag+'\n'+s[pos:]
+                  pos += len(tag)+1
+                  changed=True
+          if changed:
               p.write_text(s,encoding='utf-8')
           PY
       - name: Commit
