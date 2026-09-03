@@ -1,29 +1,56 @@
-/* JobAI — vacancy analysis v2: clean skills + weighted match */
+/* JobAI — vacancy analysis v3: unified multilingual analyzer */
 (function(){
-  'use strict';
-  var SKILLS=['JavaScript','TypeScript','HTML','CSS','React','Vue','Angular','Python','Java','C#','C++','PHP','SQL','Git','Docker','Linux','Excel','Word','PowerPoint','AutoCAD','SolidWorks','SAP','PLC','CNC','Heidenhain','Fanuc','Siemens','AWS','Azure','Kubernetes','Figma','Photoshop','Sklad','VZV','vodičský preukaz','B vodičský preukaz','angličtina','nemčina','slovenčina','ukrajinčina','čeština','poľština'];
-  var LANG={uk:{skills:'Ключові навички',match:'Відповідність вакансії',matched:'Відповідає резюме',missing:'Чого не вистачає',none:'Навички не знайдено',tip:'Порада: додайте відсутні ключові навички у резюме, якщо маєте відповідний досвід.'},sk:{skills:'Kľúčové zručnosti',match:'Zhoda s pracovnou ponukou',matched:'Zodpovedá životopisu',missing:'Čo chýba',none:'Zručnosti sa nenašli',tip:'Tip: pridajte chýbajúce kľúčové zručnosti do životopisu, ak máte relevantné skúsenosti.'},en:{skills:'Key skills',match:'Vacancy match',matched:'Matches resume',missing:'What is missing',none:'No skills found',tip:'Tip: add missing key skills to your resume when you have relevant experience.'}};
-  function lang(){var l=(localStorage.getItem('jobaiLanguage')||document.documentElement.lang||'uk').toLowerCase();return l.indexOf('sk')===0?'sk':l.indexOf('en')===0?'en':'uk';}
-  function text(id){var e=document.getElementById(id);return e&&('value' in e)?e.value:(e?e.textContent:'');}
-  function norm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
-  function skills(s){var n=norm(s),out=[];SKILLS.forEach(function(x){var q=norm(x);if(n.indexOf(q)>=0&&!out.some(function(y){return norm(y)===q;}))out.push(x);});return out;}
-  function resumeText(){return ['name','position','profile','skills','languages'].map(text).join(' ')+' '+(Array.isArray(window.experiences)?JSON.stringify(window.experiences):'')+' '+(Array.isArray(window.educations)?JSON.stringify(window.educations):'');}
-  function escape(v){return String(v||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\"/g,'&quot;');}
-  function update(){
-    var result=document.getElementById('analysisResult'),job=text('jobText')||text('job');if(!result||!job)return;
-    var rs=resumeText(),js=skills(job),rsSkills=skills(rs),matched=js.filter(function(x){return norm(rs).indexOf(norm(x))>=0;}),missing=js.filter(function(x){return !matched.some(function(y){return norm(y)===norm(x);});});
-    var title=norm(text('position')),roleHit=title&&norm(job).indexOf(title)>=0?1:0;
-    var expHit=matched.length?Math.min(1,matched.length/Math.max(1,js.length)):0;
-    var languageHit=js.filter(function(x){return ['angličtina','nemčina','slovenčina','ukrajinčina','čeština','poľština'].indexOf(x)>=0&&norm(rs).indexOf(norm(x))>=0;}).length>0?1:0;
-    var other=roleHit*.6+expHit*.4;
-    var score=Math.round((matched.length/Math.max(1,js.length))*45+other*25+languageHit*15+(rsSkills.length>0?15:5));
-    score=Math.max(0,Math.min(100,score));
-    var scoreEl=document.getElementById('score'),bar=document.getElementById('progressBar');if(scoreEl)scoreEl.textContent=score+'%';if(bar)bar.style.width=score+'%';
-    var old=document.getElementById('jobaiAnalysisEnhancement');if(old)old.remove();
-    var t=LANG[lang()],box=document.createElement('div');box.id='jobaiAnalysisEnhancement';box.style.cssText='margin-top:18px;padding:16px;border-radius:14px;border:1px solid rgba(127,127,127,.25);background:rgba(127,127,127,.06)';
-    box.innerHTML='<div style="font-weight:800;margin-bottom:8px">'+t.skills+'</div><div style="margin-bottom:14px">'+(js.length?js.map(function(x){return '<span style="display:inline-block;margin:3px 5px 3px 0;padding:5px 9px;border-radius:999px;background:rgba(59,130,246,.16)">'+escape(x)+'</span>';}).join(''):'<span>'+t.none+'</span>')+'</div><div style="font-weight:800;margin-bottom:6px">'+t.matched+'</div><div style="margin-bottom:14px">'+(matched.length?escape(matched.join(', ')):'—')+'</div><div style="font-weight:800;margin-bottom:6px">'+t.missing+'</div><div style="margin-bottom:14px">'+(missing.length?escape(missing.join(', ')):'—')+'</div><div style="font-weight:800;margin-bottom:6px">'+t.match+'</div><div style="font-size:24px;font-weight:800;margin-bottom:8px">'+score+'%</div><div style="font-size:13px;opacity:.8">'+t.tip+'</div>';
-    result.appendChild(box);
-  }
-  function hook(){document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('button');if(!b)return;var t=norm(b.textContent);if(t.indexOf('analiz')>=0||t.indexOf('аналіз')>=0||t.indexOf('analyz')>=0)setTimeout(update,500);});setTimeout(update,1200);}
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',hook);else hook();
+'use strict';
+var SKILLS={
+'CNC':['cnc','cnc operator','cnc operátor','obsluha cnc'],'Fanuc':['fanuc'],'Siemens':['siemens','sinumerik'],'Heidenhain':['heidenhain'],'Mazatrol':['mazatrol'],'CMM':['cmm','3d meranie','coordinate measuring'],'AutoCAD':['autocad'],'SolidWorks':['solidworks'],'PLC':['plc'],'SAP':['sap'],'Excel':['excel'],'VZV':['vzz','vZV','vysokozdvižný vozík','forklift'],'MIG/MAG':['mig','mag','mig/mag'],'TIG':['tig'],'Zváranie':['zváranie','zvaranie','welding','зварювання'],'Elektro':['elektrikár','elektromontér','electrical','elektro'],'Mechanika':['mechanik','mechanika','maintenance','údržba','udrzba'],'Kontrola kvality':['kontrola kvality','quality control','quality inspection','meranie','meranie dielov'],'Logistika':['logistika','logistics','sklad','warehouse','picker','komisionár'],'Vodičský preukaz B':['vodičský preukaz b','vodicsky preukaz b','driving licence b','driver license b'],'Vodičský preukaz C':['vodičský preukaz c','vodicsky preukaz c','driving licence c'],'JavaScript':['javascript'],'TypeScript':['typescript'],'HTML':['html'],'CSS':['css'],'React':['react'],'Vue':['vue'],'Angular':['angular'],'Python':['python'],'Java':['java'],'C#':['c#'],'C++':['c++'],'PHP':['php'],'SQL':['sql'],'Git':['git'],'Docker':['docker'],'Linux':['linux'],'AWS':['aws'],'Azure':['azure'],'Figma':['figma']
+};
+var LANGUAGES={
+'Slovenčina':['slovenčina','slovencina','slovak','словацька'],'Angličtina':['angličtina','anglictina','english','англійська'],'Nemčina':['nemčina','nemcina','german','німецька'],'Ukrajinčina':['ukrajinčina','ukrajincina','ukrainian','українська'],'Čeština':['čeština','cestina','czech','чеська'],'Poľština':['poľština','polstina','polish','польська']
+};
+var ROLES=[
+{name:'CNC operátor',keys:['cnc','fanuc','heidenhain','siemens','soustruh','sústruh','fréza','freza']},
+{name:'Metrológ / CMM',keys:['cmm','metrol','meranie','measurement','kontrola kvality']},
+{name:'Zvárač',keys:['zvárač','zvarac','welder','mig','mag','tig']},
+{name:'Elektrikár',keys:['elektrikár','elektrikar','elektromont','electrician','elektro']},
+{name:'Automechanik',keys:['automechanik','mechanik vozidiel','car mechanic','autoservis']},
+{name:'Sklad / logistika',keys:['sklad','logistik','warehouse','picker','komisionár','vzv']},
+{name:'Vodič',keys:['vodič','vodic','driver','kamión','kamion','truck']},
+{name:'Pracovník výroby',keys:['výroba','vyroba','production','operátor výroby','operator vyroby','montáž','montaz']},
+{name:'IT / programátor',keys:['developer','programátor','programator','javascript','python','react','java','sql','frontend','backend']}
+];
+var T={
+ua:{profession:'Розпізнана професія',score:'Відповідність вакансії',matched:'Збігається з вашим CV',missing:'Чого не вистачає',langs:'Мови у вакансії',why:'Як розраховано',advice:'Що зробити',search:'Знайти схожі вакансії',good:'Сильна відповідність. Ваш досвід добре збігається з вимогами.',mid:'Непогана відповідність. Варто адаптувати CV під ключові вимоги.',low:'Є суттєві прогалини. Додайте лише ті навички, які справді маєте.',empty:'Вставте текст вакансії.',noSkills:'Явних технічних навичок у тексті не знайдено.',role:'професія',skills:'навички',language:'мови',resume:'повнота CV',tip:'Додайте у CV конкретні результати, обладнання, сертифікати та рівень мов. Не додавайте навички, яких у вас немає.'},
+sk:{profession:'Rozpoznaná profesia',score:'Zhoda s pracovnou ponukou',matched:'Zhoduje sa so životopisom',missing:'Čo chýba',langs:'Jazyky v ponuke',why:'Ako sa skóre počíta',advice:'Čo zlepšiť',search:'Nájsť podobné ponuky',good:'Silná zhoda. Vaše skúsenosti dobre zodpovedajú požiadavkám.',mid:'Dobrá zhoda. Životopis sa oplatí prispôsobiť kľúčovým požiadavkám.',low:'Sú tu výrazné medzery. Doplňte iba zručnosti, ktoré skutočne máte.',empty:'Vložte text pracovnej ponuky.',noSkills:'V texte sa nenašli jasné technické zručnosti.',role:'profesia',skills:'zručnosti',language:'jazyky',resume:'úplnosť CV',tip:'Doplňte konkrétne výsledky, stroje, certifikáty a úroveň jazykov. Neuvádzajte zručnosti, ktoré nemáte.'},
+en:{profession:'Detected profession',score:'Vacancy match',matched:'Matches your resume',missing:'What is missing',langs:'Languages in vacancy',why:'How the score is calculated',advice:'What to improve',search:'Find similar jobs',good:'Strong match. Your experience aligns well with the requirements.',mid:'Good match. Tailor your resume to the key requirements.',low:'There are significant gaps. Add only skills you genuinely have.',empty:'Paste the vacancy text.',noSkills:'No clear technical skills were detected.',role:'role',skills:'skills',language:'languages',resume:'CV completeness',tip:'Add concrete outcomes, equipment, certificates and language levels. Do not add skills you do not actually have.'}
+};
+function norm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\s+/g,' ').trim();}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function lang(){var l=(localStorage.getItem('jobaiLanguage')||document.documentElement.lang||'ua').toLowerCase();return l.indexOf('sk')===0?'sk':l.indexOf('en')===0?'en':'ua';}
+function value(id){var e=document.getElementById(id);return e&&'value' in e?e.value:'';}
+function resumeText(){var p=['position','profile','skills','languages'].map(value).join(' ');if(Array.isArray(window.experiences))p+=' '+JSON.stringify(window.experiences);if(Array.isArray(window.educations))p+=' '+JSON.stringify(window.educations);return p;}
+function detect(dict,text){var n=norm(text),out=[];Object.keys(dict).forEach(function(label){if(dict[label].some(function(k){return n.indexOf(norm(k))>=0;}))out.push(label);});return out;}
+function detectRole(text){var n=norm(text),best=null,bestHits=0;ROLES.forEach(function(r){var h=r.keys.reduce(function(a,k){return a+(n.indexOf(norm(k))>=0?1:0);},0);if(h>bestHits){best=r.name;bestHits=h;}});return best||'';}
+function pct(a,b){return b?Math.round(a/b*100):0;}
+function analyze(){
+ var jobEl=document.getElementById('jobText')||document.getElementById('job'),result=document.getElementById('analysisResult');if(!jobEl||!result)return;
+ var job=jobEl.value.trim(),tr=T[lang()];if(!job){result.style.display='block';var rr=document.getElementById('recommendation');if(rr)rr.textContent='⚠️ '+tr.empty;return;}
+ var resume=resumeText(),role=detectRole(job),jobSkills=detect(SKILLS,job),cvSkills=detect(SKILLS,resume),jobLangs=detect(LANGUAGES,job),cvLangs=detect(LANGUAGES,resume);
+ var matched=jobSkills.filter(function(x){return cvSkills.indexOf(x)>=0;}),missing=jobSkills.filter(function(x){return cvSkills.indexOf(x)<0;}),matchedLangs=jobLangs.filter(function(x){return cvLangs.indexOf(x)>=0;});
+ var pos=norm(value('position')),roleScore=role&&(pos.indexOf(norm(role))>=0||norm(role).indexOf(pos)>=0)?100:(role&&norm(resume).indexOf(norm(role))>=0?75:40);
+ if(!role)roleScore=50;
+ var skillScore=jobSkills.length?pct(matched.length,jobSkills.length):55;
+ var langScore=jobLangs.length?pct(matchedLangs.length,jobLangs.length):75;
+ var completeness=[value('position'),value('profile'),value('skills'),value('languages')].filter(function(x){return x.trim().length>3;}).length*25;
+ var score=Math.round(roleScore*.30+skillScore*.45+langScore*.15+completeness*.10);score=Math.max(0,Math.min(100,score));
+ var scoreEl=document.getElementById('score'),bar=document.getElementById('progressBar');if(scoreEl)scoreEl.textContent=score+'%';if(bar)bar.style.width=score+'%';
+ var detected=document.getElementById('detectedJobs');if(detected){detected.style.display='block';detected.innerHTML='<strong>🔎 '+tr.profession+':</strong><p>'+esc(role||'—')+'</p>';}
+ var list=function(a){return a.length?'<ul>'+a.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>':'<p>—</p>';};var found=document.getElementById('found'),miss=document.getElementById('missing');if(found)found.innerHTML=list(matched);if(miss)miss.innerHTML=list(missing);
+ var rec=document.getElementById('recommendation');if(rec)rec.textContent=score>=75?'🟢 '+tr.good:score>=50?'🟡 '+tr.mid:'🔴 '+tr.low;
+ var old=document.getElementById('jobaiAnalysisEnhancement');if(old)old.remove();var box=document.createElement('div');box.id='jobaiAnalysisEnhancement';box.className='jobai-analysis-v3';
+ var query=[role||value('position'),value('city')].filter(Boolean).join(' ');var g='https://www.google.com/search?q='+encodeURIComponent('site:profesia.sk/praca/ '+query),s='https://www.google.com/search?q='+encodeURIComponent('site:sluzbyzamestnanosti.gov.sk/pracovne-ponuky '+query),l='https://www.google.com/search?q='+encodeURIComponent('site:linkedin.com/jobs '+query+' Slovakia');
+ box.innerHTML='<div class="ja-grid"><section><h3>🧩 '+tr.matched+'</h3>'+list(matched)+'</section><section><h3>⚠️ '+tr.missing+'</h3>'+(jobSkills.length?list(missing):'<p>'+tr.noSkills+'</p>')+'</section></div><section><h3>🌐 '+tr.langs+'</h3><p>'+(jobLangs.length?esc(jobLangs.join(', ')):'—')+'</p></section><section><h3>📊 '+tr.why+'</h3><div class="ja-metrics"><span>'+tr.role+': <b>'+roleScore+'%</b></span><span>'+tr.skills+': <b>'+skillScore+'%</b></span><span>'+tr.language+': <b>'+langScore+'%</b></span><span>'+tr.resume+': <b>'+completeness+'%</b></span></div></section><section><h3>💡 '+tr.advice+'</h3><p>'+tr.tip+'</p></section><section><h3>🔎 '+tr.search+'</h3><div class="ja-links"><a target="_blank" rel="noopener" href="'+g+'">Profesia</a><a target="_blank" rel="noopener" href="'+s+'">Služby zamestnanosti</a><a target="_blank" rel="noopener" href="'+l+'">LinkedIn</a></div></section>';
+ result.appendChild(box);result.style.display='block';if(!document.getElementById('jobaiAnalysisV3Style')){var st=document.createElement('style');st.id='jobaiAnalysisV3Style';st.textContent='.jobai-analysis-v3{margin-top:18px;padding:18px;border:1px solid rgba(127,127,127,.25);border-radius:16px;background:rgba(127,127,127,.05)}.jobai-analysis-v3 section{margin:0 0 18px}.jobai-analysis-v3 h3{margin:0 0 9px}.ja-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.ja-metrics,.ja-links{display:flex;gap:8px;flex-wrap:wrap}.ja-metrics span{padding:8px 10px;border-radius:10px;background:rgba(59,130,246,.12)}.ja-links a{display:inline-block;padding:10px 14px;border-radius:10px;background:#1976d2;color:#fff;text-decoration:none;font-weight:700}@media(max-width:700px){.ja-grid{grid-template-columns:1fr}}';document.head.appendChild(st);}
+ setTimeout(function(){result.scrollIntoView({behavior:'smooth',block:'start'});},80);
+}
+window.analyzeJob=analyze;
 })();
