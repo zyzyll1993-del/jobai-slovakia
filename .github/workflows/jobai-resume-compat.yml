@@ -14,42 +14,45 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Refresh resume compatibility scripts
+      - name: Fix resume section translation
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          p=Path('index.html')
-          s=p.read_text(encoding='utf-8')
-          s=s.replace('resume-compat-fix.js?v=1','resume-compat-fix.js?v=2')
-          s=s.replace('resume-sections-toggle.js?v=1','resume-sections-toggle.js?v=4')
-          s=s.replace('resume-sections-toggle.js?v=2','resume-sections-toggle.js?v=4')
-          s=s.replace('resume-sections-toggle.js?v=3','resume-sections-toggle.js?v=4')
-          tag='<script src="resume-empty-sections.js?v=1"></script>'
-          if 'resume-empty-sections.js' not in s:
-              marker='<script src="resume-sections-toggle.js?v=4"></script>'
-              s=s.replace(marker, marker+'\n'+tag)
-          inline_marker='id="jobaiPreviewTemplateNames"'
-          if inline_marker not in s:
-              inline='<script id="jobaiPreviewTemplateNames">(function(){\n  function fix(){\n    var names={modern:\'Modern\',professional:\'Profi\',executive:\'Classic\',creative:\'Tech\',ats:\'Compact\'};\n    document.querySelectorAll(\'[data-preview-template]\').forEach(function(btn){\n      var key=btn.getAttribute(\'data-preview-template\');\n      if(names[key] && btn.textContent.trim()!==names[key])btn.textContent=names[key];\n    });\n  }\n  fix();\n  if(window.MutationObserver){\n    new MutationObserver(fix).observe(document.documentElement,{childList:true,subtree:true,characterData:true});\n  }\n  setInterval(fix,1000);\n})();</script>'
-              s=s.replace('</body>',inline+'\n</body>')
-          p.write_text(s,encoding='utf-8')
 
-          pc=Path('preview-controls.js')
-          ps=pc.read_text(encoding='utf-8')
+          js=Path('resume-sections-toggle.js')
+          s=js.read_text(encoding='utf-8')
+          marker="  function setup(type){"
+          helper="""  function sectionLang(){var l=(localStorage.getItem('jobaiLanguage')||document.documentElement.lang||'uk').toLowerCase();if(l.indexOf('sk')===0)return 'sk';if(l.indexOf('en')===0)return 'en';return 'uk';}\n  function sectionText(){var l=sectionLang();if(l==='sk')return {experience:'Pracovné skúsenosti',education:'Vzdelanie',remove:'Odstrániť',company:'Spoločnosť',position:'Pozícia',start:'Začiatok',end:'Koniec',description:'Popis práce',school:'Vzdelávacia inštitúcia',speciality:'Špecializácia',year:'Rok'};if(l==='en')return {experience:'Work experience',education:'Education',remove:'Remove',company:'Company',position:'Position',start:'Start',end:'End',description:'Job description',school:'Educational institution',speciality:'Specialization',year:'Year'};return {experience:'Досвід роботи',education:'Освіта',remove:'Видалити',company:'Компанія',position:'Посада',start:'Початок',end:'Кінець',description:'Опис роботи',school:'Навчальний заклад',speciality:'Спеціальність',year:'Рік'};}\n"""
+          if 'function sectionText()' not in s:
+              s=s.replace(marker,helper+marker)
+          s=s.replace("  function setup(type){\n    var isExp=type==='experience'", "  function setup(type){\n    var t=sectionText();\n    var isExp=type==='experience'")
+          s=s.replace("(isExp?'Досвід роботи':'Освіта')", "(isExp?t.experience:t.education)")
           replacements={
-              'templates:["Moderný","Profesionálny","Výkonný","Kreatívny","ATS Simple"]':'templates:["Modern","Profi","Classic","Tech","Compact"]',
-              'templates:["Modern","Professional","Executive","Creative","ATS Simple"]':'templates:["Modern","Profi","Classic","Tech","Compact"]',
-              'templates:["Сучасний","Професійний","Керівник","Креативний","ATS Simple"]':'templates:["Modern","Profi","Classic","Tech","Compact"]'
+            "<h3>Досвід роботи #":"<h3>'+t.experience+' #",
+            "<h3>Освіта #":"<h3>'+t.education+' #",
+            ">Видалити</button>":">'+t.remove+'</button>",
+            "<label>Компанія</label>":"<label>'+t.company+'</label>",
+            "<label>Посада</label>":"<label>'+t.position+'</label>",
+            "<label>Початок</label>":"<label>'+t.start+'</label>",
+            "<label>Кінець</label>":"<label>'+t.end+'</label>",
+            "<label>Опис роботи</label>":"<label>'+t.description+'</label>",
+            "<label>Навчальний заклад</label>":"<label>'+t.school+'</label>",
+            "<label>Спеціальність</label>":"<label>'+t.speciality+'</label>",
+            "<label>Рік</label>":"<label>'+t.year+'</label>"
           }
-          for old,new in replacements.items():
-              ps=ps.replace(old,new)
-          pc.write_text(ps,encoding='utf-8')
+          for old,new in replacements.items(): s=s.replace(old,new)
+          js.write_text(s,encoding='utf-8')
+
+          p=Path('index.html')
+          h=p.read_text(encoding='utf-8')
+          for v in range(1,6): h=h.replace(f'resume-sections-toggle.js?v={v}','resume-sections-toggle.js?v=6')
+          p.write_text(h,encoding='utf-8')
           PY
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html preview-controls.js
+          git add resume-sections-toggle.js index.html
           git diff --cached --quiet && exit 0
-          git commit -m "Fix preview template names at source [jobai-resume-compat]"
+          git commit -m "Translate experience and education sections [jobai-resume-compat]"
           git push
