@@ -8,7 +8,6 @@ from bs4 import BeautifulSoup
 
 BASE='https://www.sluzbyzamestnanosti.gov.sk'
 SEARCH=BASE+'/pracovne-ponuky'
-# Broad market coverage based on current Slovak vacancy structure and shortage occupations.
 QUERY_GROUPS={
  'Výroba a strojárstvo':['operátor výroby','montážny pracovník','CNC','obrábač kovov','nastavovač strojov','nástrojár','strojár','údržbár','mechanik'],
  'Elektro a technika':['elektrikár','elektrotechnik','elektromontér','technik údržby','mechatronik','automatizácia','PLC'],
@@ -26,19 +25,33 @@ QUERY_GROUPS={
  'Poľnohospodárstvo a potravinárstvo':['poľnohospodársky pracovník','traktorista','mäsiar','potravinárska výroba','agronóm'],
  'Remeslá a servis':['automechanik','autoservis','kaderník','barber','servisný technik','chladiar','stolár']
 }
-HEADERS={'User-Agent':'JobAI-Slovakia/1.1 (+https://zyzyll1993-del.github.io/jobai-slovakia/)'}
+HEADERS={'User-Agent':'JobAI-Slovakia/1.2 (+https://zyzyll1993-del.github.io/jobai-slovakia/)'}
 
 def clean(s): return re.sub(r'\s+',' ',str(s or '')).strip()
 
-def value_after(lines,label):
+def value_after(lines,label,lookahead=10):
     low=label.lower()
     for i,x in enumerate(lines):
         if low in x.lower():
-            for y in lines[i+1:i+7]:
+            for y in lines[i+1:i+1+lookahead]:
                 y=clean(y)
                 if y and y.lower()!=low and not y.endswith(':'):
                     return y
     return ''
+
+def values_between(lines,label,stop_labels,max_items=12):
+    low=label.lower(); stops=[x.lower() for x in stop_labels]
+    for i,x in enumerate(lines):
+        if low in x.lower():
+            out=[]
+            for y in lines[i+1:i+30]:
+                y=clean(y)
+                yl=y.lower()
+                if any(s in yl for s in stops): break
+                if y and yl!=low and y not in out: out.append(y)
+                if len(out)>=max_items: break
+            return out
+    return []
 
 def inactive(lines):
     text=' '.join(lines).lower()
@@ -61,12 +74,28 @@ def detail(url, category, query, session):
             if 'Miesto výkonu práce' in x or 'Dátum nástupu' in x: break
             if x and x not in {'(muž/žena)','muž/žena'}:
                 employer=x; break
+    stop=['Požadovaná prax','Požadované cudzie jazyky','Počítačové zručnosti','Vodičské oprávnenie','Vodičské oprávnenia','Práca na zmeny','Dátum nástupu','Základná zložka mzdy','Náplň práce']
+    education=values_between(lines,'Požadovaný stupeň vzdelania',stop,6)
+    languages=values_between(lines,'Požadované cudzie jazyky',['Počítačové zručnosti','Vodičské oprávnenie','Vodičské oprávnenia','Práca na zmeny','Dátum nástupu'],8)
+    computer=values_between(lines,'Počítačové zručnosti',['Vodičské oprávnenie','Vodičské oprávnenia','Práca na zmeny','Dátum nástupu'],12)
+    licenses=values_between(lines,'Vodičské oprávnenia',['Práca na zmeny','Dátum nástupu','Náplň práce'],8) or values_between(lines,'Vodičské oprávnenie',['Práca na zmeny','Dátum nástupu','Náplň práce'],8)
+    description=value_after(lines,'Náplň práce',18)
     return {
       'title':title,'employer':employer,
       'location':value_after(lines,'Miesto výkonu práce'),
       'salary':value_after(lines,'Základná zložka mzdy'),
       'category':category,'searchTerm':query,
       'updated':value_after(lines,'Naposledy aktualizované'),
+      'startDate':value_after(lines,'Dátum nástupu'),
+      'employmentType':value_after(lines,'Pracovný pomer'),
+      'experience':value_after(lines,'Požadovaná prax'),
+      'education':education,
+      'languages':languages,
+      'computerSkills':computer,
+      'drivingLicenses':licenses,
+      'shiftWork':value_after(lines,'Práca na zmeny'),
+      'slovakRequired':value_after(lines,'Znalosť slovenského jazyka je nevyhnutná'),
+      'description':description,
       'url':url
     }
 
@@ -98,19 +127,17 @@ def main():
                 except Exception as e:
                     failures+=1; print('detail failed',u,e)
                 time.sleep(.08)
-    # Never overwrite a healthy feed with an empty result after a temporary portal failure.
     if not jobs:
         raise SystemExit('No active vacancies fetched; keeping previous jobs-data.json')
     jobs.sort(key=lambda j:(j.get('category',''),j.get('title',''),j.get('location','')))
     data={
       'updatedAt':datetime.now(timezone.utc).isoformat(),
-      'source':'Služby zamestnanosti',
-      'activeOnly':True,
+      'source':'Služby zamestnanosti','activeOnly':True,'schemaVersion':2,
       'marketCategories':list(QUERY_GROUPS.keys()),
       'queryCount':sum(len(x) for x in QUERY_GROUPS.values()),
       'jobCount':len(jobs),'failures':failures,'jobs':jobs
     }
     Path('jobs-data.json').write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
-    print('saved',len(jobs),'active jobs across',len(QUERY_GROUPS),'market categories')
+    print('saved',len(jobs),'active jobs with detailed requirements')
 
 if __name__=='__main__': main()
