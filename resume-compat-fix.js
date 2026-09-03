@@ -111,6 +111,11 @@
     else { localStorage.removeItem('jobaiPhoto'); var i=document.getElementById('photoInput'); if(i)i.value=''; refresh(); }
   };
 
+  function loadExtra(id,src){
+    if(document.getElementById(id)) return;
+    var s=document.createElement('script'); s.id=id; s.src=src; document.head.appendChild(s);
+  }
+
   function init(){
     if(!Array.isArray(window.experiences)) window.experiences=[];
     if(!Array.isArray(window.educations)) window.educations=[];
@@ -120,6 +125,8 @@
     if(ed){ ed.dataset.jobaiOpen=Array.isArray(window.educations)&&window.educations.length?'1':'0'; }
     renderExperiences(); renderEducations();
     setSectionVisibility();
+    loadExtra('jobaiResumeHintsScript','resume-hints.js?v=1');
+    loadExtra('jobaiFitDetailsScript','job-fit-details.js?v=1');
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
 })();
