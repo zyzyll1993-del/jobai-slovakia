@@ -127,6 +127,7 @@
     setSectionVisibility();
     loadExtra('jobaiResumeHintsScript','resume-hints.js?v=1');
     loadExtra('jobaiFitDetailsScript','job-fit-details.js?v=1');
+    loadExtra('jobaiResumeTextImproverScript','resume-text-improver.js?v=1');
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
 })();
