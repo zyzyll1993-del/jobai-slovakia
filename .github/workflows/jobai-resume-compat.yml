@@ -14,27 +14,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install compatibility scripts
+      - name: Refresh resume compatibility scripts
         run: |
           python3 - <<'PY'
           from pathlib import Path
           p=Path('index.html')
           s=p.read_text(encoding='utf-8')
-          tags=[
-            '<script src="resume-compat-fix.js?v=1"></script>',
-            '<script src="resume-sections-toggle.js?v=1"></script>'
-          ]
-          pos=s.lower().rfind('</body>')
-          if pos < 0:
-              raise SystemExit('No closing body tag found')
-          changed=False
-          for tag in tags:
-              if tag not in s:
-                  s=s[:pos]+'\n'+tag+'\n'+s[pos:]
-                  pos += len(tag)+1
-                  changed=True
-          if changed:
-              p.write_text(s,encoding='utf-8')
+          s=s.replace('resume-compat-fix.js?v=1','resume-compat-fix.js?v=2')
+          s=s.replace('resume-sections-toggle.js?v=1','resume-sections-toggle.js?v=2')
+          p.write_text(s,encoding='utf-8')
           PY
       - name: Commit
         run: |
@@ -42,5 +30,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
           git diff --cached --quiet && exit 0
-          git commit -m "Install resume compatibility fix [jobai-resume-compat]"
+          git commit -m "Refresh resume section controls [jobai-resume-compat]"
           git push
