@@ -1066,11 +1066,11 @@ footer{
 
         <div class="hero-buttons">
 
-            <button class="primary-button" onclick="showTab('resume')">
+            <button id="homeCreateResumeButton" class="primary-button" onclick="showTab('resume')">
                 Створити резюме
             </button>
 
-            <button class="secondary-button" onclick="showTab('analysis')">
+            <button id="homeAnalyzeVacancyButton" class="secondary-button" onclick="showTab('analysis')">
                 Аналізувати вакансію
             </button>
 
@@ -2010,6 +2010,8 @@ const translations = {
     ua: {
 
         home:"Головна",
+        homeCreateResume:"Створити резюме",
+        homeAnalyzeVacancy:"Аналізувати вакансію",
 
         homeSubtitle:"Розумний помічник для пошуку роботи у Словаччині. Створюйте професійне резюме, аналізуйте вакансії та знаходьте відповідні пропозиції роботи.",
 
@@ -2188,6 +2190,8 @@ const translations = {
     sk: {
 
         home:"Domov",
+        homeCreateResume:"Vytvoriť životopis",
+        homeAnalyzeVacancy:"Analyzovať pracovnú ponuku",
 
         homeSubtitle:"Inteligentný pomocník pri hľadaní práce na Slovensku. Vytvorte profesionálny životopis, analyzujte pracovné ponuky a nájdite vhodné pracovné príležitosti.",
 
@@ -2366,6 +2370,8 @@ const translations = {
     en: {
 
         home:"Home",
+        homeCreateResume:"Create resume",
+        homeAnalyzeVacancy:"Analyze vacancy",
 
         homeSubtitle:"Your smart assistant for finding a job in Slovakia. Create a professional resume, analyze job vacancies and find suitable opportunities.",
 
@@ -2633,6 +2639,8 @@ function applyLanguage(){
 
 
     setText("homeButton","home");
+    setText("homeCreateResumeButton","homeCreateResume");
+    setText("homeAnalyzeVacancyButton","homeAnalyzeVacancy");
 
     setText("navHome","home");
     setText("navResume","tabResume");
