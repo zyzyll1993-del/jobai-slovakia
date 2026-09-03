@@ -1,101 +1,42 @@
 (function(){
   'use strict';
-
-  function hasText(value){
-    return String(value || '').replace(/\s+/g,' ').trim().length > 0;
-  }
-
-  function inputValue(id){
-    var el=document.getElementById(id);
-    return el ? el.value : '';
-  }
-
-  function meaningfulExperience(){
-    return Array.isArray(window.experiences) && window.experiences.some(function(x){
-      return x && ['company','position','start','end','description'].some(function(k){return hasText(x[k]);});
-    });
-  }
-
-  function meaningfulEducation(){
-    return Array.isArray(window.educations) && window.educations.some(function(x){
-      return x && ['school','speciality','specialty','year'].some(function(k){return hasText(x[k]);});
-    });
-  }
-
-  function hide(el){ if(el) el.style.display='none'; }
-  function show(el){ if(el) el.style.display=''; }
-
+  function hasText(v){return String(v||'').replace(/\s+/g,' ').trim().length>0;}
+  function val(id){var e=document.getElementById(id);return e?e.value:'';}
+  function expOk(){return Array.isArray(window.experiences)&&window.experiences.some(function(x){return x&&['company','position','start','end','description'].some(function(k){return hasText(x[k]);});});}
+  function eduOk(){return Array.isArray(window.educations)&&window.educations.some(function(x){return x&&['school','speciality','specialty','year'].some(function(k){return hasText(x[k]);});});}
+  function hide(e){if(e){e.style.display='none';e.dataset.jobaiEmptyHidden='1';}}
+  function show(e){if(e&&e.dataset.jobaiEmptyHidden==='1'){e.style.display='';delete e.dataset.jobaiEmptyHidden;}}
   function clean(){
-    var name=inputValue('name');
-    var position=inputValue('position');
-    var phone=inputValue('phone');
-    var email=inputValue('email');
-    var city=inputValue('city');
-    var profile=inputValue('profile');
-    var skills=inputValue('skills');
-    var languages=inputValue('languages');
-    var exp=meaningfulExperience();
-    var edu=meaningfulEducation();
-
-    var pn=document.getElementById('previewName');
-    var pp=document.getElementById('previewPosition');
-    var pc=document.getElementById('previewContact');
-    if(pn){ if(hasText(name)) show(pn); else hide(pn); }
-    if(pp){ if(hasText(position)) show(pp); else hide(pp); }
-    if(pc){ if(hasText(phone)||hasText(email)||hasText(city)) show(pc); else hide(pc); }
-
-    var preview=document.getElementById('resumePreview');
-    if(!preview) return;
-
+    var name=val('name'),position=val('position'),phone=val('phone'),email=val('email'),city=val('city'),profile=val('profile'),skills=val('skills'),languages=val('languages');
+    var pn=document.getElementById('previewName'),pp=document.getElementById('previewPosition'),pc=document.getElementById('previewContact');
+    if(pn)(hasText(name)?show:hide)(pn); if(pp)(hasText(position)?show:hide)(pp); if(pc)((hasText(phone)||hasText(email)||hasText(city))?show:hide)(pc);
+    var preview=document.getElementById('resumePreview'); if(!preview)return;
     var rules=[
-      {names:['досвід роботи','experience','work experience'], ok:exp},
-      {names:['освіта','education'], ok:edu},
-      {names:['навички','skills','ключові навички'], ok:hasText(skills)},
-      {names:['мови','мови та мови','languages'], ok:hasText(languages)},
-      {names:['профіль','про себе','професійний профіль','profile','summary'], ok:hasText(profile)}
+      {n:['досвід роботи','experience','work experience'],ok:expOk()},
+      {n:['освіта','education'],ok:eduOk()},
+      {n:['навички','skills','ключові навички'],ok:hasText(skills)},
+      {n:['мови','languages'],ok:hasText(languages)},
+      {n:['профіль','про себе','професійний профіль','profile','summary'],ok:hasText(profile)}
     ];
-
-    preview.querySelectorAll('h2,h3,h4').forEach(function(head){
-      var title=head.textContent.replace(/\s+/g,' ').trim().toLowerCase();
-      var rule=rules.find(function(r){return r.names.some(function(n){return title===n || title.indexOf(n+' ')===0;});});
-      if(!rule) return;
-
-      var parent=head.parentElement;
-      if(!rule.ok){
-        hide(parent);
-        return;
-      }
-      if(parent && parent.style.display==='none' && parent.dataset.jobaiEmptyHidden==='1'){
-        show(parent);
-        delete parent.dataset.jobaiEmptyHidden;
-      }
+    preview.querySelectorAll('h2,h3,h4').forEach(function(h){
+      var t=h.textContent.replace(/\s+/g,' ').trim().toLowerCase();
+      var r=rules.find(function(x){return x.n.some(function(n){return t===n||t.indexOf(n+' ')===0;});});
+      if(!r)return;
+      var p=h.parentElement;
+      if(r.ok)show(p);else hide(p);
     });
-
-    preview.querySelectorAll('*').forEach(function(el){
-      if(el.style.display==='none' || !el.textContent) return;
-      var text=el.textContent.replace(/\s+/g,' ').trim();
-      if(['Ваше ім\'я','Бажана посада','Телефон · Email · Місто'].indexOf(text)>=0){ hide(el); }
+    preview.querySelectorAll('*').forEach(function(e){
+      if(e.dataset.jobaiEmptyHidden==='1')return;
+      var t=e.textContent.replace(/\s+/g,' ').trim();
+      if(t==="Ваше ім'я"||t==='Бажана посада'||t==='Телефон · Email · Місто')hide(e);
     });
   }
-
   function wrap(){
     var fn=window.updateResumePreview;
-    if(typeof fn!=='function' || fn.__jobaiEmptyWrapped) return false;
-    var wrapped=function(){
-      var result=fn.apply(this,arguments);
-      setTimeout(clean,0);
-      return result;
-    };
-    wrapped.__jobaiEmptyWrapped=true;
-    window.updateResumePreview=wrapped;
-    window.jobAIUpdateResumePreview=wrapped;
-    setTimeout(clean,50);
-    return true;
+    if(typeof fn!=='function'||fn.__jobaiEmptyWrapped)return false;
+    function wrapped(){var r=fn.apply(this,arguments);setTimeout(clean,0);return r;}
+    wrapped.__jobaiEmptyWrapped=true;window.updateResumePreview=wrapped;window.jobAIUpdateResumePreview=wrapped;setTimeout(clean,50);return true;
   }
-
-  function init(){
-    if(!wrap()) setTimeout(init,100);
-  }
-
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+  function init(){if(!wrap())setTimeout(init,100);}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
