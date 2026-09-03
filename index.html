@@ -993,6 +993,7 @@ footer{
 }
 </style>
 <link rel="stylesheet" href="preview-site-style.css?v=3">
+<link rel="stylesheet" href="preview-pro.css?v=2">
 </head>
 
 <body>
@@ -4013,11 +4014,49 @@ function getPhotoHTML(){
     }
 
 
-    return `
-        <div class="resume-no-photo">
-            ${escapeHTML(t("noPhoto"))}
-        </div>
-    `;
+    return "";
+
+}
+
+
+function hasResumeText(value){
+
+    return String(value || "").trim().length > 0;
+
+}
+
+
+function getExperienceItems(data){
+
+    return (Array.isArray(data.experiences) ? data.experiences : [])
+        .filter(function(item){
+
+            return item && [
+                item.company,
+                item.position,
+                item.start,
+                item.end,
+                item.description
+            ].some(hasResumeText);
+
+        });
+
+}
+
+
+function getEducationItems(data){
+
+    return (Array.isArray(data.educations) ? data.educations : [])
+        .filter(function(item){
+
+            return item && [
+                item.school,
+                item.speciality,
+                item.specialty,
+                item.year
+            ].some(hasResumeText);
+
+        });
 
 }
 
@@ -4039,7 +4078,7 @@ function getContactText(data){
 function getSkillsHTML(data){
 
     if(!data.skills){
-        return "<p>—</p>";
+        return "";
     }
 
 
@@ -4053,7 +4092,7 @@ function getSkillsHTML(data){
 
 
     if(items.length === 0){
-        return "<p>—</p>";
+        return "";
     }
 
 
@@ -4071,7 +4110,7 @@ function getSkillsHTML(data){
 function getLanguagesHTML(data){
 
     if(!data.languages){
-        return "<p>—</p>";
+        return "";
     }
 
 
@@ -4085,7 +4124,7 @@ function getLanguagesHTML(data){
 
 
     if(items.length === 0){
-        return "<p>—</p>";
+        return "";
     }
 
 
@@ -4102,15 +4141,14 @@ function getLanguagesHTML(data){
 
 function getExperienceHTML(data){
 
-    if(
-        !data.experiences ||
-        data.experiences.length === 0
-    ){
-        return "<p>—</p>";
+    const experiences = getExperienceItems(data);
+
+    if(experiences.length === 0){
+        return "";
     }
 
 
-    return data.experiences
+    return experiences
         .map(function(item){
 
             const dates =
@@ -4126,19 +4164,21 @@ function getExperienceHTML(data){
             return `
                 <div class="resume-item">
 
-                    <h3>
-                        ${escapeHTML(item.position || "")}
-                    </h3>
+                    ${hasResumeText(item.position) ? `
+                        <h3>${escapeHTML(item.position)}</h3>
+                    ` : ""}
 
+                    ${(hasResumeText(item.company) || dates) ? `
                     <div class="date">
                         ${escapeHTML(item.company || "")}
                         ${item.company && dates ? " • " : ""}
                         ${dates}
                     </div>
+                    ` : ""}
 
-                    <p>
-                        ${escapeHTML(item.description || "")}
-                    </p>
+                    ${hasResumeText(item.description) ? `
+                        <p>${escapeHTML(item.description)}</p>
+                    ` : ""}
 
                 </div>
             `;
@@ -4151,28 +4191,29 @@ function getExperienceHTML(data){
 
 function getEducationHTML(data){
 
-    if(
-        !data.educations ||
-        data.educations.length === 0
-    ){
-        return "<p>—</p>";
+    const educations = getEducationItems(data);
+
+    if(educations.length === 0){
+        return "";
     }
 
 
-    return data.educations
+    return educations
         .map(function(item){
 
             return `
                 <div class="resume-item">
 
-                    <h3>
-                        ${escapeHTML(item.specialty || item.speciality || "")}
-                    </h3>
+                    ${hasResumeText(item.specialty || item.speciality) ? `
+                        <h3>${escapeHTML(item.specialty || item.speciality)}</h3>
+                    ` : ""}
 
+                    ${(hasResumeText(item.school) || hasResumeText(item.year)) ? `
                     <div class="date">
                         ${escapeHTML(item.school || "")}
                         ${item.year ? " • " + escapeHTML(item.year) : ""}
                     </div>
+                    ` : ""}
 
                 </div>
             `;
@@ -4221,6 +4262,16 @@ function updateResumePreview(){
         accentStyle();
 
 
+    const photoHTML = getPhotoHTML();
+    const contactHTML = getContactText(data);
+    const skillsHTML = getSkillsHTML(data);
+    const languagesHTML = getLanguagesHTML(data);
+    const experienceItems = getExperienceItems(data);
+    const educationItems = getEducationItems(data);
+    const experienceHTML = getExperienceHTML(data);
+    const educationHTML = getEducationHTML(data);
+
+
     let html = "";
 
 
@@ -4231,64 +4282,73 @@ function updateResumePreview(){
         html = `
 
             <div
-                class="resume-page-inner template-modern"
+                class="resume-page-inner template-modern ${(photoHTML || hasResumeText(data.name) || hasResumeText(data.position) || contactHTML || languagesHTML || skillsHTML) ? "" : "modern-no-side"}"
                 style="${style}">
 
+                ${(photoHTML || hasResumeText(data.name) || hasResumeText(data.position) || contactHTML || languagesHTML || skillsHTML) ? `
                 <aside
                     class="modern-side"
                     style="background:var(--accent);">
 
-                    ${getPhotoHTML()}
+                    ${photoHTML}
 
-                    <h1>
-                        ${escapeHTML(data.name || " ")}
-                    </h1>
+                    ${hasResumeText(data.name) ? `
+                        <h1>${escapeHTML(data.name)}</h1>
+                    ` : ""}
 
-                    <h2>
-                        ${escapeHTML(data.position || " ")}
-                    </h2>
+                    ${hasResumeText(data.position) ? `
+                        <h2>${escapeHTML(data.position)}</h2>
+                    ` : ""}
 
 
-                    <div class="modern-section">
+                    ${contactHTML ? `
+                    <div class="modern-section modern-contact-section">
 
                         <h3>
                             ${escapeHTML(t("contactSection"))}
                         </h3>
 
                         <div>
-                            ${getContactText(data) || "—"}
+                            ${contactHTML}
                         </div>
 
                     </div>
+                    ` : ""}
 
 
+                    ${languagesHTML ? `
                     <div class="modern-section">
 
                         <h3>
                             ${escapeHTML(t("languagesSection"))}
                         </h3>
 
-                        ${getLanguagesHTML(data)}
+                        ${languagesHTML}
 
                     </div>
+                    ` : ""}
 
 
+                    ${skillsHTML ? `
                     <div class="modern-section">
 
                         <h3>
                             ${escapeHTML(t("skillsSection"))}
                         </h3>
 
-                        ${getSkillsHTML(data)}
+                        ${skillsHTML}
 
                     </div>
+                    ` : ""}
 
                 </aside>
+                ` : ""}
 
 
                 <main class="modern-main">
 
-                    <section>
+                    ${hasResumeText(data.profile) ? `
+                    <section class="resume-content-section">
 
                         <h2
                             style="border-color:var(--accent);">
@@ -4298,13 +4358,15 @@ function updateResumePreview(){
                         </h2>
 
                         <p style="white-space:pre-line;line-height:1.6;">
-                            ${escapeHTML(data.profile || "—")}
+                            ${escapeHTML(data.profile)}
                         </p>
 
                     </section>
+                    ` : ""}
 
 
-                    <section>
+                    ${experienceHTML ? `
+                    <section class="resume-content-section">
 
                         <h2
                             style="border-color:var(--accent);">
@@ -4313,12 +4375,14 @@ function updateResumePreview(){
 
                         </h2>
 
-                        ${getExperienceHTML(data)}
+                        ${experienceHTML}
 
                     </section>
+                    ` : ""}
 
 
-                    <section>
+                    ${educationHTML ? `
+                    <section class="resume-content-section">
 
                         <h2
                             style="border-color:var(--accent);">
@@ -4327,9 +4391,10 @@ function updateResumePreview(){
 
                         </h2>
 
-                        ${getEducationHTML(data)}
+                        ${educationHTML}
 
                     </section>
+                    ` : ""}
 
                 </main>
 
@@ -4350,25 +4415,36 @@ function updateResumePreview(){
                 class="resume-page-inner template-professional"
                 style="${style}">
 
+                ${(hasResumeText(data.name) || hasResumeText(data.position) || contactHTML) ? `
                 <header
                     class="prof-header"
                     style="border-color:var(--accent);">
 
-                    <h1>
-                        ${escapeHTML(data.name || " ")}
-                    </h1>
+                    <div class="prof-identity">
+                        ${hasResumeText(data.name) ? `
+                            <h1>${escapeHTML(data.name)}</h1>
+                        ` : ""}
 
-                    <h2>
-                        ${escapeHTML(data.position || " ")}
-                    </h2>
-
-                    <div class="prof-contact">
-                        ${getContactText(data) || "—"}
+                        ${hasResumeText(data.position) ? `
+                            <h2>${escapeHTML(data.position)}</h2>
+                        ` : ""}
                     </div>
 
+                    ${contactHTML ? `
+                        <div class="prof-contact">${contactHTML}</div>
+                    ` : ""}
+
                 </header>
+                ` : ""}
 
 
+                ${(hasResumeText(data.profile) || experienceItems.length || educationItems.length || skillsHTML || languagesHTML) ? `
+                <div class="prof-body ${(skillsHTML || languagesHTML) ? "" : "prof-single"}">
+
+                    ${(hasResumeText(data.profile) || experienceItems.length || educationItems.length) ? `
+                    <main class="prof-main">
+
+                        ${hasResumeText(data.profile) ? `
                 <section class="prof-section">
 
                     <div
@@ -4380,27 +4456,14 @@ function updateResumePreview(){
                     </div>
 
                     <p style="white-space:pre-line;line-height:1.6;">
-                        ${escapeHTML(data.profile || "—")}
+                        ${escapeHTML(data.profile)}
                     </p>
 
                 </section>
+                        ` : ""}
 
 
-                <section class="prof-section">
-
-                    <div
-                        class="prof-section-title"
-                        style="color:var(--accent);">
-
-                        ${escapeHTML(t("skillsSection"))}
-
-                    </div>
-
-                    ${getSkillsHTML(data)}
-
-                </section>
-
-
+                        ${experienceItems.length ? `
                 <section class="prof-section">
 
                     <div
@@ -4411,54 +4474,37 @@ function updateResumePreview(){
 
                     </div>
 
-                    ${
-                        data.experiences.length
-                        ? data.experiences.map(function(item){
+                    ${experienceItems.map(function(item){
 
-                            const dates =
-                                [
-                                    item.start,
-                                    item.end
-                                ]
-                                .filter(Boolean)
-                                .map(escapeHTML)
-                                .join(" – ");
+                        const dates = [item.start, item.end]
+                            .filter(Boolean)
+                            .map(escapeHTML)
+                            .join(" – ");
 
-                            return `
-
-                                <div class="prof-experience">
-
-                                    <div class="prof-date">
-                                        ${dates}
-                                    </div>
-
-                                    <div>
-
-                                        <div class="prof-company">
-                                            ${escapeHTML(item.company || "")}
-                                        </div>
-
-                                        <div class="prof-position">
-                                            ${escapeHTML(item.position || "")}
-                                        </div>
-
-                                        <div style="white-space:pre-line;line-height:1.5;">
-                                            ${escapeHTML(item.description || "")}
-                                        </div>
-
-                                    </div>
-
+                        return `
+                            <div class="prof-experience">
+                                ${dates ? `<div class="prof-date">${dates}</div>` : ""}
+                                <div class="prof-role">
+                                    ${hasResumeText(item.position) ? `
+                                        <div class="prof-position">${escapeHTML(item.position)}</div>
+                                    ` : ""}
+                                    ${hasResumeText(item.company) ? `
+                                        <div class="prof-company">${escapeHTML(item.company)}</div>
+                                    ` : ""}
+                                    ${hasResumeText(item.description) ? `
+                                        <div class="prof-description">${escapeHTML(item.description)}</div>
+                                    ` : ""}
                                 </div>
+                            </div>
+                        `;
 
-                            `;
-
-                        }).join("")
-                        : "<p>—</p>"
-                    }
+                    }).join("")}
 
                 </section>
+                        ` : ""}
 
 
+                        ${educationHTML ? `
                 <section class="prof-section">
 
                     <div
@@ -4469,24 +4515,49 @@ function updateResumePreview(){
 
                     </div>
 
-                    ${getEducationHTML(data)}
+                    ${educationHTML}
 
                 </section>
+                        ` : ""}
+
+                    </main>
+                    ` : ""}
 
 
-                <section class="prof-section">
+                    ${(skillsHTML || languagesHTML) ? `
+                    <aside class="prof-aside">
 
-                    <div
-                        class="prof-section-title"
-                        style="color:var(--accent);">
+                        ${skillsHTML ? `
+                        <section class="prof-section">
 
-                        ${escapeHTML(t("languagesSection"))}
+                            <div class="prof-section-title" style="color:var(--accent);">
+                                ${escapeHTML(t("skillsSection"))}
+                            </div>
 
-                    </div>
+                            ${skillsHTML}
 
-                    ${getLanguagesHTML(data)}
+                        </section>
+                        ` : ""}
 
-                </section>
+
+                        ${languagesHTML ? `
+                        <section class="prof-section">
+
+                            <div class="prof-section-title" style="color:var(--accent);">
+                                ${escapeHTML(t("languagesSection"))}
+                            </div>
+
+                            ${languagesHTML}
+
+                        </section>
+                        ` : ""}
+
+                    </aside>
+                    ` : ""}
+
+                </div>
+                ` : ""}
+
 
             </div>
 
@@ -4502,31 +4573,35 @@ function updateResumePreview(){
         html = `
 
             <div
-                class="resume-page-inner template-executive"
+                class="resume-page-inner template-executive ${(photoHTML || contactHTML || skillsHTML || languagesHTML) ? "" : "exec-no-side"}"
                 style="${style}">
 
+                ${(hasResumeText(data.name) || hasResumeText(data.position)) ? `
                 <header
                     class="exec-top"
                     style="background:var(--accent-dark);">
 
-                    <h1>
-                        ${escapeHTML(data.name || " ")}
-                    </h1>
+                    ${hasResumeText(data.name) ? `
+                        <h1>${escapeHTML(data.name)}</h1>
+                    ` : ""}
 
-                    <h2>
-                        ${escapeHTML(data.position || " ")}
-                    </h2>
+                    ${hasResumeText(data.position) ? `
+                        <h2>${escapeHTML(data.position)}</h2>
+                    ` : ""}
 
                 </header>
+                ` : ""}
 
 
+                ${(photoHTML || contactHTML || skillsHTML || languagesHTML) ? `
                 <aside
                     class="exec-side"
                     style="background:var(--accent);">
 
-                    ${getPhotoHTML()}
+                    ${photoHTML}
 
 
+                    ${contactHTML ? `
                     <div style="margin-top:25px;">
 
                         <h3>
@@ -4534,38 +4609,46 @@ function updateResumePreview(){
                         </h3>
 
                         <div>
-                            ${getContactText(data) || "—"}
+                            ${contactHTML}
                         </div>
 
                     </div>
+                    ` : ""}
 
 
+                    ${skillsHTML ? `
                     <div style="margin-top:25px;">
 
                         <h3>
                             ${escapeHTML(t("skillsSection"))}
                         </h3>
 
-                        ${getSkillsHTML(data)}
+                        ${skillsHTML}
 
                     </div>
+                    ` : ""}
 
 
+                    ${languagesHTML ? `
                     <div style="margin-top:25px;">
 
                         <h3>
                             ${escapeHTML(t("languagesSection"))}
                         </h3>
 
-                        ${getLanguagesHTML(data)}
+                        ${languagesHTML}
 
                     </div>
+                    ` : ""}
 
                 </aside>
+                ` : ""}
 
 
+                ${(hasResumeText(data.profile) || experienceHTML || educationHTML) ? `
                 <main class="exec-main">
 
+                    ${hasResumeText(data.profile) ? `
                     <section>
 
                         <h2 style="border-color:var(--accent);">
@@ -4573,34 +4656,40 @@ function updateResumePreview(){
                         </h2>
 
                         <p style="white-space:pre-line;line-height:1.6;">
-                            ${escapeHTML(data.profile || "—")}
+                            ${escapeHTML(data.profile)}
                         </p>
 
                     </section>
+                    ` : ""}
 
 
+                    ${experienceHTML ? `
                     <section>
 
                         <h2 style="border-color:var(--accent);">
                             ${escapeHTML(t("experienceSection"))}
                         </h2>
 
-                        ${getExperienceHTML(data)}
+                        ${experienceHTML}
 
                     </section>
+                    ` : ""}
 
 
+                    ${educationHTML ? `
                     <section>
 
                         <h2 style="border-color:var(--accent);">
                             ${escapeHTML(t("educationSection"))}
                         </h2>
 
-                        ${getEducationHTML(data)}
+                        ${educationHTML}
 
                     </section>
+                    ` : ""}
 
                 </main>
+                ` : ""}
 
             </div>
 
@@ -4616,61 +4705,75 @@ function updateResumePreview(){
         html = `
 
             <div
-                class="resume-page-inner template-creative"
+                class="resume-page-inner template-creative ${(contactHTML || skillsHTML || languagesHTML) ? "" : "creative-no-side"}"
                 style="${style}">
 
+                ${(photoHTML || hasResumeText(data.name) || hasResumeText(data.position)) ? `
                 <header
                     class="creative-header"
                     style="background:var(--accent);">
 
-                    ${getPhotoHTML()}
+                    ${photoHTML}
 
+                    ${(hasResumeText(data.name) || hasResumeText(data.position)) ? `
                     <div>
 
-                        <h1>
-                            ${escapeHTML(data.name || " ")}
-                        </h1>
+                        ${hasResumeText(data.name) ? `
+                            <h1>${escapeHTML(data.name)}</h1>
+                        ` : ""}
 
-                        <h2>
-                            ${escapeHTML(data.position || " ")}
-                        </h2>
+                        ${hasResumeText(data.position) ? `
+                            <h2>${escapeHTML(data.position)}</h2>
+                        ` : ""}
 
                     </div>
+                    ` : ""}
 
                 </header>
+                ` : ""}
 
 
+                ${(contactHTML || skillsHTML || languagesHTML) ? `
                 <aside
                     class="creative-side"
                     style="background:var(--accent-dark);">
 
+                    ${contactHTML ? `
                     <h3>
                         ${escapeHTML(t("contactSection"))}
                     </h3>
 
                     <div>
-                        ${getContactText(data) || "—"}
+                        ${contactHTML}
                     </div>
+                    ` : ""}
 
 
+                    ${skillsHTML ? `
                     <h3 style="margin-top:30px;">
                         ${escapeHTML(t("skillsSection"))}
                     </h3>
 
-                    ${getSkillsHTML(data)}
+                    ${skillsHTML}
+                    ` : ""}
 
 
+                    ${languagesHTML ? `
                     <h3 style="margin-top:30px;">
                         ${escapeHTML(t("languagesSection"))}
                     </h3>
 
-                    ${getLanguagesHTML(data)}
+                    ${languagesHTML}
+                    ` : ""}
 
                 </aside>
+                ` : ""}
 
 
+                ${(hasResumeText(data.profile) || experienceHTML || educationHTML) ? `
                 <main class="creative-main">
 
+                    ${hasResumeText(data.profile) ? `
                     <section>
 
                         <h2 style="border-color:var(--accent);">
@@ -4678,34 +4781,40 @@ function updateResumePreview(){
                         </h2>
 
                         <p style="white-space:pre-line;line-height:1.6;">
-                            ${escapeHTML(data.profile || "—")}
+                            ${escapeHTML(data.profile)}
                         </p>
 
                     </section>
+                    ` : ""}
 
 
+                    ${experienceHTML ? `
                     <section>
 
                         <h2 style="border-color:var(--accent);">
                             ${escapeHTML(t("experienceSection"))}
                         </h2>
 
-                        ${getExperienceHTML(data)}
+                        ${experienceHTML}
 
                     </section>
+                    ` : ""}
 
 
+                    ${educationHTML ? `
                     <section>
 
                         <h2 style="border-color:var(--accent);">
                             ${escapeHTML(t("educationSection"))}
                         </h2>
 
-                        ${getEducationHTML(data)}
+                        ${educationHTML}
 
                     </section>
+                    ` : ""}
 
                 </main>
+                ` : ""}
 
             </div>
 
@@ -4724,25 +4833,26 @@ function updateResumePreview(){
                 class="resume-page-inner template-ats"
                 style="${style}">
 
+                ${(hasResumeText(data.name) || hasResumeText(data.position) || contactHTML) ? `
                 <header
                     class="ats-header"
                     style="border-color:var(--accent);">
 
-                    <h1>
-                        ${escapeHTML(data.name || " ")}
-                    </h1>
+                    ${hasResumeText(data.name) ? `
+                        <h1>${escapeHTML(data.name)}</h1>
+                    ` : ""}
 
-                    <h2>
-                        ${escapeHTML(data.position || " ")}
-                    </h2>
+                    ${hasResumeText(data.position) ? `
+                        <h2>${escapeHTML(data.position)}</h2>
+                    ` : ""}
 
-                    <div>
-                        ${getContactText(data) || "—"}
-                    </div>
+                    ${contactHTML ? `<div>${contactHTML}</div>` : ""}
 
                 </header>
+                ` : ""}
 
 
+                ${hasResumeText(data.profile) ? `
                 <section class="ats-section">
 
                     <h2 style="color:var(--accent);">
@@ -4750,54 +4860,63 @@ function updateResumePreview(){
                     </h2>
 
                     <p>
-                        ${escapeHTML(data.profile || "—")}
+                        ${escapeHTML(data.profile)}
                     </p>
 
                 </section>
+                ` : ""}
 
 
+                ${skillsHTML ? `
                 <section class="ats-section">
 
                     <h2 style="color:var(--accent);">
                         ${escapeHTML(t("skillsSection"))}
                     </h2>
 
-                    ${getSkillsHTML(data)}
+                    ${skillsHTML}
 
                 </section>
+                ` : ""}
 
 
+                ${experienceHTML ? `
                 <section class="ats-section">
 
                     <h2 style="color:var(--accent);">
                         ${escapeHTML(t("experienceSection"))}
                     </h2>
 
-                    ${getExperienceHTML(data)}
+                    ${experienceHTML}
 
                 </section>
+                ` : ""}
 
 
+                ${educationHTML ? `
                 <section class="ats-section">
 
                     <h2 style="color:var(--accent);">
                         ${escapeHTML(t("educationSection"))}
                     </h2>
 
-                    ${getEducationHTML(data)}
+                    ${educationHTML}
 
                 </section>
+                ` : ""}
 
 
+                ${languagesHTML ? `
                 <section class="ats-section">
 
                     <h2 style="color:var(--accent);">
                         ${escapeHTML(t("languagesSection"))}
                     </h2>
 
-                    ${getLanguagesHTML(data)}
+                    ${languagesHTML}
 
                 </section>
+                ` : ""}
 
             </div>
 
@@ -5370,11 +5489,7 @@ This explicitly restores the JobAI renderer.
 <script src="my-resumes-manager-v4.js?v=1"></script>
 
 <script src="resume-compat-fix.js?v=2"></script>
-<script src="resume-sections-toggle.js?v=6"></script>
-<script src="resume-empty-sections.js?v=1"></script>
-<script src="resume-sections-toggle.js?v=6"></script>
-<script src="resume-sections-toggle.js?v=6"></script>
-<script src="resume-sections-toggle.js?v=6"></script>
+<script src="resume-sections-toggle.js?v=7"></script>
 <script src="mobile-preview-scale.js?v=2"></script>
 <script id="jobaiPreviewTemplateNames">(function(){
   function fix(){
