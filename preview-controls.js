@@ -10,19 +10,19 @@
       title:"Náhľad životopisu",design:"Vzhľad",template:"Šablóna",color:"Farba",font:"Písmo",
       text:"Veľkosť textu",name:"Veľkosť mena",weight:"Hrúbka",line:"Riadkovanie",normal:"Normálne",bold:"Polotučné",
       auto:"● Automaticky uložené",
-      templates:["Moderný","Profesionálny","Výkonný","Kreatívny","ATS Simple"]
+      templates:["Modern","Profi","Classic","Tech","Compact"]
     };
     if(lang==="en") return {
       title:"Resume preview",design:"Appearance",template:"Template",color:"Color",font:"Font",
       text:"Text size",name:"Name size",weight:"Weight",line:"Line spacing",normal:"Regular",bold:"Semibold",
       auto:"● Saved automatically",
-      templates:["Modern","Professional","Executive","Creative","ATS Simple"]
+      templates:["Modern","Profi","Classic","Tech","Compact"]
     };
     return {
       title:"Перегляд резюме",design:"Вигляд",template:"Шаблон",color:"Колір",font:"Шрифт",
       text:"Розмір тексту",name:"Розмір імені",weight:"Товщина",line:"Міжрядковий інтервал",normal:"Звичайний",bold:"Напівжирний",
       auto:"● Зберігається автоматично",
-      templates:["Сучасний","Професійний","Керівник","Креативний","ATS Simple"]
+      templates:["Modern","Profi","Classic","Tech","Compact"]
     };
   }
 
