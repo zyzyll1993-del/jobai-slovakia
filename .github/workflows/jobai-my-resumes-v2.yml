@@ -1,14 +1,10 @@
-name: Legacy My Resumes v2 installer
+name: JobAI My Resumes v2 (disabled)
 
 on:
   workflow_dispatch:
 
-permissions:
-  contents: read
-
 jobs:
-  retired:
-    if: ${{ false }}
+  disabled:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Retired — my-resumes-manager-v4.js owns this feature."
+      - run: echo "Legacy self-modifying frontend workflow is disabled"
