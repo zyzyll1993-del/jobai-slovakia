@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 
 BASE='https://www.sluzbyzamestnanosti.gov.sk'
 SEARCH=BASE+'/pracovne-ponuky'
-HEADERS={'User-Agent':'JobAI-Slovakia/1.3 (+https://zyzyll1993-del.github.io/jobai-slovakia/)'}
+HEADERS={'User-Agent':'JobAI-Slovakia/1.4 (+https://zyzyll1993-del.github.io/jobai-slovakia/)'}
 
 # Broad market crawl. We no longer depend on a fixed list of professions.
 # The updater walks the general job feed and classifies vacancies afterwards.
@@ -34,6 +34,19 @@ CATEGORY_RULES=[
  ('Poľnohospodárstvo a potravinárstvo',['poľnohospod','polnohospod','traktorista','mäsiar','masiar','potravin','agronóm','agronom']),
  ('Remeslá a servis',['automechanik','autoservis','servisný','servisny','chladiar','stolár','stolar'])
 ]
+
+# Headings used on detail pages. These are treated as hard boundaries so one
+# requirement group cannot leak into the next one.
+SECTION_HEADINGS=[
+ 'Požadovaný stupeň vzdelania','Požadovaná prax','Požadované cudzie jazyky',
+ 'Znalosť slovenského jazyka je nevyhnutná','Počítačové zručnosti',
+ 'Vodičské oprávnenie','Vodičské oprávnenia','Práca na zmeny',
+ 'Všeobecné spôsobilosti','Osobnostné predpoklady','Ďalšie požiadavky',
+ 'Certifikáty','Osvedčenia','Dátum nástupu','Pracovný pomer',
+ 'Základná zložka mzdy','Náplň práce','Informácie o výberovom procese'
+]
+
+DRIVING_GROUPS={'AM','A1','A2','A','B1','B','BE','C1','C1E','C','CE','D1','D1E','D','DE','T'}
 
 
 def clean(s):
@@ -63,18 +76,66 @@ def value_after(lines,label,lookahead=10):
     return ''
 
 
-def values_between(lines,label,stop_labels,max_items=12):
-    low=label.lower(); stops=[x.lower() for x in stop_labels]
+def is_section_heading(text, extra_stops=()):
+    t=norm(text).rstrip(':')
+    headings=list(SECTION_HEADINGS)+list(extra_stops)
+    for h in headings:
+        hn=norm(h).rstrip(':')
+        if t==hn or t.startswith(hn+':'):
+            return True
+    return False
+
+
+def values_between(lines,label,stop_labels=(),max_items=12):
+    low=norm(label)
     for i,x in enumerate(lines):
-        if low in x.lower():
+        if low in norm(x):
             out=[]
-            for y in lines[i+1:i+30]:
-                y=clean(y); yl=y.lower()
-                if any(s in yl for s in stops): break
-                if y and yl!=low and y not in out: out.append(y)
-                if len(out)>=max_items: break
+            for y in lines[i+1:i+40]:
+                y=clean(y)
+                if not y:
+                    continue
+                yl=norm(y)
+                if yl==low:
+                    continue
+                if is_section_heading(y,stop_labels):
+                    break
+                if y not in out:
+                    out.append(y)
+                if len(out)>=max_items:
+                    break
             return out
     return []
+
+
+def clean_driving_licenses(values):
+    """Return only explicit Slovak driving licence groups, never nearby skills."""
+    found=[]
+    for value in values:
+        text=clean(value).upper().replace('/', ' ').replace(',', ' ')
+        # Portal commonly renders two rows: "Skupina" then "B". Ignore labels.
+        if norm(value) in {'skupina','skupiny','vodičské oprávnenie','vodičské oprávnenia'}:
+            continue
+        for token in re.findall(r'(?<![A-Z0-9])(?:AM|A1|A2|BE|B1|B|C1E|C1|CE|C|D1E|D1|DE|D|T)(?![A-Z0-9])',text):
+            if token in DRIVING_GROUPS and token not in found:
+                found.append(token)
+    return found
+
+
+def clean_requirement_values(values):
+    """Remove UI labels/booleans that are not actual requirement values."""
+    noise={
+      'áno','nie','skupina','skupiny','úroveň','uroven','stupeň','stupen',
+      'znalosť slovenského jazyka je nevyhnutná','znalost slovenskeho jazyka je nevyhnutna'
+    }
+    out=[]
+    for value in values:
+        v=clean(value)
+        if not v or norm(v) in noise or is_section_heading(v):
+            continue
+        if v not in out:
+            out.append(v)
+    return out
 
 
 def inactive(lines):
@@ -101,11 +162,11 @@ def detail(url, session):
             if x and x not in {'(muž/žena)','muž/žena'}:
                 employer=x; break
 
-    stop=['Požadovaná prax','Požadované cudzie jazyky','Počítačové zručnosti','Vodičské oprávnenie','Vodičské oprávnenia','Práca na zmeny','Dátum nástupu','Základná zložka mzdy','Náplň práce']
-    education=values_between(lines,'Požadovaný stupeň vzdelania',stop,6)
-    languages=values_between(lines,'Požadované cudzie jazyky',['Počítačové zručnosti','Vodičské oprávnenie','Vodičské oprávnenia','Práca na zmeny','Dátum nástupu'],8)
-    computer=values_between(lines,'Počítačové zručnosti',['Vodičské oprávnenie','Vodičské oprávnenia','Práca na zmeny','Dátum nástupu'],12)
-    licenses=values_between(lines,'Vodičské oprávnenia',['Práca na zmeny','Dátum nástupu','Náplň práce'],8) or values_between(lines,'Vodičské oprávnenie',['Práca na zmeny','Dátum nástupu','Náplň práce'],8)
+    education=clean_requirement_values(values_between(lines,'Požadovaný stupeň vzdelania',max_items=6))
+    languages=clean_requirement_values(values_between(lines,'Požadované cudzie jazyky',max_items=8))
+    computer=clean_requirement_values(values_between(lines,'Počítačové zručnosti',max_items=12))
+    raw_licenses=values_between(lines,'Vodičské oprávnenia',max_items=8) or values_between(lines,'Vodičské oprávnenie',max_items=8)
+    licenses=clean_driving_licenses(raw_licenses)
     description=value_after(lines,'Náplň práce',18)
     category=classify(title,description)
 
