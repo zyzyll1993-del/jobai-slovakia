@@ -50,6 +50,6 @@ function analyze(){
 }
 window.analyzeJob=analyze;
 function loadScript(id,src){if(document.getElementById(id))return;var s=document.createElement('script');s.id=id;s.src=src;document.head.appendChild(s);}
-function loadExtras(){loadScript('jobaiRecommendationsScript','job-recommendations.js?v=4');loadScript('jobaiJobsPageScript','jobs-page.js?v=6');}
+function loadExtras(){loadScript('jobaiRecommendationsScript','job-recommendations.js?v=5');loadScript('jobaiJobsPageScript','jobs-page.js?v=6');}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',loadExtras);else loadExtras();
 })();
