@@ -1,61 +1,10 @@
-name: Activate Preview controls
+name: Activate Preview controls (disabled)
 
 on:
-  push:
-    branches: [main]
-
-permissions:
-  contents: write
+  workflow_dispatch:
 
 jobs:
-  activate:
-    # One-time installer retained for history; current scripts are already active.
-    if: ${{ false }}
+  disabled:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Activate Preview scripts
-        shell: bash
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          p = Path('index.html')
-          s = p.read_text(encoding='utf-8')
-          s = s.replace('<script src="jobs.js?v=6"></script>', '<script src="jobs.js?v=7"></script>')
-          s = s.replace('<script src="resume.js?v=6"></script>', '<script src="resume.js?v=7"></script>')
-          s = s.replace('<script src="analysis.js?v=6"></script>', '<script src="analysis.js?v=7"></script>')
-          s = s.replace('preview-controls.js?v=1', 'preview-controls.js?v=4')
-          s = s.replace('preview-controls.js?v=2', 'preview-controls.js?v=4')
-          s = s.replace('preview-controls.js?v=3', 'preview-controls.js?v=4')
-          s = s.replace('resume-editor-style.js?v=1', 'resume-editor-style.js?v=2')
-          if 'preview-controls.js?v=' not in s:
-              marker = '<script src="analysis.js?v=7"></script>'
-              s = s.replace(marker, marker + '\n<script src="preview-controls.js?v=4"></script>')
-          if 'resume-editor-style.js?v=' not in s:
-              marker = '<script src="preview-controls.js?v=4"></script>'
-              s = s.replace(marker, marker + '\n<script src="resume-editor-style.js?v=2"></script>')
-          s = s.replace('preview-pro.css?v=1', 'preview-site-style.css?v=3')
-          s = s.replace('preview-site-style.css?v=1', 'preview-site-style.css?v=3')
-          s = s.replace('preview-site-style.css?v=2', 'preview-site-style.css?v=3')
-          if 'preview-site-style.css?v=' not in s:
-              s = s.replace('</head>', '<link rel="stylesheet" href="preview-site-style.css?v=3">\n</head>')
-          marker = '<script src="resume-editor-style.js?v=2"></script>'
-          if 'home-translation.js?v=' not in s:
-              s = s.replace(marker, marker + '\n<script src="home-translation.js?v=1"></script>')
-          p.write_text(s, encoding='utf-8')
-          PY
-
-      - name: Commit activated scripts
-        shell: bash
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html
-          if git diff --cached --quiet; then
-            echo "No changes needed"
-            exit 0
-          fi
-          git commit -m "Translate Home resume and analysis buttons"
-          git push
+      - run: echo "Legacy self-modifying frontend workflow is disabled"
