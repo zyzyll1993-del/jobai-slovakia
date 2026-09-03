@@ -1,8 +1,9 @@
 from __future__ import annotations
 import json, re, time
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse, parse_qs, unquote_plus
 import requests
 from bs4 import BeautifulSoup
 
@@ -63,6 +64,10 @@ DRIVING_GROUPS={'AM','A1','A2','A','B1','B','BE','C1','C1E','C','CE','D1','D1E',
 
 def clean(s): return re.sub(r'\s+',' ',str(s or '')).strip()
 def norm(s): return clean(s).lower()
+def clean_location_text(s):
+    s=re.sub(r'\blocation_on\s*google\s*maps\b',' ',str(s or ''),flags=re.I)
+    s=re.sub(r'\bgoogle\s*maps\b',' ',s,flags=re.I)
+    return clean(s)
 
 def classify(title, description=''):
     text=norm(title+' '+description)
@@ -146,6 +151,25 @@ def structured_address(soup):
         postal=postal or find_json_value(obj,'postalCode')
     return {'city':city,'region':region,'street':street,'postalCode':postal}
 
+def map_address(soup):
+    for a in soup.find_all('a',href=True):
+        href=clean(a.get('href'))
+        low=href.lower()
+        if 'google' not in low or 'map' not in low: continue
+        try:
+            parsed=urlparse(href); qs=parse_qs(parsed.query)
+            for key in ('query','q','destination'):
+                if qs.get(key):
+                    value=clean_location_text(unquote_plus(qs[key][0]))
+                    if value: return value
+            m=re.search(r'/maps/(?:search|place)/([^/?#]+)',href,re.I)
+            if m:
+                value=clean_location_text(unquote_plus(m.group(1)))
+                if value: return value
+        except Exception:
+            continue
+    return ''
+
 def infer_region(city,district=''):
     text=norm(city+' '+district)
     for region,keys in REGION_CITY_KEYS.items():
@@ -157,12 +181,13 @@ def location_parts_from_lines(lines):
     for i,x in enumerate(lines):
         if label in norm(x):
             parts=[]
-            for y in lines[i+1:i+7]:
-                y=clean(y)
+            for y in lines[i+1:i+11]:
+                y=clean_location_text(y)
                 if not y: continue
                 yn=norm(y)
-                if yn.startswith('dátum nástupu') or yn.startswith('údaje o pracovnej pozícii') or yn.startswith('ďalšie miesta výkonu práce'):
+                if yn.startswith('údaje o pracovnej pozícii') or yn.startswith('ďalšie miesta výkonu práce'):
                     break
+                if parts and is_section_heading(y): break
                 if yn in {'slovensko','slovenská republika'}: continue
                 if 'miesto výkonu práce' in yn: continue
                 parts.append(y)
@@ -172,24 +197,26 @@ def location_parts_from_lines(lines):
 def location_fields(soup,lines):
     structured=structured_address(soup)
     parts=location_parts_from_lines(lines)
-    raw=clean(' '.join(parts)) or value_after(lines,'Miesto výkonu práce')
-    city=structured['city']; district=''; postal=structured['postalCode']; region=structured['region']
-    # Portal often splits the address into separate DOM text nodes, e.g.
-    # "Jesenského 10" + "92901 Dunajská Streda - Dunajská Streda".
+    raw=clean_location_text(' '.join(parts))
+    mapped=map_address(soup)
+    if mapped and (not raw or not re.search(r'\b\d{3}\s?\d{2}\b',raw)):
+        raw=mapped
+    raw=raw or clean_location_text(value_after(lines,'Miesto výkonu práce'))
+    city=clean_location_text(structured['city']); district=''; postal=clean(structured['postalCode']); region=clean(structured['region'])
     m=re.search(r'\b(\d{3}\s?\d{2})\s+(.+?)(?:\s+-\s+([^,;]+))?(?:$|\s+Slovensko$)',raw,re.I)
     if m:
         postal=postal or clean(m.group(1)).replace(' ','')
-        parsed_city=clean(m.group(2))
-        parsed_district=clean(m.group(3) or '')
+        parsed_city=clean_location_text(m.group(2))
+        parsed_district=clean_location_text(m.group(3) or '')
         city=city or parsed_city
         district=parsed_district
     if not city:
         m2=re.search(r'\b\d{3}\s?\d{2}\s+([^,;]+)',raw)
-        if m2: city=clean(re.split(r'\s+-\s+',m2.group(1))[0])
+        if m2: city=clean_location_text(re.split(r'\s+-\s+',m2.group(1))[0])
     region=region or infer_region(city,district)
-    display=raw
+    display=clean_location_text(raw)
     if structured['street'] and city:
-        display=', '.join(x for x in [structured['street'],postal,city] if x)
+        display=', '.join(x for x in [clean_location_text(structured['street']),postal,city] if x)
     return {'location':display,'city':city,'district':district,'region':region,'postalCode':postal}
 
 def inactive(lines):
@@ -260,12 +287,18 @@ def main():
     jobs.sort(key=lambda j:(j.get('updated',''),j.get('title',''),j.get('city',''),j.get('location','')),reverse=True)
     city_count=sum(1 for j in jobs if j.get('city'))
     region_count=sum(1 for j in jobs if j.get('region'))
+    region_counts=Counter(j.get('region') or 'Neurčený kraj' for j in jobs)
+    unresolved=[j for j in jobs if not j.get('city') or not j.get('region')]
     print('location fields',city_count,'cities',region_count,'regions')
+    print('region counts',json.dumps(dict(sorted(region_counts.items())),ensure_ascii=False))
+    print('unresolved locations',len(unresolved))
+    for j in unresolved[:12]:
+        print('unresolved',j.get('location',''),'|',j.get('url',''))
     data={
       'updatedAt':datetime.now(timezone.utc).isoformat(),
       'source':'Služby zamestnanosti — VPM',
       'activeOnly':True,
-      'schemaVersion':6,
+      'schemaVersion':7,
       'collectionMode':'official-vpm-broad-feed',
       'pagesScanned':pages_scanned,
       'pageSizeRequested':PAGE_SIZE,
