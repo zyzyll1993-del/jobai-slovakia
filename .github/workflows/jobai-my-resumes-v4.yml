@@ -6,7 +6,8 @@ permissions:
   contents: write
 jobs:
   install:
-    if: ${{ !contains(github.event.head_commit.message, '[jobai-my-resumes-v4]') }}
+    # v4 was consolidated into my-resumes-manager.js?v=2.
+    if: ${{ false }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
