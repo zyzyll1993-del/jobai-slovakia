@@ -1,49 +1,14 @@
-name: JobAI My Resumes v2
+name: Legacy My Resumes v2 installer
 
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  enhance:
-    # Legacy inline enhancement is disabled; v4 owns this feature now.
+  retired:
     if: ${{ false }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Add primary resume control
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          p=Path('home-translation.js')
-          s=p.read_text(encoding='utf-8')
-          marker='/* JobAI My Resumes v2 */'
-          if marker in s:
-              raise SystemExit(0)
-          addon=r'''
-
-/* JobAI My Resumes v2 */
-(function(){
-  'use strict';
-  var KEY='jobaiMyResumes', ACTIVE='jobaiActiveResume', PRIMARY='jobaiPrimaryResume';
-  function all(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')||[];}catch(e){return [];}}
-  function put(a){localStorage.setItem(KEY,JSON.stringify(a));}
-  function lang(){var l=(localStorage.getItem('jobaiLanguage')||document.documentElement.lang||'uk').toLowerCase();return l.indexOf('sk')===0?'sk':l.indexOf('en')===0?'en':'uk';}
-  function t(uk,sk,en){return lang()==='sk'?sk:lang()==='en'?en:uk;}
-  function refresh(){var box=document.getElementById('jobaiMyResumes');if(!box)return;box.querySelectorAll('[data-resume-id]').forEach(function(card){var id=card.getAttribute('data-resume-id'), old=card.querySelector('[data-primary]');if(old)old.remove();var row=card.querySelector('div > div:last-child');if(!row)return;var b=document.createElement('button');b.type='button';b.setAttribute('data-primary',id);b.textContent='⭐ '+t('Основне','Hlavné','Primary');b.onclick=function(){var a=all();a.forEach(function(x){x.isPrimary=x.id===id;});put(a);localStorage.setItem(PRIMARY,id);localStorage.setItem(ACTIVE,id);refresh();};row.appendChild(b);var x=all().find(function(z){return z.id===id;});if(x&&x.isPrimary){var tag=document.createElement('span');tag.textContent=' ⭐';tag.style.fontWeight='800';var title=card.querySelector('div > div:first-child > div:first-child');if(title)title.appendChild(tag);b.disabled=true;}});}
-  function init(){setTimeout(refresh,1400);setTimeout(refresh,2800);}
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
-})();
-'''
-          p.write_text(s+addon,encoding='utf-8')
-          PY
-      - name: Commit enhancement
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add home-translation.js
-          git commit -m "Add primary resume control [jobai-my-resumes-v2]"
-          git push
+      - run: echo "Retired — my-resumes-manager-v4.js owns this feature."
