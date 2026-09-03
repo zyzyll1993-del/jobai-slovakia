@@ -14,18 +14,19 @@ QUERY_GROUPS={
  'Zváranie a kovovýroba':['zvárač','zámočník','klampiar','lakovník','brúsič'],
  'Logistika a sklad':['skladník','VZV','komisionár','picker','logistika','dispečer','zásobovač'],
  'Doprava':['vodič','vodič kamiónu','vodič autobusu','kuriér','taxikár'],
- 'Stavebníctvo':['stavebný pracovník','murár','tesár','železiar','inštalatér','vodoinštalatér','stavebný elektrikár','bagrista'],
+ 'Stavebníctvo':['stavebný pracovník','murár','tesár','železiar','inštalatér','vodoinštalatér','stavebný elektrikár','bagrista','stavbyvedúci'],
  'Obchod a služby':['predavač','pokladník','obchodný zástupca','pracovník zákazníckeho servisu','recepčný','upratovač','SBS'],
  'Gastro a hotelierstvo':['kuchár','čašník','barman','pomocná sila v kuchyni','pekár','cukrár','hotel'],
  'Zdravotníctvo a sociálne služby':['sestra','zdravotná sestra','lekár','opatrovateľ','sanitár','sociálny pracovník','farmaceut'],
  'Administratíva a financie':['administratívny pracovník','účtovník','mzdový účtovník','asistent','referent','ekonóm','finančný analytik'],
  'IT a digitál':['programátor','developer','IT technik','správca siete','tester','data analyst','kybernetická bezpečnosť'],
  'Kvalita a inžiniering':['kontrolór kvality','metrológ','CMM','procesný inžinier','technológ','konštruktér','projektový inžinier'],
+ 'Manažment a vedenie':['vedúci','vedúci výroby','vedúci skladu','vedúci predajne','vedúci prevádzky','manažér','manager','majster výroby','majster','supervízor','team leader','stavbyvedúci'],
  'Školstvo':['učiteľ','pedagogický asistent','vychovávateľ','lektor'],
  'Poľnohospodárstvo a potravinárstvo':['poľnohospodársky pracovník','traktorista','mäsiar','potravinárska výroba','agronóm'],
  'Remeslá a servis':['automechanik','autoservis','kaderník','barber','servisný technik','chladiar','stolár']
 }
-HEADERS={'User-Agent':'JobAI-Slovakia/1.2 (+https://zyzyll1993-del.github.io/jobai-slovakia/)'}
+HEADERS={'User-Agent':'JobAI-Slovakia/1.3 (+https://zyzyll1993-del.github.io/jobai-slovakia/)'}
 
 def clean(s): return re.sub(r'\s+',' ',str(s or '')).strip()
 
