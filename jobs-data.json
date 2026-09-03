@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-03T10:19:28.213405+00:00",
+  "updatedAt": "2026-09-03T10:26:04.739398+00:00",
   "source": "Služby zamestnanosti",
   "activeOnly": true,
   "schemaVersion": 3,
@@ -39,21 +39,12 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "komunikácia (jednanie s ľuďmi)",
-        "tímová práca",
-        "matematická gramotnosť",
-        "Osobnostné predpoklady",
-        "komunikatívnosť"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -74,9 +65,7 @@
       "education": [
         "Úplné stredné všeobecné vzdelanie",
         "Vysokoškolské vzdelanie prvého stupňa",
-        "Vysokoškolské vzdelanie druhého stupňa",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "Vysokoškolské vzdelanie druhého stupňa"
       ],
       "languages": [],
       "computerSkills": [
@@ -87,11 +76,7 @@
         "Kancelárske balíky - Microsoft Outlook",
         "Ekonomické programy - SOFTIP",
         "elementárna",
-        "Ekonomické programy - SAP",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "digitálna gramotnosť (počítačové spôsobilosti)",
-        "finančná a ekonomická gramotnosť"
+        "Ekonomické programy - SAP"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -111,21 +96,12 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "organizovanie a plánovanie práce",
-        "samostatnosť",
-        "komunikácia (jednanie s ľuďmi)",
-        "Osobnostné predpoklady",
-        "praktické myslenie"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -144,21 +120,12 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Nižšie stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "Nižšie stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "komunikácia (jednanie s ľuďmi)",
-        "manuálna zručnosť",
-        "prezentovanie",
-        "samostatnosť"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -179,10 +146,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Všeobecné spôsobilosti"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [],
@@ -204,12 +168,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "Trox Slovakia s. r. o."
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -233,21 +192,12 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "fyzická zdatnosť",
-        "manuálna zručnosť",
-        "organizovanie a plánovanie práce",
-        "samostatnosť"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -266,12 +216,7 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Všeobecné spôsobilosti",
-        "fyzická zdatnosť",
-        "manuálna zručnosť"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -295,22 +240,12 @@
       "education": [
         "Úplné stredné všeobecné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Cudzí jazyk"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "manuálna zručnosť",
-        "samostatnosť",
-        "Osobnostné predpoklady",
-        "precíznosť (presnosť)",
-        "spoľahlivosť"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -331,9 +266,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Úplné stredné odborné vzdelanie",
-        "Úplné stredné všeobecné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "Úplné stredné všeobecné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [
@@ -344,14 +277,7 @@
         "Kancelárske balíky - Microsoft Outlook"
       ],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "digitálna gramotnosť (počítačové spôsobilosti)",
-        "fyzická zdatnosť",
-        "komunikácia (jednanie s ľuďmi)",
-        "manuálna zručnosť",
-        "organizovanie a plánovanie práce"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -372,10 +298,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 2 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti"
+        "aspoň 2 roky"
       ],
       "languages": [],
       "computerSkills": [],
@@ -400,9 +323,7 @@
         "Stredné odborné vzdelanie",
         "Úplné stredné odborné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -426,9 +347,7 @@
       "education": [
         "Úplné stredné všeobecné vzdelanie",
         "Vysokoškolské vzdelanie prvého stupňa",
-        "Vysokoškolské vzdelanie druhého stupňa",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "Vysokoškolské vzdelanie druhého stupňa"
       ],
       "languages": [],
       "computerSkills": [
@@ -438,12 +357,7 @@
         "Kancelárske balíky - Microsoft Excel",
         "Kancelárske balíky - Microsoft Outlook",
         "Ekonomické programy - SAP",
-        "elementárna",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "digitálna gramotnosť (počítačové spôsobilosti)",
-        "finančná a ekonomická gramotnosť",
-        "komunikácia (jednanie s ľuďmi)"
+        "elementárna"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -465,10 +379,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -490,12 +401,7 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti",
-        "pružnosť v myslení (adaptabilita, flexibilita, improvizačné spôsobilosti)",
-        "samostatnosť"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -519,10 +425,7 @@
       "education": [
         "Úplné stredné odborné vzdelanie",
         "Prax",
-        "aspoň 3 mesiace",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Cudzí jazyk"
+        "aspoň 3 mesiace"
       ],
       "languages": [],
       "computerSkills": [],
@@ -548,8 +451,7 @@
         "-",
         "31 Textil a odevníctvo",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
@@ -575,8 +477,7 @@
         "Stredné odborné vzdelanie",
         "Úplné stredné odborné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [],
@@ -598,12 +499,7 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Všeobecné spôsobilosti",
-        "komunikácia (jednanie s ľuďmi)",
-        "kultivovaný slovný prejav, schopnosť vyjadrovania sa"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -627,10 +523,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 2 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti"
+        "aspoň 2 roky"
       ],
       "languages": [],
       "computerSkills": [],
@@ -654,10 +547,7 @@
       "education": [
         "Úplné stredné odborné vzdelanie",
         "Prax",
-        "aspoň 3 mesiace",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Cudzí jazyk"
+        "aspoň 3 mesiace"
       ],
       "languages": [],
       "computerSkills": [],
@@ -681,10 +571,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -708,10 +595,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 3 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti"
+        "aspoň 3 roky"
       ],
       "languages": [],
       "computerSkills": [],
@@ -735,21 +619,12 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 3 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "aspoň 3 roky"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "manuálna zručnosť",
-        "Ďalšie požiadavky",
-        "zodpovedný prístup k práci",
-        "vysoké pracovné nasadenie",
-        "osvedčenie na VZV je výhodou"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -770,10 +645,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [],
@@ -797,22 +669,12 @@
       "education": [
         "Vysokoškolské vzdelanie druhého stupňa",
         "Prax",
-        "aspoň 3 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk"
+        "aspoň 3 roky"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "Osobnostné predpoklady",
-        "analytické myslenie",
-        "Ďalšie požiadavky",
-        "technické vzdelanie"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -835,8 +697,7 @@
         "Nižšie stredné odborné vzdelanie",
         "Stredné odborné vzdelanie",
         "Úplné stredné odborné vzdelanie",
-        "Úplné stredné všeobecné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná"
+        "Úplné stredné všeobecné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -860,10 +721,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 2 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti"
+        "aspoň 2 roky"
       ],
       "languages": [],
       "computerSkills": [],
@@ -885,12 +743,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "Sabir Reshiti"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -914,25 +767,14 @@
       "education": [
         "Vysokoškolské vzdelanie prvého stupňa",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Znalosť jazyka požaduje"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [
         "Kancelárske balíky - Microsoft Excel",
         "-",
         "pokročilá",
-        "Kancelárske balíky - Microsoft Word",
-        "Všeobecné spôsobilosti",
-        "digitálna gramotnosť (počítačové spôsobilosti)",
-        "komunikácia (jednanie s ľuďmi)",
-        "komunikácia v cudzom jazyku",
-        "kultivovaný písomný prejav",
-        "kultivovaný slovný prejav, schopnosť vyjadrovania sa",
-        "samostatnosť",
-        "Osobnostné predpoklady"
+        "Kancelárske balíky - Microsoft Word"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -954,10 +796,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Všeobecné spôsobilosti"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
@@ -979,12 +818,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Základné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Cudzí jazyk",
-        "anglický",
-        "stredná - pokročilá B1 a B2"
+        "Základné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [
@@ -993,14 +827,8 @@
         "pokročilá"
       ],
       "drivingLicenses": [
-        "Skupina",
         "B",
-        "C",
-        "Všeobecné spôsobilosti",
-        "komunikácia (jednanie s ľuďmi)",
-        "kultivovaný slovný prejav, schopnosť vyjadrovania sa",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti"
+        "C"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -1022,9 +850,7 @@
         "Úplné stredné odborné vzdelanie",
         "Úplné stredné všeobecné vzdelanie",
         "Prax",
-        "aspoň 2 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "aspoň 2 roky"
       ],
       "languages": [],
       "computerSkills": [
@@ -1033,14 +859,7 @@
         "pokročilá"
       ],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "digitálna gramotnosť (počítačové spôsobilosti)",
-        "informačná gramotnosť",
-        "komunikácia (jednanie s ľuďmi)",
-        "kultivovaný slovný prejav, schopnosť vyjadrovania sa"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -1059,12 +878,7 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Vysokoškolské vzdelanie druhého stupňa",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Cudzí jazyk",
-        "anglický",
-        "stredná - pokročilá B1 a B2"
+        "Vysokoškolské vzdelanie druhého stupňa"
       ],
       "languages": [],
       "computerSkills": [],
@@ -1086,12 +900,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Základné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "Country Saloon s.r.o."
+        "Základné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -1115,21 +924,12 @@
       "education": [
         "Úplné stredné odborné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "ENPAY TRANSFORMER COMPONENTS, s.r.o.",
-        "Právna forma",
-        "Spol. s r. o.",
-        "Sídlo"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -1150,22 +950,12 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 3 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Znalosť jazyka požaduje"
+        "aspoň 3 roky"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "komunikácia v cudzom jazyku",
-        "matematická gramotnosť",
-        "technická gramotnosť",
-        "tímová práca",
-        "vedenie motorových vozidiel"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -1186,22 +976,12 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 2 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Znalosť jazyka požaduje"
+        "aspoň 2 roky"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "C+E",
-        "Všeobecné spôsobilosti",
-        "fyzická zdatnosť",
-        "pružnosť v myslení (adaptabilita, flexibilita, improvizačné spôsobilosti)",
-        "rozhodovanie",
-        "technická gramotnosť",
-        "vedenie motorových vozidiel"
+        "C"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -1222,22 +1002,12 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 2 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Znalosť jazyka požaduje"
+        "aspoň 2 roky"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "C+E",
-        "Osobnostné predpoklady",
-        "komunikatívnosť",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "GRALEX s. r. o.",
-        "Právna forma"
+        "C"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -1258,10 +1028,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 3 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Znalosť jazyka požaduje"
+        "aspoň 3 roky"
       ],
       "languages": [],
       "computerSkills": [],
@@ -1285,22 +1052,12 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 2 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Znalosť jazyka požaduje"
+        "aspoň 2 roky"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "C+E",
-        "Osobnostné predpoklady",
-        "komunikatívnosť",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "GRALEX s. r. o.",
-        "Právna forma"
+        "C"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -1321,22 +1078,12 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 2 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Znalosť jazyka požaduje"
+        "aspoň 2 roky"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "C+E",
-        "Osobnostné predpoklady",
-        "komunikatívnosť",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "GRALEX s. r. o.",
-        "Právna forma"
+        "C"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -1357,22 +1104,12 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 2 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Znalosť jazyka požaduje"
+        "aspoň 2 roky"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "C+E",
-        "Osobnostné predpoklady",
-        "komunikatívnosť",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "GRALEX s. r. o.",
-        "Právna forma"
+        "C"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -1393,21 +1130,12 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 2 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "aspoň 2 roky"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "woodsen s.r.o.",
-        "Právna forma",
-        "Spol. s r. o.",
-        "Sídlo"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -1426,21 +1154,12 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "ENPAY TRANSFORMER COMPONENTS, s.r.o.",
-        "Právna forma",
-        "Spol. s r. o.",
-        "Sídlo"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -1461,22 +1180,12 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 2 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Znalosť jazyka požaduje"
+        "aspoň 2 roky"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "fyzická zdatnosť",
-        "komunikácia v cudzom jazyku",
-        "manuálna zručnosť",
-        "samostatnosť",
-        "tímová práca"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -1495,21 +1204,12 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Úplné stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "Úplné stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "ENPAY TRANSFORMER COMPONENTS, s.r.o.",
-        "Právna forma",
-        "Spol. s r. o.",
-        "Sídlo"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -1528,12 +1228,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Vysokoškolské vzdelanie prvého stupňa",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Znalosť jazyka požaduje",
-        "ovládanie všetkých definovaných jazykov",
-        "Cudzí jazyk"
+        "Vysokoškolské vzdelanie prvého stupňa"
       ],
       "languages": [],
       "computerSkills": [],
@@ -1555,12 +1250,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Základné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk",
-        "thajsky",
-        "vysoká – vysoká C1 a C2"
+        "Základné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -1582,12 +1272,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Základné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk",
-        "thajsky",
-        "vysoká – vysoká C1 a C2"
+        "Základné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -1609,12 +1294,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Základné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk",
-        "thajsky",
-        "vysoká – vysoká C1 a C2"
+        "Základné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -1638,10 +1318,7 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "aspoň 3 mesiace",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi"
+        "aspoň 3 mesiace"
       ],
       "languages": [],
       "computerSkills": [],
@@ -1665,25 +1342,13 @@
       "education": [
         "Vysokoškolské vzdelanie prvého stupňa",
         "Prax",
-        "aspoň 2 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk"
+        "aspoň 2 roky"
       ],
       "languages": [],
       "computerSkills": [
         "Kancelárske balíky - Microsoft Excel",
         "-",
-        "vysoká",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "digitálna gramotnosť (počítačové spôsobilosti)",
-        "informačná gramotnosť",
-        "komunikácia (jednanie s ľuďmi)",
-        "komunikácia v cudzom jazyku",
-        "kultivovaný písomný prejav",
-        "kultivovaný slovný prejav, schopnosť vyjadrovania sa",
-        "matematická gramotnosť"
+        "vysoká"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -1705,10 +1370,7 @@
       "education": [
         "Vysokoškolské vzdelanie prvého stupňa",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [
@@ -1721,9 +1383,7 @@
         "elementárna",
         "LinkedIn Ads Manager",
         "content marketing",
-        "landing pages",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov"
+        "landing pages"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -1745,10 +1405,7 @@
       "education": [
         "Vysokoškolské vzdelanie druhého stupňa",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Znalosť jazyka požaduje"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [
@@ -1757,13 +1414,7 @@
         "pokročilá",
         "Kancelárske balíky - Microsoft Word",
         "Kancelárske balíky - Microsoft Outlook",
-        "Kancelárske balíky - Microsoft PowerPoint",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "finančná a ekonomická gramotnosť",
-        "informačná gramotnosť",
-        "komunikácia (jednanie s ľuďmi)",
-        "matematická gramotnosť"
+        "Kancelárske balíky - Microsoft PowerPoint"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -1785,10 +1436,7 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Stredné odborné vzdelanie",
-        "Úplné stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti"
+        "Úplné stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -1810,12 +1458,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Vysokoškolské vzdelanie druhého stupňa",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Znalosť jazyka požaduje",
-        "ovládanie všetkých definovaných jazykov",
-        "Cudzí jazyk"
+        "Vysokoškolské vzdelanie druhého stupňa"
       ],
       "languages": [],
       "computerSkills": [
@@ -1852,10 +1495,7 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "aspoň 3 mesiace",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi"
+        "aspoň 3 mesiace"
       ],
       "languages": [],
       "computerSkills": [],
@@ -1877,21 +1517,12 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Nižšie stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "Nižšie stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Ďalšie požiadavky",
-        "čítanie stavebných výkresov",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "Infinito group s. r. o.",
-        "Právna forma"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -1910,12 +1541,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Nižšie stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "Infinito group s. r. o."
+        "Nižšie stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -1939,22 +1565,12 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "C1+E",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "manuálna zručnosť",
-        "organizovanie a plánovanie práce",
-        "pružnosť v myslení (adaptabilita, flexibilita, improvizačné spôsobilosti)",
-        "rozhodovanie"
+        "C1"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -1973,24 +1589,12 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Nižšie stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Znalosť jazyka požaduje",
-        "ovládanie aspoň jedného z vybraných jazykov",
-        "Cudzí jazyk"
+        "Nižšie stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "finančná a ekonomická gramotnosť",
-        "komunikácia v cudzom jazyku",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -2009,12 +1613,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Vysokoškolské vzdelanie druhého stupňa",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Znalosť jazyka požaduje",
-        "ovládanie všetkých definovaných jazykov",
-        "Cudzí jazyk"
+        "Vysokoškolské vzdelanie druhého stupňa"
       ],
       "languages": [],
       "computerSkills": [
@@ -2023,13 +1622,7 @@
         "pokročilá",
         "Kancelárske balíky - Microsoft Excel",
         "Kancelárske balíky - Microsoft Outlook",
-        "Kancelárske balíky - Microsoft Word",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "digitálna gramotnosť (počítačové spôsobilosti)",
-        "finančná a ekonomická gramotnosť",
-        "informačná gramotnosť",
-        "komunikácia (jednanie s ľuďmi)"
+        "Kancelárske balíky - Microsoft Word"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -2051,21 +1644,12 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "rozhodovanie",
-        "samostatnosť",
-        "Ďalšie požiadavky",
-        "Orientácia v stavebných výkresoch a technickej dokumentácii"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -2086,21 +1670,12 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "rozhodovanie",
-        "samostatnosť",
-        "Ďalšie požiadavky",
-        "Orientácia v stavebných výkresoch a technickej dokumentácii"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -2119,12 +1694,7 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Úplné stredné všeobecné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti",
-        "samostatnosť",
-        "tímová práca"
+        "Úplné stredné všeobecné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -2146,12 +1716,7 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Úplné stredné všeobecné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Znalosť jazyka požaduje",
-        "ovládanie aspoň jedného z vybraných jazykov",
-        "Cudzí jazyk"
+        "Úplné stredné všeobecné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -2175,21 +1740,13 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
         "B",
-        "C",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "fyzická zdatnosť",
-        "manuálna zručnosť",
-        "organizovanie a plánovanie práce"
+        "C"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -2210,21 +1767,12 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "manuálna zručnosť",
-        "pružnosť v myslení (adaptabilita, flexibilita, improvizačné spôsobilosti)",
-        "Ďalšie požiadavky",
-        "Orientácia v stavebných výkresoch a technickej dokumentácii."
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -2245,22 +1793,12 @@
       "education": [
         "Vysokoškolské vzdelanie prvého stupňa",
         "Prax",
-        "aspoň 5 rokov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Znalosť jazyka požaduje"
+        "aspoň 5 rokov"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "digitálna gramotnosť (počítačové spôsobilosti)",
-        "finančná a ekonomická gramotnosť",
-        "komunikácia (jednanie s ľuďmi)",
-        "komunikácia v cudzom jazyku"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -2281,10 +1819,7 @@
       "education": [
         "Vysokoškolské vzdelanie prvého stupňa",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Cudzí jazyk"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [
@@ -2321,22 +1856,12 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "C1+E",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "manuálna zručnosť",
-        "organizovanie a plánovanie práce",
-        "pružnosť v myslení (adaptabilita, flexibilita, improvizačné spôsobilosti)",
-        "rozhodovanie"
+        "C1"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -2357,10 +1882,7 @@
       "education": [
         "Vyššie odborné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [],
@@ -2384,10 +1906,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -2411,10 +1930,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 2 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti"
+        "aspoň 2 roky"
       ],
       "languages": [],
       "computerSkills": [],
@@ -2438,10 +1954,7 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Osobnostné predpoklady"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -2463,21 +1976,12 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "ENPAY TRANSFORMER COMPONENTS, s.r.o.",
-        "Právna forma",
-        "Spol. s r. o.",
-        "Sídlo"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -2496,12 +2000,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Nižšie stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Všeobecné spôsobilosti",
-        "fyzická zdatnosť",
-        "manuálna zručnosť"
+        "Nižšie stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -2525,10 +2024,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -2552,10 +2048,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 2 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti"
+        "aspoň 2 roky"
       ],
       "languages": [],
       "computerSkills": [],
@@ -2579,10 +2072,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Úplné stredné odborné vzdelanie",
-        "Vysokoškolské vzdelanie prvého stupňa",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Cudzí jazyk"
+        "Vysokoškolské vzdelanie prvého stupňa"
       ],
       "languages": [],
       "computerSkills": [
@@ -2591,14 +2081,7 @@
         "pokročilá"
       ],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "komunikácia (jednanie s ľuďmi)",
-        "komunikácia v cudzom jazyku",
-        "samostatnosť",
-        "Osobnostné predpoklady",
-        "spoľahlivosť"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -2646,10 +2129,7 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -2671,21 +2151,12 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "ENPAY TRANSFORMER COMPONENTS, s.r.o.",
-        "Právna forma",
-        "Spol. s r. o.",
-        "Sídlo"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -2704,21 +2175,12 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "ENPAY TRANSFORMER COMPONENTS, s.r.o.",
-        "Právna forma",
-        "Spol. s r. o.",
-        "Sídlo"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -2739,10 +2201,7 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Osobnostné predpoklady"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -2766,21 +2225,13 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
         "B",
-        "C",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "fyzická zdatnosť",
-        "manuálna zručnosť",
-        "organizovanie a plánovanie práce"
+        "C"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -2799,21 +2250,12 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "ENPAY TRANSFORMER COMPONENTS, s.r.o.",
-        "Právna forma",
-        "Spol. s r. o.",
-        "Sídlo"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -2835,9 +2277,7 @@
         "Stredné odborné vzdelanie",
         "Úplné stredné odborné vzdelanie",
         "Prax",
-        "aspoň 5 rokov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "aspoň 5 rokov"
       ],
       "languages": [],
       "computerSkills": [
@@ -2846,14 +2286,8 @@
         "elementárna"
       ],
       "drivingLicenses": [
-        "Skupina",
-        "C+E",
-        "C1+E",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "finančná a ekonomická gramotnosť",
-        "komunikácia (jednanie s ľuďmi)",
-        "organizovanie a plánovanie práce"
+        "C",
+        "C1"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -2874,10 +2308,7 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
@@ -2901,10 +2332,7 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Osobnostné predpoklady"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -2926,21 +2354,12 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "komunikácia (jednanie s ľuďmi)",
-        "organizovanie a plánovanie práce",
-        "vedenie ľudí",
-        "Údaje o zamestnávateľovi"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -2960,26 +2379,14 @@
       "experience": "",
       "education": [
         "Vysokoškolské vzdelanie prvého stupňa",
-        "Vysokoškolské vzdelanie druhého stupňa",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Cudzí jazyk",
-        "maďarský"
+        "Vysokoškolské vzdelanie druhého stupňa"
       ],
       "languages": [],
       "computerSkills": [
         "Kancelárske balíky - Microsoft Word",
         "-",
         "pokročilá",
-        "Kancelárske balíky - Microsoft Excel",
-        "Všeobecné spôsobilosti",
-        "komunikácia (jednanie s ľuďmi)",
-        "motivovanie ľudí",
-        "Osobnostné predpoklady",
-        "trpezlivosť",
-        "sebaovládanie",
-        "ochota pomáhať (zmysel pre spolupatričnosť)",
-        "Údaje o zamestnávateľovi"
+        "Kancelárske balíky - Microsoft Excel"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -3001,22 +2408,12 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Znalosť jazyka požaduje"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "manuálna zručnosť",
-        "samostatnosť",
-        "technická gramotnosť",
-        "Osobnostné predpoklady",
-        "spoľahlivosť"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -3037,10 +2434,7 @@
       "education": [
         "Vysokoškolské vzdelanie druhého stupňa",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Cudzí jazyk"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [
@@ -3049,14 +2443,7 @@
         "pokročilá"
       ],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "komunikácia v cudzom jazyku",
-        "organizovanie a plánovanie práce",
-        "rozhodovanie",
-        "samostatnosť"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -3075,21 +2462,12 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "ENPAY TRANSFORMER COMPONENTS, s.r.o.",
-        "Právna forma",
-        "Spol. s r. o.",
-        "Sídlo"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -3110,22 +2488,12 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Znalosť jazyka požaduje"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "fyzická zdatnosť",
-        "manuálna zručnosť",
-        "samostatnosť",
-        "Osobnostné predpoklady",
-        "pozornosť"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -3146,22 +2514,12 @@
       "education": [
         "Úplné stredné odborné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Znalosť jazyka požaduje"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "fyzická zdatnosť",
-        "manuálna zručnosť",
-        "samostatnosť",
-        "technická gramotnosť",
-        "Osobnostné predpoklady"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -3180,12 +2538,7 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Základné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti",
-        "fyzická zdatnosť",
-        "Údaje o zamestnávateľovi"
+        "Základné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -3211,8 +2564,7 @@
         "-",
         "študijný odbor - mimo číselník",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [],
@@ -3236,22 +2588,12 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Znalosť jazyka požaduje"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "fyzická zdatnosť",
-        "manuálna zručnosť",
-        "technická gramotnosť",
-        "Osobnostné predpoklady",
-        "praktické myslenie"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -3270,12 +2612,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Všeobecné spôsobilosti",
-        "organizovanie a plánovanie práce",
-        "samostatnosť"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -3326,9 +2663,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "-",
-        "študijný odbor - mimo číselník",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "študijný odbor - mimo číselník"
       ],
       "languages": [],
       "computerSkills": [
@@ -3338,16 +2673,7 @@
         "Kancelárske balíky - Microsoft Excel",
         "Kancelárske balíky - Microsoft Outlook"
       ],
-      "drivingLicenses": [
-        "Skupina",
-        "A",
-        "Všeobecné spôsobilosti",
-        "manuálna zručnosť",
-        "pružnosť v myslení (adaptabilita, flexibilita, improvizačné spôsobilosti)",
-        "komunikácia (jednanie s ľuďmi)",
-        "samostatnosť",
-        "Ďalšie požiadavky"
-      ],
+      "drivingLicenses": [],
       "shiftWork": "",
       "slovakRequired": "Áno",
       "description": "Zabezpečovanie postupov výroby jedál zmenovým kuchárom vo viaczmennej prevádzke v zariadení sociálnych služieb, vrátanie ich výdaja.  zabezpečenie kompletnej výroby teplých a studených jedál v zariadení sociálnych služieb (raňajky, desiata, obed, olovrant)",
@@ -3369,8 +2695,7 @@
         "-",
         "63 Ekonomika a organizácia, obchod a služby I",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -3392,12 +2717,7 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Nižšie stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti",
-        "manuálna zručnosť",
-        "Údaje o zamestnávateľovi"
+        "Nižšie stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -3421,9 +2741,7 @@
       "education": [
         "Vysokoškolské vzdelanie druhého stupňa",
         "-",
-        "špeciálna pedagogika",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "špeciálna pedagogika"
       ],
       "languages": [],
       "computerSkills": [
@@ -3434,14 +2752,7 @@
         "Internet"
       ],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "komunikácia (jednanie s ľuďmi)",
-        "kultivovaný písomný prejav",
-        "kultivovaný slovný prejav, schopnosť vyjadrovania sa",
-        "pružnosť v myslení (adaptabilita, flexibilita, improvizačné spôsobilosti)",
-        "samostatnosť"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -3462,10 +2773,7 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -3489,9 +2797,7 @@
       "education": [
         "Vysokoškolské vzdelanie prvého stupňa",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [
@@ -3500,14 +2806,7 @@
         "pokročilá"
       ],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "digitálna gramotnosť (počítačové spôsobilosti)",
-        "komunikácia (jednanie s ľuďmi)",
-        "motivovanie ľudí",
-        "organizovanie a plánovanie práce"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -3526,21 +2825,12 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "ENPAY TRANSFORMER COMPONENTS, s.r.o.",
-        "Právna forma",
-        "Spol. s r. o.",
-        "Sídlo"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -3561,21 +2851,12 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 2 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "aspoň 2 roky"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "woodsen s.r.o.",
-        "Právna forma",
-        "Spol. s r. o.",
-        "Sídlo"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -3594,21 +2875,12 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "ENPAY TRANSFORMER COMPONENTS, s.r.o.",
-        "Právna forma",
-        "Spol. s r. o.",
-        "Sídlo"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -3627,12 +2899,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Úplné stredné všeobecné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti",
-        "fyzická zdatnosť",
-        "komunikácia (jednanie s ľuďmi)"
+        "Úplné stredné všeobecné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -3657,9 +2924,7 @@
         "Stredné odborné vzdelanie",
         "Úplné stredné odborné vzdelanie",
         "Prax",
-        "aspoň 5 rokov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "aspoň 5 rokov"
       ],
       "languages": [],
       "computerSkills": [
@@ -3668,14 +2933,8 @@
         "elementárna"
       ],
       "drivingLicenses": [
-        "Skupina",
-        "C+E",
-        "C1+E",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "finančná a ekonomická gramotnosť",
-        "komunikácia (jednanie s ľuďmi)",
-        "organizovanie a plánovanie práce"
+        "C",
+        "C1"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -3696,10 +2955,7 @@
       "education": [
         "Úplné stredné všeobecné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Znalosť jazyka požaduje"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [],
@@ -3723,10 +2979,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
@@ -3749,9 +3002,7 @@
       "experience": "",
       "education": [
         "Vysokoškolské vzdelanie prvého stupňa",
-        "Vysokoškolské vzdelanie druhého stupňa",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "Vysokoškolské vzdelanie druhého stupňa"
       ],
       "languages": [],
       "computerSkills": [
@@ -3759,14 +3010,7 @@
         "-",
         "elementárna",
         "Kancelárske balíky - Microsoft Excel",
-        "Kancelárske balíky - Microsoft Outlook",
-        "Všeobecné spôsobilosti",
-        "tímová práca",
-        "samostatnosť",
-        "Osobnostné predpoklady",
-        "spoľahlivosť",
-        "empatia",
-        "komunikatívnosť"
+        "Kancelárske balíky - Microsoft Outlook"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -3788,10 +3032,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
@@ -3815,10 +3056,7 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Všeobecné spôsobilosti"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -3842,10 +3080,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
@@ -3869,10 +3104,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
@@ -3896,10 +3128,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
@@ -3923,10 +3152,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
@@ -3950,10 +3176,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
@@ -3977,10 +3200,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
@@ -4004,10 +3224,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
@@ -4029,12 +3246,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Základné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Cudzí jazyk",
-        "srbský",
-        "vysoká – vysoká C1 a C2"
+        "Základné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -4056,12 +3268,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Základné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk",
-        "thajsky",
-        "vysoká – vysoká C1 a C2"
+        "Základné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -4085,10 +3292,7 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Osobnostné predpoklady"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -4112,10 +3316,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Znalosť jazyka požaduje"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -4137,12 +3338,7 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Vysokoškolské vzdelanie druhého stupňa",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "CRIF - Slovak Credit Bureau, s. r. o."
+        "Vysokoškolské vzdelanie druhého stupňa"
       ],
       "languages": [],
       "computerSkills": [],
@@ -4166,10 +3362,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [],
@@ -4191,12 +3384,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "Seven Personal s. r. o."
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -4220,10 +3408,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -4248,9 +3433,7 @@
         "Úplné stredné odborné vzdelanie",
         "-",
         "učiteľstvo pre materské školy a vychovávateľstvo",
-        "76 Učiteľstvo",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "76 Učiteľstvo"
       ],
       "languages": [],
       "computerSkills": [],
@@ -4274,21 +3457,13 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 3 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "aspoň 3 roky"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
         "B",
-        "B1",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "digitálna gramotnosť (počítačové spôsobilosti)",
-        "fyzická zdatnosť",
-        "komunikácia (jednanie s ľuďmi)"
+        "B1"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -4307,12 +3482,7 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Úplné stredné všeobecné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "Van Hanh Nguyen"
+        "Úplné stredné všeobecné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -4336,21 +3506,13 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 3 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "aspoň 3 roky"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
         "B",
-        "B1",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "digitálna gramotnosť (počítačové spôsobilosti)",
-        "fyzická zdatnosť",
-        "komunikácia (jednanie s ľuďmi)"
+        "B1"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -4371,21 +3533,13 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 3 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "aspoň 3 roky"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
         "B",
-        "B1",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "digitálna gramotnosť (počítačové spôsobilosti)",
-        "fyzická zdatnosť",
-        "komunikácia (jednanie s ľuďmi)"
+        "B1"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -4406,21 +3560,13 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 3 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "aspoň 3 roky"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
         "B",
-        "B1",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "digitálna gramotnosť (počítačové spôsobilosti)",
-        "fyzická zdatnosť",
-        "komunikácia (jednanie s ľuďmi)"
+        "B1"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -4441,24 +3587,13 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [
         "Ekonomické programy - SAP",
         "-",
-        "elementárna",
-        "Všeobecné spôsobilosti",
-        "manuálna zručnosť",
-        "matematická gramotnosť",
-        "tímová práca",
-        "Osobnostné predpoklady",
-        "pozornosť",
-        "praktické myslenie",
-        "spoľahlivosť",
-        "Ďalšie požiadavky"
+        "elementárna"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -4480,10 +3615,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 2 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk"
+        "aspoň 2 roky"
       ],
       "languages": [],
       "computerSkills": [],
@@ -4534,9 +3666,7 @@
       "education": [
         "Vysokoškolské vzdelanie prvého stupňa",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [
@@ -4544,14 +3674,7 @@
         "-",
         "pokročilá",
         "Kancelárske balíky - Microsoft Excel",
-        "Kancelárske balíky - Microsoft Outlook",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "informačná gramotnosť",
-        "komunikácia (jednanie s ľuďmi)",
-        "organizovanie a plánovanie práce",
-        "samostatnosť",
-        "tímová práca"
+        "Kancelárske balíky - Microsoft Outlook"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -4573,10 +3696,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
@@ -4600,10 +3720,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
@@ -4625,12 +3742,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Základné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "Nemocnica BORY, a. s."
+        "Základné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -4654,10 +3766,7 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Ďalšie požiadavky"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [],
@@ -4683,8 +3792,7 @@
         "Vysokoškolské vzdelanie prvého stupňa",
         "Vysokoškolské vzdelanie druhého stupňa",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [
@@ -4695,14 +3803,7 @@
         "SPIN"
       ],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "digitálna gramotnosť (počítačové spôsobilosti)",
-        "finančná a ekonomická gramotnosť",
-        "informačná gramotnosť",
-        "komunikácia (jednanie s ľuďmi)"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -4721,9 +3822,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Vysokoškolské vzdelanie druhého stupňa",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "Vysokoškolské vzdelanie druhého stupňa"
       ],
       "languages": [],
       "computerSkills": [
@@ -4734,14 +3833,7 @@
         "Internet"
       ],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "komunikácia (jednanie s ľuďmi)",
-        "kultivovaný písomný prejav",
-        "kultivovaný slovný prejav, schopnosť vyjadrovania sa",
-        "pružnosť v myslení (adaptabilita, flexibilita, improvizačné spôsobilosti)",
-        "samostatnosť"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -4760,12 +3852,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Základné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk",
-        "vietnamský",
-        "elementárna A1 a A2"
+        "Základné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -4789,10 +3876,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [],
@@ -4816,21 +3900,12 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "samostatnosť",
-        "Osobnostné predpoklady",
-        "komunikatívnosť",
-        "spoľahlivosť",
-        "trpezlivosť"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -4859,14 +3934,7 @@
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "komunikácia (jednanie s ľuďmi)",
-        "manuálna zručnosť",
-        "Osobnostné predpoklady",
-        "komunikatívnosť",
-        "Ďalšie požiadavky"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -4886,11 +3954,7 @@
       "experience": "",
       "education": [
         "Nižšie stredné odborné vzdelanie",
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Všeobecné spôsobilosti",
-        "komunikácia (jednanie s ľuďmi)"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -4922,14 +3986,7 @@
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "C+E",
-        "Všeobecné spôsobilosti",
-        "manuálna zručnosť",
-        "Osobnostné predpoklady",
-        "analytické myslenie",
-        "Ďalšie požiadavky",
-        "karta vodiča"
+        "C"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -4948,12 +4005,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Vysokoškolské vzdelanie druhého stupňa",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk",
-        "anglický",
-        "vysoká – vysoká C1 a C2"
+        "Vysokoškolské vzdelanie druhého stupňa"
       ],
       "languages": [],
       "computerSkills": [
@@ -4990,10 +4042,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 3 mesiace",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Všeobecné spôsobilosti"
+        "aspoň 3 mesiace"
       ],
       "languages": [],
       "computerSkills": [],
@@ -5016,11 +4065,7 @@
       "experience": "",
       "education": [
         "Nižšie stredné odborné vzdelanie",
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Všeobecné spôsobilosti",
-        "komunikácia (jednanie s ľuďmi)"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -5044,10 +4089,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 3 mesiace",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Všeobecné spôsobilosti"
+        "aspoň 3 mesiace"
       ],
       "languages": [],
       "computerSkills": [],
@@ -5071,10 +4113,7 @@
       "education": [
         "Vysokoškolské vzdelanie prvého stupňa",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
@@ -5098,22 +4137,12 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Certifikáty",
-        "Kvalifikačná karta vodiča, Osvedčenie o základnej kvalifikácii a Osvedčenie o pravidelnom výcviku podľa zákona č. 280/2006 Z.z.",
-        "Znalosť slovenského jazyka je nevyhnutná"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "C+E",
-        "Všeobecné spôsobilosti",
-        "vedenie motorových vozidiel",
-        "Osobnostné predpoklady",
-        "pozornosť",
-        "spoľahlivosť",
-        "Údaje o zamestnávateľovi"
+        "C"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -5132,12 +4161,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Základné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk",
-        "vietnamský",
-        "elementárna A1 a A2"
+        "Základné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -5159,12 +4183,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Základné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk",
-        "anglický",
-        "stredná - pokročilá B1 a B2"
+        "Základné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [
@@ -5173,14 +4192,7 @@
         "elementárna"
       ],
       "drivingLicenses": [
-        "Skupina",
-        "C",
-        "C+E",
-        "E",
-        "Všeobecné spôsobilosti",
-        "vedenie motorových vozidiel",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti"
+        "C"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -5200,11 +4212,7 @@
       "experience": "",
       "education": [
         "Nižšie stredné odborné vzdelanie",
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Všeobecné spôsobilosti",
-        "manuálna zručnosť"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -5229,9 +4237,7 @@
         "Vysokoškolské vzdelanie druhého stupňa",
         "-",
         "psychológia",
-        "77 Psychologické vedy",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "77 Psychologické vedy"
       ],
       "languages": [],
       "computerSkills": [
@@ -5276,14 +4282,7 @@
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "komunikácia (jednanie s ľuďmi)",
-        "kultivovaný slovný prejav, schopnosť vyjadrovania sa",
-        "Osobnostné predpoklady",
-        "komunikatívnosť",
-        "Údaje o zamestnávateľovi"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -5304,10 +4303,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
@@ -5358,10 +4354,7 @@
       "education": [
         "Vysokoškolské vzdelanie druhého stupňa",
         "Prax",
-        "6 alebo viac rokov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk"
+        "6 alebo viac rokov"
       ],
       "languages": [],
       "computerSkills": [
@@ -5371,12 +4364,7 @@
         "Kancelárske balíky - Microsoft Word",
         "Kancelárske balíky - Microsoft Excel",
         "Kancelárske balíky - Microsoft PowerPoint",
-        "Kancelárske balíky - Microsoft Outlook",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "komunikácia v cudzom jazyku",
-        "kultivovaný písomný prejav",
-        "kultivovaný slovný prejav, schopnosť vyjadrovania sa"
+        "Kancelárske balíky - Microsoft Outlook"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -5396,12 +4384,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Úplné stredné všeobecné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk",
-        "anglický",
-        "elementárna A1 a A2"
+        "Úplné stredné všeobecné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -5425,10 +4408,7 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [
@@ -5438,14 +4418,7 @@
         "Kancelárske balíky - Microsoft Excel"
       ],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "komunikácia v cudzom jazyku",
-        "manuálna zručnosť",
-        "samostatnosť",
-        "tímová práca",
-        "Osobnostné predpoklady"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -5466,10 +4439,7 @@
       "education": [
         "Vysokoškolské vzdelanie druhého stupňa",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Cudzí jazyk"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [
@@ -5480,14 +4450,7 @@
         "Internet"
       ],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "samostatnosť",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "Záchranná zdravotná služba Bratislava",
-        "Právna forma"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -5506,12 +4469,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Úplné stredné všeobecné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "VHQ SK s.r.o."
+        "Úplné stredné všeobecné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -5535,10 +4493,7 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Všeobecné spôsobilosti"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [],
@@ -5562,10 +4517,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 2 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk"
+        "aspoň 2 roky"
       ],
       "languages": [],
       "computerSkills": [],
@@ -5587,9 +4539,7 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Úplné stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "Úplné stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [
@@ -5600,14 +4550,7 @@
         "Kancelárske balíky - Microsoft Outlook"
       ],
       "drivingLicenses": [
-        "Základná zložka mzdy od 915 € - 1007,50 € podľa rokov praxe + príplatky za víkend, sviatky, osobné hodnotenie",
-        "Miesto výkonu práce, Ďalšie miesto výkonu práce",
-        "Generála Svobodu 139",
-        ",",
-        "05971 Ľubica - Kežmarok",
-        "Slovensko",
-        "location_on",
-        "Google maps"
+        "CE"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -5655,10 +4598,7 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -5683,21 +4623,12 @@
         "Základné vzdelanie",
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "C+E",
-        "Všeobecné spôsobilosti",
-        "fyzická zdatnosť",
-        "Osobnostné predpoklady",
-        "sebaistota",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti"
+        "C"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -5719,21 +4650,12 @@
         "Základné vzdelanie",
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "C+E",
-        "Všeobecné spôsobilosti",
-        "fyzická zdatnosť",
-        "Osobnostné predpoklady",
-        "sebaistota",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti"
+        "C"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -5755,9 +4677,7 @@
         "Základné vzdelanie",
         "Nižšie stredné odborné vzdelanie",
         "Stredné odborné vzdelanie",
-        "Úplné stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "Úplné stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -5806,9 +4726,7 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Úplné stredné všeobecné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "Úplné stredné všeobecné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [
@@ -5817,14 +4735,7 @@
         "pokročilá"
       ],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "komunikácia (jednanie s ľuďmi)",
-        "matematická gramotnosť",
-        "motivovanie ľudí",
-        "organizovanie a plánovanie práce"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -5843,12 +4754,7 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Úplné stredné všeobecné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Znalosť jazyka požaduje",
-        "ovládanie všetkých definovaných jazykov",
-        "Cudzí jazyk"
+        "Úplné stredné všeobecné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [
@@ -5856,14 +4762,7 @@
         "-",
         "pokročilá",
         "Kancelárske balíky - Microsoft Outlook",
-        "Kancelárske balíky - Microsoft Word",
-        "Ďalšie požiadavky",
-        "ÚSPEŠNÝ/Á KANDIDÁT/KA",
-        "• Skúsenosti v automobilovom priemysle",
-        "• Predchádazjúce skúsenosti so spracovávaním údajov v oblasti spracovania miezd",
-        "• Pozornosť venovaná detailom",
-        "• Metodický detailný prístup, schopnosť pracovať s veľkým množstvom dát",
-        "• Schopnosť pracovať v rýchlo sa rozvíjajúcom prostredí s proaktívnym prístupom k zmenám"
+        "Kancelárske balíky - Microsoft Word"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -5883,9 +4782,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Úplné stredné všeobecné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "Úplné stredné všeobecné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [
@@ -5895,12 +4792,7 @@
         "Kancelárske balíky - Microsoft Word",
         "elementárna",
         "Kancelárske balíky - Microsoft PowerPoint",
-        "Kancelárske balíky - Microsoft Outlook",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "komunikácia (jednanie s ľuďmi)",
-        "manuálna zručnosť",
-        "prezentovanie"
+        "Kancelárske balíky - Microsoft Outlook"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -5949,10 +4841,7 @@
       "education": [
         "Základné vzdelanie",
         "Nižšie stredné odborné vzdelanie",
-        "Úplné stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Znalosť jazyka požaduje"
+        "Úplné stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -6002,11 +4891,7 @@
       "experience": "",
       "education": [
         "Neukončené základné vzdelanie",
-        "Základné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk",
-        "anglický"
+        "Základné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -6029,11 +4914,7 @@
       "experience": "",
       "education": [
         "Základné vzdelanie",
-        "Úplné stredné všeobecné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk",
-        "anglický"
+        "Úplné stredné všeobecné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -6056,11 +4937,7 @@
       "experience": "",
       "education": [
         "Základné vzdelanie",
-        "Úplné stredné všeobecné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Znalosť jazyka požaduje",
-        "ovládanie všetkých definovaných jazykov"
+        "Úplné stredné všeobecné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -6111,21 +4988,13 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
         "B1",
-        "C",
-        "C+E",
-        "E",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "digitálna gramotnosť (počítačové spôsobilosti)"
+        "C"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -6148,23 +5017,14 @@
         "Úplné stredné odborné vzdelanie",
         "Vyššie odborné vzdelanie",
         "Prax",
-        "aspoň 3 roky",
-        "Znalosť slovenského jazyka je nevyhnutná"
+        "aspoň 3 roky"
       ],
       "languages": [],
       "computerSkills": [
         "Kancelárske balíky - Microsoft Word",
         "-",
         "elementárna",
-        "Kancelárske balíky - Microsoft Excel",
-        "Osobnostné predpoklady",
-        "komunikatívnosť",
-        "cieľavedomosť",
-        "empatia",
-        "Ďalšie požiadavky",
-        "barber kurz",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti"
+        "Kancelárske balíky - Microsoft Excel"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -6188,23 +5048,14 @@
         "Úplné stredné odborné vzdelanie",
         "Vyššie odborné vzdelanie",
         "Prax",
-        "aspoň 3 roky",
-        "Znalosť slovenského jazyka je nevyhnutná"
+        "aspoň 3 roky"
       ],
       "languages": [],
       "computerSkills": [
         "Kancelárske balíky - Microsoft Word",
         "-",
         "elementárna",
-        "Kancelárske balíky - Microsoft Excel",
-        "Všeobecné spôsobilosti",
-        "manuálna zručnosť",
-        "Osobnostné predpoklady",
-        "komunikatívnosť",
-        "empatia",
-        "cieľavedomosť",
-        "Ďalšie požiadavky",
-        "barber kurz"
+        "Kancelárske balíky - Microsoft Excel"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -6226,21 +5077,12 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "fyzická zdatnosť",
-        "manuálna zručnosť",
-        "samostatnosť",
-        "Osobnostné predpoklady",
-        "pozornosť"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -6261,10 +5103,7 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "aspoň 5 rokov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Znalosť jazyka požaduje"
+        "aspoň 5 rokov"
       ],
       "languages": [],
       "computerSkills": [
@@ -6273,14 +5112,7 @@
         "elementárna"
       ],
       "drivingLicenses": [
-        "Skupina",
-        "C1+E",
-        "Všeobecné spôsobilosti",
-        "komunikácia (jednanie s ľuďmi)",
-        "organizovanie a plánovanie práce",
-        "rozhodovanie",
-        "samostatnosť",
-        "Osobnostné predpoklady"
+        "C1"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -6300,11 +5132,7 @@
       "experience": "",
       "education": [
         "Vysokoškolské vzdelanie druhého stupňa",
-        "Vysokoškolské vzdelanie tretieho stupňa",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Cudzí jazyk",
-        "anglický"
+        "Vysokoškolské vzdelanie tretieho stupňa"
       ],
       "languages": [],
       "computerSkills": [],
@@ -6329,21 +5157,12 @@
         "Základné vzdelanie",
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "C+E",
-        "Všeobecné spôsobilosti",
-        "fyzická zdatnosť",
-        "Osobnostné predpoklady",
-        "sebaistota",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti"
+        "C"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -6364,10 +5183,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Certifikáty",
-        "Zváračský preukaz podľa vybranej STN",
-        "Znalosť slovenského jazyka je nevyhnutná"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [],
@@ -6391,10 +5207,7 @@
       "education": [
         "Vysokoškolské vzdelanie tretieho stupňa",
         "Prax",
-        "aspoň 4 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk"
+        "aspoň 4 roky"
       ],
       "languages": [],
       "computerSkills": [
@@ -6429,12 +5242,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "Steel Metal Servis, s. r. o."
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -6456,12 +5264,7 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Nižšie stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti",
-        "fyzická zdatnosť",
-        "manuálna zručnosť"
+        "Nižšie stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -6485,21 +5288,12 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 3 mesiace",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "aspoň 3 mesiace"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "fyzická zdatnosť",
-        "informačná gramotnosť",
-        "manuálna zručnosť",
-        "matematická gramotnosť",
-        "samostatnosť"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -6520,10 +5314,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -6561,14 +5352,7 @@
         "Kancelárske balíky - Microsoft Outlook"
       ],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "digitálna gramotnosť (počítačové spôsobilosti)",
-        "finančná a ekonomická gramotnosť",
-        "informačná gramotnosť",
-        "komunikácia (jednanie s ľuďmi)"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -6589,21 +5373,12 @@
       "education": [
         "Základné vzdelanie",
         "Nižšie stredné odborné vzdelanie",
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "C+E",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "Tankers Varga s.r.o.",
-        "Právna forma",
-        "Spol. s r. o.",
-        "Sídlo"
+        "C"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -6624,10 +5399,7 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -6651,10 +5423,7 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -6676,12 +5445,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Nižšie stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Znalosť jazyka požaduje",
-        "ovládanie aspoň jedného z vybraných jazykov",
-        "Cudzí jazyk"
+        "Nižšie stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -6705,21 +5469,12 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 3 mesiace",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "aspoň 3 mesiace"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Osobnostné predpoklady",
-        "cieľavedomosť",
-        "iniciatívnosť",
-        "ochota pomáhať (zmysel pre spolupatričnosť)",
-        "pozornosť",
-        "spoľahlivosť"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -6738,21 +5493,12 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Základné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "Základné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "C+E",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "fyzická zdatnosť",
-        "manuálna zručnosť",
-        "samostatnosť",
-        "vedenie motorových vozidiel"
+        "C"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -6771,12 +5517,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Základné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "Luvex investment s. r. o."
+        "Základné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -6800,10 +5541,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 2 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Ďalšie požiadavky"
+        "aspoň 2 roky"
       ],
       "languages": [],
       "computerSkills": [],
@@ -6825,12 +5563,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "Steel Metal Servis, s. r. o."
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -6863,16 +5596,7 @@
       "computerSkills": [
         "Kancelárske balíky - Open Office",
         "-",
-        "pokročilá",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "manuálna zručnosť",
-        "samostatnosť",
-        "technická gramotnosť",
-        "tímová práca",
-        "Osobnostné predpoklady",
-        "pamäť",
-        "pozornosť"
+        "pokročilá"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -6903,16 +5627,7 @@
       "computerSkills": [
         "Kancelárske balíky - Open Office",
         "-",
-        "pokročilá",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "manuálna zručnosť",
-        "samostatnosť",
-        "technická gramotnosť",
-        "tímová práca",
-        "Osobnostné predpoklady",
-        "pamäť",
-        "pozornosť"
+        "pokročilá"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -6936,8 +5651,7 @@
         "-",
         "študijný odbor - mimo číselník",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [
@@ -6946,13 +5660,7 @@
         "pokročilá",
         "Kancelárske balíky - Microsoft Excel",
         "Kancelárske balíky - Microsoft Outlook",
-        "Kancelárske balíky - Microsoft PowerPoint",
-        "Ďalšie požiadavky",
-        "komunikácia, kultivovaný prejav, práca s deťmi so špeciálnymi potrebami, psychická zdatnosť, cieľavedomosť, empatia, komunikatívnosť",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "Spojená škola, Opatovská cesta 101, Košice",
-        "Právna forma"
+        "Kancelárske balíky - Microsoft PowerPoint"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -6974,10 +5682,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7010,16 +5715,7 @@
       "computerSkills": [
         "Kancelárske balíky - Open Office",
         "-",
-        "pokročilá",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "manuálna zručnosť",
-        "samostatnosť",
-        "technická gramotnosť",
-        "tímová práca",
-        "Osobnostné predpoklady",
-        "pamäť",
-        "pozornosť"
+        "pokročilá"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -7043,8 +5739,7 @@
         "-",
         "študijný odbor - mimo číselník",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [
@@ -7053,13 +5748,7 @@
         "pokročilá",
         "Kancelárske balíky - Microsoft Excel",
         "Kancelárske balíky - Microsoft Outlook",
-        "Kancelárske balíky - Microsoft PowerPoint",
-        "Ďalšie požiadavky",
-        "komunikácia, kultivovaný prejav, práca s deťmi so špeciálnymi potrebami, psychická zdatnosť, cieľavedomosť, empatia, komunikatívnosť",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "Spojená škola, Opatovská cesta 101, Košice",
-        "Právna forma"
+        "Kancelárske balíky - Microsoft PowerPoint"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -7081,10 +5770,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7110,23 +5796,13 @@
         "-",
         "14 Chemické vedy",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [
         "Kancelárske balíky - Open Office",
         "-",
-        "pokročilá",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "komunikácia (jednanie s ľuďmi)",
-        "komunikácia v cudzom jazyku",
-        "organizovanie a plánovanie práce",
-        "samostatnosť",
-        "tímová práca",
-        "Osobnostné predpoklady",
-        "analytické myslenie"
+        "pokročilá"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -7148,10 +5824,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7175,10 +5848,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7200,12 +5870,7 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Nižšie stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "group PB s.r.o."
+        "Nižšie stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7229,10 +5894,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 2 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk"
+        "aspoň 2 roky"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7254,12 +5916,7 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Nižšie stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "group PB s.r.o."
+        "Nižšie stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7281,12 +5938,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "JIA WANG spol. s r.o."
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7308,12 +5960,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Základné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "YUYU, s.r.o."
+        "Základné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7335,12 +5982,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "YUYU, s.r.o."
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7362,12 +6004,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "JIA WANG spol. s r.o."
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7391,22 +6028,12 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "fyzická zdatnosť",
-        "komunikácia (jednanie s ľuďmi)",
-        "komunikácia v cudzom jazyku",
-        "manuálna zručnosť",
-        "samostatnosť"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -7425,12 +6052,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Znalosť jazyka požaduje",
-        "ovládanie všetkých definovaných jazykov",
-        "Cudzí jazyk"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7454,9 +6076,7 @@
       "education": [
         "Úplné stredné odborné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [
@@ -7467,14 +6087,7 @@
         "vysoká"
       ],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "finančná a ekonomická gramotnosť",
-        "komunikácia (jednanie s ľuďmi)",
-        "kultivovaný písomný prejav",
-        "kultivovaný slovný prejav, schopnosť vyjadrovania sa"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -7493,12 +6106,7 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Základné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti",
-        "manuálna zručnosť",
-        "Osobnostné predpoklady"
+        "Základné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7536,14 +6144,7 @@
         "pokročilá"
       ],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "digitálna gramotnosť (počítačové spôsobilosti)",
-        "finančná a ekonomická gramotnosť",
-        "informačná gramotnosť",
-        "komunikácia (jednanie s ľuďmi)"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -7565,9 +6166,7 @@
         "Základné vzdelanie",
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "aspoň 4 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "aspoň 4 roky"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7589,27 +6188,13 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Vysokoškolské vzdelanie prvého stupňa",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Znalosť jazyka požaduje",
-        "ovládanie všetkých definovaných jazykov",
-        "Cudzí jazyk"
+        "Vysokoškolské vzdelanie prvého stupňa"
       ],
       "languages": [],
       "computerSkills": [
         "Správa systémov - Linux",
         "-",
-        "pokročilá",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "digitálna gramotnosť (počítačové spôsobilosti)",
-        "komunikácia (jednanie s ľuďmi)",
-        "komunikácia v cudzom jazyku",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "Servers.com SK s. r. o.",
-        "Právna forma"
+        "pokročilá"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -7629,12 +6214,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Úplné stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "ZUB BR s.r.o."
+        "Úplné stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7656,12 +6236,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Nižšie stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Cudzí jazyk",
-        "vietnamský",
-        "elementárna A1 a A2"
+        "Nižšie stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7685,10 +6260,7 @@
       "education": [
         "Úplné stredné odborné vzdelanie",
         "Prax",
-        "aspoň 6 mesiacov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Všeobecné spôsobilosti"
+        "aspoň 6 mesiacov"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7710,12 +6282,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Úplné stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "EDAMAME s.r.o."
+        "Úplné stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7737,12 +6304,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Úplné stredné všeobecné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti",
-        "komunikácia (jednanie s ľuďmi)",
-        "prezentovanie"
+        "Úplné stredné všeobecné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7791,12 +6353,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Základné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti",
-        "fyzická zdatnosť",
-        "manuálna zručnosť"
+        "Základné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7818,12 +6375,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "PEA SK s. r. o."
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7846,11 +6398,7 @@
       "experience": "",
       "education": [
         "Základné vzdelanie",
-        "Nižšie stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Všeobecné spôsobilosti",
-        "komunikácia (jednanie s ľuďmi)"
+        "Nižšie stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7874,10 +6422,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "bez požiadavky na odbornú prax",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk"
+        "bez požiadavky na odbornú prax"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7901,10 +6446,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 2 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk"
+        "aspoň 2 roky"
       ],
       "languages": [],
       "computerSkills": [],
@@ -7928,21 +6470,12 @@
       "education": [
         "Základné vzdelanie",
         "Nižšie stredné odborné vzdelanie",
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "C+E",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "Tankers Varga s.r.o.",
-        "Právna forma",
-        "Spol. s r. o.",
-        "Sídlo"
+        "C"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -7961,24 +6494,12 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Úplné stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk",
-        "ukrajinský",
-        "vysoká – vysoká C1 a C2"
+        "Úplné stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "komunikácia (jednanie s ľuďmi)",
-        "manuálna zručnosť",
-        "prezentovanie",
-        "samostatnosť",
-        "vedenie motorových vozidiel"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -8000,9 +6521,7 @@
         "Nižšie stredné odborné vzdelanie",
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 2 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie"
+        "aspoň 2 roky"
       ],
       "languages": [],
       "computerSkills": [],
@@ -8024,12 +6543,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Základné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Ďalšie požiadavky",
-        "Tvoje vzdelanie nerozhoduje.",
-        "Nerobí Ti problém fyzická práca, niekedy aj v chladnom prostredí."
+        "Základné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -8053,10 +6567,7 @@
       "education": [
         "Základné vzdelanie",
         "Prax",
-        "aspoň 4 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk"
+        "aspoň 4 roky"
       ],
       "languages": [],
       "computerSkills": [],
@@ -8080,22 +6591,13 @@
       "education": [
         "Úplné stredné odborné vzdelanie",
         "Prax",
-        "aspoň 1 rok",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk"
+        "aspoň 1 rok"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
         "C",
-        "C+E",
-        "C1",
-        "C1+E",
-        "E",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti"
+        "C1"
       ],
       "shiftWork": "",
       "slovakRequired": "Nie",
@@ -8114,12 +6616,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Základné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Ďalšie požiadavky",
-        "Tvoje vzdelanie nerozhoduje.",
-        "Nerobí Ti problém fyzická práca, niekedy aj v chladnom prostredí."
+        "Základné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -8144,9 +6641,7 @@
         "Stredné odborné vzdelanie",
         "Úplné stredné odborné vzdelanie",
         "Prax",
-        "aspoň 3 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "aspoň 3 roky"
       ],
       "languages": [],
       "computerSkills": [],
@@ -8168,12 +6663,7 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Nižšie stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Všeobecné spôsobilosti",
-        "manuálna zručnosť",
-        "fyzická zdatnosť"
+        "Nižšie stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -8195,12 +6685,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Základné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Ďalšie požiadavky",
-        "Tvoje vzdelanie nerozhoduje.",
-        "Nerobí ti problém fyzická práca v dvojzmennej prevádzke."
+        "Základné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -8224,10 +6709,7 @@
       "education": [
         "Nižšie stredné odborné vzdelanie",
         "Prax",
-        "aspoň 5 rokov",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Všeobecné spôsobilosti"
+        "aspoň 5 rokov"
       ],
       "languages": [],
       "computerSkills": [],
@@ -8251,10 +6733,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 4 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk"
+        "aspoň 4 roky"
       ],
       "languages": [],
       "computerSkills": [],
@@ -8276,12 +6755,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Základné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Znalosť jazyka požaduje",
-        "ovládanie aspoň jedného z vybraných jazykov",
-        "Cudzí jazyk"
+        "Základné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -8305,21 +6779,12 @@
       "education": [
         "Základné vzdelanie",
         "Nižšie stredné odborné vzdelanie",
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "C+E",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "Tankers Varga s.r.o.",
-        "Právna forma",
-        "Spol. s r. o.",
-        "Sídlo"
+        "C"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -8338,12 +6803,7 @@
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Cudzí jazyk",
-        "vietnamský",
-        "elementárna A1 a A2"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -8367,10 +6827,7 @@
       "education": [
         "Vysokoškolské vzdelanie druhého stupňa",
         "Prax",
-        "aspoň 2 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno",
-        "Znalosť jazyka požaduje"
+        "aspoň 2 roky"
       ],
       "languages": [],
       "computerSkills": [
@@ -8382,14 +6839,7 @@
         "Kancelárske balíky - Microsoft PowerPoint"
       ],
       "drivingLicenses": [
-        "Skupina",
-        "B",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "digitálna gramotnosť (počítačové spôsobilosti)",
-        "finančná a ekonomická gramotnosť",
-        "informačná gramotnosť",
-        "komunikácia (jednanie s ľuďmi)"
+        "B"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
@@ -8408,12 +6858,7 @@
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "fyzická zdatnosť"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
@@ -8437,10 +6882,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 3 mesiace",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti"
+        "aspoň 3 mesiace"
       ],
       "languages": [],
       "computerSkills": [],
@@ -8465,9 +6907,7 @@
         "Úplné stredné všeobecné vzdelanie",
         "Úplné stredné odborné vzdelanie",
         "Prax",
-        "aspoň 2 roky",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "aspoň 2 roky"
       ],
       "languages": [],
       "computerSkills": [
@@ -8475,14 +6915,7 @@
         "-",
         "pokročilá",
         "Kancelárske balíky - Microsoft Word",
-        "Kancelárske balíky - Microsoft Excel",
-        "Všeobecné spôsobilosti",
-        "analyzovanie a riešenie problémov",
-        "digitálna gramotnosť (počítačové spôsobilosti)",
-        "finančná a ekonomická gramotnosť",
-        "fyzická zdatnosť",
-        "informačná gramotnosť",
-        "komunikácia (jednanie s ľuďmi)"
+        "Kancelárske balíky - Microsoft Excel"
       ],
       "drivingLicenses": [],
       "shiftWork": "",
@@ -8504,10 +6937,7 @@
       "education": [
         "Stredné odborné vzdelanie",
         "Prax",
-        "aspoň 3 mesiace",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Nie",
-        "Všeobecné spôsobilosti"
+        "aspoň 3 mesiace"
       ],
       "languages": [],
       "computerSkills": [],
@@ -8531,21 +6961,12 @@
       "education": [
         "Základné vzdelanie",
         "Nižšie stredné odborné vzdelanie",
-        "Stredné odborné vzdelanie",
-        "Znalosť slovenského jazyka je nevyhnutná",
-        "Áno"
+        "Stredné odborné vzdelanie"
       ],
       "languages": [],
       "computerSkills": [],
       "drivingLicenses": [
-        "Skupina",
-        "C+E",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "Tankers Varga s.r.o.",
-        "Právna forma",
-        "Spol. s r. o.",
-        "Sídlo"
+        "C"
       ],
       "shiftWork": "",
       "slovakRequired": "Áno",
