@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Fix resume section translation
+      - name: Fix resume section translation and frontend cache
         run: |
           python3 - <<'PY'
           from pathlib import Path
@@ -45,7 +45,10 @@ jobs:
 
           p=Path('index.html')
           h=p.read_text(encoding='utf-8')
-          for v in range(1,6): h=h.replace(f'resume-sections-toggle.js?v={v}','resume-sections-toggle.js?v=6')
+          for v in range(1,9):
+              h=h.replace(f'resume-sections-toggle.js?v={v}','resume-sections-toggle.js?v=8')
+          h=h.replace('resume-compat-fix.js?v=3','resume-compat-fix.js?v=4')
+          h=h.replace('analysis-enhancer-v2.js?v=1','analysis-enhancer-v2.js?v=2')
           p.write_text(h,encoding='utf-8')
           PY
       - name: Commit
@@ -54,5 +57,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add resume-sections-toggle.js index.html
           git diff --cached --quiet && exit 0
-          git commit -m "Translate experience and education sections [jobai-resume-compat]"
+          git commit -m "Refresh frontend module cache [jobai-resume-compat]"
           git push
