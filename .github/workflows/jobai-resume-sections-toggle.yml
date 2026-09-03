@@ -7,6 +7,8 @@ on:
   workflow_dispatch:
 jobs:
   install:
+    # One-time installer retained for history; v7 is already loaded in index.html.
+    if: ${{ false }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -19,7 +21,7 @@ jobs:
           p=Path('index.html')
           s=p.read_text(encoding='utf-8')
           tag='<script src="resume-sections-toggle.js?v=1"></script>'
-          if tag not in s:
+          if 'resume-sections-toggle.js?v=' not in s:
               marker='</body>'
               if marker not in s: raise SystemExit('Missing body marker')
               s=s.replace(marker, tag+'\n'+marker, 1)
