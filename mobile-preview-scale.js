@@ -14,6 +14,7 @@
   }
 
   function reset(wrapper, page) {
+    page.style.removeProperty("zoom");
     page.style.removeProperty("transform");
     page.style.removeProperty("transform-origin");
     wrapper.style.removeProperty("height");
@@ -36,11 +37,9 @@
     var horizontalPadding = parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
     var availableWidth = Math.max(1, wrapper.clientWidth - horizontalPadding);
     var scale = Math.min(1, availableWidth / A4_WIDTH);
-    var pageHeight = Math.max(page.scrollHeight, page.offsetHeight, 1123);
-
-    page.style.setProperty("transform-origin", "top left", "important");
-    page.style.setProperty("transform", "scale(" + scale + ")", "important");
-    wrapper.style.setProperty("height", Math.ceil(pageHeight * scale + parseFloat(style.paddingTop) + parseFloat(style.paddingBottom)) + "px", "important");
+    page.style.setProperty("zoom", String(scale), "important");
+    page.style.setProperty("transform", "none", "important");
+    wrapper.style.setProperty("height", "auto", "important");
     wrapper.classList.add("jobai-mobile-preview-scaled");
   }
 
@@ -57,12 +56,12 @@
     style.id = "jobaiMobilePreviewScaleStyles";
     style.textContent =
       "@media(max-width:900px){" +
-      "#preview .preview-wrapper.jobai-mobile-preview-scaled{overflow:hidden!important;}" +
+      "#preview .preview-wrapper.jobai-mobile-preview-scaled{overflow-x:hidden!important;overflow-y:visible!important;}" +
       "#preview .preview-wrapper.jobai-mobile-preview-scaled #resumePreview{margin:0!important;}" +
       "}" +
       "@media print{" +
       "#preview .preview-wrapper{height:auto!important;}" +
-      "#preview #resumePreview{transform:none!important;}" +
+      "#preview #resumePreview{zoom:1!important;transform:none!important;}" +
       "}";
     if (!document.getElementById(style.id)) document.head.appendChild(style);
 
