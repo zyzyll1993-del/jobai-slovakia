@@ -38,7 +38,7 @@
     if(document.getElementById('jobs')){if(typeof window.showTab==='function')window.showTab('jobs');return;}
     if(window.__jobaiJobsLoading)return;
     window.__jobaiJobsLoading=true;
-    var s=document.createElement('script');s.id='jobaiJobsPageScript';s.src='jobs-page.js?v=6';s.defer=true;
+    var s=document.createElement('script');s.id='jobaiJobsPageScript';s.src='jobs-page.js?v=7';s.defer=true;
     s.onload=function(){window.__jobaiJobsLoading=false;translate();setTimeout(function(){if(typeof window.showTab==='function')window.showTab('jobs');},0);};
     s.onerror=function(){window.__jobaiJobsLoading=false;};
     document.head.appendChild(s);
