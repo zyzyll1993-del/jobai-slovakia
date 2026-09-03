@@ -33,12 +33,23 @@ jobs:
               inline='<script id="jobaiPreviewTemplateNames">(function(){\n  function fix(){\n    var names={modern:\'Modern\',professional:\'Profi\',executive:\'Classic\',creative:\'Tech\',ats:\'Compact\'};\n    document.querySelectorAll(\'[data-preview-template]\').forEach(function(btn){\n      var key=btn.getAttribute(\'data-preview-template\');\n      if(names[key] && btn.textContent.trim()!==names[key])btn.textContent=names[key];\n    });\n  }\n  fix();\n  if(window.MutationObserver){\n    new MutationObserver(fix).observe(document.documentElement,{childList:true,subtree:true,characterData:true});\n  }\n  setInterval(fix,1000);\n})();</script>'
               s=s.replace('</body>',inline+'\n</body>')
           p.write_text(s,encoding='utf-8')
+
+          pc=Path('preview-controls.js')
+          ps=pc.read_text(encoding='utf-8')
+          replacements={
+              'templates:["Moderný","Profesionálny","Výkonný","Kreatívny","ATS Simple"]':'templates:["Modern","Profi","Classic","Tech","Compact"]',
+              'templates:["Modern","Professional","Executive","Creative","ATS Simple"]':'templates:["Modern","Profi","Classic","Tech","Compact"]',
+              'templates:["Сучасний","Професійний","Керівник","Креативний","ATS Simple"]':'templates:["Modern","Profi","Classic","Tech","Compact"]'
+          }
+          for old,new in replacements.items():
+              ps=ps.replace(old,new)
+          pc.write_text(ps,encoding='utf-8')
           PY
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html
+          git add index.html preview-controls.js
           git diff --cached --quiet && exit 0
-          git commit -m "Force preview template names in English [jobai-resume-compat]"
+          git commit -m "Fix preview template names at source [jobai-resume-compat]"
           git push
