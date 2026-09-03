@@ -1,0 +1,38 @@
+name: JobAI Resume compatibility fix
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    if: ${{ !contains(github.event.head_commit.message, '[jobai-resume-compat]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install compatibility script
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          tag='<script src="resume-compat-fix.js?v=1"></script>'
+          if tag not in s:
+              pos=s.lower().rfind('</body>')
+              if pos < 0:
+                  raise SystemExit('No closing body tag found')
+              s=s[:pos]+'\n'+tag+'\n'+s[pos:]
+              p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Install resume compatibility fix [jobai-resume-compat]"
+          git push
