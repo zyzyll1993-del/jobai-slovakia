@@ -50,6 +50,7 @@ REGION_CITY_KEYS={
  'Prešovský kraj':['prešov','presov','bardejov','humenné','humenne','kežmarok','kezmarok','levoča','levoca','medzilaborce','poprad','sabinov','snina','stará ľubovňa','stara lubovna','stropkov','svidník','svidnik','vranov nad topľou','vranov nad toplou'],
  'Košický kraj':['košice','kosice','michalovce','rožňava','roznava','sobrance','spišská nová ves','spisska nova ves','trebišov','trebisov','gelnica']
 }
+FOREIGN_COUNTRY_KEYS=['rakúsko','rakusko','česko','cesko','česká republika','ceska republika','maďarsko','madarsko','poľsko','polsko','nemecko','holandsko','belgicko','švajčiarsko','svajciarsko','francúzsko','francuzsko','taliansko']
 
 SECTION_HEADINGS=[
  'Požadovaný stupeň vzdelania','Požadovaná prax','Prax','Požadované cudzie jazyky',
@@ -176,6 +177,13 @@ def infer_region(city,district=''):
         if any(norm(k) in text for k in keys): return region
     return ''
 
+def exact_district_center(text):
+    t=norm(text)
+    for keys in REGION_CITY_KEYS.values():
+        for key in keys:
+            if t==norm(key): return clean(text)
+    return ''
+
 def location_parts_from_lines(lines):
     label='miesto výkonu práce'
     for i,x in enumerate(lines):
@@ -202,6 +210,10 @@ def location_fields(soup,lines):
     if mapped and (not raw or not re.search(r'\b\d{3}\s?\d{2}\b',raw)):
         raw=mapped
     raw=raw or clean_location_text(value_after(lines,'Miesto výkonu práce'))
+    nraw=norm(raw)
+    foreign=any(nraw.startswith(norm(country)) for country in FOREIGN_COUNTRY_KEYS)
+    nationwide=nraw in {'slovensko','slovenská republika','slovenska republika'}
+    country='' if not raw else ('Slovensko' if nraw.startswith('slovensko') or nraw.startswith('slovenská republika') or nraw.startswith('slovenska republika') else clean(raw.split(',')[0]))
     city=clean_location_text(structured['city']); district=''; postal=clean(structured['postalCode']); region=clean(structured['region'])
     m=re.search(r'\b(\d{3}\s?\d{2})\s+(.+?)(?:\s+-\s+([^,;]+))?(?:$|\s+Slovensko$)',raw,re.I)
     if m:
@@ -213,11 +225,23 @@ def location_fields(soup,lines):
     if not city:
         m2=re.search(r'\b\d{3}\s?\d{2}\s+([^,;]+)',raw)
         if m2: city=clean_location_text(re.split(r'\s+-\s+',m2.group(1))[0])
-    region=region or infer_region(city,district)
+    # Some official records intentionally specify only Slovakia + district.
+    if not foreign and not nationwide and nraw.startswith('slovensko,'):
+        tail=clean_location_text(raw.split(',',1)[1])
+        if tail:
+            district=district or tail
+            if re.fullmatch(r'bratislava\s+(?:i|ii|iii|iv|v)',norm(tail)):
+                city=city or 'Bratislava'
+            else:
+                city=city or exact_district_center(tail)
+    if nationwide:
+        region='Celé Slovensko'
+    else:
+        region=region or infer_region(city,district)
     display=clean_location_text(raw)
     if structured['street'] and city:
         display=', '.join(x for x in [clean_location_text(structured['street']),postal,city] if x)
-    return {'location':display,'city':city,'district':district,'region':region,'postalCode':postal}
+    return {'location':display,'city':city,'district':district,'region':region,'postalCode':postal,'country':country,'nationwide':nationwide,'foreign':foreign}
 
 def inactive(lines):
     text=' '.join(lines).lower()
@@ -242,7 +266,8 @@ def detail(url,session):
     raw_licenses=values_between(lines,'Vodičské oprávnenia',max_items=8) or values_between(lines,'Vodičské oprávnenie',max_items=8)
     licenses=clean_driving_licenses(raw_licenses)
     description=value_after(lines,'Náplň práce',18); category=classify(title,description); loc=location_fields(soup,lines)
-    return {'title':title,'employer':employer,'location':loc['location'],'city':loc['city'],'district':loc['district'],'region':loc['region'],'postalCode':loc['postalCode'],'salary':value_after(lines,'Základná zložka mzdy'),'category':category,'searchTerm':'all-market','updated':value_after(lines,'Naposledy aktualizované'),'startDate':value_after(lines,'Dátum nástupu'),'employmentType':value_after(lines,'Pracovný pomer'),'experience':value_after(lines,'Požadovaná prax'),'education':education,'languages':languages,'computerSkills':computer,'drivingLicenses':licenses,'shiftWork':value_after(lines,'Práca na zmeny'),'slovakRequired':value_after(lines,'Znalosť slovenského jazyka je nevyhnutná'),'description':description,'url':url,'source':'ÚPSVaR / VPM'}
+    if loc['foreign']: return None
+    return {'title':title,'employer':employer,'location':loc['location'],'city':loc['city'],'district':loc['district'],'region':loc['region'],'postalCode':loc['postalCode'],'country':loc['country'] or 'Slovensko','nationwide':loc['nationwide'],'salary':value_after(lines,'Základná zložka mzdy'),'category':category,'searchTerm':'all-market','updated':value_after(lines,'Naposledy aktualizované'),'startDate':value_after(lines,'Dátum nástupu'),'employmentType':value_after(lines,'Pracovný pomer'),'experience':value_after(lines,'Požadovaná prax'),'education':education,'languages':languages,'computerSkills':computer,'drivingLicenses':licenses,'shiftWork':value_after(lines,'Práca na zmeny'),'slovakRequired':value_after(lines,'Znalosť slovenského jazyka je nevyhnutná'),'description':description,'url':url,'source':'ÚPSVaR / VPM'}
 
 def page_urls(page,session):
     params={'pageNr':page,'pageSize':PAGE_SIZE,'zdrojPonuky':'VPM','lang':'sk'}
@@ -287,9 +312,13 @@ def main():
     jobs.sort(key=lambda j:(j.get('updated',''),j.get('title',''),j.get('city',''),j.get('location','')),reverse=True)
     city_count=sum(1 for j in jobs if j.get('city'))
     region_count=sum(1 for j in jobs if j.get('region'))
+    nationwide_count=sum(1 for j in jobs if j.get('nationwide'))
     region_counts=Counter(j.get('region') or 'Neurčený kraj' for j in jobs)
-    unresolved=[j for j in jobs if not j.get('city') or not j.get('region')]
-    print('location fields',city_count,'cities',region_count,'regions')
+    missing_regions=[region for region in REGION_CITY_KEYS if region_counts.get(region,0)==0]
+    if missing_regions:
+        raise SystemExit('Refusing to publish: missing Slovak regions: '+', '.join(missing_regions))
+    unresolved=[j for j in jobs if not j.get('nationwide') and (not j.get('city') or not j.get('region'))]
+    print('location fields',city_count,'cities',region_count,'regions','nationwide',nationwide_count)
     print('region counts',json.dumps(dict(sorted(region_counts.items())),ensure_ascii=False))
     print('unresolved locations',len(unresolved))
     for j in unresolved[:12]:
@@ -298,16 +327,18 @@ def main():
       'updatedAt':datetime.now(timezone.utc).isoformat(),
       'source':'Služby zamestnanosti — VPM',
       'activeOnly':True,
-      'schemaVersion':7,
+      'schemaVersion':8,
       'collectionMode':'official-vpm-broad-feed',
       'pagesScanned':pages_scanned,
       'pageSizeRequested':PAGE_SIZE,
       'marketCategories':sorted(set(j.get('category','Iné profesie') for j in jobs)),
+      'regionCounts':dict(sorted(region_counts.items())),
+      'nationwideCount':nationwide_count,
       'jobCount':len(jobs),
       'failures':failures,
       'jobs':jobs
     }
     Path('jobs-data.json').write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
-    print('saved',len(jobs),'active official vacancies across professions')
+    print('saved',len(jobs),'active Slovakia vacancies across professions')
 
 if __name__=='__main__': main()
