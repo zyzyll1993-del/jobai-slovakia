@@ -21,11 +21,12 @@ jobs:
           p=Path('index.html')
           s=p.read_text(encoding='utf-8')
           s=s.replace('resume-compat-fix.js?v=1','resume-compat-fix.js?v=2')
-          s=s.replace('resume-sections-toggle.js?v=1','resume-sections-toggle.js?v=3')
-          s=s.replace('resume-sections-toggle.js?v=2','resume-sections-toggle.js?v=3')
+          s=s.replace('resume-sections-toggle.js?v=1','resume-sections-toggle.js?v=4')
+          s=s.replace('resume-sections-toggle.js?v=2','resume-sections-toggle.js?v=4')
+          s=s.replace('resume-sections-toggle.js?v=3','resume-sections-toggle.js?v=4')
           tag='<script src="resume-empty-sections.js?v=1"></script>'
           if 'resume-empty-sections.js' not in s:
-              marker='<script src="resume-sections-toggle.js?v=3"></script>'
+              marker='<script src="resume-sections-toggle.js?v=4"></script>'
               s=s.replace(marker, marker+'\n'+tag)
           p.write_text(s,encoding='utf-8')
           PY
