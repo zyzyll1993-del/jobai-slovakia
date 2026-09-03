@@ -1,39 +1,10 @@
-name: JobAI Analysis v2
+name: JobAI Analysis v2 (disabled)
 
 on:
-  push:
-    branches: [main]
-
-permissions:
-  contents: write
+  workflow_dispatch:
 
 jobs:
-  install:
-    if: ${{ !contains(github.event.head_commit.message, '[jobai-analysis-v2]') }}
+  disabled:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Install analysis v2 and refresh UI script versions
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          p=Path('index.html')
-          s=p.read_text(encoding='utf-8')
-          marker='analysis-enhancer-v2.js'
-          if marker not in s:
-              tag='\n<script src="analysis-enhancer-v2.js?v=1"></script>\n'
-              pos=s.lower().rfind('</body>')
-              if pos<0: raise SystemExit('No closing body tag found')
-              s=s[:pos]+tag+s[pos:]
-          s=s.replace('resume-compat-fix.js?v=2','resume-compat-fix.js?v=3')
-          s=s.replace('resume-sections-toggle.js?v=7','resume-sections-toggle.js?v=8')
-          p.write_text(s,encoding='utf-8')
-          PY
-      - name: Commit
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html
-          git diff --cached --quiet && exit 0
-          git commit -m "Refresh resume UI script versions [jobai-analysis-v2]"
-          git push
+      - run: echo "Legacy self-modifying frontend workflow is disabled"
