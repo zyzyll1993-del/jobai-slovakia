@@ -27,3 +27,28 @@
   function hook(){document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('button');if(!b)return;var t=norm(b.textContent);if(t.indexOf('analiz')>=0||t.indexOf('аналіз')>=0||t.indexOf('analyz')>=0)setTimeout(update,500);});setTimeout(update,1200);}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',hook);else hook();
 })();
+
+/* Lazy vacancies launcher: the heavy catalog is loaded only after user opens Jobs. */
+(function(){
+  'use strict';
+  function currentLang(){var l=(localStorage.getItem('jobaiLanguage')||document.documentElement.lang||'uk').toLowerCase();return l.indexOf('sk')===0?'sk':l.indexOf('en')===0?'en':'uk';}
+  function label(){var l=currentLang();return l==='sk'?'Pracovné ponuky':l==='en'?'Jobs':'Вакансії';}
+  function translate(){var b=document.getElementById('navJobs');if(b)b.textContent=label();}
+  function openJobs(){
+    if(document.getElementById('jobs')){if(typeof window.showTab==='function')window.showTab('jobs');return;}
+    if(window.__jobaiJobsLoading)return;
+    window.__jobaiJobsLoading=true;
+    var s=document.createElement('script');s.id='jobaiJobsPageScript';s.src='jobs-page.js?v=6';s.defer=true;
+    s.onload=function(){window.__jobaiJobsLoading=false;translate();setTimeout(function(){if(typeof window.showTab==='function')window.showTab('jobs');},0);};
+    s.onerror=function(){window.__jobaiJobsLoading=false;};
+    document.head.appendChild(s);
+  }
+  function init(){
+    var nav=document.querySelector('.nav');if(!nav)return;
+    var b=document.getElementById('navJobs');
+    if(!b){b=document.createElement('button');b.id='navJobs';b.type='button';b.addEventListener('click',openJobs);var a=document.getElementById('navAnalysis');if(a)nav.insertBefore(b,a);else nav.appendChild(b);}
+    translate();
+  }
+  document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('button');if(!b)return;var x=(b.textContent||'').trim().toUpperCase();if(x==='UA'||x==='SK'||x==='EN')setTimeout(translate,100);});
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
