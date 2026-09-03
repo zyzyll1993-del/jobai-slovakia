@@ -8,12 +8,10 @@ from bs4 import BeautifulSoup
 
 BASE='https://www.sluzbyzamestnanosti.gov.sk'
 SEARCH=BASE+'/pracovne-ponuky'
-HEADERS={'User-Agent':'JobAI-Slovakia/1.5 (+https://zyzyll1993-del.github.io/jobai-slovakia/)'}
-
-# Broad market crawl. We no longer depend on a fixed list of professions.
+HEADERS={'User-Agent':'JobAI-Slovakia/1.6 (+https://zyzyll1993-del.github.io/jobai-slovakia/)'}
 MAX_PAGES=30
-PAGE_SIZE=30
 MAX_JOBS=900
+MIN_JOBS_TO_PUBLISH=100
 
 CATEGORY_RULES=[
  ('Manažment a vedenie',['vedúci','veduca','vedúca','manažér','manazer','manager','supervízor','supervizor','team leader','majster','stavbyvedúci','stavbyveduci','riaditeľ','riaditel']),
@@ -35,33 +33,24 @@ CATEGORY_RULES=[
 ]
 
 SECTION_HEADINGS=[
- 'Požadovaný stupeň vzdelania','Požadovaná prax','Požadované cudzie jazyky',
+ 'Požadovaný stupeň vzdelania','Požadovaná prax','Prax','Požadované cudzie jazyky',
  'Znalosť slovenského jazyka je nevyhnutná','Počítačové zručnosti',
  'Vodičské oprávnenie','Vodičské oprávnenia','Práca na zmeny',
  'Všeobecné spôsobilosti','Osobnostné predpoklady','Ďalšie požiadavky',
  'Certifikáty','Osvedčenia','Dátum nástupu','Pracovný pomer',
  'Základná zložka mzdy','Náplň práce','Informácie o výberovom procese',
- 'Miesto výkonu práce','Okres','Kraj'
+ 'Miesto výkonu práce'
 ]
-
 DRIVING_GROUPS={'AM','A1','A2','A','B1','B','BE','C1','C1E','C','CE','D1','D1E','D','DE','T'}
 
-
-def clean(s):
-    return re.sub(r'\s+',' ',str(s or '')).strip()
-
-
-def norm(s):
-    return clean(s).lower()
-
+def clean(s): return re.sub(r'\s+',' ',str(s or '')).strip()
+def norm(s): return clean(s).lower()
 
 def classify(title, description=''):
     text=norm(title+' '+description)
     for category,keys in CATEGORY_RULES:
-        if any(k in text for k in keys):
-            return category
+        if any(k in text for k in keys): return category
     return 'Iné profesie'
-
 
 def value_after(lines,label,lookahead=10):
     low=label.lower()
@@ -69,20 +58,15 @@ def value_after(lines,label,lookahead=10):
         if low in x.lower():
             for y in lines[i+1:i+1+lookahead]:
                 y=clean(y)
-                if y and y.lower()!=low and not y.endswith(':'):
-                    return y
+                if y and y.lower()!=low and not y.endswith(':'): return y
     return ''
-
 
 def is_section_heading(text, extra_stops=()):
     t=norm(text).rstrip(':')
-    headings=list(SECTION_HEADINGS)+list(extra_stops)
-    for h in headings:
+    for h in list(SECTION_HEADINGS)+list(extra_stops):
         hn=norm(h).rstrip(':')
-        if t==hn or t.startswith(hn+':'):
-            return True
+        if t==hn or t.startswith(hn+':'): return True
     return False
-
 
 def values_between(lines,label,stop_labels=(),max_items=12):
     low=norm(label)
@@ -91,176 +75,101 @@ def values_between(lines,label,stop_labels=(),max_items=12):
             out=[]
             for y in lines[i+1:i+40]:
                 y=clean(y)
-                if not y:
-                    continue
+                if not y: continue
                 yl=norm(y)
-                if yl==low:
-                    continue
-                if is_section_heading(y,stop_labels):
-                    break
-                if y not in out:
-                    out.append(y)
-                if len(out)>=max_items:
-                    break
+                if yl==low: continue
+                if is_section_heading(y,stop_labels): break
+                if y not in out: out.append(y)
+                if len(out)>=max_items: break
             return out
     return []
-
 
 def clean_driving_licenses(values):
     found=[]
     for value in values:
         text=clean(value).upper().replace('/', ' ').replace(',', ' ')
-        if norm(value) in {'skupina','skupiny','vodičské oprávnenie','vodičské oprávnenia'}:
-            continue
+        if norm(value) in {'skupina','skupiny','vodičské oprávnenie','vodičské oprávnenia'}: continue
         for token in re.findall(r'(?<![A-Z0-9])(?:AM|A1|A2|BE|B1|B|C1E|C1|CE|C|D1E|D1|DE|D|T)(?![A-Z0-9])',text):
-            if token in DRIVING_GROUPS and token not in found:
-                found.append(token)
+            if token in DRIVING_GROUPS and token not in found: found.append(token)
     return found
 
-
 def clean_requirement_values(values):
-    noise={
-      'áno','nie','skupina','skupiny','úroveň','uroven','stupeň','stupen',
-      'znalosť slovenského jazyka je nevyhnutná','znalost slovenskeho jazyka je nevyhnutna'
-    }
+    noise={'áno','nie','skupina','skupiny','úroveň','uroven','stupeň','stupen','znalosť slovenského jazyka je nevyhnutná','znalost slovenskeho jazyka je nevyhnutna'}
     out=[]
     for value in values:
         v=clean(value)
-        if not v or norm(v) in noise or is_section_heading(v):
-            continue
-        if v not in out:
-            out.append(v)
+        if not v or norm(v) in noise or is_section_heading(v): continue
+        if v not in out: out.append(v)
     return out
 
-
-def find_json_value(obj, key):
-    """Recursively find the first non-empty key in JSON-LD data."""
-    if isinstance(obj, dict):
-        if key in obj and clean(obj.get(key)):
-            return clean(obj.get(key))
+def find_json_value(obj,key):
+    if isinstance(obj,dict):
+        if key in obj and clean(obj.get(key)): return clean(obj.get(key))
         for v in obj.values():
             found=find_json_value(v,key)
-            if found:
-                return found
-    elif isinstance(obj, list):
+            if found: return found
+    elif isinstance(obj,list):
         for v in obj:
             found=find_json_value(v,key)
-            if found:
-                return found
+            if found: return found
     return ''
 
-
 def structured_address(soup):
-    """Read schema.org address data when the portal exposes it."""
     data=[]
     for node in soup.find_all('script',attrs={'type':'application/ld+json'}):
         raw=node.string or node.get_text() or ''
-        try:
-            data.append(json.loads(raw))
-        except Exception:
-            continue
-    city=''; district=''; region=''; street=''; postal=''
+        try: data.append(json.loads(raw))
+        except Exception: continue
+    city=region=street=postal=''
     for obj in data:
         city=city or find_json_value(obj,'addressLocality')
         region=region or find_json_value(obj,'addressRegion')
-        district=district or find_json_value(obj,'district')
         street=street or find_json_value(obj,'streetAddress')
         postal=postal or find_json_value(obj,'postalCode')
-    return {'city':city,'district':district,'region':region,'street':street,'postalCode':postal}
+    return {'city':city,'region':region,'street':street,'postalCode':postal}
 
-
-def location_fields(soup, lines):
-    """Return searchable location fields without guessing a city from a street name."""
+def location_fields(soup,lines):
     structured=structured_address(soup)
     raw=value_after(lines,'Miesto výkonu práce')
     city=structured['city']
-    district=structured['district'] or value_after(lines,'Okres',4)
-    region=structured['region'] or value_after(lines,'Kraj',4)
-
-    # Fallback: many portal values contain postal code + city in the same string.
-    # Example: "Jarná 3, 94901 Nitra - Nitra".
     if not city:
         m=re.search(r'\b\d{3}\s?\d{2}\s+([^,;]+)',raw)
-        if m:
-            candidate=clean(m.group(1))
-            candidate=re.split(r'\s+-\s+',candidate)[0]
-            if candidate:
-                city=candidate
-
-    # If city is still missing, inspect only the short location section, never
-    # unrelated requirement blocks.
-    if not city:
-        loc_values=values_between(lines,'Miesto výkonu práce',['Dátum nástupu','Pracovný pomer','Základná zložka mzdy'],5)
-        for candidate in loc_values:
-            m=re.search(r'\b\d{3}\s?\d{2}\s+([^,;]+)',candidate)
-            if m:
-                city=clean(re.split(r'\s+-\s+',m.group(1))[0]); break
-
+        if m: city=clean(re.split(r'\s+-\s+',m.group(1))[0])
     display=raw
     if structured['street'] and city:
-        display=', '.join(x for x in [structured['street'], structured['postalCode'], city] if x)
-    return {'location':display,'city':city,'district':district,'region':region,'postalCode':structured['postalCode']}
-
+        display=', '.join(x for x in [structured['street'],structured['postalCode'],city] if x)
+    # Do not guess district/region from arbitrary page text. Structured values only.
+    return {'location':display,'city':city,'district':'','region':structured['region'],'postalCode':structured['postalCode']}
 
 def inactive(lines):
     text=' '.join(lines).lower()
-    markers=['ponuka už nie je aktívna','ponuka nie je aktívna','pracovná ponuka bola zrušená','ponuka bola zrušená','neaktívna pracovná ponuka']
-    return any(x in text for x in markers)
+    return any(x in text for x in ['ponuka už nie je aktívna','ponuka nie je aktívna','pracovná ponuka bola zrušená','ponuka bola zrušená','neaktívna pracovná ponuka'])
 
-
-def detail(url, session):
+def detail(url,session):
     r=session.get(url,headers=HEADERS,timeout=25)
     if r.status_code in (404,410): return None
-    r.raise_for_status()
-    soup=BeautifulSoup(r.text,'html.parser')
-    h1=soup.find('h1')
-    title=clean(h1.get_text(' ',strip=True) if h1 else '')
+    r.raise_for_status(); soup=BeautifulSoup(r.text,'html.parser')
+    h1=soup.find('h1'); title=clean(h1.get_text(' ',strip=True) if h1 else '')
     lines=[clean(x) for x in soup.stripped_strings if clean(x)]
     if not title or inactive(lines): return None
-
     employer=''
     if title in lines:
         idx=lines.index(title)
         for x in lines[idx+1:idx+9]:
             if 'Miesto výkonu práce' in x or 'Dátum nástupu' in x: break
-            if x and x not in {'(muž/žena)','muž/žena'}:
-                employer=x; break
-
+            if x and x not in {'(muž/žena)','muž/žena'}: employer=x; break
     education=clean_requirement_values(values_between(lines,'Požadovaný stupeň vzdelania',max_items=6))
     languages=clean_requirement_values(values_between(lines,'Požadované cudzie jazyky',max_items=8))
     computer=clean_requirement_values(values_between(lines,'Počítačové zručnosti',max_items=12))
     raw_licenses=values_between(lines,'Vodičské oprávnenia',max_items=8) or values_between(lines,'Vodičské oprávnenie',max_items=8)
     licenses=clean_driving_licenses(raw_licenses)
-    description=value_after(lines,'Náplň práce',18)
-    category=classify(title,description)
-    loc=location_fields(soup,lines)
-
-    return {
-      'title':title,'employer':employer,
-      'location':loc['location'],'city':loc['city'],'district':loc['district'],
-      'region':loc['region'],'postalCode':loc['postalCode'],
-      'salary':value_after(lines,'Základná zložka mzdy'),
-      'category':category,'searchTerm':'all-market',
-      'updated':value_after(lines,'Naposledy aktualizované'),
-      'startDate':value_after(lines,'Dátum nástupu'),
-      'employmentType':value_after(lines,'Pracovný pomer'),
-      'experience':value_after(lines,'Požadovaná prax'),
-      'education':education,
-      'languages':languages,
-      'computerSkills':computer,
-      'drivingLicenses':licenses,
-      'shiftWork':value_after(lines,'Práca na zmeny'),
-      'slovakRequired':value_after(lines,'Znalosť slovenského jazyka je nevyhnutná'),
-      'description':description,
-      'url':url
-    }
-
+    description=value_after(lines,'Náplň práce',18); category=classify(title,description); loc=location_fields(soup,lines)
+    return {'title':title,'employer':employer,'location':loc['location'],'city':loc['city'],'district':loc['district'],'region':loc['region'],'postalCode':loc['postalCode'],'salary':value_after(lines,'Základná zložka mzdy'),'category':category,'searchTerm':'all-market','updated':value_after(lines,'Naposledy aktualizované'),'startDate':value_after(lines,'Dátum nástupu'),'employmentType':value_after(lines,'Pracovný pomer'),'experience':value_after(lines,'Požadovaná prax'),'education':education,'languages':languages,'computerSkills':computer,'drivingLicenses':licenses,'shiftWork':value_after(lines,'Práca na zmeny'),'slovakRequired':value_after(lines,'Znalosť slovenského jazyka je nevyhnutná'),'description':description,'url':url}
 
 def page_urls(page,session):
-    r=session.get(SEARCH,params={'pageNr':page,'pageSize':PAGE_SIZE},headers=HEADERS,timeout=25)
-    r.raise_for_status()
-    soup=BeautifulSoup(r.text,'html.parser')
-    found=[]
+    # Native portal pagination is more stable than overriding pageSize.
+    r=session.get(SEARCH,params={'pageNr':page},headers=HEADERS,timeout=25)
+    r.raise_for_status(); soup=BeautifulSoup(r.text,'html.parser'); found=[]
     for a in soup.find_all('a',href=True):
         href=a['href']
         if re.search(r'/pracovne-ponuky/[0-9a-fA-F-]{30,}',href):
@@ -268,23 +177,17 @@ def page_urls(page,session):
             if u not in found: found.append(u)
     return found
 
-
 def main():
-    s=requests.Session(); jobs=[]; seen=set(); failures=0
-    empty_pages=0
-
+    s=requests.Session(); jobs=[]; seen=set(); failures=0; empty_pages=0
     for page in range(1,MAX_PAGES+1):
-        try:
-            urls=page_urls(page,s)
+        try: urls=page_urls(page,s)
         except Exception as e:
             failures+=1; print('page failed',page,e); continue
-
         if not urls:
             empty_pages+=1
             if empty_pages>=2: break
             continue
         empty_pages=0
-
         for u in urls:
             if u in seen: continue
             seen.add(u)
@@ -295,23 +198,13 @@ def main():
                 failures+=1; print('detail failed',u,e)
             if len(jobs)>=MAX_JOBS: break
             time.sleep(.06)
-        print('page',page,'jobs',len(jobs))
+        print('page',page,'urls',len(urls),'jobs',len(jobs))
         if len(jobs)>=MAX_JOBS: break
-
-    if not jobs:
-        raise SystemExit('No active vacancies fetched; keeping previous jobs-data.json')
-
+    if len(jobs)<MIN_JOBS_TO_PUBLISH:
+        raise SystemExit(f'Only {len(jobs)} vacancies fetched; refusing to replace production database (minimum {MIN_JOBS_TO_PUBLISH})')
     jobs.sort(key=lambda j:(j.get('updated',''),j.get('title',''),j.get('city',''),j.get('location','')),reverse=True)
-    categories=sorted(set(j.get('category','Iné profesie') for j in jobs))
-    data={
-      'updatedAt':datetime.now(timezone.utc).isoformat(),
-      'source':'Služby zamestnanosti','activeOnly':True,'schemaVersion':4,
-      'collectionMode':'broad-market-feed',
-      'pagesScanned':min(MAX_PAGES,page),
-      'marketCategories':categories,
-      'jobCount':len(jobs),'failures':failures,'jobs':jobs
-    }
+    data={'updatedAt':datetime.now(timezone.utc).isoformat(),'source':'Služby zamestnanosti','activeOnly':True,'schemaVersion':4,'collectionMode':'broad-market-feed','pagesScanned':min(MAX_PAGES,page),'marketCategories':sorted(set(j.get('category','Iné profesie') for j in jobs)),'jobCount':len(jobs),'failures':failures,'jobs':jobs}
     Path('jobs-data.json').write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
-    print('saved',len(jobs),'active market-wide vacancies with searchable location fields')
+    print('saved',len(jobs),'active market-wide vacancies with searchable city fields')
 
 if __name__=='__main__': main()
