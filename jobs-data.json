@@ -1,0 +1,11 @@
+{
+  "updatedAt": "2026-09-03T10:40:00+02:00",
+  "source": "Služby zamestnanosti",
+  "jobs": [
+    {"title":"CNC operátor/ka (muž/žena)","employer":"MEDEKO CAST s.r.o.","location":"Považská Bystrica","salary":"932 € mesačne","category":"CNC","url":"https://sluzbyzamestnanosti.gov.sk/pracovne-ponuky/d09d2764-75f5-4872-ae79-c04f2dab6ff9?lang=sk"},
+    {"title":"CNC operátor (muž/žena)","employer":"Cortizo Slovakia, a.s.","location":"Nová Baňa - Žarnovica","salary":"1 155 € mesačne","category":"CNC","url":"https://sluzbyzamestnanosti.gov.sk/pracovne-ponuky/c6e50553-bfd5-49c5-b921-e59d9686d5d6?lang=sk"},
+    {"title":"CNC operátor (muž/žena)","employer":"LVD S3, a. s.","location":"Tornaľa - Revúca","salary":"1 250 € mesačne","category":"CNC","url":"https://sluzbyzamestnanosti.gov.sk/pracovne-ponuky/78e2ab73-dd53-4313-8032-765dce2551ee?lang=sk"},
+    {"title":"Obrábač/-ka kovov, CNC operátor/-ka (muž/žena)","employer":"Prohuman Slovakia s. r. o.","location":"Dunajská Streda","salary":"9 € za hodinu","category":"CNC","url":"https://sluzbyzamestnanosti.gov.sk/pracovne-ponuky/64dd3d1f-4880-42c9-ae0d-f938daeb20c1?lang=sk"},
+    {"title":"Nastavovač CNC strojov (muž/žena)","employer":"Strojárne SK, s.r.o.","location":"Kružlov - Bardejov","salary":"1 031 € mesačne","category":"CNC","url":"https://sluzbyzamestnanosti.gov.sk/pracovne-ponuky/0c99c76a-bf95-408e-85cd-d3d0b4c92e0f?lang=sk"}
+  ]
+}
