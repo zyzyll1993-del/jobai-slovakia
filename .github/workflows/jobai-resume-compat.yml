@@ -21,10 +21,11 @@ jobs:
           p=Path('index.html')
           s=p.read_text(encoding='utf-8')
           s=s.replace('resume-compat-fix.js?v=1','resume-compat-fix.js?v=2')
-          s=s.replace('resume-sections-toggle.js?v=1','resume-sections-toggle.js?v=2')
+          s=s.replace('resume-sections-toggle.js?v=1','resume-sections-toggle.js?v=3')
+          s=s.replace('resume-sections-toggle.js?v=2','resume-sections-toggle.js?v=3')
           tag='<script src="resume-empty-sections.js?v=1"></script>'
           if 'resume-empty-sections.js' not in s:
-              marker='<script src="resume-sections-toggle.js?v=2"></script>'
+              marker='<script src="resume-sections-toggle.js?v=3"></script>'
               s=s.replace(marker, marker+'\n'+tag)
           p.write_text(s,encoding='utf-8')
           PY
@@ -34,5 +35,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
           git diff --cached --quiet && exit 0
-          git commit -m "Enable empty resume section cleanup [jobai-resume-compat]"
+          git commit -m "Refresh resume scripts [jobai-resume-compat]"
           git push
