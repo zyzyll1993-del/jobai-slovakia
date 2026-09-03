@@ -40,10 +40,11 @@
     else window.addEducation=function(data){add();var a=window.educations;a[a.length-1]=Object.assign(a[a.length-1],data||{});open();};
     render();
   }
+  function renameProfessionalButton(){document.querySelectorAll('.template-button').forEach(function(btn){if(btn.textContent.trim()==='Professional')btn.textContent='Profi';});}
   function init(){
     if(document.getElementById('jobaiResumeSectionsToggleStyles'))return;
     var s=document.createElement('style');s.id='jobaiResumeSectionsToggleStyles';s.textContent='.jobai-section-toggle{width:100%;text-align:left;margin:8px 0 10px}.jobai-collapsible-list{margin-top:10px}.jobai-entry{margin-top:10px}.jobai-entry .entry-header{display:flex;justify-content:space-between;align-items:center;gap:10px}.jobai-entry .entry-header h3{margin:0}.jobai-entry input,.jobai-entry textarea{box-sizing:border-box;width:100%}.template-grid{width:100%;grid-template-columns:repeat(5,minmax(0,1fr));}.template-button{width:100%;min-width:0;min-height:44px;padding:10px 6px;line-height:1.2;white-space:normal;overflow-wrap:anywhere;word-break:break-word;text-align:center;}@media(max-width:700px){.jobai-section-toggle{min-height:46px}.jobai-entry .entry-header{align-items:flex-start;flex-direction:column}.jobai-entry .entry-header button{width:100%}.template-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.template-button{min-height:46px;padding:9px 6px;font-size:14px;}}';document.head.appendChild(s);
-    setup('experience');setup('education');
+    setup('experience');setup('education');renameProfessionalButton();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(init,300);});else setTimeout(init,300);
 })();
