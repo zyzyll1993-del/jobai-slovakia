@@ -8,7 +8,13 @@ from bs4 import BeautifulSoup
 
 BASE='https://www.sluzbyzamestnanosti.gov.sk'
 SEARCH=BASE+'/pracovne-ponuky'
-HEADERS={'User-Agent':'JobAI-Slovakia/1.6 (+https://zyzyll1993-del.github.io/jobai-slovakia/)'}
+HEADERS={
+ 'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36',
+ 'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+ 'Accept-Language':'sk-SK,sk;q=0.9,en;q=0.7',
+ 'Cache-Control':'no-cache',
+ 'Pragma':'no-cache'
+}
 MAX_PAGES=30
 MAX_JOBS=900
 MIN_JOBS_TO_PUBLISH=100
@@ -138,7 +144,6 @@ def location_fields(soup,lines):
     display=raw
     if structured['street'] and city:
         display=', '.join(x for x in [structured['street'],structured['postalCode'],city] if x)
-    # Do not guess district/region from arbitrary page text. Structured values only.
     return {'location':display,'city':city,'district':'','region':structured['region'],'postalCode':structured['postalCode']}
 
 def inactive(lines):
@@ -167,8 +172,7 @@ def detail(url,session):
     return {'title':title,'employer':employer,'location':loc['location'],'city':loc['city'],'district':loc['district'],'region':loc['region'],'postalCode':loc['postalCode'],'salary':value_after(lines,'Základná zložka mzdy'),'category':category,'searchTerm':'all-market','updated':value_after(lines,'Naposledy aktualizované'),'startDate':value_after(lines,'Dátum nástupu'),'employmentType':value_after(lines,'Pracovný pomer'),'experience':value_after(lines,'Požadovaná prax'),'education':education,'languages':languages,'computerSkills':computer,'drivingLicenses':licenses,'shiftWork':value_after(lines,'Práca na zmeny'),'slovakRequired':value_after(lines,'Znalosť slovenského jazyka je nevyhnutná'),'description':description,'url':url}
 
 def page_urls(page,session):
-    # Native portal pagination is more stable than overriding pageSize.
-    r=session.get(SEARCH,params={'pageNr':page},headers=HEADERS,timeout=25)
+    r=session.get(SEARCH,params={'pageNr':page,'lang':'sk'},headers=HEADERS,timeout=25)
     r.raise_for_status(); soup=BeautifulSoup(r.text,'html.parser'); found=[]
     for a in soup.find_all('a',href=True):
         href=a['href']
@@ -178,7 +182,11 @@ def page_urls(page,session):
     return found
 
 def main():
-    s=requests.Session(); jobs=[]; seen=set(); failures=0; empty_pages=0
+    s=requests.Session(); s.headers.update(HEADERS)
+    # Establish portal cookies before paginating.
+    try: s.get(SEARCH,params={'lang':'sk'},timeout=25)
+    except Exception: pass
+    jobs=[]; seen=set(); failures=0; empty_pages=0
     for page in range(1,MAX_PAGES+1):
         try: urls=page_urls(page,s)
         except Exception as e:
@@ -198,7 +206,7 @@ def main():
                 failures+=1; print('detail failed',u,e)
             if len(jobs)>=MAX_JOBS: break
             time.sleep(.06)
-        print('page',page,'urls',len(urls),'jobs',len(jobs))
+        print('page',page,'urls',len(urls),'unique',len(seen),'jobs',len(jobs))
         if len(jobs)>=MAX_JOBS: break
     if len(jobs)<MIN_JOBS_TO_PUBLISH:
         raise SystemExit(f'Only {len(jobs)} vacancies fetched; refusing to replace production database (minimum {MIN_JOBS_TO_PUBLISH})')
