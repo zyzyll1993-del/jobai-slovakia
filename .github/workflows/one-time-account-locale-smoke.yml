@@ -1,0 +1,21 @@
+name: One-time account locale smoke
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/one-time-account-locale-smoke.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate isolated account changes
+        run: |
+          node --check saas/account-prototype.js
+          grep -q "data:{locale:locale}" saas/account-prototype.js
+          grep -q 'analysis-enhancer-v2.js?v=7' index.html
+          ! grep -q 'saas/account' index.html
+          ! grep -q 'account-prototype.js' index.html
+          ! grep -Eq 'service_role|sk_live_|stripe_secret|SUPABASE_SERVICE' saas/account-prototype.js saas/account.html
