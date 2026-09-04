@@ -1,0 +1,142 @@
+name: One-time production smoke audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/one-time-production-smoke-audit.yml'
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check JavaScript syntax
+        run: |
+          set -e
+          for f in ./*.js; do
+            echo "Checking $f"
+            node --check "$f"
+          done
+
+      - name: Check inline JavaScript and local script references
+        run: |
+          python3 - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+
+          class Scripts(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.srcs=[]
+                  self.inline=[]
+                  self.in_script=False
+                  self.current=[]
+                  self.has_src=False
+              def handle_starttag(self, tag, attrs):
+                  if tag.lower()!='script': return
+                  d=dict(attrs)
+                  src=d.get('src')
+                  self.in_script=True
+                  self.has_src=bool(src)
+                  self.current=[]
+                  if src: self.srcs.append(src.split('?',1)[0])
+              def handle_data(self, data):
+                  if self.in_script and not self.has_src:
+                      self.current.append(data)
+              def handle_endtag(self, tag):
+                  if tag.lower()=='script' and self.in_script:
+                      if not self.has_src and ''.join(self.current).strip():
+                          self.inline.append(''.join(self.current))
+                      self.in_script=False
+                      self.current=[]
+                      self.has_src=False
+
+          html=Path('index.html').read_text(encoding='utf-8')
+          p=Scripts(); p.feed(html)
+          missing=[]
+          for src in p.srcs:
+              if src.startswith(('http://','https://','//')): continue
+              if not Path(src).exists(): missing.append(src)
+          if missing:
+              raise SystemExit('Missing local scripts referenced by index.html: '+', '.join(missing))
+          out=Path('/tmp/jobai-inline'); out.mkdir(exist_ok=True)
+          for i,code in enumerate(p.inline):
+              (out/f'inline-{i}.js').write_text(code,encoding='utf-8')
+          print('local script references OK:', len(p.srcs), 'inline scripts:', len(p.inline))
+          PY
+          for f in /tmp/jobai-inline/*.js; do
+            [ -e "$f" ] || continue
+            node --check "$f"
+          done
+
+      - name: Check Python syntax
+        run: python3 -m py_compile scripts/*.py
+
+      - name: Check UA SK EN translations
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          checks={
+            'index.html':[
+              'tabResume:"Резюме"','tabResume:"Životopis"','tabResume:"Resume"',
+              'tabAnalysis:"Аналіз вакансії"','tabAnalysis:"Analýza pracovnej ponuky"','tabAnalysis:"Job Analysis"'
+            ],
+            'resume-sections-toggle.js':[
+              "experience:'Досвід роботи'","experience:'Pracovné skúsenosti'","experience:'Work experience'",
+              "education:'Освіта'","education:'Vzdelanie'","education:'Education'",
+              'window.jobAIRebuildResumeSections=rebuildSections;'
+            ],
+            'my-resumes-manager.js':[
+              "title:'Мої резюме'","title:'Moje životopisy'","title:'My resumes'",
+              "save:'Зберегти'","save:'Uložiť'","save:'Save'"
+            ],
+            'home-translation.js':[
+              "create:'Створити резюме'","create:'Vytvoriť životopis'","create:'Create resume'",
+              "analyze:'Аналізувати вакансію'","analyze:'Analyzovať pracovnú ponuku'","analyze:'Analyze vacancy'"
+            ],
+            'jobs-page.js':[
+              "nav:'Вакансії'","nav:'Pracovné ponuky'","nav:'Jobs'",
+              "'Показати ще ('","'Zobraziť ďalšie ('","'Show more ('"
+            ]
+          }
+          for filename,markers in checks.items():
+              text=Path(filename).read_text(encoding='utf-8')
+              missing=[m for m in markers if m not in text]
+              if missing:
+                  raise SystemExit(f'{filename}: missing translation markers: {missing}')
+              print(filename,'translation markers OK')
+          PY
+
+      - name: Validate live vacancy database
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          data=json.loads(Path('jobs-data.json').read_text(encoding='utf-8'))
+          jobs=data.get('jobs',[])
+          required={
+            'Bratislavský kraj','Trnavský kraj','Trenčiansky kraj','Nitriansky kraj',
+            'Žilinský kraj','Banskobystrický kraj','Prešovský kraj','Košický kraj'
+          }
+          regions={j.get('region') for j in jobs}
+          missing=required-regions
+          polluted=[j for j in jobs if 'location_on' in ' '.join(str(j.get(k) or '') for k in ('location','city','district')).lower()]
+          if not isinstance(jobs,list) or len(jobs)<100:
+              raise SystemExit('Vacancy database too small or invalid')
+          if data.get('jobCount')!=len(jobs):
+              raise SystemExit(f"jobCount mismatch: {data.get('jobCount')} vs {len(jobs)}")
+          if data.get('failures') not in (0,None):
+              raise SystemExit(f"Vacancy fetch failures: {data.get('failures')}")
+          if data.get('unresolvedCount',0)!=0:
+              raise SystemExit(f"Unresolved locations: {data.get('unresolvedCount')}")
+          if missing:
+              raise SystemExit('Missing Slovak regions: '+', '.join(sorted(missing)))
+          if polluted:
+              raise SystemExit(f'UI noise remains in {len(polluted)} vacancy locations')
+          nationwide=sum(1 for j in jobs if j.get('region')=='Celé Slovensko')
+          print('jobs:',len(jobs),'regions: 8/8','nationwide:',nationwide,'unresolved: 0','location UI noise: 0')
+          PY
