@@ -57,7 +57,7 @@ jobs:
           grep -q 'window.__jobaiLastAnalysis=details' analysis-enhancer-v3.js
           grep -q "resume-tailor-v3.js?v=1" analysis-enhancer-v3.js
           grep -q 'analysis-enhancer-v3.js?v=3' index.html
-          grep -q 'Only add things you genuinely' resume-tailor-v3.js
+          grep -q 'Add missing requirements only when they are genuinely true' resume-tailor-v3.js
 
       - name: Commit integration
         run: |
