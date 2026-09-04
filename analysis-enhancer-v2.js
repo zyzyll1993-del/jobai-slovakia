@@ -29,7 +29,7 @@
     if(window.__jobaiRecommendationsLoading)return;
     window.__jobaiRecommendationsLoading=true;
     var old=document.getElementById('jobaiRecommendationsScript');if(old)old.remove();
-    var s=document.createElement('script');s.id='jobaiRecommendationsScript';s.src='job-recommendations.js?v=6';s.defer=true;
+    var s=document.createElement('script');s.id='jobaiRecommendationsScript';s.src='job-recommendations-v7.js?v=1';s.defer=true;
     s.onload=function(){window.__jobaiRecommendationsLoading=false;if(typeof window.renderJobRecommendations==='function')window.renderJobRecommendations();};
     s.onerror=function(){window.__jobaiRecommendationsLoading=false;};
     document.head.appendChild(s);
