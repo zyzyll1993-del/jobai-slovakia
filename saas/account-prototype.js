@@ -1,0 +1,18 @@
+/* JobAI SaaS account prototype — intentionally no network calls. */
+(function(){
+'use strict';
+var D={
+  sk:{badge:'Izolovaný prototyp — nepripojený k produkcii',title:'Účet JobAI',intro:'Táto stránka je pripravená na bezpečné pripojenie Supabase. Zatiaľ neposiela žiadne údaje.',privacy:'🔒 Email ani heslo sa v tomto prototype nikam neodosielajú ani neukladajú.',register:'Registrácia',login:'Prihlásenie',email:'Email',password:'Heslo',registerBtn:'Vytvoriť účet',loginBtn:'Prihlásiť sa',plans:'Tarify',free:'1 lokálny životopis, základná analýza, údaje zostávajú v zariadení.',pro:'Cloud sync, viac životopisov, história, uložené ponuky a budúce prémiové funkcie.',freeBtn:'Používať Free',proBtn:'Aktivovať Pro',notConnected:'Backend ešte nie je pripojený. Údaje neboli odoslané.',billing:'Platby ešte nie sú pripojené. Nebola vykonaná žiadna platba.'},
+  uk:{badge:'Ізольований прототип — не підключений до робочого сайту',title:'Акаунт JobAI',intro:'Ця сторінка підготовлена для безпечного підключення Supabase. Зараз вона не надсилає жодних даних.',privacy:'🔒 Email і пароль у цьому прототипі нікуди не надсилаються та не зберігаються.',register:'Реєстрація',login:'Вхід',email:'Email',password:'Пароль',registerBtn:'Створити акаунт',loginBtn:'Увійти',plans:'Тарифи',free:'1 локальне резюме, базовий аналіз, дані залишаються на пристрої.',pro:'Хмарна синхронізація, кілька резюме, історія, збережені вакансії та майбутні преміум-функції.',freeBtn:'Користуватися Free',proBtn:'Активувати Pro',notConnected:'Backend ще не підключений. Дані не були надіслані.',billing:'Платежі ще не підключені. Жодної оплати не виконано.'},
+  en:{badge:'Isolated prototype — not connected to production',title:'JobAI account',intro:'This page is prepared for a secure Supabase connection. It currently sends no data.',privacy:'🔒 Email and password are not sent or stored anywhere in this prototype.',register:'Register',login:'Sign in',email:'Email',password:'Password',registerBtn:'Create account',loginBtn:'Sign in',plans:'Plans',free:'1 local resume, basic analysis, data stays on the device.',pro:'Cloud sync, multiple resumes, history, saved jobs and future premium features.',freeBtn:'Use Free',proBtn:'Activate Pro',notConnected:'Backend is not connected yet. No data was sent.',billing:'Payments are not connected yet. No payment was made.'}
+};
+function set(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+function apply(l){var t=D[l]||D.sk;document.documentElement.lang=l;set('prototypeBadge',t.badge);set('title',t.title);set('intro',t.intro);set('privacyNotice',t.privacy);set('registerTitle',t.register);set('loginTitle',t.login);set('emailLabel1',t.email);set('emailLabel2',t.email);set('passwordLabel1',t.password);set('passwordLabel2',t.password);set('registerBtn',t.registerBtn);set('loginBtn',t.loginBtn);set('plansTitle',t.plans);set('freeText',t.free);set('proText',t.pro);set('freeBtn',t.freeBtn);set('proBtn',t.proBtn);window.__jobaiPrototypeLang=l;}
+function safeAuthMessage(){var l=window.__jobaiPrototypeLang||'sk';set('authStatus',(D[l]||D.sk).notConnected);}
+function safeBillingMessage(){var l=window.__jobaiPrototypeLang||'sk';set('billingStatus',(D[l]||D.sk).billing);}
+['registerForm','loginForm'].forEach(function(id){var f=document.getElementById(id);if(f)f.addEventListener('submit',function(e){e.preventDefault();safeAuthMessage();f.reset();});});
+var pro=document.getElementById('proBtn');if(pro)pro.addEventListener('click',safeBillingMessage);
+var free=document.getElementById('freeBtn');if(free)free.addEventListener('click',function(){set('billingStatus','Free');});
+document.querySelectorAll('[data-lang]').forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.lang);});});
+apply('sk');
+})();
