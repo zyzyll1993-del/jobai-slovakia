@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>JobAI Slovakia — Account prototype</title>
+  <title>JobAI Slovakia — Account</title>
   <style>
-    *{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0f172a;color:#e5e7eb}.wrap{max-width:960px;margin:auto;padding:28px 18px 60px}.top{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.brand{font-weight:900;font-size:24px}.badge{padding:6px 10px;border:1px solid #475569;border-radius:999px;color:#cbd5e1}.card{background:#172033;border:1px solid #334155;border-radius:16px;padding:20px;margin-top:18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.plans{display:grid;grid-template-columns:1fr 1fr;gap:16px}.plan{border:1px solid #334155;border-radius:14px;padding:18px}.plan h3{margin-top:0}.price{font-size:30px;font-weight:900}.muted{color:#94a3b8}.notice{padding:12px 14px;border-radius:12px;background:#1e293b;border:1px solid #475569;margin:14px 0}label{display:block;font-weight:700;margin:10px 0 6px}input{width:100%;padding:11px 12px;border-radius:9px;border:1px solid #475569;background:#0f172a;color:#fff}button{padding:11px 14px;border:0;border-radius:9px;font-weight:800;cursor:pointer;background:#2563eb;color:#fff;margin-top:12px}button.secondary{background:#334155}.lang button{margin:0 4px 0 0;padding:8px 10px}.status{margin-top:12px;color:#cbd5e1}@media(max-width:700px){.grid,.plans{grid-template-columns:1fr}}
+    *{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0f172a;color:#e5e7eb}.wrap{max-width:960px;margin:auto;padding:28px 18px 60px}.top{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.brand{font-weight:900;font-size:24px}.badge{padding:6px 10px;border:1px solid #475569;border-radius:999px;color:#cbd5e1}.card{background:#172033;border:1px solid #334155;border-radius:16px;padding:20px;margin-top:18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.plans{display:grid;grid-template-columns:1fr 1fr;gap:16px}.plan{border:1px solid #334155;border-radius:14px;padding:18px}.plan h3{margin-top:0}.price{font-size:30px;font-weight:900}.muted{color:#94a3b8}.notice{padding:12px 14px;border-radius:12px;background:#1e293b;border:1px solid #475569;margin:14px 0}label{display:block;font-weight:700;margin:10px 0 6px}input{width:100%;padding:11px 12px;border-radius:9px;border:1px solid #475569;background:#0f172a;color:#fff}button{padding:11px 14px;border:0;border-radius:9px;font-weight:800;cursor:pointer;background:#2563eb;color:#fff;margin-top:12px}button.secondary{background:#334155}.lang button{margin:0 4px 0 0;padding:8px 10px}.status{margin-top:12px;color:#cbd5e1}.account-box{display:none;margin-top:16px;padding:14px;border:1px solid #334155;border-radius:12px;background:#111827}.account-box.show{display:block}@media(max-width:700px){.grid,.plans{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -14,13 +14,13 @@
       <div class="brand">JobAI Slovakia 🇸🇰</div>
       <div class="lang"><button data-lang="sk">SK</button><button data-lang="uk">UA</button><button data-lang="en">EN</button></div>
     </div>
-    <div class="badge" id="prototypeBadge">Izolovaný prototyp — nepripojený k produkcii</div>
+    <div class="badge" id="prototypeBadge">Izolovaná testovacia stránka účtu</div>
 
     <section class="card">
       <h1 id="title">Účet JobAI</h1>
-      <p id="intro" class="muted">Táto stránka je pripravená na bezpečné pripojenie Supabase. Zatiaľ neposiela žiadne údaje.</p>
-      <div class="notice" id="privacyNotice">🔒 Email ani heslo sa v tomto prototype nikam neodosielajú ani neukladajú.</div>
-      <div class="grid">
+      <p id="intro" class="muted">Registrácia a prihlásenie používajú Supabase Auth. Táto stránka stále nie je pripojená k hlavnému JobAI rozhraniu.</p>
+      <div class="notice" id="privacyNotice">🔒 Heslá spracúva Supabase Auth. JobAI ich neukladá do vlastnej databázy ani do GitHubu.</div>
+      <div class="grid" id="authForms">
         <form id="registerForm">
           <h2 id="registerTitle">Registrácia</h2>
           <label for="regEmail" id="emailLabel1">Email</label>
@@ -39,6 +39,11 @@
         </form>
       </div>
       <div class="status" id="authStatus"></div>
+      <div class="account-box" id="accountBox">
+        <strong id="signedInLabel">Prihlásený používateľ:</strong> <span id="accountEmail"></span><br>
+        <strong id="planLabel">Plán:</strong> <span id="accountPlan">Free</span><br>
+        <button type="button" class="secondary" id="logoutBtn">Odhlásiť sa</button>
+      </div>
     </section>
 
     <section class="card">
@@ -60,6 +65,7 @@
       <div class="status" id="billingStatus"></div>
     </section>
   </main>
-  <script src="account-prototype.js?v=1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="account-prototype.js?v=2"></script>
 </body>
 </html>
