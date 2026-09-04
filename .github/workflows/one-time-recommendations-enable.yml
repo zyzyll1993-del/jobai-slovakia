@@ -1,0 +1,44 @@
+name: One-time recommendations cache refresh
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/one-time-recommendations-enable.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refresh analysis enhancer cache key
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          old='analysis-enhancer-v2.js?v=3'
+          new='analysis-enhancer-v2.js?v=4'
+          if old not in s:
+              raise SystemExit('Expected analysis enhancer v3 cache key not found')
+          if s.count(old) != 1:
+              raise SystemExit(f'Expected one cache key, found {s.count(old)}')
+          p.write_text(s.replace(old,new,1),encoding='utf-8')
+          PY
+      - name: Syntax check changed modules
+        run: |
+          node --check analysis-enhancer-v2.js
+          node --check job-recommendations.js
+          grep -q 'analysis-enhancer-v2.js?v=4' index.html
+          grep -q 'job-recommendations.js?v=6' analysis-enhancer-v2.js
+      - name: Commit cache refresh
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Load explained vacancy recommendations"
+          git push
