@@ -24,7 +24,17 @@
     box.innerHTML='<div style="font-weight:800;margin-bottom:8px">'+t.skills+'</div><div style="margin-bottom:14px">'+(js.length?js.map(function(x){return '<span style="display:inline-block;margin:3px 5px 3px 0;padding:5px 9px;border-radius:999px;background:rgba(59,130,246,.16)">'+escape(x)+'</span>';}).join(''):'<span>'+t.none+'</span>')+'</div><div style="font-weight:800;margin-bottom:6px">'+t.matched+'</div><div style="margin-bottom:14px">'+(matched.length?escape(matched.join(', ')):'—')+'</div><div style="font-weight:800;margin-bottom:6px">'+t.missing+'</div><div style="margin-bottom:14px">'+(missing.length?escape(missing.join(', ')):'—')+'</div><div style="font-weight:800;margin-bottom:6px">'+t.match+'</div><div style="font-size:24px;font-weight:800;margin-bottom:8px">'+score+'%</div><div style="font-size:13px;opacity:.8">'+t.tip+'</div>';
     result.appendChild(box);
   }
-  function hook(){document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('button');if(!b)return;var t=norm(b.textContent);if(t.indexOf('analiz')>=0||t.indexOf('аналіз')>=0||t.indexOf('analyz')>=0)setTimeout(update,500);});setTimeout(update,1200);}
+  function loadRecommendations(){
+    if(typeof window.renderJobRecommendations==='function'){setTimeout(window.renderJobRecommendations,50);return;}
+    if(window.__jobaiRecommendationsLoading)return;
+    window.__jobaiRecommendationsLoading=true;
+    var old=document.getElementById('jobaiRecommendationsScript');if(old)old.remove();
+    var s=document.createElement('script');s.id='jobaiRecommendationsScript';s.src='job-recommendations.js?v=6';s.defer=true;
+    s.onload=function(){window.__jobaiRecommendationsLoading=false;if(typeof window.renderJobRecommendations==='function')window.renderJobRecommendations();};
+    s.onerror=function(){window.__jobaiRecommendationsLoading=false;};
+    document.head.appendChild(s);
+  }
+  function hook(){document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('button');if(!b)return;var t=norm(b.textContent);if(t.indexOf('analiz')>=0||t.indexOf('аналіз')>=0||t.indexOf('analyz')>=0){setTimeout(update,500);setTimeout(loadRecommendations,650);}});setTimeout(update,1200);}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',hook);else hook();
 })();
 
