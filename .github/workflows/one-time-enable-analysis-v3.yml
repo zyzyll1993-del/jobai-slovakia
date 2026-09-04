@@ -28,16 +28,19 @@ jobs:
           function el(id,value=''){
             return els[id]={id,value,textContent:'',innerHTML:'',style:{},appendChild(){},scrollIntoView(){}};
           }
-          el('jobText',`Stavebný klampiar (muž/žena)
-Miesto výkonu práce: Rázusova 800/12, 94901 Nitra - Nitra
-Mesto: Nitra
-Okres: Nitra
-Kraj: Nitriansky kraj
-Mzda: 920
-Náplň práce: Meranie, rezanie, ohýbanie a tvarovanie plechov pomocou ručného náradia.
-Požadovaná prax: aspoň 1 rok
-Požadované vzdelanie: Nižšie stredné odborné vzdelanie
-Slovenčina nevyhnutná: Nie`);
+          const vacancy=[
+            'Stavebný klampiar (muž/žena)',
+            'Miesto výkonu práce: Rázusova 800/12, 94901 Nitra - Nitra',
+            'Mesto: Nitra',
+            'Okres: Nitra',
+            'Kraj: Nitriansky kraj',
+            'Mzda: 920',
+            'Náplň práce: Meranie, rezanie, ohýbanie a tvarovanie plechov pomocou ručného náradia.',
+            'Požadovaná prax: aspoň 1 rok',
+            'Požadované vzdelanie: Nižšie stredné odborné vzdelanie',
+            'Slovenčina nevyhnutná: Nie'
+          ].join('\n');
+          el('jobText',vacancy);
           el('position','Stavebný klampiar');
           el('profile',''); el('skills','meranie, rezanie, ručné náradie'); el('languages','Ukrajinčina'); el('city','Nitra');
           el('analysisResult'); el('score'); el('progressBar'); el('found'); el('missing'); el('recommendation'); el('detectedJobs');
