@@ -1,0 +1,67 @@
+name: One-time vacancy analysis button fix
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/one-time-analysis-button-fix.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Make analysis button self-contained
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          p=Path('analysis-enhancer-v2.js')
+          s=p.read_text(encoding='utf-8')
+          old="var result=document.getElementById('analysisResult'),job=text('jobText')||text('job');if(!result||!job)return;"
+          new="var result=document.getElementById('analysisResult'),job=text('jobText')||text('job');if(!result)return;result.style.display='block';if(!job){var empty=document.getElementById('recommendation');if(empty)empty.textContent=lang()==='sk'?'Vložte text pracovnej ponuky.':lang()==='en'?'Paste the job vacancy text.':'Вставте текст вакансії.';return;}"
+          if old not in s:
+              raise SystemExit('analysis result guard marker not found')
+          s=s.replace(old,new,1)
+
+          old="var scoreEl=document.getElementById('score'),bar=document.getElementById('progressBar');if(scoreEl)scoreEl.textContent=score+'%';if(bar)bar.style.width=score+'%';"
+          new="var scoreEl=document.getElementById('score'),bar=document.getElementById('progressBar');if(scoreEl)scoreEl.textContent=score+'%';if(bar)bar.style.width=score+'%';var foundEl=document.getElementById('found'),missingEl=document.getElementById('missing'),recEl=document.getElementById('recommendation');if(foundEl)foundEl.innerHTML=matched.length?'<ul>'+matched.map(function(x){return '<li>'+escape(x)+'</li>';}).join('')+'</ul>':'<p>—</p>';if(missingEl)missingEl.innerHTML=missing.length?'<ul>'+missing.map(function(x){return '<li>'+escape(x)+'</li>';}).join('')+'</ul>':'<p>—</p>';if(recEl)recEl.textContent=lang()==='sk'?(score>=70?'Dobrá zhoda. Skontrolujte chýbajúce požiadavky nižšie.':'Čiastočná zhoda. Doplňte iba skúsenosti a zručnosti, ktoré skutočne máte.'):lang()==='en'?(score>=70?'Good match. Review the missing requirements below.':'Partial match. Add only experience and skills you actually have.'):(score>=70?'Хороша відповідність. Перевірте відсутні вимоги нижче.':'Часткова відповідність. Додавайте лише той досвід і навички, які справді маєте.');"
+          if old not in s:
+              raise SystemExit('analysis score marker not found')
+          s=s.replace(old,new,1)
+
+          old="setTimeout(update,500);setTimeout(loadRecommendations,650);"
+          new="setTimeout(update,0);setTimeout(loadRecommendations,120);"
+          if old not in s:
+              raise SystemExit('analysis click timing marker not found')
+          s=s.replace(old,new,1)
+          p.write_text(s,encoding='utf-8')
+
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          old='analysis-enhancer-v2.js?v=5'
+          new='analysis-enhancer-v2.js?v=6'
+          if old not in s:
+              raise SystemExit('analysis enhancer v5 cache key not found')
+          if s.count(old)!=1:
+              raise SystemExit(f'expected one analysis enhancer cache key, found {s.count(old)}')
+          p.write_text(s.replace(old,new,1),encoding='utf-8')
+          PY
+      - name: Validate analysis fix
+        run: |
+          node --check analysis-enhancer-v2.js
+          node --check analysis.js
+          grep -q "result.style.display='block'" analysis-enhancer-v2.js
+          grep -q 'analysis-enhancer-v2.js?v=6' index.html
+          grep -q 'onclick="analyzeJob()"' index.html
+      - name: Commit fix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add analysis-enhancer-v2.js index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Fix vacancy analysis button response"
+          git push
