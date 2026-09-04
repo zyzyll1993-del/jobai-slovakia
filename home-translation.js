@@ -120,6 +120,7 @@
     window.educations=Array.isArray(data.educations)?JSON.parse(JSON.stringify(data.educations)):[];
     if(data.photo)localStorage.setItem('jobaiPhoto',data.photo);else localStorage.removeItem('jobaiPhoto');
     ['jobaiResumeTemplate','jobaiResumeColor','jobaiResumeFont','jobaiResumeFontSize','jobaiResumeNameSize','jobaiResumeFontWeight','jobaiResumeLineHeight'].forEach(function(k){if(data[k])localStorage.setItem(k,data[k]);});
+    if(typeof window.jobAIRebuildResumeSections==='function')window.jobAIRebuildResumeSections();
     if(typeof window.renderExperiences==='function')window.renderExperiences();
     if(typeof window.renderEducations==='function')window.renderEducations();
     if(typeof window.displayResumePhoto==='function')window.displayResumePhoto(data.photo||'');
