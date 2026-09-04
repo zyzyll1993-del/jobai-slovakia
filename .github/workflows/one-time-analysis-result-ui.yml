@@ -1,0 +1,49 @@
+name: One-time safe analysis result UI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/one-time-analysis-result-ui.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  validate-and-enable:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate presentation module
+        run: |
+          node --check analysis-enhancer-v2.js
+          node --check analysis-result-ui.js
+          grep -q "Does not replace analyzeJob" analysis-result-ui.js
+          ! grep -q "window.analyzeJob" analysis-result-ui.js
+      - name: Enable presentation module
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          marker='<script src="analysis-enhancer-v2.js?v=7"></script>'
+          addition=marker+'\n<script src="analysis-result-ui.js?v=1"></script>'
+          if 'analysis-result-ui.js?v=1' not in s:
+              if s.count(marker)!=1:
+                  raise SystemExit(f'expected one stable analysis loader, got {s.count(marker)}')
+              s=s.replace(marker,addition,1)
+              p.write_text(s,encoding='utf-8')
+          PY
+      - name: Validate integration
+        run: |
+          grep -q 'analysis-enhancer-v2.js?v=7' index.html
+          grep -q 'analysis-result-ui.js?v=1' index.html
+          node --check analysis-result-ui.js
+      - name: Commit integration
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Enable safe vacancy analysis result UI"
+          git push
