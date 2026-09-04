@@ -1,0 +1,25 @@
+name: One-time isolated auth smoke
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/one-time-auth-smoke.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate isolated auth page
+        run: |
+          node --check saas/account-prototype.js
+          grep -q 'analysis-enhancer-v2.js?v=7' index.html
+          ! grep -q 'saas/account' index.html
+          ! grep -q 'account-prototype.js' index.html
+          grep -q '@supabase/supabase-js@2' saas/account.html
+          grep -q 'sb_publishable_' saas/account-prototype.js
+          ! grep -Eq 'service_role|sk_live_|stripe_secret|SUPABASE_SERVICE' saas/account-prototype.js saas/account.html
+          grep -q 'signUp' saas/account-prototype.js
+          grep -q 'signInWithPassword' saas/account-prototype.js
+          grep -q 'signOut' saas/account-prototype.js
