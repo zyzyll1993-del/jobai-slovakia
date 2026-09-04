@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from collections import Counter
 from pathlib import Path
 
@@ -24,6 +25,40 @@ FOREIGN_PREFIXES = (
 
 def norm(value: object) -> str:
     return ' '.join(str(value or '').strip().lower().split())
+
+
+def clean_geo_text(value: object) -> str:
+    """Remove UI labels accidentally captured from the official vacancy page."""
+    text = ' '.join(str(value or '').strip().split())
+    if not text:
+        return ''
+    for marker in (
+        r'\s+location_on\b',
+        r'\s+Dátum nástupu\b',
+        r'\s+Základná zložka mzdy\b',
+        r'\s+Údaje o pracovnej pozícii\b',
+    ):
+        text = re.split(marker, text, maxsplit=1, flags=re.I)[0].strip()
+    return text
+
+
+def clean_job_geography(job: dict) -> dict:
+    job['location'] = clean_geo_text(job.get('location'))
+    job['city'] = clean_geo_text(job.get('city'))
+    job['district'] = clean_geo_text(job.get('district'))
+
+    # Some portal records expose "city - district" as one captured city value.
+    if ' - ' in job['city']:
+        city, district = [part.strip() for part in job['city'].split(' - ', 1)]
+        if city:
+            job['city'] = city
+        if district and not job['district']:
+            job['district'] = district
+
+    # Kept records are Slovak after the foreign filter below; normalize the field
+    # because the source markup sometimes puts the street into `country`.
+    job['country'] = 'Slovensko'
+    return job
 
 
 def is_nationwide(job: dict) -> bool:
@@ -56,6 +91,7 @@ def main() -> None:
     cleaned = []
     nationwide_fixed = 0
     foreign_removed = 0
+    geo_noise_fixed = 0
     for raw_job in jobs:
         if not isinstance(raw_job, dict):
             continue
@@ -63,6 +99,13 @@ def main() -> None:
         if is_foreign(job):
             foreign_removed += 1
             continue
+
+        before = (job.get('location'), job.get('city'), job.get('district'), job.get('country'))
+        job = clean_job_geography(job)
+        after = (job.get('location'), job.get('city'), job.get('district'), job.get('country'))
+        if before != after:
+            geo_noise_fixed += 1
+
         if is_nationwide(job):
             if job.get('region') != 'Celé Slovensko' or job.get('location') != 'Celé Slovensko':
                 nationwide_fixed += 1
@@ -79,6 +122,15 @@ def main() -> None:
     if missing:
         raise SystemExit('Refusing to publish: missing Slovak regions: ' + ', '.join(missing))
 
+    polluted = [
+        job for job in cleaned
+        if 'location_on' in norm(job.get('location'))
+        or 'location_on' in norm(job.get('city'))
+        or 'location_on' in norm(job.get('district'))
+    ]
+    if polluted:
+        raise SystemExit(f'Refusing to publish: {len(polluted)} vacancy locations still contain UI noise')
+
     if isinstance(data, dict):
         data['jobs'] = cleaned
         data['jobCount'] = len(cleaned)
@@ -88,7 +140,7 @@ def main() -> None:
 
     DATA_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     counts = Counter(job.get('region') or 'Neurčený kraj' for job in cleaned)
-    print('geo post-process jobs', len(cleaned), 'nationwide fixed', nationwide_fixed, 'foreign removed', foreign_removed)
+    print('geo post-process jobs', len(cleaned), 'nationwide fixed', nationwide_fixed, 'foreign removed', foreign_removed, 'geo noise fixed', geo_noise_fixed)
     print('geo post-process region counts', json.dumps(dict(sorted(counts.items())), ensure_ascii=False))
 
 
