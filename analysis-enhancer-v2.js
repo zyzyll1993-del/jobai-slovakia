@@ -10,7 +10,7 @@
   function resumeText(){return ['name','position','profile','skills','languages'].map(text).join(' ')+' '+(Array.isArray(window.experiences)?JSON.stringify(window.experiences):'')+' '+(Array.isArray(window.educations)?JSON.stringify(window.educations):'');}
   function escape(v){return String(v||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\"/g,'&quot;');}
   function update(){
-    var result=document.getElementById('analysisResult'),job=text('jobText')||text('job');if(!result||!job)return;
+    var result=document.getElementById('analysisResult'),job=text('jobText')||text('job');if(!result)return;result.style.display='block';if(!job){var empty=document.getElementById('recommendation');if(empty)empty.textContent=lang()==='sk'?'Vložte text pracovnej ponuky.':lang()==='en'?'Paste the job vacancy text.':'Вставте текст вакансії.';return;}
     var rs=resumeText(),js=skills(job),rsSkills=skills(rs),matched=js.filter(function(x){return norm(rs).indexOf(norm(x))>=0;}),missing=js.filter(function(x){return !matched.some(function(y){return norm(y)===norm(x);});});
     var title=norm(text('position')),roleHit=title&&norm(job).indexOf(title)>=0?1:0;
     var expHit=matched.length?Math.min(1,matched.length/Math.max(1,js.length)):0;
@@ -18,7 +18,7 @@
     var other=roleHit*.6+expHit*.4;
     var score=Math.round((matched.length/Math.max(1,js.length))*45+other*25+languageHit*15+(rsSkills.length>0?15:5));
     score=Math.max(0,Math.min(100,score));
-    var scoreEl=document.getElementById('score'),bar=document.getElementById('progressBar');if(scoreEl)scoreEl.textContent=score+'%';if(bar)bar.style.width=score+'%';
+    var scoreEl=document.getElementById('score'),bar=document.getElementById('progressBar');if(scoreEl)scoreEl.textContent=score+'%';if(bar)bar.style.width=score+'%';var foundEl=document.getElementById('found'),missingEl=document.getElementById('missing'),recEl=document.getElementById('recommendation');if(foundEl)foundEl.innerHTML=matched.length?'<ul>'+matched.map(function(x){return '<li>'+escape(x)+'</li>';}).join('')+'</ul>':'<p>—</p>';if(missingEl)missingEl.innerHTML=missing.length?'<ul>'+missing.map(function(x){return '<li>'+escape(x)+'</li>';}).join('')+'</ul>':'<p>—</p>';if(recEl)recEl.textContent=lang()==='sk'?(score>=70?'Dobrá zhoda. Skontrolujte chýbajúce požiadavky nižšie.':'Čiastočná zhoda. Doplňte iba skúsenosti a zručnosti, ktoré skutočne máte.'):lang()==='en'?(score>=70?'Good match. Review the missing requirements below.':'Partial match. Add only experience and skills you actually have.'):(score>=70?'Хороша відповідність. Перевірте відсутні вимоги нижче.':'Часткова відповідність. Додавайте лише той досвід і навички, які справді маєте.');
     var old=document.getElementById('jobaiAnalysisEnhancement');if(old)old.remove();
     var t=LANG[lang()],box=document.createElement('div');box.id='jobaiAnalysisEnhancement';box.style.cssText='margin-top:18px;padding:16px;border-radius:14px;border:1px solid rgba(127,127,127,.25);background:rgba(127,127,127,.06)';
     box.innerHTML='<div style="font-weight:800;margin-bottom:8px">'+t.skills+'</div><div style="margin-bottom:14px">'+(js.length?js.map(function(x){return '<span style="display:inline-block;margin:3px 5px 3px 0;padding:5px 9px;border-radius:999px;background:rgba(59,130,246,.16)">'+escape(x)+'</span>';}).join(''):'<span>'+t.none+'</span>')+'</div><div style="font-weight:800;margin-bottom:6px">'+t.matched+'</div><div style="margin-bottom:14px">'+(matched.length?escape(matched.join(', ')):'—')+'</div><div style="font-weight:800;margin-bottom:6px">'+t.missing+'</div><div style="margin-bottom:14px">'+(missing.length?escape(missing.join(', ')):'—')+'</div><div style="font-weight:800;margin-bottom:6px">'+t.match+'</div><div style="font-size:24px;font-weight:800;margin-bottom:8px">'+score+'%</div><div style="font-size:13px;opacity:.8">'+t.tip+'</div>';
@@ -34,7 +34,7 @@
     s.onerror=function(){window.__jobaiRecommendationsLoading=false;};
     document.head.appendChild(s);
   }
-  function hook(){document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('button');if(!b)return;var t=norm(b.textContent);if(t.indexOf('analiz')>=0||t.indexOf('аналіз')>=0||t.indexOf('analyz')>=0){setTimeout(update,500);setTimeout(loadRecommendations,650);}});setTimeout(update,1200);}
+  function hook(){document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('button');if(!b)return;var t=norm(b.textContent);if(t.indexOf('analiz')>=0||t.indexOf('аналіз')>=0||t.indexOf('analyz')>=0){setTimeout(update,0);setTimeout(loadRecommendations,120);}});setTimeout(update,1200);}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',hook);else hook();
 })();
 
