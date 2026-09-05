@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-05T00:44:13.459418+00:00",
+  "updatedAt": "2026-09-05T06:37:26.126163+00:00",
   "source": "Služby zamestnanosti — VPM",
   "activeOnly": true,
   "schemaVersion": 9,
@@ -32,8 +32,8 @@
     "Košický kraj": 59,
     "Nitriansky kraj": 112,
     "Prešovský kraj": 60,
-    "Trenčiansky kraj": 68,
-    "Trnavský kraj": 112,
+    "Trenčiansky kraj": 67,
+    "Trnavský kraj": 113,
     "Žilinský kraj": 138
   },
   "nationwideCount": 15,
@@ -11818,37 +11818,6 @@
       "slovakRequired": "Nie",
       "description": "• Výroba turbodúchadiel do automobilov",
       "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/7fceb70f-69d4-4567-8770-d45812e5c308?lang=sk",
-      "source": "ÚPSVaR / VPM"
-    },
-    {
-      "title": "Servisný technik (muž/žena)",
-      "employer": "",
-      "location": "Priemyselná 12 , 97101 Prievidza - Prievidza",
-      "city": "Prievidza",
-      "district": "Prievidza",
-      "region": "Trenčiansky kraj",
-      "postalCode": "97101",
-      "country": "Slovensko",
-      "nationwide": false,
-      "salary": "1 040",
-      "category": "Remeslá a servis",
-      "searchTerm": "all-market",
-      "updated": "03.09.2026 o 13:21",
-      "startDate": "ihneď",
-      "employmentType": "Pracovný pomer na neurčitý čas",
-      "experience": "",
-      "education": [
-        "Nižšie stredné odborné vzdelanie"
-      ],
-      "languages": [],
-      "computerSkills": [],
-      "drivingLicenses": [
-        "B"
-      ],
-      "shiftWork": "",
-      "slovakRequired": "Áno",
-      "description": "Zabezpečovať diagnostiku, opravu a pravidelnú údržbu domácich aj komerčných kávovarov, vrátane čistenia a odvápňovania. Zabezpečovať technickú podporu, servisnú činnosť záručnú aj pozáručnú, zisťovanie príčin porúch, objednávanie náhradných dielov a ostatné súvisiace práce.",
-      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/3b772889-c683-4b70-b63e-6a3abf1c675b?lang=sk",
       "source": "ÚPSVaR / VPM"
     },
     {
@@ -29362,6 +29331,35 @@
       "slovakRequired": "Nie",
       "description": "Varenie thajských jedál, je potrebné, aby mal kuchár platný diplom alebo výučný list z Thajska. Príprava sushi, sashimi, rolky atď.",
       "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/eb9fc272-f693-41a5-b0ef-62f311c9830d?lang=sk",
+      "source": "ÚPSVaR / VPM"
+    },
+    {
+      "title": "Majster výroby (muž/žena)",
+      "employer": "",
+      "location": "Veľkoúľanská cesta 208 , 92521 Sládkovičovo - Galanta",
+      "city": "Sládkovičovo",
+      "district": "Galanta",
+      "region": "Trnavský kraj",
+      "postalCode": "92521",
+      "country": "Slovensko",
+      "nationwide": false,
+      "salary": "1 800",
+      "category": "Manažment a vedenie",
+      "searchTerm": "all-market",
+      "updated": "02.09.2026 o 09:54",
+      "startDate": "ihneď",
+      "employmentType": "Pracovný pomer na neurčitý čas",
+      "experience": "",
+      "education": [
+        "Úplné stredné odborné vzdelanie"
+      ],
+      "languages": [],
+      "computerSkills": [],
+      "drivingLicenses": [],
+      "shiftWork": "Miesto výkonu práce, Ďalšie miesto výkonu práce",
+      "slovakRequired": "Áno",
+      "description": "zodpovedá za personálne a materiálne zabezpečenie výroby počas zmeny",
+      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/5b10fef0-aa59-4d29-a1e3-1a45f2596d0f?lang=sk",
       "source": "ÚPSVaR / VPM"
     }
   ],
