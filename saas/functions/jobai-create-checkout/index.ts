@@ -1,5 +1,7 @@
 const ORIGIN = 'https://zyzyll1993-del.github.io';
 const ACCOUNT_URL = 'https://zyzyll1993-del.github.io/jobai-slovakia/saas/account.html';
+const PRICE_MONTHLY = 'price_1UDREuIgYL4HeKN0hNjpi2qh';
+const PRICE_YEARLY = 'price_1UDRF8IgYL4HeKN055k6b2io';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': ORIGIN,
@@ -14,19 +16,41 @@ function json(body: unknown, status = 200) {
   });
 }
 
+function publishableKey() {
+  try {
+    const raw = Deno.env.get('SUPABASE_PUBLISHABLE_KEYS') || '';
+    const parsed = raw ? JSON.parse(raw) : {};
+    if (parsed?.default) return String(parsed.default);
+  } catch (_) {}
+  return Deno.env.get('SUPABASE_ANON_KEY') || '';
+}
+
+function stripeErrorPayload(data: any, status: number) {
+  return {
+    stripe_status: status,
+    stripe_code: data?.error?.code || '',
+    stripe_type: data?.error?.type || '',
+    stripe_param: data?.error?.param || '',
+    stripe_message: data?.error?.message || '',
+  };
+}
+
 Deno.serve(async (req: Request) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: corsHeaders });
   if (req.method !== 'POST') return json({ error: 'method_not_allowed' }, 405);
 
   try {
     const authHeader = req.headers.get('Authorization') || '';
+    if (!authHeader.startsWith('Bearer ')) return json({ error: 'unauthorized' }, 401);
+
     const supabaseUrl = Deno.env.get('SUPABASE_URL') || '';
-    const anonKey = Deno.env.get('SUPABASE_ANON_KEY') || '';
+    const publicKey = publishableKey();
+    if (!supabaseUrl || !publicKey) return json({ error: 'supabase_auth_not_configured' }, 503);
 
     const userRes = await fetch(`${supabaseUrl}/auth/v1/user`, {
-      headers: { Authorization: authHeader, apikey: anonKey },
+      headers: { Authorization: authHeader, apikey: publicKey },
     });
-    if (!userRes.ok) return json({ error: 'unauthorized' }, 401);
+    if (!userRes.ok) return json({ error: 'unauthorized', auth_status: userRes.status }, 401);
     const user = await userRes.json();
     if (!user?.id) return json({ error: 'unauthorized' }, 401);
 
@@ -35,11 +59,22 @@ Deno.serve(async (req: Request) => {
     if (!plan) return json({ error: 'invalid_plan' }, 400);
 
     const stripeSecret = Deno.env.get('STRIPE_SECRET_KEY') || '';
-    const priceMonthly = Deno.env.get('STRIPE_PRICE_MONTHLY') || '';
-    const priceYearly = Deno.env.get('STRIPE_PRICE_YEARLY') || '';
-    const priceId = plan === 'yearly' ? priceYearly : priceMonthly;
+    if (!stripeSecret.startsWith('sk_test_')) {
+      return json({ error: 'sandbox_billing_not_configured' }, 503);
+    }
 
-    if (!stripeSecret || !priceId) return json({ error: 'billing_not_configured' }, 503);
+    const priceId = plan === 'yearly' ? PRICE_YEARLY : PRICE_MONTHLY;
+
+    const priceRes = await fetch(`https://api.stripe.com/v1/prices/${encodeURIComponent(priceId)}`, {
+      headers: { Authorization: `Bearer ${stripeSecret}` },
+    });
+    const priceData = await priceRes.json().catch(() => ({}));
+    if (!priceRes.ok) {
+      return json({ error: 'stripe_price_unavailable', ...stripeErrorPayload(priceData, priceRes.status) }, 502);
+    }
+    if (!priceData?.active || priceData?.currency !== 'eur' || !priceData?.recurring) {
+      return json({ error: 'stripe_price_invalid' }, 502);
+    }
 
     const form = new URLSearchParams();
     form.set('mode', 'subscription');
@@ -48,9 +83,6 @@ Deno.serve(async (req: Request) => {
     form.set('success_url', `${ACCOUNT_URL}?billing=success`);
     form.set('cancel_url', `${ACCOUNT_URL}?billing=cancelled`);
     form.set('client_reference_id', user.id);
-    form.set('metadata[user_id]', user.id);
-    form.set('subscription_data[metadata][user_id]', user.id);
-    form.set('allow_promotion_codes', 'true');
     if (user.email) form.set('customer_email', user.email);
 
     const stripeRes = await fetch('https://api.stripe.com/v1/checkout/sessions', {
@@ -61,8 +93,10 @@ Deno.serve(async (req: Request) => {
       },
       body: form.toString(),
     });
-    const stripeData = await stripeRes.json();
-    if (!stripeRes.ok || !stripeData?.url) return json({ error: 'stripe_checkout_failed' }, 502);
+    const stripeData = await stripeRes.json().catch(() => ({}));
+    if (!stripeRes.ok || !stripeData?.url) {
+      return json({ error: 'stripe_checkout_failed', ...stripeErrorPayload(stripeData, stripeRes.status) }, 502);
+    }
 
     return json({ url: stripeData.url });
   } catch (_) {
