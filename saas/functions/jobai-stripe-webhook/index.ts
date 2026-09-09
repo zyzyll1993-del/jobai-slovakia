@@ -1,3 +1,6 @@
+const PRICE_MONTHLY = 'price_1UDREuIgYL4HeKN0hNjpi2qh';
+const PRICE_YEARLY = 'price_1UDRF8IgYL4HeKN055k6b2io';
+
 function json(body: unknown, status = 200) {
   return new Response(JSON.stringify(body), {
     status,
@@ -14,13 +17,7 @@ function safeEqual(a: string, b: string) {
 
 async function hmacHex(secret: string, payload: string) {
   const enc = new TextEncoder();
-  const key = await crypto.subtle.importKey(
-    'raw',
-    enc.encode(secret),
-    { name: 'HMAC', hash: 'SHA-256' },
-    false,
-    ['sign'],
-  );
+  const key = await crypto.subtle.importKey('raw', enc.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
   const sig = await crypto.subtle.sign('HMAC', key, enc.encode(payload));
   return Array.from(new Uint8Array(sig)).map((b) => b.toString(16).padStart(2, '0')).join('');
 }
@@ -57,13 +54,11 @@ async function saveSubscription(opts: {
   status: string;
   currentPeriodEnd?: number | null;
   deleted?: boolean;
-  monthlyPrice: string;
-  yearlyPrice: string;
 }) {
   if (!opts.userId) return false;
   let plan = 'free';
-  if (!opts.deleted && opts.priceId === opts.monthlyPrice) plan = 'pro_monthly';
-  if (!opts.deleted && opts.priceId === opts.yearlyPrice) plan = 'pro_yearly';
+  if (!opts.deleted && opts.priceId === PRICE_MONTHLY) plan = 'pro_monthly';
+  if (!opts.deleted && opts.priceId === PRICE_YEARLY) plan = 'pro_yearly';
 
   const payload = {
     user_id: opts.userId,
@@ -93,12 +88,10 @@ Deno.serve(async (req: Request) => {
 
   const webhookSecret = Deno.env.get('STRIPE_WEBHOOK_SECRET') || '';
   const stripeSecret = Deno.env.get('STRIPE_SECRET_KEY') || '';
-  const monthlyPrice = Deno.env.get('STRIPE_PRICE_MONTHLY') || '';
-  const yearlyPrice = Deno.env.get('STRIPE_PRICE_YEARLY') || '';
   const supabaseUrl = Deno.env.get('SUPABASE_URL') || '';
   const serviceRole = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') || '';
 
-  if (!webhookSecret || !stripeSecret || !monthlyPrice || !yearlyPrice || !serviceRole) {
+  if (!webhookSecret || !stripeSecret.startsWith('sk_test_') || !serviceRole) {
     return json({ error: 'billing_not_configured' }, 503);
   }
 
@@ -123,13 +116,14 @@ Deno.serve(async (req: Request) => {
       const sub = await subRes.json();
       const userId = String(object.client_reference_id || object?.metadata?.user_id || sub?.metadata?.user_id || '');
       const ok = await saveSubscription({
-        supabaseUrl, serviceRole, userId,
+        supabaseUrl,
+        serviceRole,
+        userId,
         customerId: String(sub?.customer || object?.customer || ''),
         subscriptionId: String(sub?.id || subId),
         priceId: String(sub?.items?.data?.[0]?.price?.id || ''),
         status: String(sub?.status || 'inactive'),
         currentPeriodEnd: sub?.current_period_end || null,
-        monthlyPrice, yearlyPrice,
       });
       if (!ok) return json({ error: 'subscription_sync_failed' }, 500);
     }
@@ -139,14 +133,15 @@ Deno.serve(async (req: Request) => {
       let userId = String(object?.metadata?.user_id || '');
       if (!userId) userId = await lookupUserByCustomer(supabaseUrl, serviceRole, customerId);
       const ok = await saveSubscription({
-        supabaseUrl, serviceRole, userId,
+        supabaseUrl,
+        serviceRole,
+        userId,
         customerId,
         subscriptionId: String(object?.id || ''),
         priceId: String(object?.items?.data?.[0]?.price?.id || ''),
         status: String(object?.status || (type.endsWith('.deleted') ? 'canceled' : 'inactive')),
         currentPeriodEnd: object?.current_period_end || null,
         deleted: type.endsWith('.deleted'),
-        monthlyPrice, yearlyPrice,
       });
       if (!ok && userId) return json({ error: 'subscription_sync_failed' }, 500);
     }
