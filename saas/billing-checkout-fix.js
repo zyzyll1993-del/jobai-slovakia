@@ -41,7 +41,10 @@ function stripeDetails(payload){
 function explain(payload){
   var code=payload&&payload.error?String(payload.error):'unknown_error';
   if(code==='sandbox_billing_not_configured')return 'Stripe test secret nie je správne nastavený v Supabase (STRIPE_SECRET_KEY musí byť sk_test_…).';
-  if(code==='unauthorized')return 'Relácia používateľa nebola prijatá backendom. Odhláste sa a prihláste znova.';
+  if(code==='unauthorized'){
+    var authStatus=payload&&payload.auth_status?' HTTP '+payload.auth_status:'';
+    return 'Relácia používateľa nebola prijatá backendom'+authStatus+'. Odhláste sa a prihláste znova.';
+  }
   if(code==='supabase_auth_not_configured')return 'Supabase backend auth nie je správne nakonfigurovaný.';
   if(code==='invalid_plan')return 'Neplatný tarif.';
   if(code==='stripe_price_invalid')return 'Stripe tarif je neaktívny alebo nemá správny recurring EUR typ.';
@@ -62,7 +65,11 @@ async function checkout(plan){
     var sessionResult=await billingClient.auth.getSession();
     var session=sessionResult&&sessionResult.data?sessionResult.data.session:null;
     if(!session){status('Najprv sa prihláste.',true);return;}
-    var result=await billingClient.functions.invoke('jobai-create-checkout',{body:{plan:plan}});
+    if(!session.access_token){status('Prihlásenie nemá platný access token. Odhláste sa a prihláste znova.',true);return;}
+    var result=await billingClient.functions.invoke('jobai-create-checkout',{
+      headers:{Authorization:'Bearer '+session.access_token},
+      body:{plan:plan}
+    });
     if(result.error){
       var payload=await safePayload(result.error);
       status(explain(payload),true);
