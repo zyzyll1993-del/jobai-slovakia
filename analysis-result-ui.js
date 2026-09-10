@@ -58,3 +58,13 @@ document.addEventListener('click',function(e){
 
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',decorate);else decorate();
 })();
+
+/* Load account/subscription integration after the main UI exists. */
+(function(){
+  if(document.getElementById('jobaiAccountBridgeScript'))return;
+  var s=document.createElement('script');
+  s.id='jobaiAccountBridgeScript';
+  s.src='jobai-account-bridge.js?v=1';
+  s.async=false;
+  document.head.appendChild(s);
+})();
