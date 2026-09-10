@@ -38,14 +38,15 @@ function stripeDetails(payload){
   if(payload.stripe_message)details.push(clean(payload.stripe_message,180));
   return details;
 }
-function explain(payload){
+function explain(payload,kind){
   var code=payload&&payload.error?String(payload.error):'unknown_error';
-  if(code==='sandbox_billing_not_configured')return 'Stripe test secret nie je správne nastavený v Supabase (STRIPE_SECRET_KEY musí byť sk_test_…).';
+  if(code==='sandbox_billing_not_configured')return 'Stripe test secret nie je správne nastavený v Supabase.';
   if(code==='unauthorized'){
     var authStatus=payload&&payload.auth_status?' HTTP '+payload.auth_status:'';
     return 'Relácia používateľa nebola prijatá backendom'+authStatus+'. Odhláste sa a prihláste znova.';
   }
-  if(code==='supabase_auth_not_configured')return 'Supabase backend auth nie je správne nakonfigurovaný.';
+  if(code==='supabase_auth_not_configured'||code==='supabase_backend_not_configured')return 'Supabase backend auth nie je správne nakonfigurovaný.';
+  if(code==='billing_customer_not_found')return 'Stripe zákazník pre tento účet ešte nebol nájdený.';
   if(code==='invalid_plan')return 'Neplatný tarif.';
   if(code==='stripe_price_invalid')return 'Stripe tarif je neaktívny alebo nemá správny recurring EUR typ.';
   if(code==='stripe_price_unavailable'){
@@ -56,29 +57,35 @@ function explain(payload){
     var details=stripeDetails(payload);
     return 'Stripe Checkout zlyhal'+(details.length?' ('+details.join(', ')+')':'')+'.';
   }
-  return 'Checkout chyba: '+code+'.';
+  if(code==='stripe_portal_config_lookup_failed'||code==='stripe_portal_config_create_failed'||code==='stripe_portal_failed'){
+    var portalDetails=stripeDetails(payload);
+    return 'Stripe Customer Portal zlyhal'+(portalDetails.length?' ('+portalDetails.join(', ')+')':'')+'.';
+  }
+  return (kind==='portal'?'Portal chyba: ':'Checkout chyba: ')+code+'.';
+}
+async function getSession(){
+  var sessionResult=await billingClient.auth.getSession();
+  var session=sessionResult&&sessionResult.data?sessionResult.data.session:null;
+  if(!session){status('Najprv sa prihláste.',true);return null;}
+  if(!session.access_token){status('Prihlásenie nemá platný access token. Odhláste sa a prihláste znova.',true);return null;}
+  return session;
 }
 async function checkout(plan){
   setBusy(true);
   status('Otváram bezpečný Stripe Checkout…',false);
   try{
-    var sessionResult=await billingClient.auth.getSession();
-    var session=sessionResult&&sessionResult.data?sessionResult.data.session:null;
-    if(!session){status('Najprv sa prihláste.',true);return;}
-    if(!session.access_token){status('Prihlásenie nemá platný access token. Odhláste sa a prihláste znova.',true);return;}
+    var session=await getSession();
+    if(!session)return;
     var result=await billingClient.functions.invoke('jobai-create-checkout',{
       headers:{Authorization:'Bearer '+session.access_token},
       body:{plan:plan}
     });
     if(result.error){
       var payload=await safePayload(result.error);
-      status(explain(payload),true);
+      status(explain(payload,'checkout'),true);
       return;
     }
-    if(result.data&&result.data.url){
-      location.assign(result.data.url);
-      return;
-    }
+    if(result.data&&result.data.url){location.assign(result.data.url);return;}
     status('Checkout chyba: missing_url.',true);
   }catch(e){
     status('Checkout chyba: client_exception.',true);
@@ -86,15 +93,39 @@ async function checkout(plan){
     setBusy(false);
   }
 }
-function bind(id,plan){
+async function openPortal(){
+  setBusy(true);
+  status('Otváram správu predplatného…',false);
+  try{
+    var session=await getSession();
+    if(!session)return;
+    var result=await billingClient.functions.invoke('jobai-customer-portal',{
+      headers:{Authorization:'Bearer '+session.access_token},
+      body:{}
+    });
+    if(result.error){
+      var payload=await safePayload(result.error);
+      status(explain(payload,'portal'),true);
+      return;
+    }
+    if(result.data&&result.data.url){location.assign(result.data.url);return;}
+    status('Portal chyba: missing_url.',true);
+  }catch(e){
+    status('Portal chyba: client_exception.',true);
+  }finally{
+    setBusy(false);
+  }
+}
+function bind(id,handler){
   var el=document.getElementById(id);
   if(!el)return;
   el.addEventListener('click',function(ev){
     ev.preventDefault();
     ev.stopImmediatePropagation();
-    checkout(plan);
+    handler();
   },true);
 }
-bind('proMonthlyBtn','monthly');
-bind('proYearlyBtn','yearly');
+bind('proMonthlyBtn',function(){checkout('monthly');});
+bind('proYearlyBtn',function(){checkout('yearly');});
+bind('portalBtn',openPortal);
 })();
