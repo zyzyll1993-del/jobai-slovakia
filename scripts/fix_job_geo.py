@@ -77,9 +77,12 @@ def is_nationwide(job: dict) -> bool:
 
 
 def is_foreign(job: dict) -> bool:
+    # The official portal can return foreign vacancies where the country name is
+    # not the first token (for example "70200 Ostrava Česko"). Check only the
+    # geography fields, but allow the foreign-country marker anywhere in them.
     location = norm(job.get('location'))
     country = norm(job.get('country'))
-    return any(location.startswith(x) or country.startswith(x) for x in FOREIGN_PREFIXES)
+    return any(x in location or x in country for x in FOREIGN_PREFIXES)
 
 
 def main() -> None:
