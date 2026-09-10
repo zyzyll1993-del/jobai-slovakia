@@ -64,7 +64,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   if(document.getElementById('jobaiAccountBridgeScript'))return;
   var s=document.createElement('script');
   s.id='jobaiAccountBridgeScript';
-  s.src='jobai-account-bridge.js?v=1';
+  s.src='jobai-account-bridge.js?v=2';
   s.async=false;
   document.head.appendChild(s);
 })();
