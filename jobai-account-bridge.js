@@ -7,6 +7,7 @@ var SUPABASE_KEY='sb_publishable_6iEGB0gTb-BTYBnw2iH14g_AfIncEZo';
 var ACCOUNT_URL=new URL('saas/account.html',location.href).href;
 var state={resolved:false,signedIn:false,isPro:false,plan:'free',status:'inactive',email:'',session:null,client:null};
 var observed={};
+var queued={};
 
 function lang(){
   var l=(localStorage.getItem('jobaiLanguage')||document.documentElement.lang||'ua').toLowerCase();
@@ -26,7 +27,7 @@ function ensureStyle(){
   if(document.getElementById('jobaiAccountBridgeStyle'))return;
   var s=document.createElement('style');
   s.id='jobaiAccountBridgeStyle';
-  s.textContent='\n#jobaiAccountButton{height:38px;padding:0 14px;border-radius:8px;border:1px solid #475569;background:#1e293b;color:#fff;font-weight:800;white-space:nowrap}\n#jobaiAccountButton:hover{background:#334155}\n#jobaiAccountButton.jobai-pro{border-color:#22c55e;background:#14532d}\n.jobai-pro-lock{margin:10px 0 14px;padding:12px 14px;border:1px solid #475569;border-radius:12px;background:#111827;color:#cbd5e1;line-height:1.45}\n.jobai-pro-lock button{margin-top:9px;border:0;border-radius:8px;padding:9px 12px;background:#2563eb;color:#fff;font-weight:800;cursor:pointer}\n[data-jobai-pro-locked="1"] button:not(.jobai-pro-open){opacity:.45;cursor:not-allowed}\n';
+  s.textContent='\n#jobaiAccountButton{height:38px;padding:0 14px;border-radius:8px;border:1px solid #475569;background:#1e293b;color:#fff;font-weight:800;white-space:nowrap}\n#jobaiAccountButton:hover{background:#334155}\n#jobaiAccountButton.jobai-pro{border-color:#22c55e;background:#14532d}\n.jobai-pro-lock{margin:10px 0 14px;padding:12px 14px;border:1px solid #475569;border-radius:12px;background:#111827;color:#cbd5e1;line-height:1.45}\n.jobai-pro-lock button{margin-top:9px;border:0;border-radius:8px;padding:9px 12px;background:#2563eb;color:#fff;font-weight:800;cursor:pointer}\n[data-jobai-pro-locked="1"] button:not(.jobai-pro-open){opacity:.45}\n';
   document.head.appendChild(s);
 }
 
@@ -56,28 +57,47 @@ function updateButton(){
   b.title=state.email||tr().account;
 }
 
+function directNote(host){
+  var nodes=host.children||[];
+  for(var i=0;i<nodes.length;i++){
+    if(nodes[i].classList&&nodes[i].classList.contains('jobai-pro-lock')&&nodes[i].getAttribute('data-jobai-bridge-note')==='1')return nodes[i];
+  }
+  return null;
+}
+
 function lockHost(host){
-  if(!host)return;
-  var note=host.querySelector(':scope > .jobai-pro-lock');
+  if(!host||!host.isConnected)return;
+  var note=directNote(host);
   if(state.isPro){
     host.removeAttribute('data-jobai-pro-locked');
     if(note)note.remove();
-    host.querySelectorAll('button').forEach(function(b){if(b.dataset.jobaiBridgeDisabled==='1'){b.disabled=false;delete b.dataset.jobaiBridgeDisabled;}});
     return;
   }
   host.setAttribute('data-jobai-pro-locked','1');
   if(!note){
     note=document.createElement('div');
     note.className='jobai-pro-lock';
+    note.setAttribute('data-jobai-bridge-note','1');
     note.innerHTML='<div class="jobai-pro-lock-text"></div><button type="button" class="jobai-pro-open"></button>';
     note.querySelector('.jobai-pro-open').onclick=function(e){e.preventDefault();e.stopPropagation();location.href=ACCOUNT_URL;};
     host.insertBefore(note,host.firstChild);
   }
   var text=note.querySelector('.jobai-pro-lock-text');
   var open=note.querySelector('.jobai-pro-open');
-  if(text)text.textContent=state.resolved?tr().locked:tr().checking;
-  if(open)open.textContent=tr().open;
-  host.querySelectorAll('button:not(.jobai-pro-open)').forEach(function(b){if(!b.disabled){b.disabled=true;b.dataset.jobaiBridgeDisabled='1';}});
+  var wantedText=state.resolved?tr().locked:tr().checking;
+  var wantedOpen=tr().open;
+  if(text&&text.textContent!==wantedText)text.textContent=wantedText;
+  if(open&&open.textContent!==wantedOpen)open.textContent=wantedOpen;
+}
+
+function observeHost(id,host){
+  if(observed[id]||!window.MutationObserver)return;
+  observed[id]=new MutationObserver(function(){
+    if(queued[id])return;
+    queued[id]=true;
+    setTimeout(function(){queued[id]=false;lockHost(host);},0);
+  });
+  observed[id].observe(host,{childList:true,subtree:false});
 }
 
 function applyGates(){
@@ -85,10 +105,7 @@ function applyGates(){
     var host=document.getElementById(id);
     if(!host)return;
     lockHost(host);
-    if(!observed[id]&&window.MutationObserver){
-      observed[id]=true;
-      new MutationObserver(function(){lockHost(host);}).observe(host,{childList:true,subtree:true});
-    }
+    observeHost(id,host);
   });
 }
 
@@ -103,7 +120,12 @@ function loadSDK(){
   return new Promise(function(resolve,reject){
     if(window.supabase&&window.supabase.createClient){resolve();return;}
     var existing=document.querySelector('script[data-jobai-supabase-sdk]');
-    if(existing){existing.addEventListener('load',resolve,{once:true});existing.addEventListener('error',reject,{once:true});return;}
+    if(existing){
+      if(window.supabase&&window.supabase.createClient){resolve();return;}
+      existing.addEventListener('load',resolve,{once:true});
+      existing.addEventListener('error',reject,{once:true});
+      return;
+    }
     var s=document.createElement('script');
     s.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
     s.async=true;
@@ -150,10 +172,18 @@ window.JobAIAccount={
 ensureButton();
 publish();
 
-var gateTimer=setInterval(applyGates,500);
-setTimeout(function(){clearInterval(gateTimer);},10000);
+var gateTimer=setInterval(applyGates,700);
+setTimeout(function(){clearInterval(gateTimer);},12000);
 
 document.addEventListener('click',function(e){
+  var open=e.target.closest&&e.target.closest('.jobai-pro-open');
+  if(open)return;
+  var locked=e.target.closest&&e.target.closest('[data-jobai-pro-locked="1"]');
+  if(locked){
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    return;
+  }
   var langBtn=e.target.closest&&e.target.closest('.language-switcher button,[data-lang]');
   if(langBtn)setTimeout(function(){updateButton();applyGates();},100);
 },true);
