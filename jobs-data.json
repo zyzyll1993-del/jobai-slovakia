@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-11T12:41:12.169115+00:00",
+  "updatedAt": "2026-09-11T18:39:09.732430+00:00",
   "source": "Služby zamestnanosti — VPM",
   "activeOnly": true,
   "schemaVersion": 9,
@@ -27,19 +27,147 @@
   ],
   "regionCounts": {
     "Banskobystrický kraj": 96,
-    "Bratislavský kraj": 240,
+    "Bratislavský kraj": 241,
     "Celé Slovensko": 18,
     "Košický kraj": 72,
     "Nitriansky kraj": 112,
     "Prešovský kraj": 74,
     "Trenčiansky kraj": 80,
     "Trnavský kraj": 99,
-    "Žilinský kraj": 104
+    "Žilinský kraj": 103
   },
   "nationwideCount": 18,
   "jobCount": 895,
   "failures": 0,
   "jobs": [
+    {
+      "title": "Layouter/ka elektronických systémov PCB/ASIC (muž/žena)",
+      "employer": "",
+      "location": "Einsteinova 11 , 85101 Bratislava-Petržalka - Bratislava V",
+      "city": "Bratislava-Petržalka",
+      "district": "Bratislava V",
+      "region": "Bratislavský kraj",
+      "postalCode": "85101",
+      "country": "Slovensko",
+      "nationwide": false,
+      "salary": "4 500",
+      "category": "Iné profesie",
+      "searchTerm": "all-market",
+      "updated": "11.09.2026 o 15:51",
+      "startDate": "ihneď",
+      "employmentType": "Pracovný pomer na určitú dobu",
+      "experience": "",
+      "education": [
+        "Vysokoškolské vzdelanie druhého stupňa"
+      ],
+      "languages": [
+        "anglický",
+        "stredná - pokročilá B1 a B2"
+      ],
+      "computerSkills": [
+        "CAD/CAE",
+        "-",
+        "vysoká",
+        "Údaje o zamestnávateľovi",
+        "Názov spoločnosti",
+        "Continium Technologies s.r.o.",
+        "Právna forma",
+        "Spol. s r. o.",
+        "Sídlo",
+        "Moyzesova 1038/24",
+        "04001 Košice-Staré Mesto - Košice I",
+        "Slovensko"
+      ],
+      "drivingLicenses": [],
+      "shiftWork": "jednozmenná",
+      "slovakRequired": "Nie",
+      "description": "• Návrh layoutu elektronických obvodov: zonácia súčiastok podľa funkcionality, dimenzovanie a kreslenie spojov, technicky optimálne priradenie spojov k multi-layer štruktúre.",
+      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/7f97c15a-d87d-42ce-9c07-9cb986ef87e9?lang=sk",
+      "source": "ÚPSVaR / VPM"
+    },
+    {
+      "title": "Vedúci/vedúca prevádzky Spišská Nová Ves (muž/žena)",
+      "employer": "",
+      "location": "05201 Spišská Nová Ves - Spišská Nová Ves",
+      "city": "Spišská Nová Ves",
+      "district": "Spišská Nová Ves",
+      "region": "Košický kraj",
+      "postalCode": "05201",
+      "country": "Slovensko",
+      "nationwide": false,
+      "salary": "2 200",
+      "category": "Manažment a vedenie",
+      "searchTerm": "all-market",
+      "updated": "11.09.2026 o 15:35",
+      "startDate": "01.11.2026",
+      "employmentType": "Pracovný pomer na určitú dobu",
+      "experience": "aspoň 5 rokov",
+      "education": [
+        "Vysokoškolské vzdelanie druhého stupňa",
+        "-",
+        "vodné stavby - vodné stavby a vodné hospodárstvo",
+        "36 Stavebníctvo, geodézia a kartografia"
+      ],
+      "languages": [
+        "anglický",
+        "stredná - pokročilá B1 a B2"
+      ],
+      "computerSkills": [
+        "Kancelárske balíky - Microsoft Excel",
+        "-",
+        "pokročilá",
+        "Kancelárske balíky - Microsoft PowerPoint"
+      ],
+      "drivingLicenses": [
+        "B"
+      ],
+      "shiftWork": "jednozmenná",
+      "slovakRequired": "Áno",
+      "description": "riadi a kontroluje výrobnú činnosť strediska výroby a distribúcie vody a strediska kanalizácie a ČOV",
+      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/44a5c2b0-0537-4a2b-980f-3b5940dbfb0e?lang=sk",
+      "source": "ÚPSVaR / VPM"
+    },
+    {
+      "title": "Administratívny pracovník (muž/žena)",
+      "employer": "",
+      "location": "Nejedlého 1915/10 , 84102 Bratislava-Dúbravka - Bratislava IV",
+      "city": "Bratislava-Dúbravka",
+      "district": "Bratislava IV",
+      "region": "Bratislavský kraj",
+      "postalCode": "84102",
+      "country": "Slovensko",
+      "nationwide": false,
+      "salary": "1 500",
+      "category": "Administratíva a financie",
+      "searchTerm": "all-market",
+      "updated": "11.09.2026 o 14:39",
+      "startDate": "ihneď",
+      "employmentType": "Pracovný pomer na neurčitý čas",
+      "experience": "",
+      "education": [
+        "Úplné stredné odborné vzdelanie",
+        "Úplné stredné všeobecné vzdelanie",
+        "Vyššie odborné vzdelanie",
+        "Vysokoškolské vzdelanie prvého stupňa",
+        "Vysokoškolské vzdelanie druhého stupňa",
+        "Vysokoškolské vzdelanie tretieho stupňa"
+      ],
+      "languages": [],
+      "computerSkills": [
+        "Kancelárske balíky - Microsoft Outlook",
+        "-",
+        "pokročilá",
+        "Kancelárske balíky - Microsoft PowerPoint",
+        "Kancelárske balíky - Microsoft Word",
+        "Kancelárske balíky - Microsoft Excel"
+      ],
+      "drivingLicenses": [],
+      "shiftWork": "pružná",
+      "slovakRequired": "Áno",
+      "description": "Administratívna činnosť, komunikácia s klientmi",
+      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/1c632c3b-fad9-4e36-81c7-461108e88140?lang=sk",
+      "source": "ÚPSVaR / VPM"
+    },
     {
       "title": "Vedúca/vedúci recepcie (muž/žena)",
       "employer": "",
@@ -245,44 +373,6 @@
       "slovakRequired": "Áno",
       "description": "-riadenie a organizovanie práce chyžných",
       "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/3d016203-97b0-454b-8f3e-73e9d992ae0d?lang=sk",
-      "source": "ÚPSVaR / VPM"
-    },
-    {
-      "title": "Automechanik - autoservis & pneuservis (muž/žena)",
-      "employer": "",
-      "location": "Hlavná stanica 3239/3 , 03401 Ružomberok - Ružomberok",
-      "city": "Ružomberok",
-      "district": "Ružomberok",
-      "region": "Žilinský kraj",
-      "postalCode": "03401",
-      "country": "Slovensko",
-      "nationwide": false,
-      "salary": "1 300",
-      "category": "Výroba a strojárstvo",
-      "searchTerm": "all-market",
-      "updated": "11.09.2026 o 14:00",
-      "startDate": "ihneď",
-      "employmentType": "Pracovný pomer na neurčitý čas",
-      "experience": "bez požiadavky na odbornú prax",
-      "education": [
-        "Nižšie stredné odborné vzdelanie",
-        "-",
-        "technické služby a autoservise",
-        "24 Strojárstvo a ostatná kovospracúvacia výroba II"
-      ],
-      "languages": [],
-      "computerSkills": [
-        "Internet",
-        "-",
-        "elementárna"
-      ],
-      "drivingLicenses": [
-        "B"
-      ],
-      "shiftWork": "jednozmenná",
-      "slovakRequired": "Áno",
-      "description": "Oprava osobných motorových vozidiel, pneuservis osobných motorových vozidiel, servis klimatizácii, geometria osobných motorových vozidiel.",
-      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/011abb21-8809-48cd-a4c6-643a08d05f9a?lang=sk",
       "source": "ÚPSVaR / VPM"
     },
     {
@@ -1166,48 +1256,6 @@
       "slovakRequired": "Nie",
       "description": "Hľadáme šoféra a obsluhu betónpumpy.",
       "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/a32d3e39-18f0-4ce0-91bb-581ed97a50da?lang=sk",
-      "source": "ÚPSVaR / VPM"
-    },
-    {
-      "title": "Vedúci/vedúca prevádzky Spišská Nová Ves (muž/žena)",
-      "employer": "",
-      "location": "05201 Spišská Nová Ves - Spišská Nová Ves",
-      "city": "Spišská Nová Ves",
-      "district": "Spišská Nová Ves",
-      "region": "Košický kraj",
-      "postalCode": "05201",
-      "country": "Slovensko",
-      "nationwide": false,
-      "salary": "2 200",
-      "category": "Manažment a vedenie",
-      "searchTerm": "all-market",
-      "updated": "11.09.2026 o 13:25",
-      "startDate": "01.11.2026",
-      "employmentType": "Pracovný pomer na určitú dobu",
-      "experience": "aspoň 5 rokov",
-      "education": [
-        "Vysokoškolské vzdelanie druhého stupňa",
-        "-",
-        "vodné stavby - vodné stavby a vodné hospodárstvo",
-        "36 Stavebníctvo, geodézia a kartografia"
-      ],
-      "languages": [
-        "anglický",
-        "stredná - pokročilá B1 a B2"
-      ],
-      "computerSkills": [
-        "Kancelárske balíky - Microsoft Excel",
-        "-",
-        "pokročilá",
-        "Kancelárske balíky - Microsoft PowerPoint"
-      ],
-      "drivingLicenses": [
-        "B"
-      ],
-      "shiftWork": "jednozmenná",
-      "slovakRequired": "Áno",
-      "description": "riadi a kontroluje výrobnú činnosť strediska výroby a distribúcie vody a strediska kanalizácie a ČOV",
-      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/44a5c2b0-0537-4a2b-980f-3b5940dbfb0e?lang=sk",
       "source": "ÚPSVaR / VPM"
     },
     {
@@ -29617,46 +29665,6 @@
       "slovakRequired": "Áno",
       "description": "",
       "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/ceed7ee9-5311-4776-a8d7-8174e15e69d7?lang=sk",
-      "source": "ÚPSVaR / VPM"
-    },
-    {
-      "title": "Lektor/ka anglického jazyka (muž/žena)",
-      "employer": "",
-      "location": "Vavilovova 1221/18 , 85101 Bratislava-Petržalka - Bratislava V",
-      "city": "Bratislava-Petržalka",
-      "district": "Bratislava V",
-      "region": "Bratislavský kraj",
-      "postalCode": "85101",
-      "country": "Slovensko",
-      "nationwide": false,
-      "salary": "1 500",
-      "category": "Školstvo",
-      "searchTerm": "all-market",
-      "updated": "08.09.2026 o 13:44",
-      "startDate": "ihneď",
-      "employmentType": "Pracovný pomer na určitú dobu",
-      "experience": "aspoň 1 rok",
-      "education": [
-        "Úplné stredné odborné vzdelanie",
-        "Vysokoškolské vzdelanie prvého stupňa",
-        "Vysokoškolské vzdelanie druhého stupňa"
-      ],
-      "languages": [
-        "anglický",
-        "vysoká – vysoká C1 a C2",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "Súkromná spojená škola, Vavilovova 18, Bratislava",
-        "Právna forma",
-        "Nezisková organizácia",
-        "Sídlo"
-      ],
-      "computerSkills": [],
-      "drivingLicenses": [],
-      "shiftWork": "",
-      "slovakRequired": "Nie",
-      "description": "",
-      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/d681334d-bab5-4648-9a1e-e647411731f5?lang=sk",
       "source": "ÚPSVaR / VPM"
     }
   ],
