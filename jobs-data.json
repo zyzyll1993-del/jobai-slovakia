@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-12T00:43:09.135810+00:00",
+  "updatedAt": "2026-09-12T06:39:49.124219+00:00",
   "source": "Služby zamestnanosti — VPM",
   "activeOnly": true,
   "schemaVersion": 9,
@@ -27,11 +27,11 @@
   ],
   "regionCounts": {
     "Banskobystrický kraj": 96,
-    "Bratislavský kraj": 243,
+    "Bratislavský kraj": 244,
     "Celé Slovensko": 18,
     "Košický kraj": 72,
     "Nitriansky kraj": 112,
-    "Prešovský kraj": 73,
+    "Prešovský kraj": 72,
     "Trenčiansky kraj": 80,
     "Trnavský kraj": 98,
     "Žilinský kraj": 103
@@ -40,6 +40,46 @@
   "jobCount": 895,
   "failures": 0,
   "jobs": [
+    {
+      "title": "Jr Publications Coordinator (muž/žena)",
+      "employer": "",
+      "location": "Rajská 6978/15 , 81107 Bratislava-Staré Mesto - Bratislava I",
+      "city": "Bratislava-Staré Mesto",
+      "district": "Bratislava I",
+      "region": "Bratislavský kraj",
+      "postalCode": "81107",
+      "country": "Slovensko",
+      "nationwide": false,
+      "salary": "1 400",
+      "category": "Iné profesie",
+      "searchTerm": "all-market",
+      "updated": "12.09.2026 o 08:01",
+      "startDate": "ihneď",
+      "employmentType": "Pracovný pomer na neurčitý čas",
+      "experience": "",
+      "education": [
+        "Vysokoškolské vzdelanie prvého stupňa"
+      ],
+      "languages": [
+        "anglický",
+        "vysoká – vysoká C1 a C2"
+      ],
+      "computerSkills": [
+        "Kancelárske balíky - Microsoft Word",
+        "-",
+        "vysoká",
+        "Kancelárske balíky - Microsoft Excel",
+        "Kancelárske balíky - Microsoft Outlook",
+        "Internet",
+        "Publikačné programy"
+      ],
+      "drivingLicenses": [],
+      "shiftWork": "jednozmenná",
+      "slovakRequired": "Nie",
+      "description": "• Supporting qualified researchers in active roles as Editors-in-Chief, Special Issue Editors, and other organisational roles",
+      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/68c653c5-970f-459a-a05f-a52803f10846?lang=sk",
+      "source": "ÚPSVaR / VPM"
+    },
     {
       "title": "Layouter/ka elektronických systémov PCB/ASIC (muž/žena)",
       "employer": "",
@@ -24786,38 +24826,6 @@
       "slovakRequired": "Nie",
       "description": "1-obsluha výrobných strojov a zariadení na spracovanie plastov,",
       "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/795f1bf3-2a6d-4eed-82de-e5d8d2f3f757?lang=sk",
-      "source": "ÚPSVaR / VPM"
-    },
-    {
-      "title": "Masér/masérka (muž/žena)",
-      "employer": "",
-      "location": "Vyšné Ružbachy 48 , 06502 Vyšné Ružbachy - Stará Ľubovňa",
-      "city": "Vyšné Ružbachy",
-      "district": "Stará Ľubovňa",
-      "region": "Prešovský kraj",
-      "postalCode": "06502",
-      "country": "Slovensko",
-      "nationwide": false,
-      "salary": "1 296",
-      "category": "Zdravotníctvo a sociálne služby",
-      "searchTerm": "all-market",
-      "updated": "09.09.2026 o 08:46",
-      "startDate": "ihneď",
-      "employmentType": "Pracovný pomer na neurčitý čas",
-      "experience": "bez požiadavky na odbornú prax",
-      "education": [
-        "Úplné stredné odborné vzdelanie",
-        "-",
-        "masér",
-        "53 Zdravotnícke odbory vzdelávania na stredných zdravotníckych školách"
-      ],
-      "languages": [],
-      "computerSkills": [],
-      "drivingLicenses": [],
-      "shiftWork": "jednozmenná",
-      "slovakRequired": "Áno",
-      "description": "Vykonávanie klasickej a reflexnej masáže, vykonávanie aj inej činnosti podľa kvalifikácie, manuálna lymfodrenáž za liečebným účelom a procedúry hydro-, termo- a balneoterapie na základe ordinácie lekára.",
-      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/83e95944-ec54-49b9-b5ee-65e22b3885c9?lang=sk",
       "source": "ÚPSVaR / VPM"
     },
     {
