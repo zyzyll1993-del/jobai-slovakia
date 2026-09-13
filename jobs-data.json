@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-13T00:42:28.209161+00:00",
+  "updatedAt": "2026-09-13T06:43:42.104806+00:00",
   "source": "Služby zamestnanosti — VPM",
   "activeOnly": true,
   "schemaVersion": 9,
@@ -40,46 +40,6 @@
   "jobCount": 895,
   "failures": 0,
   "jobs": [
-    {
-      "title": "Jr Publications Coordinator (muž/žena)",
-      "employer": "",
-      "location": "Rajská 6978/15 , 81107 Bratislava-Staré Mesto - Bratislava I",
-      "city": "Bratislava-Staré Mesto",
-      "district": "Bratislava I",
-      "region": "Bratislavský kraj",
-      "postalCode": "81107",
-      "country": "Slovensko",
-      "nationwide": false,
-      "salary": "1 400",
-      "category": "Iné profesie",
-      "searchTerm": "all-market",
-      "updated": "12.09.2026 o 08:01",
-      "startDate": "ihneď",
-      "employmentType": "Pracovný pomer na neurčitý čas",
-      "experience": "",
-      "education": [
-        "Vysokoškolské vzdelanie prvého stupňa"
-      ],
-      "languages": [
-        "anglický",
-        "vysoká – vysoká C1 a C2"
-      ],
-      "computerSkills": [
-        "Kancelárske balíky - Microsoft Word",
-        "-",
-        "vysoká",
-        "Kancelárske balíky - Microsoft Excel",
-        "Kancelárske balíky - Microsoft Outlook",
-        "Internet",
-        "Publikačné programy"
-      ],
-      "drivingLicenses": [],
-      "shiftWork": "jednozmenná",
-      "slovakRequired": "Nie",
-      "description": "• Supporting qualified researchers in active roles as Editors-in-Chief, Special Issue Editors, and other organisational roles",
-      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/68c653c5-970f-459a-a05f-a52803f10846?lang=sk",
-      "source": "ÚPSVaR / VPM"
-    },
     {
       "title": "Layouter/ka elektronických systémov PCB/ASIC (muž/žena)",
       "employer": "",
@@ -29650,6 +29610,35 @@
       "slovakRequired": "Nie",
       "description": "",
       "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/d681334d-bab5-4648-9a1e-e647411731f5?lang=sk",
+      "source": "ÚPSVaR / VPM"
+    },
+    {
+      "title": "Montér/monterka suchých stavieb (muž/žena)",
+      "employer": "",
+      "location": "Údernícka 14 , 85101 Bratislava-Petržalka - Bratislava V",
+      "city": "Bratislava-Petržalka",
+      "district": "Bratislava V",
+      "region": "Bratislavský kraj",
+      "postalCode": "85101",
+      "country": "Slovensko",
+      "nationwide": false,
+      "salary": "1 031",
+      "category": "Výroba a strojárstvo",
+      "searchTerm": "all-market",
+      "updated": "08.09.2026 o 13:42",
+      "startDate": "02.11.2026",
+      "employmentType": "Pracovný pomer na neurčitý čas",
+      "experience": "bez požiadavky na odbornú prax",
+      "education": [
+        "Základné vzdelanie"
+      ],
+      "languages": [],
+      "computerSkills": [],
+      "drivingLicenses": [],
+      "shiftWork": "jednozmenná",
+      "slovakRequired": "Nie",
+      "description": "Montáž sadrokartónových priečok a podhľadov, montáž nosných profilov, ukladanie izolačných materiálov, osádzanie sadrokartónových dosiek, tmelenie a brúsenie spojov a vykonávanie súvisiacich pomocných a dokončovacích prác.",
+      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/65f9b521-42a2-4c18-9e89-dd92800476c2?lang=sk",
       "source": "ÚPSVaR / VPM"
     },
     {
