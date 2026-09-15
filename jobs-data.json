@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-15T12:42:44.167797+00:00",
+  "updatedAt": "2026-09-15T18:36:32.439964+00:00",
   "source": "Služby zamestnanosti — VPM",
   "activeOnly": true,
   "schemaVersion": 9,
@@ -29,17 +29,312 @@
     "Banskobystrický kraj": 71,
     "Bratislavský kraj": 265,
     "Celé Slovensko": 30,
-    "Košický kraj": 64,
-    "Nitriansky kraj": 157,
+    "Košický kraj": 65,
+    "Nitriansky kraj": 154,
     "Prešovský kraj": 52,
     "Trenčiansky kraj": 75,
-    "Trnavský kraj": 106,
+    "Trnavský kraj": 108,
     "Žilinský kraj": 77
   },
   "nationwideCount": 30,
   "jobCount": 897,
   "failures": 0,
   "jobs": [
+    {
+      "title": "Ošetrovateľ ošípaných (muž/žena)",
+      "employer": "",
+      "location": "06783 Kamenica nad Cirochou - Humenné",
+      "city": "Kamenica nad Cirochou",
+      "district": "Humenné",
+      "region": "Prešovský kraj",
+      "postalCode": "06783",
+      "country": "Slovensko",
+      "nationwide": false,
+      "salary": "1 000",
+      "category": "Iné profesie",
+      "searchTerm": "all-market",
+      "updated": "15.09.2026 o 14:51",
+      "startDate": "18.09.2026",
+      "employmentType": "Pracovný pomer na určitú dobu",
+      "experience": "",
+      "education": [
+        "Základné vzdelanie",
+        "Nižšie stredné odborné vzdelanie"
+      ],
+      "languages": [
+        "anglický",
+        "elementárna A1 a A2"
+      ],
+      "computerSkills": [],
+      "drivingLicenses": [],
+      "shiftWork": "",
+      "slovakRequired": "Nie",
+      "description": "Kŕmenie, presúvanie, váženie, výber, nakladanie a ošetrovanie ošípaných",
+      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/f8a2f010-5985-4e4d-9dd4-cf5f80b2050a?lang=sk",
+      "source": "ÚPSVaR / VPM"
+    },
+    {
+      "title": "Vodič kamiónu (m/ž)",
+      "employer": "INCAR, s.r.o.",
+      "location": "Vinárska 14 , 95141 Lužianky - Nitra",
+      "city": "Lužianky",
+      "district": "Nitra",
+      "region": "Nitriansky kraj",
+      "postalCode": "95141",
+      "country": "Slovensko",
+      "nationwide": false,
+      "salary": "1 250",
+      "category": "Doprava",
+      "searchTerm": "all-market",
+      "updated": "15.09.2026 o 14:47",
+      "startDate": "ihneď",
+      "employmentType": "Pracovný pomer na určitú dobu",
+      "experience": "Miesto výkonu práce, Ďalšie miesto výkonu práce",
+      "education": [
+        "Stredné odborné vzdelanie",
+        "Základné vzdelanie"
+      ],
+      "languages": [],
+      "computerSkills": [],
+      "drivingLicenses": [
+        "CE"
+      ],
+      "shiftWork": "dohodou",
+      "slovakRequired": "Nie",
+      "description": "Kamiónová preprava potravinového tovaru izotermickými návesmi s chladením v rámci Slovenskej Republiky.",
+      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/824a3627-ec9b-4893-854e-d087a2ad6ae7?lang=sk",
+      "source": "ÚPSVaR / VPM"
+    },
+    {
+      "title": "Vodič/ka - závozník/čka (muž/žena)",
+      "employer": "",
+      "location": "Vinárska 14 , 95141 Lužianky - Nitra",
+      "city": "Lužianky",
+      "district": "Nitra",
+      "region": "Nitriansky kraj",
+      "postalCode": "95141",
+      "country": "Slovensko",
+      "nationwide": false,
+      "salary": "1 050",
+      "category": "Doprava",
+      "searchTerm": "all-market",
+      "updated": "15.09.2026 o 14:45",
+      "startDate": "ihneď",
+      "employmentType": "Pracovný pomer na určitú dobu",
+      "experience": "",
+      "education": [
+        "Základné vzdelanie",
+        "Stredné odborné vzdelanie"
+      ],
+      "languages": [],
+      "computerSkills": [],
+      "drivingLicenses": [
+        "C"
+      ],
+      "shiftWork": "",
+      "slovakRequired": "Nie",
+      "description": "Regionálny rozvoz potravinových výrobkov.",
+      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/c4f50b2a-34fe-4918-9f09-78b2af8969ff?lang=sk",
+      "source": "ÚPSVaR / VPM"
+    },
+    {
+      "title": "Vodič medzinárodnej kamiónovej dopravy (muž/žena)",
+      "employer": "",
+      "location": "Vinárska 14 , 95141 Lužianky - Nitra",
+      "city": "Lužianky",
+      "district": "Nitra",
+      "region": "Nitriansky kraj",
+      "postalCode": "95141",
+      "country": "Slovensko",
+      "nationwide": false,
+      "salary": "1 250",
+      "category": "Doprava",
+      "searchTerm": "all-market",
+      "updated": "15.09.2026 o 14:43",
+      "startDate": "ihneď",
+      "employmentType": "Pracovný pomer na určitú dobu",
+      "experience": "Miesto výkonu práce, Ďalšie miesto výkonu práce",
+      "education": [
+        "Stredné odborné vzdelanie",
+        "Základné vzdelanie"
+      ],
+      "languages": [],
+      "computerSkills": [],
+      "drivingLicenses": [
+        "CE"
+      ],
+      "shiftWork": "",
+      "slovakRequired": "Nie",
+      "description": "Kamiónová preprava potravinového tovaru izotermickými návesmi s chladením.",
+      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/9841fba0-0015-4a55-9fdf-37e39bf16765?lang=sk",
+      "source": "ÚPSVaR / VPM"
+    },
+    {
+      "title": "Zvárač kovov (muž/žena)",
+      "employer": "",
+      "location": "Bytčická 4 , 01042 Žilina - Žilina",
+      "city": "Žilina",
+      "district": "Žilina",
+      "region": "Žilinský kraj",
+      "postalCode": "01042",
+      "country": "Slovensko",
+      "nationwide": false,
+      "salary": "1 040",
+      "category": "Zváranie a kovovýroba",
+      "searchTerm": "all-market",
+      "updated": "15.09.2026 o 14:40",
+      "startDate": "16.09.2026",
+      "employmentType": "Pracovný pomer na neurčitý čas",
+      "experience": "aspoň 1 rok",
+      "education": [
+        "Stredné odborné vzdelanie"
+      ],
+      "languages": [
+        "ruský",
+        "stredná - pokročilá B1 a B2"
+      ],
+      "computerSkills": [],
+      "drivingLicenses": [
+        "B1"
+      ],
+      "shiftWork": "",
+      "slovakRequired": "Nie",
+      "description": "Vykonávanie odborne náročných zváračských prác v rozsahu platného oprávnenia manipulácia s materiálom a hotovými výrobkami kontrola kvantity a kvality výrobkov udržiavanie čistoty na zverenom pracovisku iné súvisiace práce podľa pokynov nadriadené.",
+      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/6df4f4d1-c513-41d8-9cc4-0737bcefc749?lang=sk",
+      "source": "ÚPSVaR / VPM"
+    },
+    {
+      "title": "Čašník, servírka (muž/žena)",
+      "employer": "",
+      "location": "Komenského 14 , 08301 Sabinov - Sabinov",
+      "city": "Sabinov",
+      "district": "Sabinov",
+      "region": "Prešovský kraj",
+      "postalCode": "08301",
+      "country": "Slovensko",
+      "nationwide": false,
+      "salary": "915",
+      "category": "Gastro a hotelierstvo",
+      "searchTerm": "all-market",
+      "updated": "15.09.2026 o 14:39",
+      "startDate": "ihneď",
+      "employmentType": "Pracovný pomer na neurčitý čas",
+      "experience": "bez požiadavky na odbornú prax",
+      "education": [
+        "Úplné stredné odborné vzdelanie",
+        "Vyššie odborné vzdelanie",
+        "Nižšie stredné odborné vzdelanie",
+        "Stredné odborné vzdelanie"
+      ],
+      "languages": [],
+      "computerSkills": [],
+      "drivingLicenses": [],
+      "shiftWork": "pružná",
+      "slovakRequired": "Áno",
+      "description": "Obsluha hostí, práca s kasou.",
+      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/b87118bb-4bba-439e-bc88-1fa354b7a74e?lang=sk",
+      "source": "ÚPSVaR / VPM"
+    },
+    {
+      "title": "kuchár ázijskej kuchyne (muž/žena)",
+      "employer": "",
+      "location": "Železiarenská 511/7A , 04015 Košice-Šaca - Košice II",
+      "city": "Košice-Šaca",
+      "district": "Košice II",
+      "region": "Košický kraj",
+      "postalCode": "04015",
+      "country": "Slovensko",
+      "nationwide": false,
+      "salary": "1 050",
+      "category": "Gastro a hotelierstvo",
+      "searchTerm": "all-market",
+      "updated": "15.09.2026 o 14:39",
+      "startDate": "ihneď",
+      "employmentType": "Pracovný pomer na neurčitý čas",
+      "experience": "bez požiadavky na odbornú prax",
+      "education": [
+        "Úplné stredné odborné vzdelanie",
+        "Úplné stredné všeobecné vzdelanie",
+        "Nižšie stredné odborné vzdelanie",
+        "Základné vzdelanie",
+        "Stredné odborné vzdelanie"
+      ],
+      "languages": [
+        "vietnamský",
+        "stredná - pokročilá B1 a B2",
+        "Údaje o zamestnávateľovi",
+        "Názov spoločnosti",
+        "LU-TO s.r.o.",
+        "Právna forma",
+        "Spol. s r. o.",
+        "Sídlo"
+      ],
+      "computerSkills": [],
+      "drivingLicenses": [],
+      "shiftWork": "jednozmenná",
+      "slovakRequired": "Nie",
+      "description": "príprava jedál - ázijských pokrmov podľa tradičných receptov, práca s tradičnými pomôckami, udržiavanie čistoty na prevádzke",
+      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/0eb25419-f347-47cf-9eaf-1178b0211c64?lang=sk",
+      "source": "ÚPSVaR / VPM"
+    },
+    {
+      "title": "Spracovateľ mäsa a rýb a podobný výrobca inde neuvedený (muž/žena)",
+      "employer": "",
+      "location": "Továrenská 3118 , 90501 Senica - Senica",
+      "city": "Senica",
+      "district": "Senica",
+      "region": "Trnavský kraj",
+      "postalCode": "90501",
+      "country": "Slovensko",
+      "nationwide": false,
+      "salary": "1 200",
+      "category": "Iné profesie",
+      "searchTerm": "all-market",
+      "updated": "15.09.2026 o 14:37",
+      "startDate": "ihneď",
+      "employmentType": "Pracovný pomer na neurčitý čas",
+      "experience": "",
+      "education": [
+        "Nižšie stredné odborné vzdelanie"
+      ],
+      "languages": [],
+      "computerSkills": [],
+      "drivingLicenses": [],
+      "shiftWork": "",
+      "slovakRequired": "Nie",
+      "description": "a. Prevoz rýb z farmy",
+      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/13968484-9697-4364-a208-07c7f262b6b4?lang=sk",
+      "source": "ÚPSVaR / VPM"
+    },
+    {
+      "title": "Murár, obkladač (muž/žena)",
+      "employer": "",
+      "location": "Okružná 21 , 91701 Trnava - Trnava",
+      "city": "Trnava",
+      "district": "Trnava",
+      "region": "Trnavský kraj",
+      "postalCode": "91701",
+      "country": "Slovensko",
+      "nationwide": false,
+      "salary": "1 031",
+      "category": "Stavebníctvo",
+      "searchTerm": "all-market",
+      "updated": "15.09.2026 o 14:34",
+      "startDate": "01.10.2026",
+      "employmentType": "Pracovný pomer na určitú dobu",
+      "experience": "",
+      "education": [
+        "Stredné odborné vzdelanie"
+      ],
+      "languages": [],
+      "computerSkills": [],
+      "drivingLicenses": [],
+      "shiftWork": "jednozmenná",
+      "slovakRequired": "Nie",
+      "description": "",
+      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/d2ec73df-0246-4eb1-9d07-102725e7e7ac?lang=sk",
+      "source": "ÚPSVaR / VPM"
+    },
     {
       "title": "Skladový a logistický koordinátor/koordinátorka (muž/žena)",
       "employer": "",
@@ -186,7 +481,7 @@
         "vysoká – vysoká C1 a C2",
         "Údaje o zamestnávateľovi",
         "Názov spoločnosti",
-        "Súkromná spojená škola Quality Schools International, Záhradnícka 1006/2, Šamorín",
+        "Súkromná spojená škola Quality Schools International, Viedenská cesta 3-7, Bratislava",
         "Právna forma",
         "Nezisková organizácia",
         "Sídlo"
@@ -283,7 +578,7 @@
         "vysoká – vysoká C1 a C2",
         "Údaje o zamestnávateľovi",
         "Názov spoločnosti",
-        "Súkromná spojená škola Quality Schools International, Záhradnícka 1006/2, Šamorín",
+        "Súkromná spojená škola Quality Schools International, Viedenská cesta 3-7, Bratislava",
         "Právna forma",
         "Nezisková organizácia",
         "Sídlo"
@@ -322,7 +617,7 @@
         "vysoká – vysoká C1 a C2",
         "Údaje o zamestnávateľovi",
         "Názov spoločnosti",
-        "Súkromná spojená škola Quality Schools International, Záhradnícka 1006/2, Šamorín",
+        "Súkromná spojená škola Quality Schools International, Viedenská cesta 3-7, Bratislava",
         "Právna forma",
         "Nezisková organizácia",
         "Sídlo"
@@ -506,7 +801,7 @@
         "vysoká – vysoká C1 a C2",
         "Údaje o zamestnávateľovi",
         "Názov spoločnosti",
-        "Súkromná spojená škola Quality Schools International, Záhradnícka 1006/2, Šamorín",
+        "Súkromná spojená škola Quality Schools International, Viedenská cesta 3-7, Bratislava",
         "Právna forma",
         "Nezisková organizácia",
         "Sídlo"
@@ -725,7 +1020,7 @@
         "vysoká – vysoká C1 a C2",
         "Údaje o zamestnávateľovi",
         "Názov spoločnosti",
-        "Súkromná spojená škola Quality Schools International, Záhradnícka 1006/2, Šamorín",
+        "Súkromná spojená škola Quality Schools International, Viedenská cesta 3-7, Bratislava",
         "Právna forma",
         "Nezisková organizácia",
         "Sídlo"
@@ -764,7 +1059,7 @@
         "vysoká – vysoká C1 a C2",
         "Údaje o zamestnávateľovi",
         "Názov spoločnosti",
-        "Súkromná spojená škola Quality Schools International, Záhradnícka 1006/2, Šamorín",
+        "Súkromná spojená škola Quality Schools International, Viedenská cesta 3-7, Bratislava",
         "Právna forma",
         "Nezisková organizácia",
         "Sídlo"
@@ -802,7 +1097,7 @@
         "vysoká – vysoká C1 a C2",
         "Údaje o zamestnávateľovi",
         "Názov spoločnosti",
-        "Súkromná spojená škola Quality Schools International, Záhradnícka 1006/2, Šamorín",
+        "Súkromná spojená škola Quality Schools International, Viedenská cesta 3-7, Bratislava",
         "Právna forma",
         "Nezisková organizácia",
         "Sídlo"
@@ -1916,41 +2211,6 @@
       "slovakRequired": "Nie",
       "description": "strihanie vlasov, holenie brady, úprava fúzov, umývanie vlasov, styling",
       "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/7e768a4e-791f-4d7c-bdf3-5e8b60f3e9ad?lang=sk",
-      "source": "ÚPSVaR / VPM"
-    },
-    {
-      "title": "Chyžná/Chyžný Swissôtel Damian Jasna (muž/žena)",
-      "employer": "",
-      "location": "555 , 03101 Demänovská Dolina - Liptovský Mikuláš",
-      "city": "Demänovská Dolina",
-      "district": "Liptovský Mikuláš",
-      "region": "Žilinský kraj",
-      "postalCode": "03101",
-      "country": "Slovensko",
-      "nationwide": false,
-      "salary": "1 100",
-      "category": "Iné profesie",
-      "searchTerm": "all-market",
-      "updated": "15.09.2026 o 13:19",
-      "startDate": "12.10.2026",
-      "employmentType": "Pracovný pomer na určitú dobu",
-      "experience": "aspoň 1 rok",
-      "education": [
-        "Nižšie stredné odborné vzdelanie",
-        "Stredné odborné vzdelanie",
-        "Úplné stredné odborné vzdelanie",
-        "Základné vzdelanie"
-      ],
-      "languages": [
-        "anglický",
-        "stredná - pokročilá B1 a B2"
-      ],
-      "computerSkills": [],
-      "drivingLicenses": [],
-      "shiftWork": "dvojzmenná",
-      "slovakRequired": "Nie",
-      "description": "Oboznámenie sa s denným rozvrhom pridelených izieb",
-      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/c694c2ee-311c-45e4-8d1e-b09bf7e63599?lang=sk",
       "source": "ÚPSVaR / VPM"
     },
     {
@@ -29475,288 +29735,6 @@
       "slovakRequired": "Nie",
       "description": "- obsluha baliaceho stroja, nastavenie stroja, základná údržba stroja",
       "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/3b564885-8687-4e6b-a399-b4bf9cefdc83?lang=sk",
-      "source": "ÚPSVaR / VPM"
-    },
-    {
-      "title": "Praktická sestra -asistent, muž/žena",
-      "employer": "„MAGNÓLIA“, Zariadenie sociálnych služieb Hurbanovo",
-      "location": "Športová 322/11 , 94701 Hurbanovo - Komárno",
-      "city": "Hurbanovo",
-      "district": "Komárno",
-      "region": "Nitriansky kraj",
-      "postalCode": "94701",
-      "country": "Slovensko",
-      "nationwide": false,
-      "salary": "1 200",
-      "category": "Zdravotníctvo a sociálne služby",
-      "searchTerm": "all-market",
-      "updated": "11.09.2026 o 13:18",
-      "startDate": "01.10.2026",
-      "employmentType": "Pracovný pomer na určitú dobu",
-      "experience": "aspoň 3 mesiace",
-      "education": [
-        "Úplné stredné odborné vzdelanie"
-      ],
-      "languages": [],
-      "computerSkills": [
-        "Kancelárske balíky - Microsoft Word",
-        "-",
-        "elementárna"
-      ],
-      "drivingLicenses": [],
-      "shiftWork": "nepretržitá",
-      "slovakRequired": "Áno",
-      "description": "Ošetrovateľské, asistentské a administratívne činnosti, spolupráca so sestrou v diagnostickom a liečebnom režime všeobecnej a špecializovanej zdravotnej starostlivosti.",
-      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/0e42ca5e-d7c6-46b4-b457-18adddff936a?lang=sk",
-      "source": "ÚPSVaR / VPM"
-    },
-    {
-      "title": "Elektrikár (muž/žena)",
-      "employer": "",
-      "location": "Hadovská cesta 870 , 94501 Komárno - Komárno",
-      "city": "Komárno",
-      "district": "Komárno",
-      "region": "Nitriansky kraj",
-      "postalCode": "94501",
-      "country": "Slovensko",
-      "nationwide": false,
-      "salary": "1 031",
-      "category": "Výroba a strojárstvo",
-      "searchTerm": "all-market",
-      "updated": "11.09.2026 o 13:18",
-      "startDate": "ihneď",
-      "employmentType": "Pracovný pomer na určitú dobu",
-      "experience": "aspoň 2 roky",
-      "education": [
-        "Stredné odborné vzdelanie"
-      ],
-      "languages": [
-        "anglický",
-        "stredná - pokročilá B1 a B2"
-      ],
-      "computerSkills": [
-        "Kancelárske balíky - Microsoft Word",
-        "-",
-        "pokročilá",
-        "Kancelárske balíky - Microsoft Excel"
-      ],
-      "drivingLicenses": [
-        "B"
-      ],
-      "shiftWork": "jednozmenná",
-      "slovakRequired": "Nie",
-      "description": "Montáž, rekonštrukcie, údržba, opravy, nastavovanie a riadenie procesov a el. zariadení.",
-      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/025d96e7-8fce-4ca9-b524-69ad1c0845be?lang=sk",
-      "source": "ÚPSVaR / VPM"
-    },
-    {
-      "title": "Strojný inžinier (muž/žena)",
-      "employer": "",
-      "location": "Hadovská cesta 870 , 94501 Komárno - Komárno",
-      "city": "Komárno",
-      "district": "Komárno",
-      "region": "Nitriansky kraj",
-      "postalCode": "94501",
-      "country": "Slovensko",
-      "nationwide": false,
-      "salary": "1 147",
-      "category": "Kvalita a inžiniering",
-      "searchTerm": "all-market",
-      "updated": "11.09.2026 o 13:17",
-      "startDate": "ihneď",
-      "employmentType": "Pracovný pomer na určitú dobu",
-      "experience": "aspoň 2 roky",
-      "education": [
-        "Vysokoškolské vzdelanie druhého stupňa"
-      ],
-      "languages": [
-        "anglický",
-        "stredná - pokročilá B1 a B2"
-      ],
-      "computerSkills": [
-        "Kancelárske balíky - Microsoft Word",
-        "-",
-        "vysoká",
-        "Kancelárske balíky - Microsoft Excel"
-      ],
-      "drivingLicenses": [
-        "B"
-      ],
-      "shiftWork": "jednozmenná",
-      "slovakRequired": "Nie",
-      "description": "Inštalácia priemyselných zariadení.",
-      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/351e2fff-733f-4e42-9424-d36e4c062739?lang=sk",
-      "source": "ÚPSVaR / VPM"
-    },
-    {
-      "title": "Montér priemyselných strojov a zariadení (muž/žena)",
-      "employer": "",
-      "location": "Hadovská cesta 870 , 94501 Komárno - Komárno",
-      "city": "Komárno",
-      "district": "Komárno",
-      "region": "Nitriansky kraj",
-      "postalCode": "94501",
-      "country": "Slovensko",
-      "nationwide": false,
-      "salary": "1 031",
-      "category": "Výroba a strojárstvo",
-      "searchTerm": "all-market",
-      "updated": "11.09.2026 o 13:17",
-      "startDate": "ihneď",
-      "employmentType": "Pracovný pomer na určitú dobu",
-      "experience": "aspoň 2 roky",
-      "education": [
-        "Stredné odborné vzdelanie"
-      ],
-      "languages": [
-        "anglický",
-        "stredná - pokročilá B1 a B2"
-      ],
-      "computerSkills": [
-        "Kancelárske balíky - Microsoft Word",
-        "-",
-        "pokročilá",
-        "Kancelárske balíky - Microsoft Excel"
-      ],
-      "drivingLicenses": [
-        "B"
-      ],
-      "shiftWork": "jednozmenná",
-      "slovakRequired": "Nie",
-      "description": "Montáž priemyselných strojov a zariadení.",
-      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/278a98b9-a367-4592-b416-79df071f4105?lang=sk",
-      "source": "ÚPSVaR / VPM"
-    },
-    {
-      "title": "Vodič nákladného motorového vozidla, kamiónu (muž/žena)",
-      "employer": "",
-      "location": "Aňala 2030 , 94651 Nesvady - Komárno",
-      "city": "Nesvady",
-      "district": "Komárno",
-      "region": "Nitriansky kraj",
-      "postalCode": "94651",
-      "country": "Slovensko",
-      "nationwide": false,
-      "salary": "1 315",
-      "category": "Doprava",
-      "searchTerm": "all-market",
-      "updated": "11.09.2026 o 13:16",
-      "startDate": "ihneď",
-      "employmentType": "Pracovný pomer na neurčitý čas",
-      "experience": "aspoň 1 rok",
-      "education": [
-        "Stredné odborné vzdelanie"
-      ],
-      "languages": [],
-      "computerSkills": [],
-      "drivingLicenses": [
-        "C"
-      ],
-      "shiftWork": "jednozmenná",
-      "slovakRequired": "Nie",
-      "description": "Medzinárodná a vnútroštátna doprava.",
-      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/796faae7-b5cc-4778-a5ea-d3dcce0d10a2?lang=sk",
-      "source": "ÚPSVaR / VPM"
-    },
-    {
-      "title": "Prevádzkový zámočník/Prevádzková zámočníčka (muž/žena)",
-      "employer": "",
-      "location": "Štúrova 101 , 05921 Svit - Poprad",
-      "city": "Svit",
-      "district": "Poprad",
-      "region": "Prešovský kraj",
-      "postalCode": "05921",
-      "country": "Slovensko",
-      "nationwide": false,
-      "salary": "8,08",
-      "category": "Zváranie a kovovýroba",
-      "searchTerm": "all-market",
-      "updated": "11.09.2026 o 13:16",
-      "startDate": "ihneď",
-      "employmentType": "Pracovný pomer na určitú dobu",
-      "experience": "",
-      "education": [
-        "Úplné stredné odborné vzdelanie"
-      ],
-      "languages": [],
-      "computerSkills": [
-        "Kancelárske balíky - Microsoft Word",
-        "-",
-        "elementárna",
-        "Kancelárske balíky - Microsoft Excel"
-      ],
-      "drivingLicenses": [
-        "B"
-      ],
-      "shiftWork": "nepretržitá",
-      "slovakRequired": "Áno",
-      "description": "Vykonáva samostatné opravy STZ po strojnej stránke.",
-      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/82091f8e-e2e7-4e8c-90c8-274984a2e393?lang=sk",
-      "source": "ÚPSVaR / VPM"
-    },
-    {
-      "title": "Ošetrovateľ hospodárskych zvierat (muž/žena)",
-      "employer": "",
-      "location": "436 , 94602 Čalovec - Komárno",
-      "city": "Čalovec",
-      "district": "Komárno",
-      "region": "Nitriansky kraj",
-      "postalCode": "94602",
-      "country": "Slovensko",
-      "nationwide": false,
-      "salary": "1 031",
-      "category": "Iné profesie",
-      "searchTerm": "all-market",
-      "updated": "11.09.2026 o 13:15",
-      "startDate": "ihneď",
-      "employmentType": "Pracovný pomer na neurčitý čas",
-      "experience": "",
-      "education": [
-        "Neukončené základné vzdelanie"
-      ],
-      "languages": [],
-      "computerSkills": [],
-      "drivingLicenses": [],
-      "shiftWork": "trojzmenná",
-      "slovakRequired": "Nie",
-      "description": "",
-      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/73170983-e331-4fae-9510-43fde83011cd?lang=sk",
-      "source": "ÚPSVaR / VPM"
-    },
-    {
-      "title": "Montážny pracovník (muž/žena)",
-      "employer": "",
-      "location": "Štúrova 101 , 05921 Svit - Poprad",
-      "city": "Svit",
-      "district": "Poprad",
-      "region": "Prešovský kraj",
-      "postalCode": "05921",
-      "country": "Slovensko",
-      "nationwide": false,
-      "salary": "6,89",
-      "category": "Výroba a strojárstvo",
-      "searchTerm": "all-market",
-      "updated": "11.09.2026 o 13:15",
-      "startDate": "ihneď",
-      "employmentType": "Pracovný pomer na určitú dobu",
-      "experience": "",
-      "education": [
-        "Úplné stredné odborné vzdelanie"
-      ],
-      "languages": [],
-      "computerSkills": [
-        "Kancelárske balíky - Microsoft Word",
-        "-",
-        "elementárna",
-        "Kancelárske balíky - Microsoft Excel"
-      ],
-      "drivingLicenses": [
-        "B"
-      ],
-      "shiftWork": "nepretržitá",
-      "slovakRequired": "Áno",
-      "description": "Obsluha a riadenie výrobných liniek pri výrobe a spracovaní fólií",
-      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/c03955c7-25f6-41cf-abda-e548da58d84c?lang=sk",
       "source": "ÚPSVaR / VPM"
     }
   ],
