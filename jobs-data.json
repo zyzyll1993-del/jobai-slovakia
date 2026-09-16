@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-15T18:36:32.439964+00:00",
+  "updatedAt": "2026-09-16T00:41:51.549340+00:00",
   "source": "Služby zamestnanosti — VPM",
   "activeOnly": true,
   "schemaVersion": 9,
@@ -183,7 +183,7 @@
       "category": "Zváranie a kovovýroba",
       "searchTerm": "all-market",
       "updated": "15.09.2026 o 14:40",
-      "startDate": "16.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "aspoň 1 rok",
       "education": [
@@ -934,7 +934,7 @@
       "category": "Gastro a hotelierstvo",
       "searchTerm": "all-market",
       "updated": "15.09.2026 o 14:06",
-      "startDate": "16.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
@@ -2227,7 +2227,7 @@
       "category": "Doprava",
       "searchTerm": "all-market",
       "updated": "15.09.2026 o 13:16",
-      "startDate": "16.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na kratší pracovný čas",
       "experience": "",
       "education": [
@@ -2618,7 +2618,7 @@
       "category": "Výroba a strojárstvo",
       "searchTerm": "all-market",
       "updated": "15.09.2026 o 13:01",
-      "startDate": "16.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
@@ -2647,7 +2647,7 @@
       "category": "Gastro a hotelierstvo",
       "searchTerm": "all-market",
       "updated": "15.09.2026 o 13:01",
-      "startDate": "16.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
@@ -4866,7 +4866,7 @@
       "category": "Gastro a hotelierstvo",
       "searchTerm": "all-market",
       "updated": "15.09.2026 o 10:16",
-      "startDate": "16.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
@@ -6662,7 +6662,7 @@
       "category": "Doprava",
       "searchTerm": "all-market",
       "updated": "15.09.2026 o 08:06",
-      "startDate": "16.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "aspoň 3 mesiace",
       "education": [
@@ -9940,7 +9940,7 @@
       "category": "Gastro a hotelierstvo",
       "searchTerm": "all-market",
       "updated": "15.09.2026 o 06:40",
-      "startDate": "16.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "aspoň 3 mesiace",
       "education": [
@@ -10725,7 +10725,7 @@
       "category": "Výroba a strojárstvo",
       "searchTerm": "all-market",
       "updated": "14.09.2026 o 14:55",
-      "startDate": "16.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "aspoň 1 rok",
       "education": [
@@ -17380,7 +17380,7 @@
       "category": "Iné profesie",
       "searchTerm": "all-market",
       "updated": "14.09.2026 o 11:05",
-      "startDate": "16.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "aspoň 5 rokov",
       "education": [
@@ -27411,7 +27411,7 @@
       "category": "Obchod a služby",
       "searchTerm": "all-market",
       "updated": "14.09.2026 o 06:59",
-      "startDate": "16.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "bez požiadavky na odbornú prax",
       "education": [
@@ -27509,7 +27509,7 @@
       "category": "Iné profesie",
       "searchTerm": "all-market",
       "updated": "14.09.2026 o 06:57",
-      "startDate": "16.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Dohoda o brigádnickej práci študentov",
       "experience": "",
       "education": [
