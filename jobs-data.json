@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-16T18:39:41.624633+00:00",
+  "updatedAt": "2026-09-17T00:41:59.579942+00:00",
   "source": "Služby zamestnanosti — VPM",
   "activeOnly": true,
   "schemaVersion": 9,
@@ -26,8 +26,8 @@
     "Školstvo"
   ],
   "regionCounts": {
-    "Banskobystrický kraj": 71,
-    "Bratislavský kraj": 312,
+    "Banskobystrický kraj": 72,
+    "Bratislavský kraj": 311,
     "Celé Slovensko": 19,
     "Košický kraj": 56,
     "Nitriansky kraj": 141,
@@ -40,6 +40,37 @@
   "jobCount": 894,
   "failures": 0,
   "jobs": [
+    {
+      "title": "Pracovný asistent/tka osôb so zdravotným postihnutím (muž/žena)",
+      "employer": "",
+      "location": "Nemocničná 757/3 , 99001 Veľký Krtíš - Veľký Krtíš",
+      "city": "Veľký Krtíš",
+      "district": "Veľký Krtíš",
+      "region": "Banskobystrický kraj",
+      "postalCode": "99001",
+      "country": "Slovensko",
+      "nationwide": false,
+      "salary": "915",
+      "category": "Zdravotníctvo a sociálne služby",
+      "searchTerm": "all-market",
+      "updated": "16.09.2026 o 23:02",
+      "startDate": "15.10.2026",
+      "employmentType": "Pracovný pomer na neurčitý čas",
+      "experience": "",
+      "education": [
+        "Stredné odborné vzdelanie",
+        "Úplné stredné odborné vzdelanie",
+        "Úplné stredné všeobecné vzdelanie"
+      ],
+      "languages": [],
+      "computerSkills": [],
+      "drivingLicenses": [],
+      "shiftWork": "jednozmenná",
+      "slovakRequired": "Áno",
+      "description": "Pracovný asistent osoby pre so zdravotným postihnutím - Asistovanie pri obsluhovaní zákazníkov. Všeobecné spôsobilosti: Komunikácia, Príjemné vystupovanie. Osobnostné predpoklady: Komunikatívnosť.",
+      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/342fc8b3-cad1-48e9-914e-4d429a8346b8?lang=sk",
+      "source": "ÚPSVaR / VPM"
+    },
     {
       "title": "Pomocný pracovník v živočíšnej výrobe (muž/žena)",
       "employer": "",
@@ -388,7 +419,7 @@
       "category": "Iné profesie",
       "searchTerm": "all-market",
       "updated": "16.09.2026 o 15:20",
-      "startDate": "17.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
@@ -1455,7 +1486,7 @@
       "category": "Iné profesie",
       "searchTerm": "all-market",
       "updated": "16.09.2026 o 14:14",
-      "startDate": "17.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
@@ -2185,7 +2216,7 @@
       "category": "Výroba a strojárstvo",
       "searchTerm": "all-market",
       "updated": "16.09.2026 o 13:22",
-      "startDate": "17.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
@@ -2245,7 +2276,7 @@
       "category": "Výroba a strojárstvo",
       "searchTerm": "all-market",
       "updated": "16.09.2026 o 13:19",
-      "startDate": "17.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "aspoň 6 mesiacov",
       "education": [
@@ -2661,7 +2692,7 @@
       "category": "Výroba a strojárstvo",
       "searchTerm": "all-market",
       "updated": "16.09.2026 o 12:57",
-      "startDate": "17.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "bez požiadavky na odbornú prax",
       "education": [
@@ -6132,7 +6163,7 @@
       "category": "Výroba a strojárstvo",
       "searchTerm": "all-market",
       "updated": "16.09.2026 o 10:22",
-      "startDate": "17.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "aspoň 2 roky",
       "education": [
@@ -6930,7 +6961,7 @@
       "category": "Doprava",
       "searchTerm": "all-market",
       "updated": "16.09.2026 o 09:50",
-      "startDate": "17.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "aspoň 3 mesiace",
       "education": [
@@ -7130,7 +7161,7 @@
       "category": "Výroba a strojárstvo",
       "searchTerm": "all-market",
       "updated": "16.09.2026 o 09:39",
-      "startDate": "17.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "aspoň 1 rok",
       "education": [
@@ -29432,37 +29463,6 @@
       "slovakRequired": "Nie",
       "description": "Hľadáme na trvalý pracovný pomer mechanika do stabilnej firmy, ktorá sa venuje medzinárodnej doprave.",
       "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/417ea7db-2052-4bed-b70c-a2470a36f70e?lang=sk",
-      "source": "ÚPSVaR / VPM"
-    },
-    {
-      "title": "Montážnik kontaktného zatepľovacieho systému, izolatér (muž/žena)",
-      "employer": "",
-      "location": "Miletičova 23 , 82109 Bratislava-Ružinov - Bratislava II",
-      "city": "Bratislava-Ružinov",
-      "district": "Bratislava II",
-      "region": "Bratislavský kraj",
-      "postalCode": "82109",
-      "country": "Slovensko",
-      "nationwide": false,
-      "salary": "1 100",
-      "category": "Výroba a strojárstvo",
-      "searchTerm": "all-market",
-      "updated": "14.09.2026 o 10:49",
-      "startDate": "ihneď",
-      "employmentType": "Pracovný pomer na neurčitý čas",
-      "experience": "aspoň 2 roky",
-      "education": [
-        "Úplné stredné odborné vzdelanie"
-      ],
-      "languages": [],
-      "computerSkills": [],
-      "drivingLicenses": [
-        "B1"
-      ],
-      "shiftWork": "",
-      "slovakRequired": "Nie",
-      "description": "Realizácia kontaktných zatepľovacích systémov (fasády).",
-      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/11ee1cd0-3e86-4edb-b2cb-94649338c3fb?lang=sk",
       "source": "ÚPSVaR / VPM"
     }
   ],
