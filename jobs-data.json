@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-18T12:39:50.286970+00:00",
+  "updatedAt": "2026-09-18T18:37:41.499279+00:00",
   "source": "Služby zamestnanosti — VPM",
   "activeOnly": true,
   "schemaVersion": 9,
@@ -40,6 +40,35 @@
   "jobCount": 895,
   "failures": 0,
   "jobs": [
+    {
+      "title": "Vedecko-výskumný pracovník (muž/žena)",
+      "employer": "",
+      "location": "Námestie Jozefa Herdu 577/2 , 91701 Trnava - Trnava",
+      "city": "Trnava",
+      "district": "Trnava",
+      "region": "Trnavský kraj",
+      "postalCode": "91701",
+      "country": "Slovensko",
+      "nationwide": false,
+      "salary": "1 367,5",
+      "category": "Iné profesie",
+      "searchTerm": "all-market",
+      "updated": "18.09.2026 o 14:44",
+      "startDate": "01.11.2026",
+      "employmentType": "Pracovný pomer na určitú dobu",
+      "experience": "aspoň 3 roky",
+      "education": [
+        "Vysokoškolské vzdelanie druhého stupňa"
+      ],
+      "languages": [],
+      "computerSkills": [],
+      "drivingLicenses": [],
+      "shiftWork": "",
+      "slovakRequired": "Áno",
+      "description": "Bližšie informácie na https://www.ucm.sk/sk/univerzita/kariera-ucm/vyberove-konania/.",
+      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/47f531ca-f02f-46b4-9862-0f00c68e6e1d?lang=sk",
+      "source": "ÚPSVaR / VPM"
+    },
     {
       "title": "Kontrolór/ka kvality (muž/žena)",
       "employer": "",
@@ -344,35 +373,6 @@
       "slovakRequired": "Áno",
       "description": "",
       "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/a3ccf6b9-e1ae-4782-a62d-67628cbbf0aa?lang=sk",
-      "source": "ÚPSVaR / VPM"
-    },
-    {
-      "title": "Vedecko-výskumný pracovník (muž/žena)",
-      "employer": "",
-      "location": "Námestie Jozefa Herdu 577/2 , 91701 Trnava - Trnava",
-      "city": "Trnava",
-      "district": "Trnava",
-      "region": "Trnavský kraj",
-      "postalCode": "91701",
-      "country": "Slovensko",
-      "nationwide": false,
-      "salary": "1 367,5",
-      "category": "Iné profesie",
-      "searchTerm": "all-market",
-      "updated": "18.09.2026 o 13:39",
-      "startDate": "01.11.2026",
-      "employmentType": "Pracovný pomer na určitú dobu",
-      "experience": "aspoň 3 roky",
-      "education": [
-        "Vysokoškolské vzdelanie druhého stupňa"
-      ],
-      "languages": [],
-      "computerSkills": [],
-      "drivingLicenses": [],
-      "shiftWork": "",
-      "slovakRequired": "Áno",
-      "description": "Bližšie informácie na https://www.ucm.sk/sk/univerzita/kariera-ucm/vyberove-konania/.",
-      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/47f531ca-f02f-46b4-9862-0f00c68e6e1d?lang=sk",
       "source": "ÚPSVaR / VPM"
     },
     {
