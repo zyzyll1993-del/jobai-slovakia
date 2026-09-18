@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-17T18:39:18.536300+00:00",
+  "updatedAt": "2026-09-18T00:41:38.624367+00:00",
   "source": "Služby zamestnanosti — VPM",
   "activeOnly": true,
   "schemaVersion": 9,
@@ -27,13 +27,13 @@
   ],
   "regionCounts": {
     "Banskobystrický kraj": 75,
-    "Bratislavský kraj": 352,
+    "Bratislavský kraj": 351,
     "Celé Slovensko": 10,
-    "Košický kraj": 31,
+    "Košický kraj": 32,
     "Nitriansky kraj": 143,
     "Prešovský kraj": 70,
-    "Trenčiansky kraj": 64,
-    "Trnavský kraj": 83,
+    "Trenčiansky kraj": 65,
+    "Trnavský kraj": 82,
     "Žilinský kraj": 67
   },
   "nationwideCount": 10,
@@ -769,7 +769,7 @@
       "category": "Výroba a strojárstvo",
       "searchTerm": "all-market",
       "updated": "17.09.2026 o 14:03",
-      "startDate": "18.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
@@ -941,7 +941,7 @@
       "category": "Obchod a služby",
       "searchTerm": "all-market",
       "updated": "17.09.2026 o 14:01",
-      "startDate": "18.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
@@ -1120,7 +1120,7 @@
       "category": "Výroba a strojárstvo",
       "searchTerm": "all-market",
       "updated": "17.09.2026 o 13:55",
-      "startDate": "18.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
@@ -2149,44 +2149,6 @@
       "source": "ÚPSVaR / VPM"
     },
     {
-      "title": "Lektor anglického jazyka (muž/žena)",
-      "employer": "",
-      "location": "Gercenova 10 , 85101 Bratislava-Petržalka - Bratislava V",
-      "city": "Bratislava-Petržalka",
-      "district": "Bratislava V",
-      "region": "Bratislavský kraj",
-      "postalCode": "85101",
-      "country": "Slovensko",
-      "nationwide": false,
-      "salary": "1 300",
-      "category": "Školstvo",
-      "searchTerm": "all-market",
-      "updated": "17.09.2026 o 13:06",
-      "startDate": "30.10.2026",
-      "employmentType": "Pracovný pomer na určitú dobu",
-      "experience": "",
-      "education": [
-        "Vysokoškolské vzdelanie prvého stupňa"
-      ],
-      "languages": [
-        "anglický",
-        "vysoká – vysoká C1 a C2",
-        "Údaje o zamestnávateľovi",
-        "Názov spoločnosti",
-        "Angličtina - ZŠ Gercenova",
-        "Právna forma",
-        "Združenie (zväz,spolok)",
-        "Sídlo"
-      ],
-      "computerSkills": [],
-      "drivingLicenses": [],
-      "shiftWork": "",
-      "slovakRequired": "Nie",
-      "description": "",
-      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/59a7c58c-9ecd-43c9-ae7b-12f359a27ee8?lang=sk",
-      "source": "ÚPSVaR / VPM"
-    },
-    {
       "title": "Vodič ťažkého nákladného vozidla, kamiónu (medzinárodná doprava) (muž/žena)",
       "employer": "",
       "location": "Gessayova 2494/33 , 85103 Bratislava-Petržalka - Bratislava V",
@@ -2623,7 +2585,7 @@
       "category": "Logistika a sklad",
       "searchTerm": "all-market",
       "updated": "17.09.2026 o 12:49",
-      "startDate": "18.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "Hlavná činnosť SK NACE Rev. 2",
       "education": [
@@ -2652,7 +2614,7 @@
       "category": "Kvalita a inžiniering",
       "searchTerm": "all-market",
       "updated": "17.09.2026 o 12:48",
-      "startDate": "18.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "aspoň 2 roky",
       "education": [
@@ -4777,7 +4739,7 @@
       "category": "Iné profesie",
       "searchTerm": "all-market",
       "updated": "17.09.2026 o 10:23",
-      "startDate": "18.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "aspoň 2 roky",
       "education": [
@@ -5620,35 +5582,6 @@
       "slovakRequired": "Nie",
       "description": "príprava a výdaj jedál",
       "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/53eb3c8a-ba34-45b8-9fe1-5a279b0e4520?lang=sk",
-      "source": "ÚPSVaR / VPM"
-    },
-    {
-      "title": "Čašník/Čašníčka (muž/žena)",
-      "employer": "",
-      "location": "Hlavná 2 , 91701 Trnava - Trnava",
-      "city": "Trnava",
-      "district": "Trnava",
-      "region": "Trnavský kraj",
-      "postalCode": "91701",
-      "country": "Slovensko",
-      "nationwide": false,
-      "salary": "1 000",
-      "category": "Gastro a hotelierstvo",
-      "searchTerm": "all-market",
-      "updated": "17.09.2026 o 09:51",
-      "startDate": "ihneď",
-      "employmentType": "Pracovný pomer na neurčitý čas",
-      "experience": "aspoň 1 rok",
-      "education": [
-        "Stredné odborné vzdelanie"
-      ],
-      "languages": [],
-      "computerSkills": [],
-      "drivingLicenses": [],
-      "shiftWork": "",
-      "slovakRequired": "Áno",
-      "description": "Práca za barom, obsluha zákazníkov a práca s registračnou pokladňou.",
-      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/73610b2b-cfd0-401a-8c0e-05d678a3ccb0?lang=sk",
       "source": "ÚPSVaR / VPM"
     },
     {
@@ -7349,7 +7282,7 @@
       "category": "Logistika a sklad",
       "searchTerm": "all-market",
       "updated": "17.09.2026 o 08:48",
-      "startDate": "18.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
@@ -10254,7 +10187,7 @@
       "category": "Gastro a hotelierstvo",
       "searchTerm": "all-market",
       "updated": "17.09.2026 o 07:27",
-      "startDate": "18.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "aspoň 6 mesiacov",
       "education": [
@@ -17484,7 +17417,7 @@
       "category": "Obchod a služby",
       "searchTerm": "all-market",
       "updated": "16.09.2026 o 10:23",
-      "startDate": "18.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
@@ -23316,7 +23249,7 @@
       "category": "Iné profesie",
       "searchTerm": "all-market",
       "updated": "15.09.2026 o 14:51",
-      "startDate": "18.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
@@ -29565,6 +29498,78 @@
       "slovakRequired": "Áno",
       "description": "Tvorba a rozpis plánov výroby, vypracovanie výrobných výkazov. Vyhodnotenie spotreby surovín a materiálov. Zospovednosť za činnosť a organizáciu práce na výrobnom stredisku.",
       "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/8557eb60-14b4-4402-9866-4de0621dd311?lang=sk",
+      "source": "ÚPSVaR / VPM"
+    },
+    {
+      "title": "Mzdový účtovník/mzdová účtovníčka (muž/žena)",
+      "employer": "",
+      "location": "Partizánska 1 , 07192 Michalovce - Michalovce",
+      "city": "Michalovce",
+      "district": "Michalovce",
+      "region": "Košický kraj",
+      "postalCode": "07192",
+      "country": "Slovensko",
+      "nationwide": false,
+      "salary": "981,5",
+      "category": "Administratíva a financie",
+      "searchTerm": "all-market",
+      "updated": "15.09.2026 o 08:17",
+      "startDate": "01.10.2026",
+      "employmentType": "Pracovný pomer na určitú dobu",
+      "experience": "aspoň 5 rokov",
+      "education": [
+        "Úplné stredné odborné vzdelanie"
+      ],
+      "languages": [],
+      "computerSkills": [
+        "Kancelárske balíky - Open Office",
+        "-",
+        "pokročilá"
+      ],
+      "drivingLicenses": [],
+      "shiftWork": "jednozmenná",
+      "slovakRequired": "Áno",
+      "description": "samostatné zabezpečovanie a spracúvanie náročnej mzdovej agendy,",
+      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/34946c95-9f9a-426d-aa1d-1f6209d3aa49?lang=sk",
+      "source": "ÚPSVaR / VPM"
+    },
+    {
+      "title": "Odborný pracovník/odborná pracovníčka mzdovej agendy (mzdový účtovník, mzdová účtovníčka) (muž/žena)",
+      "employer": "",
+      "location": "Centrum 14/19 , 01701 Považská Bystrica - Považská Bystrica",
+      "city": "Považská Bystrica",
+      "district": "Považská Bystrica",
+      "region": "Trenčiansky kraj",
+      "postalCode": "01701",
+      "country": "Slovensko",
+      "nationwide": false,
+      "salary": "1 031",
+      "category": "Administratíva a financie",
+      "searchTerm": "all-market",
+      "updated": "15.09.2026 o 08:15",
+      "startDate": "30.09.2026",
+      "employmentType": "Pracovný pomer na určitú dobu",
+      "experience": "",
+      "education": [
+        "Nižšie stredné odborné vzdelanie"
+      ],
+      "languages": [
+        "vietnamský",
+        "elementárna A1 a A2"
+      ],
+      "computerSkills": [
+        "Kancelárske balíky - Microsoft Word",
+        "-",
+        "pokročilá",
+        "Kancelárske balíky - Microsoft Excel",
+        "Kancelárske balíky - Microsoft Outlook",
+        "Kancelárske balíky - Microsoft PowerPoint"
+      ],
+      "drivingLicenses": [],
+      "shiftWork": "jednozmenná",
+      "slovakRequired": "Nie",
+      "description": "vedenie jednoduchého a podvojného účtovníctva",
+      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/4365686b-e388-4358-be85-8b6e04575a9c?lang=sk",
       "source": "ÚPSVaR / VPM"
     }
   ],
