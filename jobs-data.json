@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-19T00:41:47.599194+00:00",
+  "updatedAt": "2026-09-19T06:39:38.685315+00:00",
   "source": "Služby zamestnanosti — VPM",
   "activeOnly": true,
   "schemaVersion": 9,
@@ -30,10 +30,10 @@
     "Bratislavský kraj": 379,
     "Celé Slovensko": 11,
     "Košický kraj": 37,
-    "Nitriansky kraj": 101,
+    "Nitriansky kraj": 102,
     "Prešovský kraj": 71,
     "Trenčiansky kraj": 73,
-    "Trnavský kraj": 89,
+    "Trnavský kraj": 88,
     "Žilinský kraj": 72
   },
   "nationwideCount": 11,
@@ -20621,40 +20621,6 @@
       "source": "ÚPSVaR / VPM"
     },
     {
-      "title": "Pomocný/á pracovník/čka v potravinárskej výrobe (muž/žena)",
-      "employer": "",
-      "location": "Skladová 2 , 91701 Trnava - Trnava",
-      "city": "Trnava",
-      "district": "Trnava",
-      "region": "Trnavský kraj",
-      "postalCode": "91701",
-      "country": "Slovensko",
-      "nationwide": false,
-      "salary": "950",
-      "category": "Poľnohospodárstvo a potravinárstvo",
-      "searchTerm": "all-market",
-      "updated": "17.09.2026 o 08:23",
-      "startDate": "ihneď",
-      "employmentType": "Pracovný pomer na neurčitý čas",
-      "experience": "aspoň 6 mesiacov",
-      "education": [
-        "Stredné odborné vzdelanie"
-      ],
-      "languages": [
-        "macedónsky",
-        "stredná - pokročilá B1 a B2"
-      ],
-      "computerSkills": [],
-      "drivingLicenses": [
-        "B"
-      ],
-      "shiftWork": "jednozmenná",
-      "slovakRequired": "Áno",
-      "description": "",
-      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/a6799abd-2f4f-4acd-91a7-72888f63e235?lang=sk",
-      "source": "ÚPSVaR / VPM"
-    },
-    {
       "title": "Omietkar (muž/žena)",
       "employer": "",
       "location": "Černockého 9983/5A , 83153 Bratislava-Rača - Bratislava III",
@@ -29710,6 +29676,41 @@
       "slovakRequired": "Áno",
       "description": "Strihanie textilného materiálu podľa priložených strihov, elektrickou pílou, evidencia materiálu.",
       "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/e071f46e-2aeb-4cbb-a38a-c6a57bce5091?lang=sk",
+      "source": "ÚPSVaR / VPM"
+    },
+    {
+      "title": "Vodič kamiónu (muž/žena)",
+      "employer": "",
+      "location": "92703 Šaľa - Šaľa",
+      "city": "Šaľa",
+      "district": "Šaľa",
+      "region": "Nitriansky kraj",
+      "postalCode": "92703",
+      "country": "Slovensko",
+      "nationwide": false,
+      "salary": "1 100",
+      "category": "Doprava",
+      "searchTerm": "all-market",
+      "updated": "16.09.2026 o 09:50",
+      "startDate": "ihneď",
+      "employmentType": "Pracovný pomer na neurčitý čas",
+      "experience": "aspoň 3 mesiace",
+      "education": [
+        "Stredné odborné vzdelanie"
+      ],
+      "languages": [],
+      "computerSkills": [],
+      "drivingLicenses": [
+        "B",
+        "C",
+        "CE",
+        "D",
+        "DE"
+      ],
+      "shiftWork": "",
+      "slovakRequired": "Áno",
+      "description": "Vedenie nákladného vozidla a preprava tovaru podľa pridelených trás.",
+      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/384aba9e-03a0-48eb-86fc-f74d6845483b?lang=sk",
       "source": "ÚPSVaR / VPM"
     }
   ],
