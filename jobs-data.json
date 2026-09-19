@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-18T18:37:41.499279+00:00",
+  "updatedAt": "2026-09-19T00:41:47.599194+00:00",
   "source": "Služby zamestnanosti — VPM",
   "activeOnly": true,
   "schemaVersion": 9,
@@ -2726,7 +2726,7 @@
       "category": "Iné profesie",
       "searchTerm": "all-market",
       "updated": "18.09.2026 o 11:15",
-      "startDate": "19.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "aspoň 6 mesiacov",
       "education": [
