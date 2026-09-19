@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-19T06:39:38.685315+00:00",
+  "updatedAt": "2026-09-19T12:38:38.536096+00:00",
   "source": "Služby zamestnanosti — VPM",
   "activeOnly": true,
   "schemaVersion": 9,
@@ -17356,38 +17356,6 @@
       "source": "ÚPSVaR / VPM"
     },
     {
-      "title": "Dispečer/ka medzinárodnej kamiónovej dopravy (muž/žena)",
-      "employer": "",
-      "location": "Diaľničná cesta 15 , 90301 Senec - Senec",
-      "city": "Senec",
-      "district": "Senec",
-      "region": "Bratislavský kraj",
-      "postalCode": "90301",
-      "country": "Slovensko",
-      "nationwide": false,
-      "salary": "1 500",
-      "category": "Logistika a sklad",
-      "searchTerm": "all-market",
-      "updated": "17.09.2026 o 09:48",
-      "startDate": "ihneď",
-      "employmentType": "Pracovný pomer na neurčitý čas",
-      "experience": "",
-      "education": [
-        "Úplné stredné všeobecné vzdelanie"
-      ],
-      "languages": [
-        "anglický",
-        "stredná - pokročilá B1 a B2"
-      ],
-      "computerSkills": [],
-      "drivingLicenses": [],
-      "shiftWork": "",
-      "slovakRequired": "Nie",
-      "description": "Medzinárodná kamiónová doprava",
-      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/0c2d4c28-af67-405a-98b9-d6cad26fcfc4?lang=sk",
-      "source": "ÚPSVaR / VPM"
-    },
-    {
       "title": "Vodič - MKD (muž/žena)",
       "employer": "",
       "location": "Ivanská cesta 32D , 82104 Bratislava-Ružinov - Bratislava II",
@@ -29711,6 +29679,39 @@
       "slovakRequired": "Áno",
       "description": "Vedenie nákladného vozidla a preprava tovaru podľa pridelených trás.",
       "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/384aba9e-03a0-48eb-86fc-f74d6845483b?lang=sk",
+      "source": "ÚPSVaR / VPM"
+    },
+    {
+      "title": "Stavebný montážnik (m/ž)",
+      "employer": "Interaksel s. r. o.",
+      "location": "Fedinova 1134/2 , 85101 Bratislava-Petržalka - Bratislava V",
+      "city": "Bratislava-Petržalka",
+      "district": "Bratislava V",
+      "region": "Bratislavský kraj",
+      "postalCode": "85101",
+      "country": "Slovensko",
+      "nationwide": false,
+      "salary": "920",
+      "category": "Výroba a strojárstvo",
+      "searchTerm": "all-market",
+      "updated": "16.09.2026 o 09:49",
+      "startDate": "ihneď",
+      "employmentType": "Pracovný pomer na neurčitý čas",
+      "experience": "bez požiadavky na odbornú prax",
+      "education": [
+        "Nižšie stredné odborné vzdelanie"
+      ],
+      "languages": [
+        "srbský",
+        "elementárna A1 a A2",
+        "nemecký"
+      ],
+      "computerSkills": [],
+      "drivingLicenses": [],
+      "shiftWork": "jednozmenná",
+      "slovakRequired": "Nie",
+      "description": "Montovanie jednoduchých stavieb použitím pur panelov.",
+      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/0a1019a7-b8f6-466d-939b-c88558440940?lang=sk",
       "source": "ÚPSVaR / VPM"
     }
   ],
