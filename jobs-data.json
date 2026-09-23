@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-22T18:39:58.082396+00:00",
+  "updatedAt": "2026-09-23T00:41:02.035018+00:00",
   "source": "Služby zamestnanosti — VPM",
   "activeOnly": true,
   "schemaVersion": 9,
@@ -25,7 +25,7 @@
     "Školstvo"
   ],
   "regionCounts": {
-    "Banskobystrický kraj": 90,
+    "Banskobystrický kraj": 89,
     "Bratislavský kraj": 310,
     "Celé Slovensko": 18,
     "Košický kraj": 36,
@@ -33,7 +33,7 @@
     "Prešovský kraj": 69,
     "Trenčiansky kraj": 97,
     "Trnavský kraj": 102,
-    "Žilinský kraj": 77
+    "Žilinský kraj": 78
   },
   "nationwideCount": 18,
   "jobCount": 891,
@@ -370,7 +370,7 @@
       "category": "Výroba a strojárstvo",
       "searchTerm": "all-market",
       "updated": "22.09.2026 o 14:49",
-      "startDate": "23.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
@@ -1592,7 +1592,7 @@
       "category": "Výroba a strojárstvo",
       "searchTerm": "all-market",
       "updated": "22.09.2026 o 13:49",
-      "startDate": "23.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
@@ -2599,7 +2599,7 @@
       "category": "Gastro a hotelierstvo",
       "searchTerm": "all-market",
       "updated": "22.09.2026 o 12:51",
-      "startDate": "23.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "aspoň 2 roky",
       "education": [
@@ -6265,7 +6265,7 @@
       "category": "Iné profesie",
       "searchTerm": "all-market",
       "updated": "22.09.2026 o 08:38",
-      "startDate": "23.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
@@ -6371,7 +6371,7 @@
       "category": "Iné profesie",
       "searchTerm": "all-market",
       "updated": "22.09.2026 o 08:36",
-      "startDate": "23.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
@@ -6480,7 +6480,7 @@
       "category": "Iné profesie",
       "searchTerm": "all-market",
       "updated": "22.09.2026 o 08:34",
-      "startDate": "23.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
@@ -6552,7 +6552,7 @@
       "category": "Iné profesie",
       "searchTerm": "all-market",
       "updated": "22.09.2026 o 08:32",
-      "startDate": "23.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
@@ -7851,7 +7851,7 @@
       "category": "Iné profesie",
       "searchTerm": "all-market",
       "updated": "22.09.2026 o 07:53",
-      "startDate": "23.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "aspoň 6 mesiacov",
       "education": [
@@ -9331,44 +9331,6 @@
       "slovakRequired": "Áno",
       "description": "Obsluha strojného zariadenia na lisovanie gumových a gumo-kovových výrobkov",
       "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/df8e5c3f-a807-480b-b4a9-9fb8c4e5508d?lang=sk",
-      "source": "ÚPSVaR / VPM"
-    },
-    {
-      "title": "Kuchár (muž/žena)",
-      "employer": "",
-      "location": "Dolná 3 , 97401 Banská Bystrica - Banská Bystrica",
-      "city": "Banská Bystrica",
-      "district": "Banská Bystrica",
-      "region": "Banskobystrický kraj",
-      "postalCode": "97401",
-      "country": "Slovensko",
-      "nationwide": false,
-      "salary": "950",
-      "category": "Gastro a hotelierstvo",
-      "searchTerm": "all-market",
-      "updated": "22.09.2026 o 06:35",
-      "startDate": "01.12.2026",
-      "employmentType": "Pracovný pomer na určitú dobu",
-      "experience": "aspoň 1 rok",
-      "education": [
-        "Vysokoškolské vzdelanie prvého stupňa"
-      ],
-      "languages": [
-        "arabský",
-        "vysoká – vysoká C1 a C2"
-      ],
-      "computerSkills": [
-        "Kancelárske balíky - Microsoft Excel",
-        "-",
-        "pokročilá"
-      ],
-      "drivingLicenses": [
-        "B"
-      ],
-      "shiftWork": "jednozmenná",
-      "slovakRequired": "Nie",
-      "description": "1. Príprava jedál sýrskej/levantskej kuchyne.",
-      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/1a1183eb-0326-4df0-b843-34c73b9499be?lang=sk",
       "source": "ÚPSVaR / VPM"
     },
     {
@@ -13110,7 +13072,7 @@
       "category": "Výroba a strojárstvo",
       "searchTerm": "all-market",
       "updated": "21.09.2026 o 11:48",
-      "startDate": "23.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "bez požiadavky na odbornú prax",
       "education": [
@@ -18095,7 +18057,7 @@
       "category": "Výroba a strojárstvo",
       "searchTerm": "all-market",
       "updated": "21.09.2026 o 09:26",
-      "startDate": "23.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "bez požiadavky na odbornú prax",
       "education": [
@@ -29562,6 +29524,47 @@
       "slovakRequired": "Áno",
       "description": "riadenie výrobného procesu, priebežná a finálna kontrola výrobku – dohliadanie na správnu výrobu jednotlivých dielcov, usmerňovanie pracovníkov, vo finále kontrola rozmerov a správnej orientácie výrobku podľa výkresu;",
       "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/cc435d36-0a21-487a-8421-ce4c248d9148?lang=sk",
+      "source": "ÚPSVaR / VPM"
+    },
+    {
+      "title": "Špecialista predaja potravinárských výrobkov (muž/žena)",
+      "employer": "",
+      "location": "P.M.Bohúňa 1157/8 , 01301 Teplička nad Váhom - Žilina",
+      "city": "Teplička nad Váhom",
+      "district": "Žilina",
+      "region": "Žilinský kraj",
+      "postalCode": "01301",
+      "country": "Slovensko",
+      "nationwide": false,
+      "salary": "1 300",
+      "category": "Gastro a hotelierstvo",
+      "searchTerm": "all-market",
+      "updated": "18.09.2026 o 10:36",
+      "startDate": "ihneď",
+      "employmentType": "Pracovný pomer na neurčitý čas",
+      "experience": "aspoň 5 rokov",
+      "education": [
+        "Vysokoškolské vzdelanie druhého stupňa"
+      ],
+      "languages": [
+        "anglický",
+        "stredná - pokročilá B1 a B2",
+        "ruský",
+        "ukrajinský"
+      ],
+      "computerSkills": [
+        "Kancelárske balíky - Microsoft Word",
+        "-",
+        "pokročilá",
+        "Kancelárske balíky - Microsoft Excel",
+        "Kancelárske balíky - Microsoft Outlook",
+        "Kancelárske balíky - Microsoft PowerPoint"
+      ],
+      "drivingLicenses": [],
+      "shiftWork": "jednozmenná",
+      "slovakRequired": "Nie",
+      "description": "zabezpečenie predaja cukrárenských výrobkov vo svete, získavanie nových odberateľov, uzatváranie zmlúv, zabezpečenie plnenia uzatvorených zmlúv",
+      "url": "https://www.sluzbyzamestnanosti.gov.sk/pracovne-ponuky/780fe58e-f791-42be-90c8-e3eb35580344?lang=sk",
       "source": "ÚPSVaR / VPM"
     },
     {
