@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-23T18:39:52.982418+00:00",
+  "updatedAt": "2026-09-24T00:43:09.359468+00:00",
   "source": "Služby zamestnanosti — VPM",
   "activeOnly": true,
   "schemaVersion": 9,
@@ -1704,7 +1704,7 @@
       "category": "Iné profesie",
       "searchTerm": "all-market",
       "updated": "23.09.2026 o 14:11",
-      "startDate": "24.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
@@ -2295,7 +2295,7 @@
       "category": "Zdravotníctvo a sociálne služby",
       "searchTerm": "all-market",
       "updated": "23.09.2026 o 13:50",
-      "startDate": "24.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
@@ -3444,7 +3444,7 @@
       "category": "Zdravotníctvo a sociálne služby",
       "searchTerm": "all-market",
       "updated": "23.09.2026 o 13:23",
-      "startDate": "24.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "aspoň 3 roky",
       "education": [
@@ -8553,7 +8553,7 @@
       "category": "Obchod a služby",
       "searchTerm": "all-market",
       "updated": "23.09.2026 o 10:03",
-      "startDate": "24.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "bez požiadavky na odbornú prax",
       "education": [
@@ -8618,7 +8618,7 @@
       "category": "Iné profesie",
       "searchTerm": "all-market",
       "updated": "23.09.2026 o 10:00",
-      "startDate": "24.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "",
       "education": [
@@ -9851,7 +9851,7 @@
       "category": "Iné profesie",
       "searchTerm": "all-market",
       "updated": "23.09.2026 o 09:13",
-      "startDate": "24.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "aspoň 6 mesiacov",
       "education": [
@@ -13097,7 +13097,7 @@
       "category": "Výroba a strojárstvo",
       "searchTerm": "all-market",
       "updated": "23.09.2026 o 07:11",
-      "startDate": "24.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na neurčitý čas",
       "experience": "aspoň 1 rok",
       "education": [
@@ -15748,7 +15748,7 @@
       "category": "Zdravotníctvo a sociálne služby",
       "searchTerm": "all-market",
       "updated": "22.09.2026 o 13:14",
-      "startDate": "24.09.2026",
+      "startDate": "ihneď",
       "employmentType": "Pracovný pomer na určitú dobu",
       "experience": "",
       "education": [
